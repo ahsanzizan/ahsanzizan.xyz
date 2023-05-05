@@ -14,7 +14,7 @@ export default function HomePage({ data }) {
       <Header title={"ahsanAazizan | Blog"} description={"Personal Blog"}/>
       <Navbar />
       <div className="mx-auto px-6">
-        <div className="flex h-screen flex-col justify-between">
+        <div className="flex flex-col justify-between">
             <div className="text-base mx-auto pt-5 px-6 sm:px-6 xl:px-0">
                 <ul className="block">
                     {blogs.map(blog => {

@@ -31,31 +31,22 @@ export default function RenderBlog({ data }) {
                     <div className="border-b-2 border-gray-400">
                         <h1 className="pb-6 text-center text-2xl font-extrabold leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">{data.title}</h1>
                     </div>
-                    <div className="pb-4 pt-4 flex justify-between">
-                        <span className="text-gray-500">Published <span className="text-secondary">{stringifyDate(data.pubDate)}</span> by Ahsan</span>
+                    <div className="pb-4 pt-4 flex justify-between text-xs md:text-base">
+                        <span className="text-gray-500"><span className="text-secondary">{stringifyDate(data.pubDate)}</span> by {data.authorName}</span>
                         <p className="text-gray-500"><span className="text-secondary">{data.clickCount}</span> Views</p>
                     </div>
-                    <div className="flex justify-between my-2">
-                        <ul className="max-w-xs flex flex-wrap">
+                    <div className="flex justify-between my-2 items-center">
+                        <div className="max-w-xs flex flex-wrap items-center">
                             {data.tags ? data.tags.map(tag => {
-                                return <li key={tag} className="mb-7"> <ActiveLink className="rounded-full border-2 border-white px-3 py-1 text-secondary font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink></li>
+                                return <ActiveLink className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
                             }) : null}
-                        </ul>
-                        <input onClick={copyLink} placeholder="Blog's Link" className="max-h-9 text-gray-800 px-2 py-1 cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
+                        </div>
+                        <input onClick={copyLink} placeholder="Blog's Link" className="max-h-9 overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
                     </div>
                 </header>
                 <WysiwygViewer ref={viewerRef} content={data.post} />
             </div>
             <Footer />
-            <Script src="https://cdn.iframe.ly/embed.js?api_key=70d193779c4aa866c8b4de" async />
-            <Script id="Iframe" async>{`
-                    setTimeout(() => {
-                        document.querySelectorAll( 'oembed[url]' ).forEach( element => {
-                            iframely.load( element, element.attributes.url.value );
-                        });
-                    }, 500)
-                `}
-            </Script>
         </>
     )
 }
