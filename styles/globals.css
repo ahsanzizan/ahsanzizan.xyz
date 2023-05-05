@@ -1,27 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    font-family: Poppins;
+    @apply bg-[#222831];
+    margin: 0;
+    overflow-x: hidden;
+  }
+  html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.sidenav {
+  height: 100%;
+  width: 40%;
+  position: fixed;
+  z-index: 997;
+  background-color: #2b3038;
+  right: -100%;
+  overflow-x: hidden;
+  transition: 0.6s;
+  padding-top: 100px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    transition: all 2s;
+  }
+  .active {
+    display: block;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  .sideActive {
+    right: 0;
+  }
+  .sidenav a {
+    @apply mb-6 top-12 block transition duration-300 ml-5;
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  transition: all 1s;
+}
+
+.code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+article p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.svg-icon {
+  width: 2em;
+  height: 2em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  @apply fill-main;
+}
+
+.svg-icon circle {
+  @apply stroke-main stroke-1;
 }
