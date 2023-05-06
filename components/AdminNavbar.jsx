@@ -12,12 +12,9 @@ export default function AdminNavbar() {
                     <ActiveLink href="/admin" className="mx-3 text-secondary hover:text-main text-lg">
                         Home
                     </ActiveLink>
-                    <ActiveLink href="/admin/deleted-post" className="mx-3 text-secondary hover:text-main text-lg">
-                        Deleted Post
-                    </ActiveLink>
-                    <ActiveLink href="/admin/blogs" className="mx-3 text-secondary hover:text-main text-lg">
-                        All Blogs
-                    </ActiveLink>
+                    <Link href="/api/logout" className="mx-3 text-secondary hover:text-main text-lg">
+                        Logout
+                    </Link>
                 </div>
             </div>
             <section style={{ zIndex: 999 }} className="bg-[#2b3038] sticky top-0 z-50 w-screen mx-auto px-4 h-16">
