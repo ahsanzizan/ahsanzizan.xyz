@@ -11,12 +11,12 @@ export default withSessionRoute(async function deletePost(req, res) {
             const getPostData = await connectDB.db('personal-blog').collection('blog-post').findOne({ _id: new ObjectId(postId) });
             if (getPostData) {
                 await connectDB.db('personal-blog').collection('blog-post').deleteOne({ _id: new ObjectId(postId) });
-                return res.json({ status: 200, message: "Post moved to trash." });
+                return res.json({ status: 200, message: "Blog deleted." });
             } else {
-                return res.status(404).json({ status: 404, message: "Post not found!" });
+                return res.status(404).json({ status: 404, message: "Blog not found" });
             }
         } else {
-            res.status(405).json({ status: 403, error: `Method '${req.method}' Not Allowed` });
+            res.status(405).json({ status: 403, error: `Method ${req.method} Not Allowed` });
         }
     } catch (e) {
         console.log(e);

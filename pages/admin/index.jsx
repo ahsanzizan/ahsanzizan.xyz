@@ -6,22 +6,25 @@ import clientProm from "@/lib/mongodb";
 import { withSessionSsr } from "@/lib/session";
 import { stringifyDate } from "@/lib/stringifyDate";
 import Link from "next/link";
-import { Router } from "next/router";
+import { useRouter } from "next/router";
 
 
 export default function Admin({ data, adminName }) {
+    const router = useRouter();
+
     async function deleteBlog(id) {
         const isYes = confirm("Are you sure to delete this post?");
         if (!isYes) return;
-        const delPost = await fetch('/api/deleteBlog', {
+        const deleteBlog = await fetch('/api/deleteBlog', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),
         }).then(x => x.json());
-        if (delPost.status == 200) {
-            alert(delPost.message);
-            Router.reload(window.location.pathname);
-        } else alert(`Failed to delete post\n\nerror: ${delPost.error}`);
+        
+        if (deleteBlog.status == 200) {
+            alert(deleteBlog.message);
+            router.reload(window.location.pathname);
+        } else alert(`Failed to delete post\n\nerror: ${deleteBlog.error}`);
     }
 
     return (

@@ -42,7 +42,7 @@ export default class BlogEdit extends React.Component {
         }).then(x => x.json());
 
         if (fetchData.status == 200) {
-            if (fetchData.isNew) window.location.href = `/admin/edit/${e.target.link.value}`;
+            window.location.href = `/admin/`;
             alert("Saved successfully");
         } else {
             alert(`Failed to save change\n\nerror:\n${fetchData.error}`);
