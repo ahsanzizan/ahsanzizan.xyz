@@ -23,8 +23,7 @@ export default function AdminNavbar() {
                         <ActiveLink className="text-main text-2xl no-underline font-sans font-bold" href="/">ahsanAazizan</ActiveLink>
                     </div>
                     <div onClick={() => toggleNav(!navShow)} className="block md:hidden" style={{ cursor: "pointer" }}>
-                        <a
-                            className="flex items-center px-3 py-2 rounded text-secondary">
+                        <a className="flex items-center px-3 py-2 rounded text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z"/></svg>
                         </a>
                     </div>

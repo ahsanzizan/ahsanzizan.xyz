@@ -11,7 +11,7 @@ export default function Navbar() {
                     <ActiveLink href="/" className="text-secondary hover:text-main text-lg">
                         Home
                     </ActiveLink>
-                    <ActiveLink href="/" className="text-secondary hover:text-main text-lg">
+                    <ActiveLink href="/tags" className="text-secondary hover:text-main text-lg">
                         Tags
                     </ActiveLink>
                 </div>
