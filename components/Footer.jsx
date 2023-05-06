@@ -1,7 +1,7 @@
 
 export default function Footer() {
     return (
-        <div className="bg-secondary mx-auto w-full py-10 mt-72 text-[#222831] text-center">
+        <div className="bg-secondary mx-auto w-full py-10 mt-72 text-[#222831] text-center px-3">
             <div className="block text-center mb-8">
                 <h1 className="font-semibold text-3xl mb-5">Based In</h1>
                 <p className="font-semibold text-xs">Rempoa, East Ciputatat, South Tangerang City, Banten, Indonesia</p>
