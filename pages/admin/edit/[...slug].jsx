@@ -18,14 +18,14 @@ export default class BlogEdit extends React.Component {
             ),
             iTag: "",
         }
-        this.saveChange = this.saveChange.bind(this);
+        this.saveChanges = this.saveChanges.bind(this);
         this.addTag = this.addTag.bind(this);
         this.removeTag = this.removeTag.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.editorRef = createRef();
     }
 
-    async saveChange(e) {
+    async saveChanges(e) {
         e.preventDefault();
         var formData = {
             ...this.state.data,
@@ -34,16 +34,17 @@ export default class BlogEdit extends React.Component {
             post: this.editorRef.current.editorInst.getMarkdown(),
             tags: this.state.data.tags,
         };
+
         const fetchData = await fetch('/api/upsertBlog', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
         }).then(x => x.json());
+
         if (fetchData.status == 200) {
             if (fetchData.isNew) window.location.href = `/admin/edit/${e.target.link.value}`;
             alert("Saved successfully");
-        }
-        else {
+        } else {
             alert(`Failed to save change\n\nerror:\n${fetchData.error}`);
         }
     }
@@ -98,7 +99,7 @@ export default class BlogEdit extends React.Component {
                 <AdminNavbar />
                 <div className="mx-auto max-w-4xl px-2 xl:max-w-5xl py-5">
                     <div className="flex h-screen flex-col justify-between">
-                        <form action="#" onSubmit={this.saveChange} >
+                        <form action="#" onSubmit={this.saveChanges} >
                             <div className="mb-5">
                                 <div className="mb-2">
                                     <tag className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-2">
@@ -147,8 +148,6 @@ export default class BlogEdit extends React.Component {
                                 Save
                             </button>
                         </form>
-                        <div className="block py-10">
-                        </div>
                     </div>
                 </div>
             </>
@@ -188,6 +187,7 @@ export const getServerSideProps = withSessionSsr(async function getServerSidePro
                     }
                 }
             }
+
             return {
                 props: {
                     data: JSON.parse(JSON.stringify(getData))

@@ -10,7 +10,7 @@ export default withSessionRoute(async function uploadHandler(req, res) {
             const id = req.body._id ? new ObjectId(req.body._id) : new ObjectId(32);
             const isNew = !req.body._id;
             delete req.body._id;
-            const insert = await connectDB.db('personal-blog').collection('blog-post').updateOne({ _id: id }, { $set: !isNew ? req.body : { ...req.body, authorName: req.session.adminName, clickCount: 0, pubDate: new Date().getTime() } }, { upsert: true });
+            const insert = await connectDB.db('personal-blog').collection('blog-post').updateOne({ _id: id }, { $set: !isNew ? req.body : { ...req.body, clickCount: 0, pubDate: new Date().getTime() } }, { upsert: true });
             await connectDB.db('personal-blog').collection('link').updateOne({ _id: id }, { $set: { url: req.body.link, id: req.body.link.slice(1, req.body.link.length), ...(isNew ? { clickCount: 0 } : {}) } }, { upsert: true });
             return res.send({ status: 200, mongo: insert, isNew: isNew });
         } else {
