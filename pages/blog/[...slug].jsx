@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Headers from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import ActiveLink from "@/components/ActiveLink";
 import { stringifyDate } from "@/lib/stringifyDate";
@@ -8,6 +7,7 @@ import dynamic from "next/dynamic";
 import clientProm from "@/lib/mongodb";
 import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 const WysiwygViewer = dynamic(() => import('@/components/WysiwygViewer'), { ssr: false });
 
 export default function RenderBlog({ data }) {
@@ -23,7 +23,7 @@ export default function RenderBlog({ data }) {
     
     return (
         <>
-            <Headers title={'ahsanAazizan | ' + data.title} />
+            <Header title={'ahsanAazizan | ' + data.title} />
             
             <Navbar />
             <div className="max-w-5xl mx-auto pb-24 pt-10 text-secondary px-10">
