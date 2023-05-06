@@ -8,8 +8,8 @@ import 'prismjs/themes/prism.css';
 import { Editor } from '@toast-ui/react-editor';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import fontSize from "tui-editor-plugin-font-size";
-import codeSyntaxHighlightPlugin from '@toast-ui/editor-plugin-code-syntax-highlight';
 import React from 'react';
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight-all.js';
 
 export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue }) {
     const convertBlob = blob => {
@@ -47,5 +47,5 @@ export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue
               console.log(error);
             });
         },
-    }} plugins={[colorSyntax, codeSyntaxHighlightPlugin, fontSize]} theme='dark' />
+    }} plugins={[colorSyntax, codeSyntaxHighlight, fontSize]} theme='dark' />
 });
