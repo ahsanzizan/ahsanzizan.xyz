@@ -32,7 +32,7 @@ export default function RenderBlog({ data }) {
                         <h1 className="pb-6 text-center text-2xl font-extrabold leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">{data.title}</h1>
                     </div>
                     <div className="pb-4 pt-4 flex justify-between text-xs md:text-base">
-                        <span className="text-gray-500"><span className="text-secondary">{stringifyDate(data.pubDate)}</span> by {data.authorName}</span>
+                        <span className="text-gray-500"><span className="text-secondary">{stringifyDate(data.pubDate)}</span> by <span className="text-main">{data.authorName}</span></span>
                         <p className="text-gray-500"><span className="text-secondary">{data.clickCount}</span> Views</p>
                     </div>
                     <div className="flex justify-between my-2 items-center">
