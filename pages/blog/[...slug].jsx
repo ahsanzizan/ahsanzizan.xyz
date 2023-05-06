@@ -41,7 +41,7 @@ export default function RenderBlog({ data }) {
                                 return <ActiveLink className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
                             }) : null}
                         </div>
-                        <input onClick={copyLink} placeholder="Blog's Link" className="max-h-9 overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
+                        <input onClick={copyLink} placeholder="Blog's Link" className="max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
                     </div>
                 </header>
                 <WysiwygViewer ref={viewerRef} content={data.post} />
