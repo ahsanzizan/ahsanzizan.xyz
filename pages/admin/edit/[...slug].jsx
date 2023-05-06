@@ -171,6 +171,7 @@ export const getServerSideProps = withSessionSsr(async function getServerSidePro
             if (slug == "new") {
                 getData = {
                     title: "",
+                    authorName: req.session?.state?.adminName,
                     link: "",
                     post: "",
                     tags: []
