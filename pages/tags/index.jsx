@@ -11,7 +11,7 @@ export default function Tags({ data }) {
             <Navbar />
             <div className="block">
                 <h1 className="text-center pt-10 pb-5 font-bold text-secondary text-2xl">Tags Collection</h1>
-                <div className="mx-auto max-w-3xl pt-5 px-6 flex flex-wrap">
+                <div className="w-full mx-auto items-center justify-center max-w-3xl pt-5 px-6 flex flex-wrap">
                     {data.map((tag) => {
                         return <ActiveLink className="my-2 rounded-full border-2 border-white px-3 py-1 text-secondary font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
                     })}
