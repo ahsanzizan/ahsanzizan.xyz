@@ -7,20 +7,20 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
     <li className="py-12 px-5 my-10 border border-secondary rounded">
             <article className="w-full">
                 <div className="space-y-2 md:grid md:grid-cols-4 md:items-baseline md:space-y-0 gap-20">
-                    <dl className="mb-5 border-r h-full">
-                        <dt className="text-gray-300">Published at</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-400">
-                            <time>{stringifyDate(publishDate)}</time>
-                        </dd>
-                    </dl>
+                    <div className="mb-5 border-r h-full">
+                        <dl>
+                            <dt className="text-gray-300">Published at</dt>
+                            <dd className="text-base font-medium leading-6 text-gray-400">
+                                <time>{stringifyDate(publishDate)}</time>
+                            </dd>
+                        </dl>
+                    </div>
                     <div className="space-y-5 md:col-span-3">
                         <div className="space-y-6">
                             <div>
-                                <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                                    <ActiveLink className="text-main hover:underline" href={"/blog/" + link}>
-                                        {title}
-                                    </ActiveLink>
-                                </h2>
+                                <ActiveLink className="text-2xl font-bold leading-8 tracking-tight text-main hover:underline" href={"/blog/" + link}>
+                                    {title}
+                                </ActiveLink>
                                 <div className="flex flex-wrap my-2">
                                     {tags.map(tag => {
                                         return <ActiveLink className="rounded-full border-2 border-white px-3 text-secondary font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>

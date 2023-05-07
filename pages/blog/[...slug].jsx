@@ -26,8 +26,8 @@ export default function RenderBlog({ data }) {
             <Header title={'ahsanAazizan | ' + data.title} />
             
             <Navbar />
-            <div className="max-w-5xl mx-auto pb-24 pt-10 text-secondary px-10">
-                <header className="pb-12">
+            <div className="max-w-5xl mx-auto pt-10 text-secondary px-10">
+                <header className="pb-8">
                     <div className="border-b-2 border-gray-400">
                         <h1 className="pb-6 text-center text-2xl font-extrabold leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">{data.title}</h1>
                     </div>
@@ -35,16 +35,19 @@ export default function RenderBlog({ data }) {
                         <span className="text-gray-500"><span className="text-secondary">{stringifyDate(data.pubDate)}</span> by <span className="text-main">{data.authorName}</span></span>
                         <p className="text-gray-500"><span className="text-secondary">{data.clickCount}</span> Views</p>
                     </div>
-                    <div className="flex justify-between my-2 items-center">
-                        <div className="max-w-xs flex flex-wrap items-center">
-                            {data.tags ? data.tags.map(tag => {
-                                return <ActiveLink className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
-                            }) : null}
-                        </div>
-                        <input onClick={copyLink} placeholder="Blog's Link" className="max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
-                    </div>
                 </header>
                 <WysiwygViewer ref={viewerRef} content={data.post} />
+                <div className="mb-12 mt-24 border-t border-secondary mx-auto flex justify-between items-center py-3">
+                    <div className="block">
+                        <p className="text-xs md:text-base mb-1">Share</p>
+                        <input onClick={copyLink} placeholder="Blog's Link" className="max-w-[120px] md:max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
+                    </div>
+                    <div className="max-w-xs flex flex-wrap items-center">
+                        {data.tags ? data.tags.map(tag => {
+                            return <ActiveLink className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
+                        }) : null}
+                    </div>
+                </div>
             </div>
             <Footer />
         </>
