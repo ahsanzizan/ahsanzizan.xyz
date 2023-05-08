@@ -2,20 +2,21 @@ import Blogs from "@/components/Blogs";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
+import Search from "@/components/Search/Search";
 import clientProm from "@/lib/mongodb";
 import { useEffect, useState } from "react";
 
 export default function PopularBlogs({ data }) {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => setBlogs(data), []);
-
+    const [searchRes, setSearchRes] = useState([]);
+    
     return (
         <>
             <Header title={"ahsanAazizan | Popular Blog"} description={"Personal Blog"}/>
             <Navbar />
-            <h1 className="text-secondary text-3xl text-center pt-12">
-                Popular Blogs
-            </h1>
+            
+            <Search articles={blogs} setResults={setSearchRes} results={searchRes} />
             <Blogs data={blogs} />
             <Footer />
         </>
@@ -24,12 +25,10 @@ export default function PopularBlogs({ data }) {
 
 export async function getServerSideProps() {
     const connectDB = await clientProm;
-    var getBlogs = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
-    var res = getBlogs.sort((a, b) => b.clicks - a.clicks).slice(0, 5);
-
+    var result = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
     return {
-        props: {
-            data: JSON.parse(JSON.stringify(res)).filter(blog => !blog.link.includes('private')),
-        }
+      props: {
+        data: JSON.parse(JSON.stringify(result.sort((a, b) => b.pubDate - a.pubDate))).filter(blog => !blog.link.includes('private')),
+      }
     }
-}
+  }
