@@ -33,7 +33,7 @@ export default function RenderBlog({ data }) {
                     </div>
                     <div className="pb-4 pt-4 flex justify-between text-xs md:text-base">
                         <span className="text-gray-500"><span className="text-secondary">{stringifyDate(data.pubDate)}</span> by <span className="text-main">{data.authorName}</span></span>
-                        <p className="text-gray-500"><span className="text-secondary">{data.clickCount}</span> Views</p>
+                        <p className="text-gray-500"><span className="text-secondary">{data.clicks}</span> Views</p>
                     </div>
                 </header>
                 <WysiwygViewer ref={viewerRef} content={data.post} />
@@ -58,7 +58,7 @@ function copyLink(e) {
     navigator.clipboard.writeText(e.target.value).then(() => alert("Copied Link Successfully"))
 }
 
-export async function getServerSideProps({ res, query }) {
+export async function getServerSideProps({ query }) {
     var { slug } = query;
     slug = slug.join('/');
     const connectDB = await clientProm;
@@ -66,7 +66,7 @@ export async function getServerSideProps({ res, query }) {
     var findBlog = getBlogs ? getBlogs.findIndex(x => x.link == slug) : -1;
     if ((findBlog + 1) && process.env.NODE_ENV === 'production') {
         // Update clicks count
-        connectDB.db('personal-blog').collection('blog-post').updateOne({ link: slug }, { $inc: { clickCount: 1 } })
+        connectDB.db('personal-blog').collection('blog-post').updateOne({ link: slug }, { $inc: { clicks: 1 } })
     }
     
     var data = findBlog + 1 ? JSON.parse(JSON.stringify(getBlogs.splice(findBlog, 1)[0])) : {};

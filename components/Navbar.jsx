@@ -14,6 +14,9 @@ export default function Navbar() {
                     <ActiveLink href="/tags" className="text-secondary hover:text-main text-lg">
                         Tags
                     </ActiveLink>
+                    <ActiveLink href="/popular" className="text-secondary hover:text-main text-lg">
+                        Popular
+                    </ActiveLink>
                 </div>
             </div>
             <section style={{ zIndex: 999 }} className="bg-[#2b3038] sticky top-0 z-50 w-screen mx-auto px-4 h-16">
@@ -34,6 +37,9 @@ export default function Navbar() {
                         </ActiveLink>
                         <ActiveLink href="/tags" className="mx-3 text-secondary hover:text-main text-lg">
                             Tags
+                        </ActiveLink>
+                        <ActiveLink href="/popular" className="mx-3 text-secondary hover:text-main text-lg">
+                            Popular
                         </ActiveLink>
                     </div>
                 </nav>

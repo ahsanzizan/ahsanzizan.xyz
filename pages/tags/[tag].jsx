@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import clientProm from "@/lib/mongodb";
 import { useRouter } from "next/router";
 
-export default function Blogs({ data }) {
+export default function BlogsWithTag({ data }) {
     const router = useRouter();
     const { tag } = router.query; 
 
