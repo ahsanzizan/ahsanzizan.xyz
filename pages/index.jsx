@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import clientProm from "@/lib/mongodb";
 import Footer from "@/components/Footer";
 import Blogs from "@/components/Blogs";
-import Search from "@/components/Search/Search";
 
 export default function HomePage({ data }) {
   const [blogs, setBlogs] = useState([]);

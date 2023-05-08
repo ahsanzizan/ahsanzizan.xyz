@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import ActiveLink from "../ActiveLink";
+import ActiveLink from "./ActiveLink";
 
 export default function Search({ setResults, results, articles }) {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -14,12 +14,12 @@ export default function Search({ setResults, results, articles }) {
         }
         window.addEventListener("click", handleClick);
         return () => window.removeEventListener("click", handleClick);
-    }, [showDropdown])
+    }, [showDropdown]);
 
     return (
         <div className="items-center w-full pt-20 px-10">
             <SearchBar setResults={setResults} articles={articles} setShowDropdown={setShowDropdown} />
-            {results && results.length > 0 && <SearchResultsList results={results} showDropdown={showDropdown} dropdown={dropdown} />}
+            <SearchResultsList results={results} showDropdown={showDropdown} dropdown={dropdown} />
         </div>
     )
 }
@@ -34,26 +34,33 @@ function SearchBar ({ setResults, articles, setShowDropdown }) {
             article &&
             article.title &&
             article.title.toLowerCase().includes(value.toLowerCase())
-            );
+          );
         });
         setResults(results);
     };
 
     const handleChange = (value) => {
+        setShowDropdown(true);
         setInput(value);
         fetchData(value);
-        setShowDropdown(true);
     };
+
+    const enterBTN = (e) => {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            setShowDropdown(true);
+        }
+    }
 
     return (
         <div className="w-full">
             <input
-            type="search"
-            placeholder="Search the title of an article..."
-            value={input}
-            onChange={(e) => handleChange(e.target.value)}
-            onClick={() => setShowDropdown(b => !b)}
-            className="inline-block w-full py-2 pl-4 pr-10 2xl:text-xl rounded-full focus:outline-none border-2 border-secondary bg-secondary text-main"
+                type="search"
+                placeholder="Search the title of an article..."
+                value={input}
+                onChange={(e) => handleChange(e.target.value)}
+                onKeyDown={enterBTN}
+                className="inline-block w-full py-2 pl-4 pr-10 2xl:text-xl rounded-full focus:outline-none border-2 border-secondary bg-secondary text-main"
             />
         </div>
     );
@@ -90,7 +97,7 @@ function SearchResultsList({ results, showDropdown, dropdown }) {
                     <h1 className="font-bold text-sm px-3 py-2 opacity-50">Results</h1>
                     <ul className="divide-y divide-[#222831]">
                         {results.map((result, id) => {
-                        return <SearchResult result={result} key={id} />;
+                            return <SearchResult result={result} key={id} />
                         })}
                     </ul>
                 </div>
