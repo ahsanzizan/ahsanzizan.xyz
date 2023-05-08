@@ -7,6 +7,6 @@ import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight/d
 
 export default React.forwardRef(function WysiwygViewer({ content, ref }) {
     return (
-        <Viewer ref={ref} initialValue={content} plugins={[codeSyntaxHighlight]} theme={'dark'} />
+        <Viewer ref={ref} initialValue={content} plugins={[codeSyntaxHighlight]} theme='dark' />
     )
 })
