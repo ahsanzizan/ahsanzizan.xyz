@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function PopularBlogs({ data }) {
     const [blogs, setBlogs] = useState([]);
-    useEffect(() => setBlogs(data), []);
+    useEffect(() => setBlogs(data.slice([0, 50])), []);
     const [searchRes, setSearchRes] = useState([]);
     
     return (
@@ -16,7 +16,7 @@ export default function PopularBlogs({ data }) {
             <Header title={"ahsanAazizan | Search Blogs"} description={"Personal Blog"}/>
             <Navbar />
             
-            <Search articles={blogs} setResults={setSearchRes} results={searchRes} />
+            <Search articles={data} setResults={setSearchRes} results={searchRes} />
             <Blogs data={blogs} />
             <Footer />
         </>
@@ -25,7 +25,7 @@ export default function PopularBlogs({ data }) {
 
 export async function getServerSideProps() {
     const connectDB = await clientProm;
-    var result = (await connectDB.db('personal-blog').collection('blog-post').find({}).toArray()).slice(0, 20);
+    var result = (await connectDB.db('personal-blog').collection('blog-post').find({}).toArray());
     return {
       props: {
         data: JSON.parse(JSON.stringify(result.sort((a, b) => b.pubDate - a.pubDate))).filter(blog => !blog.link.includes('private')),
