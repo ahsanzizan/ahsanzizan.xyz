@@ -19,7 +19,7 @@ export default function Search({ setResults, results, articles }) {
     return (
         <div className="items-center w-full pt-20 px-10">
             <SearchBar setResults={setResults} articles={articles} setShowDropdown={setShowDropdown} />
-            <SearchResultsList results={results} showDropdown={showDropdown} dropdown={dropdown} />
+            {results && results.length > 0 && <SearchResultsList results={results} showDropdown={showDropdown} dropdown={dropdown} />}
         </div>
     )
 }
@@ -33,7 +33,8 @@ function SearchBar ({ setResults, articles, setShowDropdown }) {
             value &&
             article &&
             article.title &&
-            article.title.toLowerCase().includes(value.toLowerCase())
+            article.title.toLowerCase().includes(value.toLowerCase()),
+            article.post.toLowerCase().includes(value.toLowerCase())
           );
         });
         setResults(results);

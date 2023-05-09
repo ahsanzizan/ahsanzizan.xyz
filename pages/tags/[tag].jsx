@@ -11,7 +11,7 @@ export default function BlogsWithTag({ data }) {
 
     return (
         <>
-            <Header title={"ahsanAazizan | Blog"} description={"Personal Blog"}/>
+            <Header title={`Results for tag ${tag}`} description={"Personal Blog"}/>
             <Navbar />
             <div className="mx-auto px-6">
                 <div className="flex h-screen flex-col justify-between">

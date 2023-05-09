@@ -13,7 +13,7 @@ export default function PopularBlogs({ data }) {
     
     return (
         <>
-            <Header title={"ahsanAazizan | Popular Blog"} description={"Personal Blog"}/>
+            <Header title={"ahsanAazizan | Search Blogs"} description={"Personal Blog"}/>
             <Navbar />
             
             <Search articles={blogs} setResults={setSearchRes} results={searchRes} />
@@ -25,7 +25,7 @@ export default function PopularBlogs({ data }) {
 
 export async function getServerSideProps() {
     const connectDB = await clientProm;
-    var result = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
+    var result = (await connectDB.db('personal-blog').collection('blog-post').find({}).toArray()).slice(0, 20);
     return {
       props: {
         data: JSON.parse(JSON.stringify(result.sort((a, b) => b.pubDate - a.pubDate))).filter(blog => !blog.link.includes('private')),
