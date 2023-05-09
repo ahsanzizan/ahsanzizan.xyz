@@ -34,7 +34,6 @@ function SearchBar ({ setResults, articles, setShowDropdown }) {
             article &&
             article.title &&
             article.title.toLowerCase().includes(value.toLowerCase()),
-            article.post.toLowerCase().includes(value.toLowerCase())
           );
         });
         setResults(results);
