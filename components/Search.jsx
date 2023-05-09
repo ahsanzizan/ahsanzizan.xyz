@@ -68,7 +68,7 @@ function SearchBar ({ setResults, articles, setShowDropdown }) {
 
 function SearchResult({ result }) {
     return (
-      <ActiveLink className="text-[#222831] flex py-3 px-3 cursor-pointer hover:text-4B70EA" href={`/blog/${result.link}`}>
+      <ActiveLink className="text-[#222831] flex py-3 px-3 hover:text-main transition duration-300" href={`/blog/${result.link}`}>
           {result.title} - <span className="text-main text-sm px-1">{`/blog/${result.link}`}</span>
       </ActiveLink>
     );
