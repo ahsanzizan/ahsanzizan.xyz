@@ -15,9 +15,13 @@ export default function PopularBlogs({ data }) {
         <>
             <Header title={"ahsanAazizan | Search Blogs"} description={"Personal Blog"}/>
             <Navbar />
-            
+            <h1 className="text-secondary text-3xl text-center pt-12">
+              Search Blogs
+            </h1>
             <Search articles={data} setResults={setSearchRes} results={searchRes} />
-            <Blogs data={blogs} />
+            <div className="mt-32">
+              <Blogs data={blogs} />
+            </div>
             <Footer />
         </>
     )

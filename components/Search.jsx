@@ -17,7 +17,7 @@ export default function Search({ setResults, results, articles }) {
     }, [showDropdown]);
 
     return (
-        <div className="items-center w-full pt-20 px-10">
+        <div className="absolute w-full pt-10 px-10">
             <SearchBar setResults={setResults} articles={articles} setShowDropdown={setShowDropdown} />
             {results && results.length > 0 && <SearchResultsList results={results} showDropdown={showDropdown} dropdown={dropdown} />}
         </div>
@@ -93,13 +93,15 @@ function SearchResultsList({ results, showDropdown, dropdown }) {
     return (
         <>
             {showDropdown && (
-                <div ref={dropdown} className="w-full bg-secondary flex flex-col rounded-[10px] mt-4 max-h-96 overflow-y-auto overflow-x-hidden relative z-[999]">
-                    <h1 className="font-bold text-sm px-3 py-2 opacity-50">Results</h1>
-                    <ul className="divide-y divide-[#222831]">
-                        {results.map((result, id) => {
-                            return <SearchResult result={result} key={id} />
-                        })}
-                    </ul>
+                <div className="w-full bg-secondary flex flex-col rounded-[10px] mt-4 max-h-96 overflow-y-auto overflow-x-hidden relative z-[999]">
+                    <div ref={dropdown}>
+                        <h1 className="font-bold text-sm px-3 py-2 opacity-50">Results</h1>
+                        <ul className="divide-y divide-[#222831]">
+                            {results.map((result, id) => {
+                                return <SearchResult result={result} key={id} />
+                            })}
+                        </ul>
+                    </div>  
                 </div>
             )}
         </>
