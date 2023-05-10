@@ -18,8 +18,8 @@ export default function AdminNavbar() {
                 </div>
             </div>
             <section style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto px-4 h-16">
-                <nav className="flex flex-wrap p-3 justify-between ">
-                    <div className="h-10 mr-5">
+                <nav className="flex flex-wrap justify-between">
+                    <div className="h-10">
                         <ActiveLink className="text-main text-2xl no-underline font-sans font-bold" href="/">ahsanAazizan</ActiveLink>
                     </div>
                     <div onClick={() => toggleNav(!navShow)} className="block md:hidden" style={{ cursor: "pointer" }}>
