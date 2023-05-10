@@ -14,7 +14,7 @@ export default function BlogsWithTag({ data }) {
             <Header title={`Results for tag ${tag}`} description={"Personal Blog"}/>
             <Navbar />
             <div className="mx-auto px-6">
-                <div className="flex h-screen flex-col justify-between">
+                <div className="flex flex-col justify-between">
                     <div className="text-base mx-auto pt-5 px-6 sm:px-6 xl:px-0">
                         <h1 className="text-secondary text-center font-semibold py-10 text-2xl">
                             Results for tag <span className="text-main">{tag}</span>
