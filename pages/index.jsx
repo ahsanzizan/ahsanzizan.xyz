@@ -25,7 +25,7 @@ export default function HomePage({ data }) {
 export async function getServerSideProps() {
   const connectDB = await clientProm;
   var getBlogs = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
-  var res = getBlogs.sort((a, b) => a.clicks - b.clicks).slice(0, 5);
+  var res = getBlogs.sort((a, b) => b.clicks - a.clicks).slice(0, 5);
 
   return {
       props: {

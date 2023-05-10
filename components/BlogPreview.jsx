@@ -23,7 +23,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                 </ActiveLink>
                                 <div className="flex flex-wrap my-2">
                                     {tags.map(tag => {
-                                        return <ActiveLink className="rounded-full border-2 border-white px-3 text-secondary font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
+                                        return <ActiveLink className="rounded-full border-2 border-white px-2 text-secondary font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
                                     })}
                                 </div>
                             </div>
