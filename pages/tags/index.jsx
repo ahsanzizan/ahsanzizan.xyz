@@ -34,7 +34,7 @@ export async function getServerSideProps() {
 
     return {
         props: {
-            data: res,
+            data: res.filter((value, index, array) => array.indexOf(value) === index),
         }
     }
 }
