@@ -65,7 +65,7 @@ export async function getServerSideProps({ query }) {
     var getBlogs = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
     var findBlog = getBlogs ? getBlogs.findIndex(x => x.link == link) : -1;
     if ((findBlog + 1) && process.env.NODE_ENV === 'production') {
-        // Update clicks count
+        // Update clicks
         connectDB.db('personal-blog').collection('blog-post').updateOne({ link: link }, { $inc: { clicks: 1 } })
     }
     
