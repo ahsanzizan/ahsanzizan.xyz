@@ -10,7 +10,7 @@ export default function Blogs({ data }) {
                             {data.map(blog => {
                                 return <BlogPreview
                                     title={blog.title}
-                                    publishDate={blog.pubDate}
+                                    publishDate={blog.publishDate}
                                     tags={blog.tags}
                                     previewText={blog.post.slice(0, 250) + "..."}
                                     link={blog.link}

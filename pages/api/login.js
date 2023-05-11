@@ -5,7 +5,7 @@ import rateLimit from "@/lib/rateLimit";
 const limiter = rateLimit({
     interval: 600 * 1000,
     uniqueTokenPerInterval: 500,
-})  
+});
 
 export default withSessionRoute(async function login(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ err: `Method ${req.method} isn't allowed` });

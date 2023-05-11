@@ -53,7 +53,7 @@ export default function Admin({ data, adminName }) {
                                                     Title
                                                 </th>
                                                 <th scope="col" className="font-semibold text-sm text-white px-5 py-4 text-left max-w-[200px]">
-                                                    PubDate
+                                                    Publish Date
                                                 </th>
                                                 <th scope="col" className="font-semibold text-sm text-white px-5 py-4 text-left">
                                                     Views
@@ -71,7 +71,7 @@ export default function Admin({ data, adminName }) {
                                                         <span className="mb-2 block duration-300">{blog.title}</span>
                                                     </td>
                                                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap max-w-[240px] overflow-clip">
-                                                        <span className="mb-2 block duration-300">{stringifyDate(blog.pubDate)}</span>
+                                                        <span className="mb-2 block duration-300">{stringifyDate(blog.publishDate)}</span>
                                                     </td>
                                                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {blog.clicks}
@@ -114,7 +114,7 @@ export const getServerSideProps = withSessionSsr(
 
             return {
                 props: {
-                    data: JSON.parse(JSON.stringify(res.sort((a, b) => b.pubDate - a.pubDate))),
+                    data: JSON.parse(JSON.stringify(res.sort((a, b) => b.publishDate - a.publishDate))),
                     adminName: req.session?.state?.adminName,
                 }
             }
