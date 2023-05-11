@@ -29,7 +29,7 @@ export async function getServerSideProps({ query }) {
     const getBlogWithTag = await connectDB.db('personal-blog').collection('blog-post').find({ tags: tag }).toArray();
     return {
         props: {
-            data: JSON.parse(JSON.stringify(getBlogWithTag.sort((a, b) => b.pubDate - a.pubDate).filter(blog => !blog.link.includes('private')))),
+            data: JSON.parse(JSON.stringify(getBlogWithTag.sort((a, b) => b.publishDate - a.publishDate).filter(blog => !blog.link.includes('private')))),
         }
     }
 }
