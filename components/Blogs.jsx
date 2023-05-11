@@ -3,9 +3,9 @@ import BlogPreview from "./BlogPreview";
 export default function Blogs({ data }) {
     return (
         <>
-            <div className="mx-auto px-6">
+            <div className="mx-auto px-3">
                 <div className="flex flex-col justify-between">
-                    <div className="text-base mx-auto pt-5 px-6 sm:px-6 xl:px-0">
+                    <div className="text-base mx-auto pt-5">
                         <ul className="block">
                             {data.map(blog => {
                                 return <BlogPreview

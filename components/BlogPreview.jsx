@@ -4,7 +4,7 @@ import { stringifyDate } from "@/lib/stringifyDate";
 
 export default function BlogPreview({ publishDate, tags, title, link, previewText }) {
   return (
-    <li className="py-12 px-5 my-10 border border-secondary rounded">
+    <li className="py-12 px-5 md:px-5 my-10 border border-secondary rounded">
             <article className="w-full">
                 <div className="space-y-2 md:grid md:grid-cols-4 md:items-baseline md:space-y-0 gap-20">
                     <div className="mb-5 border-r h-full">
