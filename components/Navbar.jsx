@@ -20,7 +20,7 @@ export default function Navbar() {
                 </div>
             </div>
             <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto px-4 h-16">
-                <nav className="flex flex-wrap py-1 justify-between px-4">
+                <nav className="flex flex-wrap py-1 justify-between">
                     <div className="py-2 mr-5">
                         <ActiveLink className="text-main text-2xl no-underline font-sans font-semibold" href="/">ahsanAazizan</ActiveLink>
                     </div>
