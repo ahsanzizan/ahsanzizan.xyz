@@ -5,18 +5,26 @@ import clientProm from "@/lib/mongodb";
 import Footer from "@/components/Footer";
 import Blogs from "@/components/Blogs";
 
-export default function HomePage({ data }) {
-  const [blogs, setBlogs] = useState([]);
-  useEffect(() => setBlogs(data), []);
+export default function HomePage({ popular, recent }) {
+  const [popularBlogs, setPopularBlogs] = useState([]);
+  const [recentBlogs, setRecentBlogs] = useState([]);
+  useEffect(() => setPopularBlogs(popular), []);
+  useEffect(() => setRecentBlogs(recent), []);
 
   return (
     <>
       <Header title={"ahsanAazizan | Blog"} description={"Personal Blog"}/>
       <Navbar />
+      <div className="border-b-4 pb-10">
+        <h1 className="text-secondary text-3xl text-center pt-12">
+          Popular Blogs
+        </h1>
+        <Blogs data={popularBlogs} />
+      </div>
       <h1 className="text-secondary text-3xl text-center pt-12">
-        Popular Blogs
+        Recently Uploaded
       </h1>
-      <Blogs data={blogs} />
+      <Blogs data={recentBlogs} />
       <Footer />
     </>
   )
@@ -25,11 +33,13 @@ export default function HomePage({ data }) {
 export async function getServerSideProps() {
   const connectDB = await clientProm;
   var getBlogs = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
-  var res = getBlogs.sort((a, b) => b.clicks - a.clicks).slice(0, 5).sort((a, b) => b.publishDate - a.publishDate);
+  var popularBlogs = getBlogs.sort((a, b) => b.clicks - a.clicks).slice(0, 3);
+  var recentlyPosted = getBlogs.sort((a, b) => b.publishDate - a.publishDate).slice(0, 5);
 
   return {
       props: {
-          data: JSON.parse(JSON.stringify(res)).filter(blog => !blog.link.includes('private')),
+          popular: JSON.parse(JSON.stringify(popularBlogs)).filter(blog => !blog.link.includes('private')),
+          recent: JSON.parse(JSON.stringify(recentlyPosted)).filter(blog => !blog.link.includes('private')),
       }
   }
 }
