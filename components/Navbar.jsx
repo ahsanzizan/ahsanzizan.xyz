@@ -17,6 +17,9 @@ export default function Navbar() {
                     <ActiveLink href="/search" className="text-secondary hover:text-main text-lg">
                         Search
                     </ActiveLink>
+                    <ActiveLink href="/recent" className="mx-3 text-secondary hover:text-main text-lg">
+                        Recent
+                    </ActiveLink>
                 </div>
             </div>
             <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto px-4 h-16">
@@ -40,6 +43,9 @@ export default function Navbar() {
                         </ActiveLink>
                         <ActiveLink href="/search" className="mx-3 text-secondary hover:text-main text-lg">
                             Search
+                        </ActiveLink>
+                        <ActiveLink href="/recent" className="mx-3 text-secondary hover:text-main text-lg">
+                            Recent
                         </ActiveLink>
                     </div>
                 </nav>
