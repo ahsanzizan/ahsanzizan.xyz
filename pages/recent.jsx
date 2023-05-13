@@ -11,7 +11,7 @@ export default function RecentlyUploaded({ data }) {
 
     return (
         <>
-            <Header title={'ahsanAazizan | Recently Uploaded'} description={"Personal Blog"} />
+            <Header title={'ahsanAazizan - Recently Uploaded'} description={"Personal Blog"} />
             <Navbar />
             <h1 className="text-secondary text-3xl text-center pt-12">
                 Recent Blogs

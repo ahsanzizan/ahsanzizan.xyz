@@ -3,6 +3,7 @@ import ActiveLink from "./ActiveLink";
 
 export default function Search({ setResults, results, articles }) {
     const [showDropdown, setShowDropdown] = useState(false);
+    const [input, setInput] = useState("");
     const dropdown = useRef(null);
 
     useEffect(() => {
@@ -17,24 +18,28 @@ export default function Search({ setResults, results, articles }) {
     }, [showDropdown]);
 
     return (
-        <div className="absolute w-full pt-10 px-10">
-            <SearchBar setResults={setResults} articles={articles} setShowDropdown={setShowDropdown} />
-            {results && results.length > 0 && <SearchResultsList results={results} showDropdown={showDropdown} dropdown={dropdown} />}
+        <div className="absolute w-full pt-20 px-5 md:px-48">
+            <SearchBar setResults={setResults} articles={articles} setShowDropdown={setShowDropdown} input={input} setInput={setInput} />
+            {results && results.length > 0 && <SearchResultsList results={results} showDropdown={showDropdown} dropdown={dropdown} input={input} />}
         </div>
     )
 }
 
-function SearchBar ({ setResults, articles, setShowDropdown }) {
-    const [input, setInput] = useState("");
-
+function SearchBar ({ setResults, articles, setShowDropdown, input, setInput }) {
     const fetchData = (value) => {
         const results = articles.filter((article) => {
+            const post = article.post.toLowerCase().split(" ");
+            post.filter((c, index) => post.indexOf(c) === index);
+            post.splice(post.indexOf(""));
+            post.splice(post.indexOf(" "));
+            post.splice(post.indexOf("\n"));
             return (
-            value &&
-            article &&
-            article.title &&
-            article.title.toLowerCase().includes(value.toLowerCase())
-          );
+                value &&
+                article &&
+                article.title &&
+                article.title.toLowerCase().includes(value.toLowerCase()) ||
+                post.includes(value.toLowerCase())
+            );
         });
         setResults(results);
     };
@@ -56,7 +61,7 @@ function SearchBar ({ setResults, articles, setShowDropdown }) {
         <div className="w-full">
             <input
                 type="search"
-                placeholder="Search the title of an article..."
+                placeholder="Search the keyword of an article..."
                 value={input}
                 onChange={(e) => handleChange(e.target.value)}
                 onKeyDown={enterBTN}
@@ -73,29 +78,14 @@ function SearchResult({ result }) {
       </ActiveLink>
     );
 }
-  
-function normalizePreviewText(textToNormalize) {
-    let temp = textToNormalize;
-    temp = temp.replace(/<style([\s\S]*?)<\/style>/gi, '');
-    temp = temp.replace(/<script([\s\S]*?)<\/script>/gi, '');
-    temp = temp.replace(/<\/div>/ig, '\n');
-    temp = temp.replace(/<\/li>/ig, '\n');
-    temp = temp.replace(/<li>/ig, '  *  ');
-    temp = temp.replace(/<\/ul>/ig, '\n');
-    temp = temp.replace(/<\/oembed>/ig, '');
-    temp = temp.replace(/<\/p>/ig, '\n');
-    temp = temp.replace(/<br\s*[\/]?>/gi, "\n");
-    temp = temp.replace(/<[^>]+>/ig, '');
-    return temp;
-}
 
-function SearchResultsList({ results, showDropdown, dropdown }) {
+function SearchResultsList({ results, showDropdown, dropdown, input }) {
     return (
         <>
             {showDropdown && (
                 <div className="w-full bg-secondary flex flex-col rounded-[10px] mt-4 max-h-96 overflow-y-auto overflow-x-hidden relative z-[999]">
                     <div ref={dropdown}>
-                        <h1 className="font-bold text-sm px-3 py-2 opacity-50">Results</h1>
+                        <h1 className="font-bold text-sm px-3 py-2 opacity-50">Results for keyword <span className="text-main">{`"${input}"`}</span></h1>
                         <ul className="divide-y divide-[#222831]">
                             {results.map((result, id) => {
                                 return <SearchResult result={result} key={id} />

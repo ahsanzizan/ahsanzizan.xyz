@@ -2,18 +2,19 @@ import ActiveLink from "./ActiveLink";
 import { stringifyDate } from "@/lib/stringifyDate";
 
 
-export default function BlogPreview({ publishDate, tags, title, link, previewText }) {
+export default function BlogPreview({ publishDate, tags, title, link, previewText, views }) {
   return (
-        <li className="py-12 px-5 md:px-5 my-10 border border-secondary rounded">
+        <li className="py-5 px-5 md:px-5 my-10 border border-secondary border-opacity-30 rounded-2xl">
                 <article className="w-full">
                     <div className="space-y-2 md:grid md:grid-cols-4 md:items-baseline md:space-y-0 gap-20">
                         <div className="mb-5 border-r h-full">
                             <dl>
-                                <dt className="text-gray-300">Published at</dt>
-                                <dd className="text-base font-medium leading-6 text-gray-400">
+                                <dt className="text-secondary">Published at</dt>
+                                <dd className="text-base font-medium leading-5 text-gray-400">
                                     <time>{stringifyDate(publishDate)}</time>
                                 </dd>
                             </dl>
+                            <p className="text-secondary">{views} views</p>
                         </div>
                         <div className="space-y-5 md:col-span-3">
                             <div className="space-y-6">

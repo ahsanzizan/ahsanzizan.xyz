@@ -23,7 +23,7 @@ export default function RenderBlog({ data }) {
     
     return (
         <>
-            <Header title={'ahsanAazizan | ' + data.title} />
+            <Header title={'ahsanAazizan - ' + data.title} />
             
             <Navbar />
             <div className="max-w-5xl mx-auto pt-10 text-secondary px-10">
