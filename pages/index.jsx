@@ -16,7 +16,7 @@ export default function HomePage({ data }) {
       <Header title={"ahsanAazizan - Blog"} description={"Personal Blog"}/>
       <Navbar />
       <div className="text-secondary px-5 lg:px-48 pt-12">
-        <h1 className="text-2xl md:text-3xl font-bold leading-relaxed mb-3"><span className="text-main">{"ahsanAazizan"}</span> - Blog</h1>
+        <h1 className="text-2xl md:text-3xl font-bold leading-relaxed mb-3"><span className="text-main hover:underline underline-offset-4"><a href="https://ahsanAazizan.github.io/">ahsanAazizan</a></span> - Blog</h1>
         <p className="text-base md:text-lg">I made this website because i wanted to share my thought on things to other people, and i thought a blog would fit perfectly.</p>
       </div>
       <Search articles={data} setResults={setSearchRes} results={searchRes} />

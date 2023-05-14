@@ -15,7 +15,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                         <time>{stringifyDate(publishDate)}</time>
                                     </dd>
                                 </dl>
-                                <p className="text-secondary">{views} views</p>
+                                <p className="text-secondary"><i class="fa-sharp fa-regular fa-eye"></i> {views}</p>
                             </div>
                             <div className="space-y-5 md:col-span-3">
                                 <div className="space-y-6">

@@ -8,13 +8,13 @@ export default function Navbar() {
         <>
             <div className={"sidenav" + (navShow ? " sideActive" : "")}>
                 <div className="text-left">
-                    <ActiveLink href="/" className="text-secondary hover:text-main text-lg">
+                    <ActiveLink href="/" className="text-secondary hover:text-main text-lg font-semibold">
                         Home
                     </ActiveLink>
-                    <ActiveLink href="/tags" className="text-secondary hover:text-main text-lg">
+                    <ActiveLink href="/tags" className="text-secondary hover:text-main text-lg font-semibold">
                         Tags
                     </ActiveLink>
-                    <ActiveLink href="/older" className="mx-3 text-secondary hover:text-main text-lg">
+                    <ActiveLink href="/older" className="mx-3 text-secondary hover:text-main text-lg font-semibold">
                         Older
                     </ActiveLink>
                 </div>
