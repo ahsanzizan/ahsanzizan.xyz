@@ -14,7 +14,7 @@ export default function RecentlyUploaded({ data }) {
             <Header title={'ahsanAazizan - Recently Uploaded'} description={"Personal Blog"} />
             <Navbar />
             <h1 className="text-secondary text-3xl text-center pt-12">
-                Recent Blogs
+                Older Blogs
             </h1>
             <Blogs data={blogs} />
             <Footer />
@@ -25,7 +25,7 @@ export default function RecentlyUploaded({ data }) {
 export async function getServerSideProps() {
     const connectDB = await clientProm;
     var getBlogs = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
-    var recentlyUploaded = getBlogs.sort((a, b) => b.publishDate - a.publishDate).slice(0, 10);
+    var recentlyUploaded = getBlogs.sort((a, b) => a.publishDate - b.publishDate).slice(0, 10);
 
     return {
         props: {

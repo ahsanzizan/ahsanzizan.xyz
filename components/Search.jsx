@@ -18,7 +18,7 @@ export default function Search({ setResults, results, articles }) {
     }, [showDropdown]);
 
     return (
-        <div className="absolute w-full pt-20 px-5 md:px-48">
+        <div className="absolute w-full pt-20 px-5 lg:px-48">
             <SearchBar setResults={setResults} articles={articles} setShowDropdown={setShowDropdown} input={input} setInput={setInput} />
             {results && results.length > 0 && <SearchResultsList results={results} showDropdown={showDropdown} dropdown={dropdown} input={input} />}
         </div>
@@ -30,15 +30,19 @@ function SearchBar ({ setResults, articles, setShowDropdown, input, setInput }) 
         const results = articles.filter((article) => {
             const post = article.post.toLowerCase().split(" ");
             post.filter((c, index) => post.indexOf(c) === index);
+            post.forEach((el, id) => el = el.replace(/\W/g, ""));
             post.splice(post.indexOf(""));
             post.splice(post.indexOf(" "));
             post.splice(post.indexOf("\n"));
+
+            let checkSubset = (parent, subset) => subset.every((el) => parent.includes(el));
+
             return (
                 value &&
                 article &&
                 article.title &&
                 article.title.toLowerCase().includes(value.toLowerCase()) ||
-                post.includes(value.toLowerCase())
+                checkSubset(post, value.toLowerCase().split(" "))
             );
         });
         setResults(results);
@@ -61,7 +65,7 @@ function SearchBar ({ setResults, articles, setShowDropdown, input, setInput }) 
         <div className="w-full">
             <input
                 type="search"
-                placeholder="Search the keyword of an article..."
+                placeholder="Search the keywords of an article..."
                 value={input}
                 onChange={(e) => handleChange(e.target.value)}
                 onKeyDown={enterBTN}

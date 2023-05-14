@@ -3,7 +3,7 @@ import BlogPreview from "./BlogPreview";
 export default function Blogs({ data }) {
     return (
         <>
-            <div className="mx-auto px-5 md:px-48">
+            <div className="mx-auto px-5 lg:px-48">
                 <div className="flex flex-col justify-between">
                     <div className="text-base mx-auto pt-5">
                         <ul className="block">

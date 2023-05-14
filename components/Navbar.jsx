@@ -14,8 +14,8 @@ export default function Navbar() {
                     <ActiveLink href="/tags" className="text-secondary hover:text-main text-lg">
                         Tags
                     </ActiveLink>
-                    <ActiveLink href="/recent" className="mx-3 text-secondary hover:text-main text-lg">
-                        Recent
+                    <ActiveLink href="/older" className="mx-3 text-secondary hover:text-main text-lg">
+                        Older
                     </ActiveLink>
                 </div>
             </div>
@@ -38,8 +38,8 @@ export default function Navbar() {
                         <ActiveLink href="/tags" className="mx-3 text-secondary hover:text-main text-lg">
                             Tags
                         </ActiveLink>
-                        <ActiveLink href="/recent" className="mx-3 text-secondary hover:text-main text-lg">
-                            Recent
+                        <ActiveLink href="/older" className="mx-3 text-secondary hover:text-main text-lg">
+                            Older
                         </ActiveLink>
                     </div>
                 </nav>
