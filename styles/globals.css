@@ -9,7 +9,7 @@
 
 @layer base {
   body {
-    font-family: Poppins;
+    font-family: 'Poppins';
     @apply bg-[#222831];
     margin: 0;
     overflow-x: hidden;
