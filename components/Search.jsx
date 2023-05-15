@@ -77,8 +77,8 @@ function SearchBar ({ setResults, articles, setShowDropdown, input, setInput }) 
 
 function SearchResult({ result }) {
     return (
-      <ActiveLink className="text-[#222831] flex py-3 px-3 hover:text-main transition duration-300 truncate" href={`/blog/${result.link}`}>
-          {result.title} - <span className="text-main text-sm px-1 truncate">{`/blog/${result.link}`}</span>
+      <ActiveLink className="text-[#222831] flex py-3 px-3 hover:text-main transition duration-300" href={`/blog/${result.link}`}>
+          <span className="max-w-xs truncate">{result.title} </span><span className="text-main text-sm px-1 truncate max-w-xs">- {`/blog/${result.link}`}</span>
       </ActiveLink>
     );
 }
