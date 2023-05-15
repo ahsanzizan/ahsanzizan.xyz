@@ -69,7 +69,7 @@ function SearchBar ({ setResults, articles, setShowDropdown, input, setInput }) 
                 value={input}
                 onChange={(e) => handleChange(e.target.value)}
                 onKeyDown={enterBTN}
-                className="inline-block w-full py-2 pl-4 pr-10 2xl:text-xl rounded-full focus:outline-none border-2 border-secondary bg-secondary text-main"
+                className="inline-block w-full py-2 pl-4 pr-10 2xl:text-xl rounded-full focus:outline-none border-2 border-secondary text-main focus:border-main bg-secondary"
             />
         </div>
     );
@@ -78,7 +78,7 @@ function SearchBar ({ setResults, articles, setShowDropdown, input, setInput }) 
 function SearchResult({ result }) {
     return (
       <ActiveLink className="text-[#222831] flex py-3 px-3 hover:text-main transition duration-300 truncate" href={`/blog/${result.link}`}>
-          {result.title} - <span className="text-main text-sm px-1">{`/blog/${result.link}`}</span>
+          {result.title} - <span className="text-main text-sm px-1 truncate">{`/blog/${result.link}`}</span>
       </ActiveLink>
     );
 }
@@ -90,7 +90,7 @@ function SearchResultsList({ results, showDropdown, dropdown, input }) {
                 <div className="w-full bg-secondary flex flex-col rounded-[10px] mt-4 max-h-96 overflow-y-auto overflow-x-hidden relative z-[999]">
                     <div ref={dropdown}>
                         <h1 className="font-bold text-sm px-3 py-2 opacity-50">Results for keyword <span className="text-main">{`"${input}"`}</span></h1>
-                        <ul className="divide-y divide-[#222831]">
+                        <ul className="">
                             {results.map((result, id) => {
                                 return <SearchResult result={result} key={id} />
                             })}
