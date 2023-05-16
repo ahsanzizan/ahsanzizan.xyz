@@ -10,13 +10,13 @@ export default function HomePage({ data }) {
   const [popularBlogs, setPopularBlogs] = useState([]);
   useEffect(() => setPopularBlogs(data.sort((a, b) => b.publishDate - a.publishDate).slice(0, 10)), []);
   const [searchRes, setSearchRes] = useState([]);
-  
+
   return (
     <>
-      <Header title={"ahsanAazizan - Blog"} description={"Personal Blog"}/>
+      <Header title={"ahsanzizan - Blogs"} description={"Personal Blog"}/>
       <Navbar />
-      <div className="text-secondary px-5 lg:px-48 pt-12">
-        <h1 className="text-2xl md:text-3xl font-bold leading-relaxed mb-3"><span className="text-main hover:underline underline-offset-4"><a href="https://ahsanAazizan.github.io/">ahsanAazizan</a></span> - Blogs</h1>
+      <div className="text-secondary px-5 lg:px-48 pt-12" id="main__section">
+        <h1 className="text-2xl md:text-3xl font-bold leading-relaxed mb-3"><span className="text-main hover:underline underline-offset-4"><a href="https://ahsanzizan.github.io/">ahsanzizan</a></span> - Blogs</h1>
         <p className="text-base md:text-lg"><a className="text-main hover:underline font-semibold" href="https://instagram.com/ahsanzizan">@ahsanzizan</a> made this website because he wanted to share his thought on things to other people, and he thought a blog would fit perfectly.</p>
       </div>
       <Search articles={data} setResults={setSearchRes} results={searchRes} />

@@ -8,8 +8,8 @@ export default function Footer() {
             </div>
             <div className="flex justify-center gap-9 mb-10">
                 <a href="https://www.linkedin.com/in/ahsan-azizan-33908b250/" className="text-[1.5em]"><i className='bx bxl-linkedin'></i></a>
-                <a href="https://www.instagram.com/ahsanaazizan" className="text-[1.5em]"><i className='bx bxl-instagram'></i></a>
-                <a href="https://github.com/ahsanAazizan" className="text-[1.5em]"><i className='bx bxl-github' ></i></a>
+                <a href="https://www.instagram.com/ahsanzizan" className="text-[1.5em]"><i className='bx bxl-instagram'></i></a>
+                <a href="https://github.com/ahsanzizan" className="text-[1.5em]"><i className='bx bxl-github' ></i></a>
                 <a href="https://www.twitter.com/ahsanaz461" className="text-[1.5em]"><i className='bx bxl-twitter' ></i></a>
             </div>
             <h3 className="font-semibold text-sm">
