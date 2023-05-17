@@ -30,10 +30,11 @@ function SearchBar ({ setResults, articles, setShowDropdown, input, setInput }) 
         const results = articles.filter((article) => {
             const post = article.post.toLowerCase().split(" ");
             post.filter((c, index) => post.indexOf(c) === index);
-            post.forEach((el, id) => el = el.replace(/\W/g, ""));
-            post.splice(post.indexOf(""));
-            post.splice(post.indexOf(" "));
-            post.splice(post.indexOf("\n"));
+            String.prototype.cleanup = function() {
+                return this.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "");
+            }
+            post.forEach((el, id) => el = el.cleanup());
+
 
             let checkSubset = (parent, subset) => subset.every((el) => parent.includes(el));
 
