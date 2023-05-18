@@ -33,7 +33,10 @@ function SearchBar ({ setResults, articles, setShowDropdown, input, setInput }) 
             String.prototype.cleanup = function() {
                 return this.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "");
             }
-            post.forEach((el, id) => el = el.cleanup());
+            post.forEach((el, id) => {
+                 el = el.cleanup();
+                 el = el.trim();
+            });
 
 
             let checkSubset = (parent, subset) => subset.every((el) => parent.includes(el));
