@@ -19,7 +19,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                             <div className="space-y-5 md:col-span-3">
                                 <div className="space-y-6">
                                     <div>
-                                        <ActiveLink className="text-2xl font-bold leading-8 tracking-tight text-main hover:underline truncate" href={"/blog/" + link}>
+                                        <ActiveLink className="text-2xl font-bold leading-8 tracking-tight text-main hover:underline line-clamp-1" href={"/blog/" + link}>
                                             {title}
                                         </ActiveLink>
                                         <div className="flex flex-wrap my-2">
