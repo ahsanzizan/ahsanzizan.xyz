@@ -32,7 +32,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                     </div>
                                 </div>
                                 <div className="text-base font-medium leading-6">
-                                    <ActiveLink className="transition duration-300 text-main" href={"/blog/" + link}>
+                                    <ActiveLink className="transition duration-300 text-main hover:underline" href={"/blog/" + link}>
                                         Read more
                                     </ActiveLink>
                                 </div>
