@@ -14,13 +14,13 @@ export default function Navbar() {
                     <ActiveLink href="/tags" className="text-secondary hover:text-main text-lg font-semibold">
                         Tags
                     </ActiveLink>
-                    <ActiveLink href="/older" className="mx-3 text-secondary hover:text-main text-lg font-semibold">
+                    <ActiveLink href="/older" className="text-secondary hover:text-main text-lg font-semibold">
                         Older
                     </ActiveLink>
                 </div>
             </div>
             <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto px-4">
-                <nav className="flex flex-wrap py-1 justify-between">
+                <nav className="flex flex-wrap py-1 justify-between lg:px-48">
                     <div className="py-2 mr-5">
                         <ActiveLink className="text-main text-lg md:text-xl no-underline font-semibold" href="/">ahsanzizan</ActiveLink>
                     </div>
@@ -32,13 +32,13 @@ export default function Navbar() {
                     </div>
                     <div className="w-full hidden md:flex md:flex-row md:items-center md:w-auto">
                         <div className="text-sm md:flex-grow"></div>
-                        <ActiveLink href="/" className="mx-3 text-secondary hover:text-main text-lg font-semibold">
+                        <ActiveLink href="/" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
                             Home
                         </ActiveLink>
-                        <ActiveLink href="/tags" className="mx-3 text-secondary hover:text-main text-lg font-semibold">
+                        <ActiveLink href="/tags" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
                             Tags
                         </ActiveLink>
-                        <ActiveLink href="/older" className="mx-3 text-secondary hover:text-main text-lg font-semibold">
+                        <ActiveLink href="/older" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
                             Older
                         </ActiveLink>
                     </div>
