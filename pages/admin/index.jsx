@@ -15,7 +15,7 @@ export default function Admin({ data, adminName }) {
     async function deleteBlog(id) {
         const isYes = confirm("Are you sure to delete this post?");
         if (!isYes) return;
-        const deleteBlog = await fetch('/api/deleteBlog', {
+        const deleteBlog = await fetch('/api/delete-blog', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),
@@ -77,9 +77,9 @@ export default function Admin({ data, adminName }) {
                                                         {blog.clicks}
                                                     </td>
                                                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                        <a href={"/admin/edit/" + blog.link} className="mr-2 duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
+                                                        <ActiveLink href={"/admin/edit/" + blog.link} className="mr-2 duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
                                                             Edit
-                                                        </a>
+                                                        </ActiveLink>
                                                         <button onClick={() => deleteBlog(blog._id)} className="duration-300 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
                                                             Delete
                                                         </button>

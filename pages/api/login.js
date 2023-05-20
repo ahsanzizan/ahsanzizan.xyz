@@ -23,12 +23,12 @@ export default withSessionRoute(async function login(req, res) {
             const state = { loggedIn: true, ...checkAdmin };
             req.session.state = state;
             await req.session.save();
-            res.json({ status: 200, state });
+            return res.json({ status: 200, state });
         } else {
-            res.status(403).json({ status: 403, message: "The admin name or password is incorrect" });
+            return res.status(403).json({ status: 403, message: "The admin name or password is incorrect" });
         }
     } catch (error) {
-        res.status(500).json({ status: 500, message: "Internal server error" });
         console.log(error);
+        return res.status(500).json({ status: 500, message: "Internal server error" });
     }
 });

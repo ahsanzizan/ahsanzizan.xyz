@@ -23,7 +23,7 @@ export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue
     async function uploadContent(blob) {
         return new Promise(function (resolve, reject) {
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'api/cloudinaryUpload', true);
+            xhr.open('POST', 'api/cloudinary-upload', true);
             xhr.responseType = 'json';
             xhr.setRequestHeader("Content-Type", 'application/json');
             convertBlob(blob).then(base64 => xhr.send(JSON.stringify({ upload: base64 })));

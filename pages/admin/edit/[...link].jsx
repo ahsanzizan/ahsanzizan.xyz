@@ -35,7 +35,7 @@ export default class BlogEdit extends React.Component {
             tags: this.state.data.tags,
         };
 
-        const fetchData = await fetch('/api/upsertBlog', {
+        const fetchData = await fetch('/api/upsert-blog', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
@@ -155,7 +155,7 @@ export default class BlogEdit extends React.Component {
     }
 }
 
-export const getServerSideProps = withSessionSsr(async function getServerSideProps({ query, req }) {
+export const getServerSideProps = withSessionSsr(async ({ query, req }) => {
         if (!req.session?.state?.loggedIn) {
             return {
                 redirect: {
@@ -164,10 +164,10 @@ export const getServerSideProps = withSessionSsr(async function getServerSidePro
                 }
             }
         } else {
-            var { slug } = query;
-            slug = slug.join('/');
+            var { link } = query;
+            link = link.join('/');
             let getData;
-            if (slug == "new") {
+            if (link == "new") {
                 getData = {
                     title: "",
                     authorName: req.session?.state?.adminName,
@@ -177,7 +177,7 @@ export const getServerSideProps = withSessionSsr(async function getServerSidePro
                 }
             } else {
                 const connectDB = await clientProm;
-                getData = await connectDB.db('personal-blog').collection('blog-post').findOne({ link: slug });
+                getData = await connectDB.db('personal-blog').collection('blog-post').findOne({ link: link });
                 if (!getData) {
                     return {
                         redirect: {
