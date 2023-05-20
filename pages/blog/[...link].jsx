@@ -39,7 +39,7 @@ export default function RenderBlog({ data }) {
                 <div className="mb-12 mt-24 border-t border-secondary mx-auto block md:flex justify-between items-center py-3">
                     <div className="block">
                         <p className="text-xs md:text-base mb-2">Share</p>
-                        <a onClick={copyLink} className="w-full md:max-w-xs line-clamp-1 text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 rounded">{url}</a>
+                        <a onClick={copyLink} className="line-clamp-1 text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 rounded">{url}</a>
                     </div>
                     <div className="max-w-xs flex flex-wrap items-center gap-2 mt-7 md:mt-0">
                         {data.tags ? data.tags.map(tag => {
