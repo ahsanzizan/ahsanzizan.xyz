@@ -39,7 +39,7 @@ export default function RenderBlog({ data }) {
                 <div className="mb-12 mt-24 border-t border-secondary mx-auto block md:flex justify-between items-center py-3">
                 <div className="block">
                         <p className="text-xs md:text-base mb-2">Share</p>
-                        <input onClick={copyLink} placeholder="Blog's Link" className="max-w-[120px] md:max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
+                        <input onClick={copyLink} placeholder="Blog's Link" className="max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
                     </div>
                     <div className="max-w-xs flex flex-wrap items-center gap-2 mt-7 md:mt-0">
                         {data.tags ? data.tags.map(tag => {
