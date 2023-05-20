@@ -38,10 +38,10 @@ export default function RenderBlog({ data }) {
                 <WysiwygViewer ref={viewerRef} content={data.post} />
                 <div className="mb-12 mt-24 border-t border-secondary mx-auto block md:flex justify-between items-center py-3">
                     <div className="block">
-                        <p className="text-xs md:text-base mb-1">Share</p>
-                        <input onClick={copyLink} placeholder="Blog's Link" className="max-w-[120px] md:max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
+                        <p className="text-xs md:text-base mb-2">Share</p>
+                        <a onClick={copyLink} className="w-full md:max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded">{url}</a>
                     </div>
-                    <div className="max-w-xs flex flex-wrap items-center gap-2 mt-4 md:mt-0">
+                    <div className="max-w-xs flex flex-wrap items-center gap-2 mt-7 md:mt-0">
                         {data.tags ? data.tags.map(tag => {
                             return <ActiveLink className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
                         }) : null}
@@ -54,7 +54,7 @@ export default function RenderBlog({ data }) {
 }
 
 function copyLink(e) {
-    navigator.clipboard.writeText(e.target.value).then(() => alert("Copied Link Successfully"))
+    navigator.clipboard.writeText(e.target.innerHTML).then(() => alert("Copied Link Successfully"))
 }
 
 export async function getServerSideProps({ query }) {
