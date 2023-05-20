@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import ActiveLink from "@/components/ActiveLink";
 import { stringifyDate } from "@/lib/stringifyDate";
-import Script from "next/script";
 import dynamic from "next/dynamic";
 import clientProm from "@/lib/mongodb";
 import { useRouter } from "next/router";
@@ -37,14 +36,14 @@ export default function RenderBlog({ data }) {
                     </div>
                 </header>
                 <WysiwygViewer ref={viewerRef} content={data.post} />
-                <div className="mb-12 mt-24 border-t border-secondary mx-auto flex justify-between items-center py-3">
+                <div className="mb-12 mt-24 border-t border-secondary mx-auto block md:flex justify-between items-center py-3">
                     <div className="block">
                         <p className="text-xs md:text-base mb-1">Share</p>
                         <input onClick={copyLink} placeholder="Blog's Link" className="max-w-[120px] md:max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
                     </div>
-                    <div className="max-w-xs flex flex-wrap items-center">
+                    <div className="max-w-xs flex flex-wrap items-center gap-2 mt-4 md:mt-0">
                         {data.tags ? data.tags.map(tag => {
-                            return <ActiveLink className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
+                            return <ActiveLink className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
                         }) : null}
                     </div>
                 </div>

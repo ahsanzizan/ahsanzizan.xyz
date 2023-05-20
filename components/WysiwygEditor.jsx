@@ -12,23 +12,25 @@ import React from 'react';
 import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight-all.js';
 
 export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue }) {
-    const convertBlob = blob => {
+    const convertBlob = (blob) => {
         const reader = new FileReader();
         reader.readAsDataURL(blob);
         return new Promise(resolve => {
-            reader.onloadend= () => resolve(reader.result);
+            reader.onloadend = () => resolve(reader.result);
         });
     }
 
     async function uploadContent(blob) {
         return new Promise(function (resolve, reject) {
             const xhr = new XMLHttpRequest();
-            xhr.open('post', 'api/cloudinaryUpload', true);
+            xhr.open('POST', 'api/cloudinaryUpload', true);
             xhr.responseType = 'json';
-            xhr.setRequestHeader("Content-Type", 'application/json;charset=UTF-8');
+            xhr.setRequestHeader("Content-Type", 'application/json');
             convertBlob(blob).then(base64 => xhr.send(JSON.stringify({ upload: base64 })));
             xhr.addEventListener('load', () => {
                 const response = xhr.response;
+                console.log(response.error);
+                if (!response || response.error) return reject(genericErrorText);
                 resolve({
                     default: response.url
                 });
