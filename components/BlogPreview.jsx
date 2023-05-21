@@ -28,7 +28,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                             })}
                                         </div>
                                     </div>
-                                    <div className="text-ellipsis max-w-none text-gray-300" dangerouslySetInnerHTML={{ __html: normalizePreviewText(previewText) }}>
+                                    <div className="line-clamp-3 text-gray-300" dangerouslySetInnerHTML={{ __html: normalizePreviewText(previewText) }}>
                                     </div>
                                 </div>
                                 <div className="text-base font-medium leading-6">
