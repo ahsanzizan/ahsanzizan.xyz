@@ -8,7 +8,7 @@ import Search from "@/components/Search";
 
 export default function HomePage({ data }) {
   const [popularBlogs, setPopularBlogs] = useState([]);
-  useEffect(() => setPopularBlogs(data.sort((a, b) => b.publishDate - a.publishDate).slice(0, 10)), []);
+  useEffect(() => setPopularBlogs(data.sort((a, b) => b.publishDate - a.publishDate)), []);
   const [searchRes, setSearchRes] = useState([]);
 
   return (
