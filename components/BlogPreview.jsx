@@ -4,7 +4,7 @@ import { stringifyDate } from "@/lib/stringifyDate";
 
 export default function BlogPreview({ publishDate, tags, title, link, previewText, views }) {
   return (
-        <li className="my-10 border border-secondary border-opacity-30 rounded-2xl hover:border-opacity-100 hover:shadow-xl transition duration-300">
+        <li className="my-10 border border-secondary border-opacity-30 rounded-2xl hover:border-opacity-100 hover:bg-[#31363c] transition duration-300">
             <article className="w-full py-5 px-5">
                         <div className="space-y-2 md:grid md:grid-cols-4 md:items-baseline md:space-y-0 gap-20">
                             <div className="mb-5 border-r h-full">
