@@ -14,12 +14,15 @@ export default function Navbar() {
                     <ActiveLink href="/tags" className="text-secondary hover:text-main text-lg font-semibold">
                         Tags
                     </ActiveLink>
+                    <ActiveLink href="/months" className="text-secondary hover:text-main text-lg font-semibold">
+                        Months
+                    </ActiveLink>
                     <ActiveLink href="/older" className="text-secondary hover:text-main text-lg font-semibold">
                         Older
                     </ActiveLink>
                 </div>
             </div>
-            <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto px-4">
+            <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto">
                 <nav className="flex flex-wrap py-1 justify-between lg:px-48">
                     <div className="py-2 mr-5">
                         <ActiveLink className="text-main text-lg md:text-xl no-underline font-semibold" href="/">ahsanzizan</ActiveLink>
@@ -34,6 +37,9 @@ export default function Navbar() {
                         <div className="text-sm md:flex-grow"></div>
                         <ActiveLink href="/" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
                             Home
+                        </ActiveLink>
+                        <ActiveLink href="/months" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
+                           Months
                         </ActiveLink>
                         <ActiveLink href="/tags" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
                             Tags

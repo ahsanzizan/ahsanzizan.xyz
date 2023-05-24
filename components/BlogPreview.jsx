@@ -9,7 +9,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                         <div className="space-y-2 md:grid md:grid-cols-4 md:items-baseline md:space-y-0 gap-20">
                             <div className="mb-5 border-r h-full">
                                 <dl>
-                                    <dt className="text-secondary">Published at</dt>
+                                    <dt className="text-secondary hidden md:block">Published at</dt>
                                     <dd className="text-base font-medium leading-5 text-gray-400">
                                         <time>{stringifyDate(publishDate)}</time>
                                     </dd>
