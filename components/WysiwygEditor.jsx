@@ -13,11 +13,11 @@ import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight/d
 
 export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue }) {
     const convertBlob = blob => {
-        const fr = new FileReader();
-        fr.readAsDataURL(blob);
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
         return new Promise(resolve => {
-            fr.onloadend = () => {
-            resolve(fr.result);
+          reader.onloadend = () => {
+            resolve(reader.result);
           };
         });
     };
@@ -35,7 +35,7 @@ export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue
           xhr.addEventListener('load', () => {
             const response = xhr.response;
             if (!response || response.error) {
-              return reject(new Error("an error has ocurred"));
+              return reject(new Error("Error ocurred"));
             }
     
             resolve({
