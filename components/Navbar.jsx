@@ -17,9 +17,9 @@ export default function Navbar() {
                     <ActiveLink href="/months" className="text-secondary hover:text-main text-lg font-semibold">
                         Months
                     </ActiveLink>
-                    <ActiveLink href="/older" className="text-secondary hover:text-main text-lg font-semibold">
-                        Older
-                    </ActiveLink>
+                    <ActiveLink href="/admin" className="mt-10 max-w-[88px] border-2 px-3 rounded-full text-secondary hover:bg-main text-lg font-semibold">
+                            Admin
+                        </ActiveLink>
                 </div>
             </div>
             <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto px-3 py-1 md:px-0 md:py-0">
@@ -44,8 +44,8 @@ export default function Navbar() {
                         <ActiveLink href="/tags" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
                             Tags
                         </ActiveLink>
-                        <ActiveLink href="/older" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
-                            Older
+                        <ActiveLink href="/admin" className="ml-7 border-2 px-3 rounded-full text-secondary hover:bg-main text-lg font-semibold">
+                            Admin
                         </ActiveLink>
                     </div>
                 </nav>
