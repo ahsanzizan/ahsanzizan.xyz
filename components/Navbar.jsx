@@ -17,7 +17,7 @@ export default function Navbar() {
                     <ActiveLink href="/months" className="text-secondary hover:text-main text-lg font-semibold">
                         Months
                     </ActiveLink>
-                    <ActiveLink href="/admin" className="mt-10 max-w-[88px] border-2 px-3 rounded-full text-secondary hover:bg-main text-lg font-semibold">
+                    <ActiveLink href="/admin" className="mt-10 max-w-[88px] border-2 px-3 rounded text-secondary hover:bg-main text-lg font-semibold">
                             Admin
                         </ActiveLink>
                 </div>
@@ -44,7 +44,7 @@ export default function Navbar() {
                         <ActiveLink href="/tags" className="ml-3 text-secondary hover:text-main text-lg font-semibold">
                             Tags
                         </ActiveLink>
-                        <ActiveLink href="/admin" className="ml-7 border-2 px-3 rounded-full text-secondary hover:bg-main text-lg font-semibold">
+                        <ActiveLink href="/admin" className="ml-7 border-2 px-3 rounded text-secondary hover:bg-main text-lg font-semibold">
                             Admin
                         </ActiveLink>
                     </div>

@@ -51,7 +51,7 @@ export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue
         addImageBlobHook: (blob, callback) => {
           upload(blob)
             .then(response => {
-              callback(response.default, 'Media');
+              callback(response.default, "Media");
             }).catch(error => {
               console.log(error);
             });
