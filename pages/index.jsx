@@ -7,8 +7,8 @@ import Blogs from "@/components/Blogs";
 import Search from "@/components/Search";
 
 export default function HomePage({ data }) {
-  const [popularBlogs, setPopularBlogs] = useState([]);
-  useEffect(() => setPopularBlogs(data.sort((a, b) => b.publishDate - a.publishDate)), []);
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => setBlogs(data.sort((a, b) => b.publishDate - a.publishDate)), []);
   const [searchRes, setSearchRes] = useState([]);
 
   return (
@@ -21,7 +21,7 @@ export default function HomePage({ data }) {
       </div>
       <Search articles={data} setResults={setSearchRes} results={searchRes} />
       <div className="mt-20">
-        <Blogs data={popularBlogs} />
+        <Blogs data={blogs} />
       </div>
       <Footer />
     </>
