@@ -1,10 +1,19 @@
+import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
 import { stringifyDate } from "@/lib/stringifyDate";
 
 
 export default function BlogPreview({ publishDate, tags, title, link, previewText, views }) {
-  return (
-        <li className="my-10 border border-secondary border-opacity-30 rounded-2xl hover:border-opacity-100 hover:bg-[#31363c] transition duration-300">
+    const router = useRouter();
+    
+    function handleOnClick(e) {
+        e.preventDefault();
+        router.push('blog/' + link);
+    } 
+
+    return (
+        <li className="my-10 border border-secondary border-opacity-30 rounded-2xl hover:border-opacity-100 
+        hover:bg-[#31363c] transition duration-300 cursor-pointer" onClick={handleOnClick}>
             <article className="w-full py-5 px-5">
                         <div className="space-y-2 md:grid md:grid-cols-4 md:items-baseline md:space-y-0 gap-20">
                             <div className="mb-5 border-r h-full">
