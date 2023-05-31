@@ -85,11 +85,11 @@ export default class Home extends React.Component {
                             <a href="https://github.com/ahsanzizan/personal-blog" className="project__img">
                                 <Image src="/projects/personal-blog.png" alt="" width={120} height={300} unoptimized />
                             </a>
-                            <a href="https://github.com/ahsanzizan/shorty" className="project__img" >
-                                <Image src="/projects/discord-bot.png" alt="" width={120} height={300} unoptimized />
-                            </a>
-                            <a href="https://github.com/ahsanzizan/python-projects/tree/main/discord-bot" className="project__img" >
+                            <a href="https://github.com/ahsanzizan/next-shortener" className="project__img" >
                                 <Image src="/projects/url-shortener.png" alt="" width={120} height={300} unoptimized />
+                            </a>
+                            <a href="https://l.ahsanzizan.xyz/py-discord-bot" className="project__img" >
+                                <Image src="/projects/discord-bot.png" alt="" width={120} height={300} unoptimized />
                             </a>
                         </div>
                     </section>
