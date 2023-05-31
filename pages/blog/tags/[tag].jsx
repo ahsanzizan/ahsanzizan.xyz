@@ -6,13 +6,43 @@ import clientProm from "@/lib/mongodb";
 import { useRouter } from "next/router";
 
 export default function BlogsWithTag({ data }) {
+    const navContents = [
+        {
+            title: 'Home',
+            href: '/blog',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Tags',
+            href: '/blog/tags',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Months',
+            href: '/blog/months',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Admin',
+            href: '/blog/admin',
+            className: 'ml-7 border-2 px-3 rounded text-secondary hover:bg-main text-lg font-semibold',
+            mobileClassName: 'text-secondary text-lg hover:text-main font-semibold',
+            useAL: true,
+        }
+    ]
     const router = useRouter();
     const { tag } = router.query; 
 
     return (
         <>
             <Header title={`Results for tag ${tag}`} description={"Personal Blog"}/>
-            <Navbar />
+            <Navbar contents={navContents} />
             <h1 className="text-secondary font-semibold text-xl text-center pt-12 px-5">
               {data.length} {data.length > 1 ? "Results" : "Result"} for tag <span className="text-main">{tag}</span>
             </h1>

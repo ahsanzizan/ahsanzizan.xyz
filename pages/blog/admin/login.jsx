@@ -4,6 +4,36 @@ import { withSessionSsr } from "@/lib/session";
 import { useRouter } from "next/router";
 
 export default function Login() {
+    const navContents = [
+        {
+            title: 'Home',
+            href: '/blog',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Tags',
+            href: '/blog/tags',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Months',
+            href: '/blog/months',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Admin',
+            href: '/blog/admin',
+            className: 'ml-7 border-2 px-3 rounded text-secondary hover:bg-main text-lg font-semibold',
+            mobileClassName: 'text-secondary text-lg hover:text-main font-semibold',
+            useAL: true,
+        }
+    ]
     const router = useRouter();
 
     async function formHandler(e) {
@@ -18,7 +48,7 @@ export default function Login() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ adminName: e.target.adminName.value, password: e.target.password.value }),
             }).then(x => x.json());
-            if (fetchData.status == 200) return router.push('/admin');
+            if (fetchData.status == 200) return router.push('/blog/admin');
             else {
                 submitButton.disabled = false;
                 submitButton.classList.remove("cursor-progress");
@@ -36,7 +66,7 @@ export default function Login() {
     return (
         <>
             <Header title="Admin Login" />
-            <Navbar />
+            <Navbar contents={navContents} />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between text-white">
                     <div className="m-auto">
@@ -72,7 +102,7 @@ export const getServerSideProps = withSessionSsr(async function getServerSidePro
     if (req.session?.state?.loggedIn) {
         return {
             redirect: {
-                destination: '/admin',
+                destination: '/blog/admin',
                 permanent: false,
             }
         }

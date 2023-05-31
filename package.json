@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.9",
     "@toast-ui/editor": "^3.2.2",
@@ -22,13 +23,16 @@
     "iron-session": "^6.3.1",
     "lru-cache": "^9.1.1",
     "mongodb": "^5.3.0",
+    "net": "^1.0.2",
     "next": "^13.4.3",
     "nextjs-progressbar": "^0.0.16",
     "postcss": "8.4.23",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.9.0",
     "tailwindcss": "3.3.2",
+    "tls": "^0.0.1",
     "tui-color-picker": "^2.2.8",
     "tui-editor-plugin-font-size": "^1.0.4"
   }

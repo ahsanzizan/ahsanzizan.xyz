@@ -1,7 +1,6 @@
-import ActiveLink from "@/components/ActiveLink";
-import AdminNavbar from "@/components/AdminNavbar";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import clientProm from "@/lib/mongodb";
 import { withSessionSsr } from "@/lib/session";
 import { stringifyDate } from "@/lib/stringifyDate";
@@ -11,10 +10,26 @@ import { useRouter } from "next/router";
 
 export default function Admin({ data, adminName }) {
     const router = useRouter();
+    const navContents = [
+        {
+            title: 'Home',
+            href: '/blog/admin',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Logout',
+            href: '/api/logout',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+    ]
 
     async function deleteBlog(id) {
-        const isYes = confirm("Are you sure to delete this post?");
-        if (!isYes) return;
+        const confirmed = confirm("Are you sure to delete this post?");
+        if (!confirmed) return;
         const deleteBlog = await fetch('/api/delete-blog', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -30,7 +45,7 @@ export default function Admin({ data, adminName }) {
     return (
         <>
             <Header title="Admin Page" />
-            <AdminNavbar />
+            <Navbar contents={navContents} />
             <div className="mx-auto max-w-3xl px-2 xl:max-w-5xl">
                 <div className="flex h-screen flex-col justify-between">
                     <div className="flex flex-col">
@@ -40,7 +55,7 @@ export default function Admin({ data, adminName }) {
                                     Welcome back! Admin <span className="text-main">{adminName}</span>
                                 </h1>
                                 <div className="py-5">
-                                    <Link href="/admin/edit/new" className="duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded-t" type="button">
+                                    <Link href="/blog/admin/edit/new" className="duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded-t" type="button">
                                         New Post
                                     </Link>
                                     <table className="min-w-full bg-[#222831]">
@@ -77,9 +92,9 @@ export default function Admin({ data, adminName }) {
                                                         {blog.clicks}
                                                     </td>
                                                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                        <ActiveLink href={"/admin/edit/" + blog.link} className="mr-2 duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
+                                                        <Link href={"/blog/admin/edit/" + blog.link} className="mr-2 duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
                                                             Edit
-                                                        </ActiveLink>
+                                                        </Link>
                                                         <button onClick={() => deleteBlog(blog._id)} className="duration-300 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
                                                             Delete
                                                         </button>
@@ -104,7 +119,7 @@ export const getServerSideProps = withSessionSsr(
         if (!req.session?.state?.loggedIn) {
             return {
                 redirect: {
-                    destination: '/admin/login',
+                    destination: '/blog/admin/login',
                     permanent: false,
                 }
             }

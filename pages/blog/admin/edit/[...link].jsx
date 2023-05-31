@@ -1,5 +1,5 @@
-import AdminNavbar from "@/components/AdminNavbar";
 import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import clientProm from "@/lib/mongodb";
 import { withSessionSsr } from "@/lib/session";
 import dynamic from "next/dynamic";
@@ -23,6 +23,22 @@ export default class BlogEdit extends React.Component {
         this.removeTag = this.removeTag.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.editorRef = createRef();
+        this.navContents = [
+            {
+                title: 'Home',
+                href: '/blog/admin',
+                className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+                mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+                useAL: true,
+            },
+            {
+                title: 'Logout',
+                href: '/api/logout',
+                className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+                mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+                useAL: true,
+            },
+        ]
     }
 
     async saveChanges(e) {
@@ -42,7 +58,7 @@ export default class BlogEdit extends React.Component {
         }).then(x => x.json());
 
         if (fetchData.status == 200) {
-            window.location.href = `/admin/`;
+            window.location.href = `/blog/admin/`;
             alert("Saved successfully");
         } else {
             alert(`Failed to save change\n\nerror:\n${fetchData.error}`);
@@ -96,7 +112,7 @@ export default class BlogEdit extends React.Component {
         return (
             <>
                 <Header title="Edit Content" />
-                <AdminNavbar />
+                <Navbar contents={this.navContents} />
                 <div className="mx-auto max-w-4xl px-2 xl:max-w-5xl py-5">
                     <div className="flex h-screen flex-col justify-between">
                         <form action="#" onSubmit={this.saveChanges} >
@@ -159,7 +175,7 @@ export const getServerSideProps = withSessionSsr(async ({ query, req }) => {
         if (!req.session?.state?.loggedIn) {
             return {
                 redirect: {
-                    destination: '/admin/login',
+                    destination: '/blog/admin/login',
                     permanent: false,
                 }
             }

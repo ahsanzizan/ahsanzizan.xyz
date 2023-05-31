@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import ActiveLink from "./ActiveLink";
 
 export default function Search({ setResults, results, articles }) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -20,7 +20,7 @@ export default function Search({ setResults, results, articles }) {
   }, [showDropdown]);
 
   return (
-    <div className="absolute w-full pt-20 px-5 lg:px-48">
+    <div className="absolute w-full pt-20 px-5 lg:px-32">
       <SearchBar
         setResults={setResults}
         articles={articles}
@@ -96,7 +96,7 @@ function SearchBar({ setResults, articles, setShowDropdown, input, setInput }) {
 
 function SearchResult({ result }) {
   return (
-    <ActiveLink
+    <Link
       className="text-[#222831] flex py-3 px-3 hover:text-main transition duration-300"
       href={`/blog/${result.link}`}
     >
@@ -104,7 +104,7 @@ function SearchResult({ result }) {
       <span className="text-main text-sm px-1 truncate max-w-xs">
         - {`/blog/${result.link}`}
       </span>
-    </ActiveLink>
+    </Link>
   );
 }
 

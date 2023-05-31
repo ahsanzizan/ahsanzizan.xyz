@@ -1,15 +1,45 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
-import ActiveLink from "@/components/ActiveLink";
 import { stringifyDate } from "@/lib/stringifyDate";
 import dynamic from "next/dynamic";
 import clientProm from "@/lib/mongodb";
 import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Link from "next/link";
 const WysiwygViewer = dynamic(() => import('@/components/WysiwygViewer'), { ssr: false });
 
 export default function RenderBlog({ data }) {
+    const navContents = [
+        {
+            title: 'Home',
+            href: '/blog',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Tags',
+            href: '/blog/tags',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Months',
+            href: '/blog/months',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Admin',
+            href: '/blog/admin',
+            className: 'ml-7 border-2 px-3 rounded text-secondary hover:bg-main text-lg font-semibold',
+            mobileClassName: 'text-secondary text-lg hover:text-main font-semibold',
+            useAL: true,
+        }
+    ]
     const viewerRef = React.createRef();
     const { asPath } = useRouter();
     const origin =
@@ -24,7 +54,7 @@ export default function RenderBlog({ data }) {
         <>
             <Header title={'ahsanzizan - ' + data.title} />
             
-            <Navbar />
+            <Navbar contents={navContents} />
             <div className="max-w-5xl mx-auto pt-10 text-secondary px-10">
                 <header className="pb-8">
                     <div className="border-b-2 border-gray-400">
@@ -43,7 +73,7 @@ export default function RenderBlog({ data }) {
                     </div>
                     <div className="max-w-xs flex flex-wrap items-center gap-2 mt-7 md:mt-0">
                         {data.tags ? data.tags.map(tag => {
-                            return <ActiveLink className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
+                            return <Link className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</Link>
                         }) : null}
                     </div>
                 </div>

@@ -7,6 +7,37 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function Page({ data }) {
+    const navContents = [
+        {
+            title: 'Home',
+            href: '/blog',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Tags',
+            href: '/blog/tags',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Months',
+            href: '/blog/months',
+            className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+            mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
+            useAL: true,
+        },
+        {
+            title: 'Admin',
+            href: '/blog/admin',
+            className: 'ml-7 border-2 px-3 rounded text-secondary hover:bg-main text-lg font-semibold',
+            mobileClassName: 'text-secondary text-lg hover:text-main font-semibold',
+            useAL: true,
+        }
+    ]
+
     const router = useRouter();
     const [month, setMonth] = useState("");
     const [blogs, setBlogs] = useState([]);
@@ -21,7 +52,7 @@ export default function Page({ data }) {
     return (
         <>
             <Header title={"ahsanzizan - Blogs"} description={"Personal Blog"}/>
-            <Navbar />
+            <Navbar contents={navContents} />
             <h1 className="text-secondary text-3xl text-center pt-12">
                 {month}
             </h1>

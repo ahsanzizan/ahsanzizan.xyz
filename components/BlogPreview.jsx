@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import ActiveLink from "./ActiveLink";
 import { stringifyDate } from "@/lib/stringifyDate";
+import Link from "next/link";
 
 
 export default function BlogPreview({ publishDate, tags, title, link, previewText, views }) {
@@ -8,7 +8,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
     
     function handleOnClick(e) {
         e.preventDefault();
-        router.push('blog/' + link);
+        router.push('/blog/' + link);
     } 
 
     return (
@@ -28,12 +28,12 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                             <div className="space-y-5 md:col-span-3">
                                 <div className="space-y-6">
                                     <div>
-                                        <ActiveLink className="text-2xl font-bold leading-8 tracking-tight text-main hover:underline line-clamp-1" href={"/blog/" + link}>
+                                        <Link className="text-2xl font-bold leading-8 tracking-tight text-main hover:underline line-clamp-1" href={"/blog/" + link}>
                                             {title}
-                                        </ActiveLink>
+                                        </Link>
                                         <div className="flex flex-wrap my-2 gap-3">
                                             {tags.map(tag => {
-                                                return <ActiveLink className="rounded-full border-2 border-white px-2 text-secondary font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/tags/" + tag}>{tag}</ActiveLink>
+                                                return <Link className="rounded-full border-2 border-white px-2 text-secondary font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/tags/" + tag}>{tag}</Link>
                                             })}
                                         </div>
                                     </div>
@@ -41,9 +41,9 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                     </div>
                                 </div>
                                 <div className="text-base font-medium leading-6">
-                                    <ActiveLink className="transition duration-300 text-main hover:underline" href={"/blog/" + link}>
+                                    <Link className="transition duration-300 text-main hover:underline" href={"/blog/" + link}>
                                         Read more
-                                    </ActiveLink>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
