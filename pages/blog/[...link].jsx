@@ -67,9 +67,13 @@ export default function RenderBlog({ data }) {
                 </header>
                 <WysiwygViewer ref={viewerRef} content={data.post} />
                 <div className="mb-12 mt-24 border-t border-secondary mx-auto block md:flex justify-between items-center py-3">
-                <div className="block">
+                    <div className="block">
                         <p className="text-xs md:text-base mb-2">Share</p>
                         <input onClick={copyLink} placeholder="Blog's Link" className="max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
+                        <div className="flex gap-2">
+                            <a className="mt-2 px-3 py-2 bg-main rounded-full" href={`https://api.whatsapp.com/send?text=${url}`}><i class="fa-brands fa-whatsapp"></i></a>
+                            <a class="mt-2 px-3 py-2 bg-main rounded-full" href={`https://twitter.com/intent/tweet?text=${url}`}><i class="fa-brands fa-twitter"></i></a>
+                        </div>
                     </div>
                     <div className="max-w-xs flex flex-wrap items-center gap-2 mt-7 md:mt-0">
                         {data.tags ? data.tags.map(tag => {
@@ -84,7 +88,7 @@ export default function RenderBlog({ data }) {
 }
 
 function copyLink(e) {
-    navigator.clipboard.writeText(e.target.value).then(() => alert("Copied Link Successfully"))
+    navigator.clipboard.writeText(e.target.value).then(() => alert("Copied Link Successfully"));
 }
 
 export async function getServerSideProps({ query }) {
