@@ -5,15 +5,15 @@ import Link from "next/link";
 
 export default function BlogPreview({ publishDate, tags, title, link, previewText, views }) {
     const router = useRouter();
-    
-    function handleOnClick(e) {
-        e.preventDefault();
-        router.push('/blog/' + link);
-    } 
 
     return (
         <li className="my-10 border border-secondary border-opacity-30 rounded-2xl hover:border-opacity-100 
-        hover:bg-[#31363c] transition duration-300 cursor-pointer" onClick={handleOnClick}>
+        hover:bg-[#31363c] transition duration-300 cursor-pointer" onClick={(e) => {
+            e.preventDefault();
+            if (e.target.id !== 'tag') {
+                router.push(`/blog/${link}`);
+            }
+        }}>
             <article className="w-full py-5 px-5">
                         <div className="space-y-2 md:grid md:grid-cols-4 md:items-baseline md:space-y-0 gap-20">
                             <div className="mb-5 border-r h-full">
@@ -33,7 +33,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                         </Link>
                                         <div className="flex flex-wrap my-2 gap-3">
                                             {tags.map(tag => {
-                                                return <Link className="rounded-full border-2 border-white px-2 text-secondary font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/tags/" + tag}>{tag}</Link>
+                                                return <Link id="tag" className="rounded-full border-2 border-white px-2 text-secondary font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" key={tag} href={"/blog/tags/" + tag}>{tag}</Link>
                                             })}
                                         </div>
                                     </div>
