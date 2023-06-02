@@ -6,6 +6,7 @@ import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import Projects from "@/components/Projects";
 
 export default class Home extends React.Component {
 
@@ -79,21 +80,7 @@ export default class Home extends React.Component {
                         </div>
                     </section>
                 
-                    <section className="section" id="projects">
-                        <h2 className="section-title">Projects</h2>
-
-                        <div className="project__container bd-grid">
-                            <a href="https://github.com/ahsanzizan/personal-blog" className="project__img">
-                                <Image src="/projects/personal-blog.png" alt="" width={120} height={300} unoptimized />
-                            </a>
-                            <a href="https://github.com/ahsanzizan/next-shortener" className="project__img" >
-                                <Image src="/projects/url-shortener.png" alt="" width={120} height={300} unoptimized />
-                            </a>
-                            <a href="https://l.ahsanzizan.xyz/py-discord-bot" className="project__img" >
-                                <Image src="/projects/discord-bot.png" alt="" width={120} height={300} unoptimized />
-                            </a>
-                        </div>
-                    </section>
+                    <Projects />
 
                     <ContactForm />
                 </main>
