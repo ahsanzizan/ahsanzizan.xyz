@@ -114,7 +114,7 @@ function SearchResultsList({ results, showDropdown, dropdown, input }) {
       {showDropdown && (
         <div className="w-full bg-secondary flex flex-col rounded-[10px] mt-4 max-h-96 overflow-y-auto overflow-x-hidden relative z-[999]">
           <div ref={dropdown}>
-            <h1 className="font-bold text-sm px-3 py-2 opacity-50">
+            <h1 className="font-bold text-sm px-3 py-2 opacity-50 text-black">
               Results for keyword <span className="text-main">{`"${input}"`}</span>
             </h1>
             <ul className="">
