@@ -28,13 +28,6 @@ export default function BlogsWithTag({ data }) {
             mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
             useAL: true,
         },
-        {
-            title: 'Admin',
-            href: '/blog/admin',
-            className: 'ml-7 border-2 px-3 rounded text-secondary hover:bg-main text-lg font-semibold',
-            mobileClassName: 'text-secondary text-lg hover:text-main font-semibold',
-            useAL: true,
-        }
     ]
     const router = useRouter();
     const { tag } = router.query; 
