@@ -76,7 +76,7 @@ export default function RenderBlog({ data }) {
                     </div>
                     <div className="max-w-xs flex flex-wrap items-center gap-2 mt-7 md:mt-0">
                         {data.tags ? data.tags.map(tag => {
-                            return <Link className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/tags/" + tag}>{tag}</Link>
+                            return <Link className="rounded-full border-2 border-white px-2 md:px-3 py-1 text-secondary text-xs md:text-base font-semibold uppercase duration-300 hover:text-cyan-600 hover:bg-secondary mb-2" key={tag} href={"/blog/tags/" + tag}>{tag}</Link>
                         }) : null}
                     </div>
                 </div>
