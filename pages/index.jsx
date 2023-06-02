@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
+import { NextSeo, SocialProfileJsonLd } from "next-seo";
 
 export default class Home extends React.Component {
 
@@ -50,7 +51,21 @@ export default class Home extends React.Component {
     render() {
         return (
             <>
-                <Header title={"ahsanzizan"} description={"Personal Blog"} />
+                <Header title={"ahsanzizan"} description={"Ahsan's Personal Website"} />
+                <NextSeo robotsProps={{
+                    nosnippet: true,
+                    notranslate: true,
+                    noimageindex: true,
+                    noarchive: true,
+                    maxSnippet: -1,
+                    maxImagePreview: 'none',
+                    maxVideoPreview: -1,
+                }} canonical="https://ahsanzizan.xyz/" defaultTitle="ahsanzizan" twitter={{handle: "@ahsanaz461"}}  />
+                <SocialProfileJsonLd type="Person" name="Ahsan Awadullah Azizan" url="https://www.ahsanzizan.xyz/" sameAs={[
+                    "https://instagram.com/ahsanzizan",
+                    "https://www.linkedin.com/in/ahsan-azizan-33908b250/",
+                    "https://github.com/ahsanzizan",
+                    "https://www.twitter.com/ahsanaz461"]} />
                 <Navbar contents={this.navContents} />
 
                 <main className="l-main">

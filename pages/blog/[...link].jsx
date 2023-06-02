@@ -7,7 +7,12 @@ import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Link from "next/link";
+import { ArticleJsonLd } from "next-seo";
 const WysiwygViewer = dynamic(() => import('@/components/WysiwygViewer'), { ssr: false });
+
+function copyLink(e) {
+    navigator.clipboard.writeText(e.target.value).then(() => alert("Copied Link Successfully"));
+}
 
 export default function RenderBlog({ data }) {
     const navContents = [
@@ -46,6 +51,7 @@ export default function RenderBlog({ data }) {
     return (
         <>
             <Header title={'ahsanzizan - ' + data.title} />
+            <ArticleJsonLd url={url} authorName={data.authorName} datePublished={new Date(data.publishDate).toISOString()} publisherName="Ahsan" description="Ahsan's Blog" />
             
             <Navbar contents={navContents} />
             <div className="max-w-5xl mx-auto pt-10 text-secondary px-10">
@@ -78,10 +84,6 @@ export default function RenderBlog({ data }) {
             <Footer />
         </>
     )
-}
-
-function copyLink(e) {
-    navigator.clipboard.writeText(e.target.value).then(() => alert("Copied Link Successfully"));
 }
 
 export async function getServerSideProps({ query }) {
