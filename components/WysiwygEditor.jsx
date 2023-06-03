@@ -4,7 +4,7 @@ import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
 import "tui-editor-plugin-font-size/dist/tui-editor-plugin-font-size.css";
-import 'prismjs/themes/prism.css';
+import 'prismjs/themes/prism-okaidia.css';
 import { Editor } from '@toast-ui/react-editor';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import fontSize from "tui-editor-plugin-font-size";
