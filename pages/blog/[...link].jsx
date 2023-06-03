@@ -61,7 +61,7 @@ export default function RenderBlog({ data }) {
                     </div>
                     <div className="pb-4 pt-4 flex justify-between text-xs md:text-base">
                         <span className="text-gray-500"><span className="text-secondary">{stringifyDate(data.publishDate)}</span> by <span className="text-main">{data.authorName}</span></span>
-                        <p className="text-gray-500"><i class="fa-sharp fa-regular fa-eye"></i><span className="text-secondary"> {data.clicks}</span></p>
+                        <p className="text-gray-500"><i className="fa-sharp fa-regular fa-eye"></i><span className="text-secondary"> {data.clicks}</span></p>
                     </div>
                 </header>
                 <WysiwygViewer ref={viewerRef} content={data.post} />
@@ -71,7 +71,7 @@ export default function RenderBlog({ data }) {
                         <input onClick={copyLink} placeholder="Blog's Link" className="max-w-xs overflow-hidden text-gray-800 px-2 py-1 text-xs md:text-base cursor-pointer bg-white border-2 border-gray-200 text-center rounded" value={url} readOnly />
                         <div className="flex gap-2">
                             <a className="mt-2 px-3 py-2 bg-main rounded-full" href={`https://api.whatsapp.com/send?text=${url}`}><i className="fa-brands fa-whatsapp"></i></a>
-                            <a class="mt-2 px-3 py-2 bg-main rounded-full" href={`https://twitter.com/intent/tweet?text=${url}`}><i className="fa-brands fa-twitter"></i></a>
+                            <a className="mt-2 px-3 py-2 bg-main rounded-full" href={`https://twitter.com/intent/tweet?text=${url}`}><i className="fa-brands fa-twitter"></i></a>
                         </div>
                     </div>
                     <div className="max-w-xs flex flex-wrap items-center gap-2 mt-7 md:mt-0">
