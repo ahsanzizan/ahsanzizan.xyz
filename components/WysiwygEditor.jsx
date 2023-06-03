@@ -56,5 +56,5 @@ export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue
               console.log(error);
             });
         },
-    }} plugins={[colorSyntax, codeSyntaxHighlight, fontSize]} theme="dark" />
+    }} plugins={[colorSyntax, codeSyntaxHighlight, fontSize]} theme='dark' />
 });
