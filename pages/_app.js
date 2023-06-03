@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import Script from 'next/script';
+import '@/styles/prism-dark.css';
 import NextNProgress from "nextjs-progressbar";
 
 export default function App({ Component, pageProps }) {

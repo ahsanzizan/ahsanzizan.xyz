@@ -33,6 +33,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
+    "react-markdown": "^8.0.7",
+    "react-syntax-highlighter": "^15.5.0",
     "tailwindcss": "3.3.2",
     "tls": "^0.0.1",
     "tui-color-picker": "^2.2.8",
