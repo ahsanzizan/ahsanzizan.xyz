@@ -363,27 +363,23 @@ img {
 .about__container {
   row-gap: 2rem;
   text-align: center;
-  margin-bottom: 10rem;
 }
 
 .about__subtitle {
   margin-bottom: var(--mb-2);
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .about__img {
-  justify-self: center;
   border-radius: 999px;
   overflow: hidden;
+  margin-bottom: var(--mb-5);
 }
 
 .about__img img {
   width: 200px;
-  transition: scale 1s;
   background-color: var(--second-color);
-}
-
-.about__img img:hover {
-  scale: 120%;
 }
 
 .school__container {
@@ -411,7 +407,6 @@ img {
 /*  Projects */
 .project__container {
   row-gap: 2rem;
-  margin-bottom: 10rem;
 }
 
 .project__img {

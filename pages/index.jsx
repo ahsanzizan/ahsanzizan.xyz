@@ -3,11 +3,11 @@ import Navbar from "@/components/Navbar";
 import TypingAnim from "@/lib/typing-anim";
 import React from "react";
 import ContactForm from "@/components/ContactForm";
-import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
 import { NextSeo, SocialProfileJsonLd } from "next-seo";
+import About from "@/components/About";
 
 export default class Home extends React.Component {
 
@@ -69,7 +69,7 @@ export default class Home extends React.Component {
                 <Navbar contents={this.navContents} />
 
                 <main className="l-main">
-                    <section className="home bd-grid text-secondary" id="home">
+                    <section className="mb-24 home bd-grid text-secondary" id="home">
                         <div className="home__data">
                             <h1 className="home__title">Hey There! <br />{"I'm"} <span className="home__title-color">Ahsan Azizan</span>, <br />a <span className="typewrite" id="animate"></span></h1>
                             <Link href="/blog" className="btn">Visit Blog <i className="fa-solid fa-arrow-up-right-from-square icon"></i></Link>
@@ -94,9 +94,9 @@ export default class Home extends React.Component {
                             </svg>
                         </div>
                     </section>
-                
-                    <Projects />
 
+                    <About />
+                    <Projects />
                     <ContactForm />
                 </main>
                 
