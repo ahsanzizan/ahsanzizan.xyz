@@ -75,7 +75,7 @@ export default class Home extends React.Component {
                 <Navbar contents={this.navContents} />
 
                 <main className="l-main">
-                    <section className="mb-24 home bd-grid text-secondary" id="home">
+                    <section className="mb-32 home bd-grid text-secondary" id="home">
                         <div className="home__data">
                             <h1 className="home__title">Hey There! <br />{"I'm"} <span className="home__title-color">Ahsan Azizan</span>, <br />a <span className="typewrite" id="animate"></span></h1>
                             <Link href="/blog" className="btn">Visit Blog <i className="fa-solid fa-arrow-up-right-from-square icon"></i></Link>

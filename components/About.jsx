@@ -2,9 +2,8 @@ import Image from "next/image";
 
 export default function About() {
     return (
-        <section className="about " id="about">
+        <section className="about" id="about">
                 <h2 className="section-title">About</h2>
-
                 <div className="flex flex-col md:flex-row text-center justify-center items-center gap-10">
                     <div className="rounded-full overflow-hidden w-[200px] h-[200px] md:w-[250px] md:h-[250px]">
                         <Image src="/about.png" alt="" width={300} height={300} unoptimized />
