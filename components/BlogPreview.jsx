@@ -11,7 +11,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
         hover:bg-[#31363c] transition duration-300 cursor-pointer" onClick={(e) => {
             e.preventDefault();
             if (e.target.id !== 'tag') {
-                router.push(`/blog/${link}`);
+                router.push(`/blog/view/${link}`);
             }
         }}>
             <article className="w-full py-5 px-5">

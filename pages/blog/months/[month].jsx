@@ -23,7 +23,7 @@ export default function Page({ data }) {
             useAL: true,
         },
         {
-            title: 'Months',
+            title: 'Monthly',
             href: '/blog/months',
             className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
             mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
@@ -34,13 +34,15 @@ export default function Page({ data }) {
     const router = useRouter();
     const [month, setMonth] = useState("");
     const [blogs, setBlogs] = useState([]);
+    useEffect(() => setBlogs(data.sort((a, b) => b.publishDate - a.publishDate)), []);
     useEffect(() => {
         const months = ['january', 'february', 'march', 'april', 'may', 'june',
      'july', 'august', 'september', 'october', 'november', 'december'];
-        const newMonth = months.includes(router.query.month) ? router.query.month.charAt(0).toUpperCase() + router.query.month.slice(1) + " Blogs" : "Invalid Query";
+        const fixedMonth = router.query.month.charAt(0).toUpperCase() + router.query.month.slice(1);
+        var newMonth = months.includes(router.query.month) ? 
+        (blogs.length != 0 ? fixedMonth + " Blogs" : "No blog posted on " + fixedMonth) : "Invalid Query";;
         setMonth(newMonth);
-    }, []);
-    useEffect(() => setBlogs(data.sort((a, b) => b.publishDate - a.publishDate)), []);
+    }, [blogs.length]);
 
     return (
         <>

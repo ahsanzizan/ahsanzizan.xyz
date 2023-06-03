@@ -24,7 +24,7 @@ export default function HomePage({ data }) {
         useAL: true,
     },
     {
-        title: 'Months',
+        title: 'Monthly',
         href: '/blog/months',
         className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
         mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',

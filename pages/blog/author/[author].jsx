@@ -4,8 +4,9 @@ import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import clientProm from "@/lib/mongodb";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-export default function BlogsWithTag({ data }) {
+export default function Page({ data }) {
     const navContents = [
         {
             title: 'Home',
@@ -29,30 +30,43 @@ export default function BlogsWithTag({ data }) {
             useAL: true,
         },
     ]
+
     const router = useRouter();
-    const { tag } = router.query; 
+    const [author, setAuthor] = useState("");
+    const [blogs, setBlogs] = useState([]);
+    useEffect(() => setBlogs(data.sort((a, b) => b.publishDate - a.publishDate)), []);
+    useEffect(() => setAuthor(router.query.author), []);
+
+    function checkAuthor() {
+        if (blogs.length !== 0) {
+            return <>{blogs.length} {blogs.length > 1 ? "blogs" : "blog"} by <span className="text-main">{author}</span></>
+        } else {
+            return <>Author named {author} {"doesn't"} exist</>
+        }
+    }
 
     return (
         <>
-            <Header title={`Results for tag ${tag}`} description={"Personal Blog"}/>
+            <Header title={"ahsanzizan - Blogs"} description={"Personal Blog"}/>
             <Navbar contents={navContents} />
-            <h1 className="text-secondary font-semibold text-xl text-center pt-12 px-5">
-              {data.length === 0 ? `No result for tag ` : `${data.length} ${data.length > 1 ? "Results" : "Result"} for tag `} <span className="text-main">{tag}</span>
+            <h1 className="text-secondary text-3xl text-center pt-12">
+                {checkAuthor()}
             </h1>
-            <Blogs data={data} />
+            <Blogs data={blogs} />
             <Footer />
         </>
     )
 }
 
 export async function getServerSideProps({ query }) {
-    const { tag } = query;
+    var { author } = query;
     const connectDB = await clientProm;
-    const getBlogWithTag = await connectDB.db('personal-blog').collection('blog-post').find({ tags: tag }).toArray();
-    const data = JSON.parse(JSON.stringify(getBlogWithTag.sort((a, b) => b.publishDate - a.publishDate).filter(blog => !blog.link.includes('private'))));
+    const getBlogs = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
+    const sorted = getBlogs.filter(blog => author === blog.authorName);
+
     return {
         props: {
-            data: data,
+            data: JSON.parse(JSON.stringify(sorted.sort(blog => !blog.link.includes('private')))),
         }
     }
 }

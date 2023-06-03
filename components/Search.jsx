@@ -98,11 +98,11 @@ function SearchResult({ result }) {
   return (
     <Link
       className="text-[#222831] flex py-3 px-3 hover:text-main transition duration-300"
-      href={`/blog/${result.link}`}
+      href={`/blog/view/${result.link}`}
     >
       <span className="max-w-xs truncate">{result.title} </span>
       <span className="text-main text-sm px-1 truncate max-w-xs">
-        - {`/blog/${result.link}`}
+        - {`/blog/view/${result.link}`}
       </span>
     </Link>
   );
