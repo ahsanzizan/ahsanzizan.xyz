@@ -38,7 +38,7 @@
   border-radius: 10px;
 }
 
-p, code {
+.toastui-editor-contents p, .toastui-editor-contents code {
   font-size: 16px;
 }
 
