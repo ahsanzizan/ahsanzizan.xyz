@@ -6,6 +6,7 @@
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
 @layer base {
   body {
     font-family: 'Poppins';
@@ -35,6 +36,10 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-main;
   border-radius: 10px;
+}
+
+p, code {
+  font-size: 16px;
 }
 
 .sidenav {
