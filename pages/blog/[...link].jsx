@@ -61,7 +61,7 @@ export default function RenderBlog({ data }) {
                     </div>
                     <div className="pb-4 pt-4 flex justify-between text-xs md:text-base">
                         <span className="text-gray-500"><span className="text-secondary">{stringifyDate(data.publishDate)}</span> by <span className="text-main">{data.authorName}</span></span>
-                        <p className="text-gray-500"><i class="fa-sharp fa-regular fa-eye"></i><span className="text-secondary">{data.clicks}</span></p>
+                        <p className="text-gray-500"><i class="fa-sharp fa-regular fa-eye"></i><span className="text-secondary"> {data.clicks}</span></p>
                     </div>
                 </header>
                 <WysiwygViewer ref={viewerRef} content={data.post} />

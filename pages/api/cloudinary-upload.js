@@ -10,7 +10,7 @@ export default withSessionRoute(async function upload(req, res) {
         api_secret: process.env.CLOUDINARY_APISECRET,
     });
     
-    var name = `${Date.now() + '-' + Math.floor(Math.random() * 1000)}`;
+    var name = Date.now() + '-' + Math.floor(Math.random() * 1000);
     await cloudinary.uploader.upload(req.body.upload, {
         public_id: `blog/${name}`
     }, (error, result) => {
