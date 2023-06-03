@@ -92,7 +92,7 @@ export default function Admin({ data, adminName }) {
                                                         {blog.clicks}
                                                     </td>
                                                     <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                        <Link href={"/blog/" + blog.link} className="mr-2 duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
+                                                        <Link href={"/blog/view/" + blog.link} className="mr-2 duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
                                                             View
                                                         </Link>
                                                         <Link href={"/blog/admin/edit/" + blog.link} className="mr-2 duration-300 bg-main hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">

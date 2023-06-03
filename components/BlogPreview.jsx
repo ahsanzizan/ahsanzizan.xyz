@@ -28,7 +28,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                             <div className="space-y-5 md:col-span-3">
                                 <div className="space-y-6">
                                     <div>
-                                        <Link className="text-2xl font-bold leading-8 tracking-tight text-main hover:underline line-clamp-1" href={"/blog/" + link}>
+                                        <Link className="text-2xl font-bold leading-8 tracking-tight text-main hover:underline line-clamp-1" href={"/blog/view/" + link}>
                                             {title}
                                         </Link>
                                         <div className="flex flex-wrap my-2 gap-3">
@@ -41,7 +41,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                     </div>
                                 </div>
                                 <div className="text-base font-medium leading-6">
-                                    <Link className="transition duration-300 text-main hover:underline" href={"/blog/" + link}>
+                                    <Link className="transition duration-300 text-main hover:underline" href={"/blog/view/" + link}>
                                         Read more
                                     </Link>
                                 </div>
