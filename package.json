@@ -36,6 +36,7 @@
     "tailwindcss": "3.3.2",
     "tls": "^0.0.1",
     "tui-color-picker": "^2.2.8",
-    "tui-editor-plugin-font-size": "^1.0.4"
+    "tui-editor-plugin-font-size": "^1.0.4",
+    "tui-font-size-picker": "^1.0.1"
   }
 }

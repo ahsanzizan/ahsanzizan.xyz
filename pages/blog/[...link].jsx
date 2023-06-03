@@ -54,7 +54,7 @@ export default function RenderBlog({ data }) {
             <ArticleJsonLd url={url} authorName={data.authorName} datePublished={new Date(data.publishDate).toISOString()} publisherName="Ahsan" description="Ahsan's Blog" />
             
             <Navbar contents={navContents} />
-            <div className="max-w-5xl mx-auto pt-10 text-secondary px-10">
+            <div className="max-w-5xl mx-auto pt-10 text-secondary px-3">
                 <header className="pb-8">
                     <div className="border-b-2 border-gray-400">
                         <h1 className="pb-6 text-center text-2xl font-extrabold leading-9 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">{data.title}</h1>
