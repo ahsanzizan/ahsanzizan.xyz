@@ -22,6 +22,12 @@ export default class Home extends React.Component {
                 useAL: true,
             },
             {
+                title: 'About',
+                href: '#about',
+                className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
+                mobileClassName: 'text-secondary hover:text-main text-lg font-semibold'
+            },
+            {
                 title: 'Projects',
                 href: '#projects',
                 className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
@@ -30,12 +36,6 @@ export default class Home extends React.Component {
             {
                 title: 'Contact',
                 href: '#contact',
-                className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
-                mobileClassName: 'text-secondary hover:text-main text-lg font-semibold'
-            },
-            {
-                title: 'About',
-                href: '#about',
                 className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
                 mobileClassName: 'text-secondary hover:text-main text-lg font-semibold'
             },
