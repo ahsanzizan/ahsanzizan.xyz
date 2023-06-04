@@ -2,6 +2,21 @@ import { useRouter } from "next/router";
 import { stringifyDate } from "@/lib/stringifyDate";
 import Link from "next/link";
 
+function normalizePreviewText(textToNormalize) {
+    let temp = textToNormalize;
+    temp = temp.replace(/<style([\s\S]*?)<\/style>/gi, '');
+    temp = temp.replace(/<script([\s\S]*?)<\/script>/gi, '');
+    temp = temp.replace(/<\/div>/ig, '\n');
+    temp = temp.replace(/<\/li>/ig, '\n');
+    temp = temp.replace(/<li>/ig, '  *  ');
+    temp = temp.replace(/<\/ul>/ig, '\n');
+    temp = temp.replace(/<\/oembed>/ig, '');
+    temp = temp.replace(/<\/p>/ig, '\n');
+    temp = temp.replace(/<br\s*[\/]?>/gi, "\n");
+    temp = temp.replace(/<[^>]+>/ig, '');
+    return temp;
+  }
+  
 
 export default function BlogPreview({ publishDate, tags, title, link, previewText, views }) {
     const router = useRouter();
@@ -37,7 +52,8 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                             })}
                                         </div>
                                     </div>
-                                    <div className="line-clamp-4 text-gray-300" dangerouslySetInnerHTML={{ __html: normalizePreviewText(previewText) }}>
+                                    <div className="block">
+                                        <p className="line-clamp-4 text-gray-300" dangerouslySetInnerHTML={{ __html: normalizePreviewText(previewText) }}></p>
                                     </div>
                                 </div>
                                 <div className="text-base font-medium leading-6">
@@ -50,19 +66,4 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
             </article>
         </li>
     )
-}
-
-function normalizePreviewText(textToNormalize) {
-  let temp = textToNormalize;
-  temp = temp.replace(/<style([\s\S]*?)<\/style>/gi, '');
-  temp = temp.replace(/<script([\s\S]*?)<\/script>/gi, '');
-  temp = temp.replace(/<\/div>/ig, '\n');
-  temp = temp.replace(/<\/li>/ig, '\n');
-  temp = temp.replace(/<li>/ig, '  *  ');
-  temp = temp.replace(/<\/ul>/ig, '\n');
-  temp = temp.replace(/<\/oembed>/ig, '');
-  temp = temp.replace(/<\/p>/ig, '\n');
-  temp = temp.replace(/<br\s*[\/]?>/gi, "\n");
-  temp = temp.replace(/<[^>]+>/ig, '');
-  return temp;
 }
