@@ -84,11 +84,12 @@ function SearchBar({ setResults, articles, setShowDropdown, input, setInput }) {
     <div className="w-full">
       <input
         type="search"
-        placeholder="Search the keywords of an article..."
+        placeholder="&#xF002; Search the keywords of an article..."
         value={input}
         onChange={(e) => handleChange(e.target.value)}
         onKeyDown={enterBTN}
         className="inline-block w-full py-2 pl-4 pr-10 2xl:text-xl rounded-full focus:outline-none border-2 border-secondary text-main focus:border-main bg-secondary"
+        style={{ fontFamily: "Poppins, FontAwesome" }}
       />
     </div>
   );
@@ -114,9 +115,11 @@ function SearchResultsList({ results, showDropdown, dropdown, input }) {
       {showDropdown && (
         <div className="w-full bg-secondary flex flex-col rounded-[10px] mt-4 max-h-96 overflow-y-auto overflow-x-hidden relative z-[999]">
           <div ref={dropdown}>
-            <h1 className="font-bold text-sm px-3 py-2 opacity-50 text-black">
-              Results for keyword <span className="text-main">{`"${input}"`}</span>
-            </h1>
+            <div className="flex justify-between">
+              <h3 className="font-bold text-sm px-3 py-2 opacity-50 text-black">
+                Results for keyword {'"'}<span className="text-main">{`${input}`}</span>{'"'}
+              </h3>
+            </div>
             <ul className="">
               {results.map((result, id) => {
                 return <SearchResult result={result} key={id} />;
