@@ -12,7 +12,7 @@ export default function Blogs({ data }) {
                                     title={blog.title}
                                     publishDate={blog.publishDate}
                                     tags={blog.tags}
-                                    previewText={blog.post + "..."}
+                                    previewText={blog.post.slice(0, 300) + "..."}
                                     link={blog.link}
                                     views={blog.clicks}
                                     key={blog._id} />

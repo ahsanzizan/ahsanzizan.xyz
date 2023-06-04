@@ -52,8 +52,7 @@ export default function BlogPreview({ publishDate, tags, title, link, previewTex
                                             })}
                                         </div>
                                     </div>
-                                    <div className="block">
-                                        <p className="line-clamp-4 text-gray-300" dangerouslySetInnerHTML={{ __html: normalizePreviewText(previewText) }}></p>
+                                    <div className="line-clamp-4 text-secondary" dangerouslySetInnerHTML={{ __html: normalizePreviewText(previewText) }}>
                                     </div>
                                 </div>
                                 <div className="text-base font-medium leading-6">
