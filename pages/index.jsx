@@ -4,7 +4,6 @@ import TypingAnim from "@/lib/typing-anim";
 import React from "react";
 import ContactForm from "@/components/ContactForm";
 import Link from "next/link";
-import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
 import { NextSeo, SocialProfileJsonLd } from "next-seo";
 import About from "@/components/About";

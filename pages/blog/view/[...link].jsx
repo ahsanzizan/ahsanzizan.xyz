@@ -4,7 +4,6 @@ import { stringifyDate } from "@/lib/stringifyDate";
 import dynamic from "next/dynamic";
 import clientProm from "@/lib/mongodb";
 import { useRouter } from "next/router";
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { ArticleJsonLd } from "next-seo";

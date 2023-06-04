@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
 import clientProm from "@/lib/mongodb";
-import Footer from "@/components/Footer";
 import Blogs from "@/components/Blogs";
-import Search from "@/components/Search";
+import Search from "@/components/Search/";
 import Link from "next/link";
 
 export default function HomePage({ data }) {
