@@ -45,7 +45,7 @@ export default function Page({ data }) {
 
     return (
         <>
-            <Header title={"ahsanzizan - Blogs"} description={"Personal Blog"}/>
+            <Header title={"ahsanzizan - Blog"} description={"Personal Blog"}/>
             <Navbar contents={navContents} />
             <h1 className="text-secondary text-3xl text-center pt-12">
                 {month}
