@@ -50,7 +50,7 @@ export default function Navbar({ contents }) {
                 </div>
             </div>
             {/* Large screen */}
-            <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto px-3 py-1 md:px-0 md:py-0">
+            <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto py-1 md:px-0 md:py-0">
                 <nav className="flex flex-wrap py-1 justify-between px-5 lg:px-32">
                     <div className="py-2">
                         <Link className="text-main text-lg md:text-xl no-underline font-semibold" href="/">ahsanzizan</Link>
