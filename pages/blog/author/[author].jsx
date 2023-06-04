@@ -53,7 +53,6 @@ export default function Page({ data }) {
                 {checkAuthor()}
             </h1>
             <Blogs data={blogs} />
-            <Footer />
         </>
     )
 }

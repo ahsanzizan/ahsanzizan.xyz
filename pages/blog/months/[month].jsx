@@ -52,7 +52,6 @@ export default function Page({ data }) {
                 {month}
             </h1>
             <Blogs data={blogs} />
-            <Footer />
         </>
     )
 }

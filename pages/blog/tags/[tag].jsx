@@ -40,7 +40,6 @@ export default function BlogsWithTag({ data }) {
               {data.length === 0 ? `No result for tag ` : `${data.length} ${data.length > 1 ? "Results" : "Result"} for tag `} <span className="text-main">{tag}</span>
             </h1>
             <Blogs data={data} />
-            <Footer />
         </>
     )
 }

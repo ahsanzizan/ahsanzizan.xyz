@@ -49,7 +49,6 @@ export default function Months() {
                     <Link className="my-2 rounded-full border-2 border-white px-3 py-1 text-secondary font-semibold mr-3 uppercase duration-300 hover:text-cyan-600 hover:bg-secondary" href={"/blog/months/december"}>December</Link>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

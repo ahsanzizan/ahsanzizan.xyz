@@ -112,7 +112,6 @@ export default function Admin({ data, adminName }) {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

@@ -47,7 +47,6 @@ export default function HomePage({ data }) {
       <div className="mt-20">
         <Blogs data={blogs} />
       </div>
-      <Footer />
     </>
   )
 }

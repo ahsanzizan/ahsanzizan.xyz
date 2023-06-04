@@ -104,9 +104,7 @@ export default class Home extends React.Component {
                     <About />
                     <Projects />
                     <ContactForm />
-                </main>
-                
-                <Footer />
+                </main>                
             </>
         )
     }

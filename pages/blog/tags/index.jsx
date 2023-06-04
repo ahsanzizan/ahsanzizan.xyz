@@ -41,7 +41,6 @@ export default function Tags({ data }) {
                     })}
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

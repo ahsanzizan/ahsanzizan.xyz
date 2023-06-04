@@ -82,7 +82,6 @@ export default function RenderBlog({ data }) {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }
