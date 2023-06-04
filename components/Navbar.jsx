@@ -1,8 +1,25 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Navbar({ contents }) {
     const [navShow, toggleNav] = useState(false);
+    const router = useRouter();
+
+    function handleOnClick(href, useAL) {
+        if (useAL) {
+            router.push(href);
+        } else {
+            const origin =
+                typeof window !== 'undefined' && window.location.origin
+                ? window.location.origin
+                    : '';
+                    
+            const url = `${origin}`;
+            window.location.href = url + href; 
+        }
+        toggleNav(false);
+    }
 
     return (
         <>
@@ -11,14 +28,20 @@ export default function Navbar({ contents }) {
                     {contents.map(content => {
                         if (content.useAL) {
                             return (
-                                <Link href={content.href} className={content.mobileClassName} key={content.title} >
+                                <Link href={content.href} className={content.mobileClassName} key={content.title} onClick={(e) => {
+                                    e.preventDefault();
+                                    handleOnClick(content.href, true);
+                                }} >
                                     {content.title}
                                 </Link>
                             )
                         }
                         
                         return (
-                            <a href={content.href} className={content.mobileClassName} key={content.title}>
+                            <a href={content.href} className={content.mobileClassName} key={content.title} onClick={(e) => {
+                                e.preventDefault();
+                                handleOnClick(content.href, false);
+                            }}>
                                 {content.title}
                             </a>
                         )
