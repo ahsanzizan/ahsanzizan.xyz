@@ -21,7 +21,7 @@ export default function Login() {
         },
         {
             title: 'Monthly',
-            href: '/blog/months',
+            href: '/blog/monthly',
             className: 'ml-3 text-secondary hover:text-main text-lg font-semibold',
             mobileClassName: 'text-secondary hover:text-main text-lg font-semibold',
             useAL: true,
