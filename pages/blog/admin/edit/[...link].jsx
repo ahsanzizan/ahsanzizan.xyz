@@ -114,7 +114,7 @@ export default class BlogEdit extends React.Component {
                 <Header title="Edit Content" />
                 <Navbar contents={this.navContents} />
                 <div className="mx-auto max-w-4xl px-2 xl:max-w-5xl py-5">
-                    <div className="flex h-screen flex-col justify-between">
+                    <div className="flex flex-col justify-between">
                         <form action="#" onSubmit={this.saveChanges} >
                             <div className="mb-5">
                                 <div className="mb-2">
