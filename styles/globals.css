@@ -45,7 +45,11 @@
 }
 
 .toastui-editor-contents p, .toastui-editor-contents code, .toastui-editor-contents li {
-  font-size: 16px;
+  @apply text-base leading-5 my-3;
+}
+
+.toastui-editor-contents strong {
+  @apply font-extrabold;
 }
 
 .sidenav {
