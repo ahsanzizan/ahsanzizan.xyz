@@ -40,7 +40,7 @@ export default function HomePage({ data }) {
       <Navbar contents={navContents} />
       <div className="px-5 lg:px-32 pt-12" id="main__section">
         <h1 className="text-2xl md:text-3xl font-bold leading-relaxed mb-3 text-secondary"><Link href="/" className="text-main hover:underline">ahsanzizan</Link> - Blog</h1>
-        <p className="text-lg md:text-xl text-secondary"><a className="text-main hover:underline font-semibold" href="https://instagram.com/ahsanzizan">@ahsanzizan</a> made this website because he wanted to share his thought on things to other people, and he thought a blog would fit perfectly.</p>
+        <p className="text-base md:text-xl text-secondary"><a className="text-main hover:underline font-semibold" href="https://instagram.com/ahsanzizan">@ahsanzizan</a> made this website because he wanted to share his thought on things to other people, and he thought a blog would fit perfectly.</p>
       </div>
       <Search articles={data} setResults={setSearchRes} results={searchRes} />
       <div className="mt-20">

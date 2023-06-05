@@ -1,25 +1,15 @@
 export default function SearchBar({ setResults, articles, setShowDropdown, input, setInput }) {
     const fetchData = (value) => {
       const results = articles.filter((article) => {
-        var post = article.post.toLowerCase().split(" ");
-        post = post.filter((c, index) => post.indexOf(c) === index);
-        String.prototype.cleanup = function () {
-          return this.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "");
-        };
-        post.forEach((el, id) => {
-          el = el.cleanup();
-          el = el.trim();
-        });
-  
         let checkSubset = (parent, subset) =>
           subset.every((el) => parent.includes(el));
-  
+        
         return (
           value &&
           article &&
           article.title &&
-          article.title.toLowerCase().includes(value.toLowerCase()) ||
-          checkSubset(post, value.toLowerCase().split(" "))
+          checkSubset(article.title.toLowerCase().split(" "), value.toLowerCase().split(" ")) ||
+          article.tags.includes(value.toLowerCase())
         );
       });
       setResults(results);
@@ -42,7 +32,7 @@ export default function SearchBar({ setResults, articles, setShowDropdown, input
       <div className="w-full">
         <input
           type="search"
-          placeholder="&#xF002; Search the keywords of an article..."
+          placeholder="&#xF002; Search the title or tag of an article..."
           value={input}
           onChange={(e) => handleChange(e.target.value)}
           onKeyDown={enterBTN}

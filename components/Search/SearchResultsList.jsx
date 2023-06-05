@@ -3,7 +3,7 @@ import Link from "next/link";
 function SearchResult({ result }) {
     return (
       <Link
-        className="text-[#222831] flex py-3 px-3 hover:text-main transition duration-300"
+        className="text-[#222831] flex py-3 px-3 hover:bg-gray-300 transition duration-300"
         href={`/blog/view/${result.link}`}
       >
         <span className="max-w-xs truncate">{result.title} </span>
