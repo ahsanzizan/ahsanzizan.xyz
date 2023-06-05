@@ -52,7 +52,7 @@
   @apply font-extrabold;
 }
 
-.toastui-editor-contents p a {
+.toastui-editor-contents *[href] {
   @apply text-main no-underline transition duration-200;
 }
 
