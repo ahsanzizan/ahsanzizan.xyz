@@ -1,15 +1,14 @@
-import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
-import TypingAnim from "@/lib/typing-anim";
+"use client"
+import About from "@components/About";
+import ContactForm from "@components/ContactForm";
+import Projects from "@components/Projects";
 import React from "react";
-import ContactForm from "@/components/ContactForm";
+import TypingAnim from "@lib/typing-anim";
+import Navbar from "@components/Navbar";
 import Link from "next/link";
-import Projects from "@/components/Projects";
-import { NextSeo, SocialProfileJsonLd } from "next-seo";
-import About from "@/components/About";
+
 
 export default class Home extends React.Component {
-
     constructor(props) {
         super(props);
         this.navContents = [
@@ -48,10 +47,7 @@ export default class Home extends React.Component {
         ];
     }
 
-    
-
     componentDidMount() {
-        // Initiate typing animation
         new TypingAnim(document.getElementById("animate"), {
             strings: ['Student', 'Programmer', 'Developer'],
             autoStart: true,
@@ -60,26 +56,10 @@ export default class Home extends React.Component {
         });
     }
 
-    render() {
+    render () {
         return (
             <>
-                <Header title={"ahsanzizan"} description={"Ahsan's Personal Website"} />
-                <NextSeo robotsProps={{
-                    nosnippet: true,
-                    notranslate: true,
-                    noimageindex: true,
-                    noarchive: true,
-                    maxSnippet: -1,
-                    maxImagePreview: 'none',
-                    maxVideoPreview: -1,
-                }} canonical="https://ahsanzizan.xyz/" defaultTitle="ahsanzizan" twitter={{handle: "@ahsanaz461"}}  />
-                <SocialProfileJsonLd type="Person" name="Ahsan Awadullah Azizan" url="https://www.ahsanzizan.xyz/" sameAs={[
-                    "https://instagram.com/ahsanzizan",
-                    "https://www.linkedin.com/in/ahsan-azizan-33908b250/",
-                    "https://github.com/ahsanzizan",
-                    "https://www.twitter.com/ahsanaz461"]} />
                 <Navbar contents={this.navContents} />
-
                 <main className="l-main">
                     <section className="mb-32 home bd-grid text-secondary" id="home">
                         <div className="home__data">
@@ -110,7 +90,7 @@ export default class Home extends React.Component {
                     <About />
                     <Projects />
                     <ContactForm />
-                </main>                
+                </main>
             </>
         )
     }
