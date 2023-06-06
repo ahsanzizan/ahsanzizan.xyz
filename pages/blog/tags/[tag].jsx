@@ -33,10 +33,10 @@ export default function BlogsWithTag({ data }) {
 
     return (
         <>
-            <Header title={`Results for tag ${tag}`} description={"Personal Blog"}/>
+            <Header title={`results for tag ${tag}`} description={"Personal Blog"}/>
             <Navbar contents={navContents} />
             <h1 className="text-secondary font-semibold text-xl text-center pt-12 px-5">
-              {data.length === 0 ? `No result for tag ` : `${data.length} ${data.length > 1 ? "Results" : "Result"} for tag `} <span className="text-main">{tag}</span>
+              {data.length === 0 ? `No results for ` : `${data.length} results for `} <span className="text-main">#{tag}</span>
             </h1>
             <Blogs data={data} />
         </>

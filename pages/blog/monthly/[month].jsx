@@ -41,7 +41,7 @@ export default function Page({ data }) {
         var newMonth = months.includes(router.query.month) ? 
         (blogs.length != 0 ? fixedMonth + " Blogs" : "No blog posted on " + fixedMonth) : "Invalid Query";;
         setMonth(newMonth);
-    }, [blogs.length]);
+    }, [router.query.month, blogs.length]);
 
     return (
         <>
