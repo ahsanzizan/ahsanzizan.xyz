@@ -64,7 +64,7 @@ export async function getServerSideProps({ query }) {
 
     return {
         props: {
-            data: JSON.parse(JSON.stringify(sorted.sort(blog => !blog.link.includes('private')))),
+            data: JSON.parse(JSON.stringify(sorted.filter(blog => !blog.link.includes('private')))),
         }
     }
 }
