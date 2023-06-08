@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar({ contents }) {
     const [navShow, toggleNav] = useState(false);
@@ -23,14 +24,15 @@ export default function Navbar({ contents }) {
     }
 
     return (
-        <>
+        <section className="text-black font-['Bebas_Neue']">
             {/* Small screen */}
             <div className={"sidenav" + (navShow ? " sideActive" : "")}>
-                <div className="text-left">
+                <a className="text-white text-xl cursor-pointer text-right pr-10 font-sans" onClick={() => toggleNav(!navShow)}>X</a>
+                <div className="text-center">
                     {contents.map(content => {
                         if (content.useAL) {
                             return (
-                                <Link href={content.href} className={content.mobileClassName} key={content.title} onClick={(e) => {
+                                <Link href={content.href} className="text-white font-bold uppercase tracking-widest pb-1 hover:underline underline-offset-4" key={content.title} onClick={(e) => {
                                     e.preventDefault();
                                     handleOnClick(content.href, true);
                                 }} >
@@ -40,7 +42,7 @@ export default function Navbar({ contents }) {
                         }
                         
                         return (
-                            <a href={content.href} className={content.mobileClassName} key={content.title} onClick={(e) => {
+                            <a href={content.href} className="text-white font-bold uppercase tracking-widest pb-1 hover:underline underline-offset-4" key={content.title} onClick={(e) => {
                                 e.preventDefault();
                                 handleOnClick(content.href, false);
                             }}>
@@ -51,29 +53,29 @@ export default function Navbar({ contents }) {
                 </div>
             </div>
             {/* Large screen */}
-            <header style={{ zIndex: 999, boxShadow: "0 1px 4px rgba(146, 161, 176, 0.15)" }} className="bg-[#222831] sticky top-0 z-50 w-screen mx-auto py-1 md:px-0 md:py-0">
-                <nav className="flex flex-wrap py-1 justify-between px-5 lg:px-32">
-                    <div className="py-2">
-                        <Link className="text-main text-lg md:text-xl no-underline font-semibold" href="/">ahsanzizan</Link>
-                    </div>
-                    <div onClick={() => toggleNav(!navShow)} className="block md:hidden" style={{ cursor: "pointer" }}>
-                        <a
-                            className="flex items-center py-2 rounded text-secondary">
+            <header className="fixed top-0 z-50 w-screen mx-auto py-1 md:px-0 md:py-0 bg-black">
+                <nav className="flex flex-wrap py-1 justify-between items-center px-5 md:px-16 md:py-3">
+                    <Link href={"/"}>
+                        <Image src={"/logo.svg"} width={35} height={35} alt="logo" className="w-10 h-10 md:w-14 md:h-14 animate splat" />
+                    </Link>
+                    <div onClick={() => toggleNav(!navShow)} className="block md:hidden cursor-pointer px-3 animate slide">
+                        <div
+                            className="flex items-center py-2 rounded text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z"/></svg>
-                        </a>
+                        </div>
                     </div>
-                    <div className="w-full hidden md:flex md:flex-row md:items-center md:w-auto">
-                        {contents.map(content => {
+                    <div className="navbar">
+                        {contents.map((content, index) => {
                             if (content.useAL) {
                                 return (
-                                    <Link href={content.href} className={content.className} key={content.title} >
+                                    <Link href={content.href} className={`text-white font-bold uppercase tracking-widest pb-1 animate slide delay-${index}`} key={content.title} >
                                         {content.title}
                                     </Link>
                                 )
                             }
 
                             return (
-                                <a href={content.href} className={content.className} key={content.title} >
+                                <a href={content.href} className={`text-white font-bold uppercase tracking-widest pb-1 animate slide delay-${index}`} key={content.title} >
                                     {content.title}
                                 </a>
                             )
@@ -81,6 +83,6 @@ export default function Navbar({ contents }) {
                     </div>
                 </nav>
             </header>
-        </>
+        </section>
     )
 }
