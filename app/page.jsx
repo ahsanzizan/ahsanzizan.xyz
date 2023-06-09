@@ -48,7 +48,7 @@ export default class Home extends React.Component {
             delay: 100,
         });
 
-        if (document.documentElement.scrollTop > 5) {
+        if (document.documentElement.scrollTop > 0) {
             document.getElementById('main').classList.add('bg-black');
             document.getElementById('main').classList.remove('bg-white');
             
@@ -65,9 +65,9 @@ export default class Home extends React.Component {
             document.getElementsByClassName('heading-text')[0].classList.remove('text-black');
             document.getElementsByClassName('heading-text')[0].classList.add('text-white');
         }
-
+        
         window.onscroll = () => {
-            if (document.documentElement.scrollTop > 5) {
+            if (document.documentElement.scrollTop > 0) {
                 document.getElementById('main').classList.add('bg-black');
                 document.getElementById('main').classList.remove('bg-white');
                 
@@ -80,6 +80,19 @@ export default class Home extends React.Component {
     
                 document.getElementsByClassName('heading-text')[0].classList.remove('text-black');
                 document.getElementsByClassName('heading-text')[0].classList.add('text-white');
+            } else if (document.documentElement.scrollTop === 0) {
+                document.getElementById('main').classList.add('bg-white');
+                document.getElementById('main').classList.remove('bg-black');
+                
+                document.getElementById('navbar').classList.add('text-black');
+                document.getElementById('navbar').classList.remove('text-white');
+                document.getElementById('navbar').classList.remove('bg-black');
+    
+                document.getElementById('toggle').classList.add('text-black');
+                document.getElementById('toggle').classList.remove('text-white');
+    
+                document.getElementsByClassName('heading-text')[0].classList.add('text-black');
+                document.getElementsByClassName('heading-text')[0].classList.remove('text-white');
             }
         }
     }

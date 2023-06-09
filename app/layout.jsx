@@ -1,7 +1,9 @@
 "use client"
 import "@styles/globals.css"
-import Footer from "@components/Footer";
-import NextNProgress from "nextjs-progressbar"
+import NextNProgress from "nextjs-progressbar";
+import { Anton } from "next/font/google";
+
+const anton = new Anton();
 
 const RootLayout = ({ children }) => ((
     <html lang='en' className="scroll-smooth">
@@ -10,7 +12,7 @@ const RootLayout = ({ children }) => ((
             <meta name="description" content="Ahsan's Personal Website" /> 
             <link href="https://fonts.cdnfonts.com/css/sequel" rel="stylesheet" />
         </head>
-        <body>
+        <body className={anton.className}>
             <NextNProgress options={{ easing: "ease", speed: 550 }} color='#00ADB5' />
             {children}
             {/* <Footer /> */}
