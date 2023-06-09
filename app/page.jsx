@@ -5,6 +5,7 @@ import Projects from "@components/Projects";
 import React from "react";
 import TypingAnim from "@lib/typing-anim";
 import Navbar from "@components/Navbar";
+import { FaGripLinesVertical } from "react-icons/fa";
 import Link from "next/link";
 
 
@@ -41,22 +42,62 @@ export default class Home extends React.Component {
 
     componentDidMount() {
         new TypingAnim(document.getElementById("animate"), {
-            strings: [' Student.', ' Programmer.', ' Developer.', ' Tech Enthusiast.', ' Gamer.'],
+            strings: [' Student.', ' Programmer.', ' Developer.', ' Tech-Enthusiast.', ' Gamer.'],
             autoStart: true,
             loop: true,
             delay: 100,
         });
+
+        if (document.documentElement.scrollTop > 5) {
+            document.getElementById('main').classList.add('bg-black');
+            document.getElementById('main').classList.remove('bg-white');
+            
+            document.getElementById('navbar').classList.add('text-white');
+            document.getElementById('navbar').classList.add('bg-black');
+            document.getElementById('navbar').classList.remove('text-black');
+
+            document.getElementById('toggle').classList.add('text-white');
+            document.getElementById('toggle').classList.remove('text-black');
+
+            document.getElementById('toggle').classList.add('text-white');
+            document.getElementById('toggle').classList.remove('text-black');
+
+            document.getElementsByClassName('heading-text')[0].classList.remove('text-black');
+            document.getElementsByClassName('heading-text')[0].classList.add('text-white');
+        }
+
+        window.onscroll = () => {
+            if (document.documentElement.scrollTop > 5) {
+                document.getElementById('main').classList.add('bg-black');
+                document.getElementById('main').classList.remove('bg-white');
+                
+                document.getElementById('navbar').classList.add('text-white');
+                document.getElementById('navbar').classList.add('bg-black');
+                document.getElementById('navbar').classList.remove('text-black');
+    
+                document.getElementById('toggle').classList.add('text-white');
+                document.getElementById('toggle').classList.remove('text-black');
+    
+                document.getElementsByClassName('heading-text')[0].classList.remove('text-black');
+                document.getElementsByClassName('heading-text')[0].classList.add('text-white');
+            }
+        }
     }
 
     render () {
         return (
             <>
                 <Navbar contents={this.navContents} />
-                <main className="px-5 md:px-16 py-32">
-                    <section className="mb-32 text-white py-16" id="home">
-                        <h1 className="font-extrabold leading-[0.8] tracking-tighter text-[6vw] uppercase animate slide">
-                            Hey there!<br /> {"I'm"} Ahsan Azizan,<br /> a<span id="animate"></span>
+                <main className="px-5 md:px-24 py-32 transition duration-500 ease-in-out bg-white" id="main">
+                    <section className="mb-32 text-black py-16" id="home">
+                        <h1 className="heading-text">
+                            <span className="animate slide delay-2">Welcome to<br /></span>
+                            <span className="animate slide delay-3">Ahsan Azizan{"'"}s Personal Website</span>
                         </h1>
+
+                        <a href="#">
+                            <div className="bg-black to-content" id="to-content"></div>
+                        </a>
                     </section>
 
                     {/* <About />

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -42,7 +43,7 @@
 /* toast ui end */
 
 .navbar {
-  @apply w-full hidden md:flex  md:items-center md:w-auto gap-6;
+  @apply w-full hidden md:flex md:items-center md:w-auto gap-6;
 }
 
 .navbar a {
@@ -58,6 +59,40 @@
 .navbar a:hover::after {
   @apply w-full;
 }
+
+.heading-text {
+  @apply font-black leading-[0.9] tracking-tighter text-[9vw] md:text-[6vw] uppercase transition duration-300;
+}
+
+.to-content {
+  @apply h-14 w-1 mx-auto mt-16;
+  transition: 0.3s;
+  animation: 2s cubic-bezier(0.8, 0, 0.2, 1) 0s infinite normal none running;
+  animation-name: to-content;
+}
+
+@keyframes to-content {
+  0% {
+    transform-origin: 0% 0%;
+    transform: scale(1, 0);
+  }
+
+  50% {
+    transform-origin: 0% 0%;
+    transform: scale(1, 1);
+  }
+
+  50.001% {
+    transform-origin: 0% 100%;
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform-origin: 0% 100%;
+    transform: scale(1, 0);
+  }
+}
+
 
 .sidenav {
   width: 100%;
