@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,6 +9,7 @@
 
 @layer base {
   body {
+    font-family: sans-serif;
     @apply bg-black;
     margin: 0;
     overflow-x: hidden;
@@ -55,7 +55,7 @@
 
 .navbar a::after {
   content: '';
-  @apply absolute bg-white h-1 w-0 left-0 -bottom-2;
+  @apply absolute bg-red-500 h-[5px] w-0 left-0 bottom-1 -z-10;
   transition: 0.3s;
 }
 
@@ -64,7 +64,11 @@
 }
 
 .heading-text {
-  @apply font-black leading-[0.9] tracking-tighter text-[9vw] md:text-[6vw] uppercase transition duration-300;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  @apply font-black leading-[0.8] tracking-tighter uppercase transition duration-300;
 }
 
 .to-content {
