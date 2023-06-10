@@ -43,7 +43,7 @@ export default class Home extends React.Component {
             delay: 100,
         });
 
-        if (document.documentElement.scrollTop > 0) {
+        if (document.documentElement.scrollTop > 150) {
             document.getElementById('main').classList.add('bg-black');
             document.getElementById('main').classList.remove('bg-white');
             
@@ -65,7 +65,7 @@ export default class Home extends React.Component {
         }
         
         window.onscroll = () => {
-            if (document.documentElement.scrollTop > 0) {
+            if (document.documentElement.scrollTop > 150) {
                 document.getElementById('main').classList.add('bg-black');
                 document.getElementById('main').classList.remove('bg-white');
                 
@@ -81,7 +81,7 @@ export default class Home extends React.Component {
                     i.classList.remove('text-black');
                     i.classList.add('text-white');
                 }
-            } else if (document.documentElement.scrollTop === 0) {
+            } else if (document.documentElement.scrollTop <= 150) {
                 document.getElementById('main').classList.add('bg-white');
                 document.getElementById('main').classList.remove('bg-black');
                 
@@ -107,7 +107,7 @@ export default class Home extends React.Component {
                 <Navbar contents={this.navContents} />
                 <main className="px-5 md:px-24 py-32 transition duration-500 ease-in-out bg-white" id="main">
                     <section className="text-black pt-14" id="home">
-                        <h1 className="heading-text text-[12vw] md:text-[6vw]">
+                        <h1 className="heading-text text-center text-[12vw] md:text-[6vw]">
                             <span className="animate slide delay-2">Welcome to<br /></span>
                             <span className="animate slide delay-3">Ahsan Azizan{"'"}s Personal Website</span>
                         </h1>

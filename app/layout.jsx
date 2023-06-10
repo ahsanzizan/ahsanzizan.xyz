@@ -12,7 +12,7 @@ const bebasNeue = Bebas_Neue({
 
 const RootLayout = ({ children }) => (
     (
-        <html lang='en' className="scroll-smooth">
+        <html lang='en' className="scroll-smooth selection:bg-gray-500 selection:text-white">
             <head>
                 <title>ahsanzizan</title>
                 <meta name="description" content="Ahsan's Personal Website" /> 
