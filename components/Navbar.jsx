@@ -53,12 +53,12 @@ export default function Navbar({ contents }) {
                 </div>
             </div>
             {/* Large screen */}
-            <header className="fixed top-0 z-50 w-screen mx-auto py-1 md:px-0 md:py-0" id="navbar">
+            <header className="fixed top-0 z-50 w-screen mx-auto py-1 md:px-[1vw] md:py-0" id="navbar">
                 <nav className="flex flex-wrap py-1 justify-between items-center px-5 md:px-16 md:py-4">
                     <Link href={"/"} className="flex gap-3 items-center">
-                        <Image src={"/logo.svg"} width={35} height={35} alt="logo" className="w-10 h-10 md:w-14 md:h-14 animate slide" />
+                        <Image src={"/logo.svg"} width={35} height={35} alt="logo" className="w-10 h-10 md:w-[3vw] md:h-[3vw] animate slide" />
                     </Link>
-                    <div onClick={() => toggleNav(!navShow)} className="block md:hidden cursor-pointer px-3 animate slide">
+                    <div onClick={() => toggleNav(!navShow)} className="block md:hidden cursor-pointer pr-2 animate slide">
                         <div
                             className="flex items-center py-2 rounded text-black" id="toggle">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z"/></svg>
@@ -68,14 +68,14 @@ export default function Navbar({ contents }) {
                         {contents.map((content, index) => {
                             if (content.useAL) {
                                 return (
-                                    <Link href={content.href} className={`font-bold uppercase tracking-widest pb-1 animate slide delay-${index}`} id="nav-link" key={content.title} >
+                                    <Link href={content.href} className={`font-bold uppercase tracking-widest pb-1 animate slide delay-${index} text-[1.5vw]`} id="nav-link" key={content.title} >
                                         {content.title}
                                     </Link>
                                 )
                             }
 
                             return (
-                                <a href={content.href} className={`font-bold uppercase tracking-widest pb-1 animate slide delay-${index}`} id="nav-link" key={content.title} >
+                                <a href={content.href} className={`font-bold uppercase tracking-widest pb-1 animate slide delay-${index} text-[1.5vw]`} id="nav-link" key={content.title} >
                                     {content.title}
                                 </a>
                             )

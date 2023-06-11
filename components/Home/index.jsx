@@ -2,7 +2,9 @@
 import React from "react";
 import Navbar from "../Navbar";
 import TypingAnim from "@lib/typing-anim";
-import About from "@components/Home/About";
+import About from "./About";
+import LandingPage from "./LandingPage";
+import Portfolio from "./Portfolio";
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -19,8 +21,8 @@ export default class Home extends React.Component {
                 href: '#about',
             },
             {
-                title: 'Projects',
-                href: '#projects',
+                title: 'Portfolio',
+                href: '#portfolio',
 
             },
             {
@@ -37,15 +39,15 @@ export default class Home extends React.Component {
 
     componentDidMount() {
         new TypingAnim(document.getElementById("profession"), {
-            strings: [' Student.', ' Programmer.', ' Developer.', ' Tech-Enthusiast.', ' Gamer.'],
+            strings: [' Student.', ' Programmer.', ' Developer.', ' Tech-Enthusiast.', 'n Indonesian', ' Gamer.'],
             autoStart: true,
             loop: true,
             delay: 100,
         });
 
         if (document.documentElement.scrollTop > 150) {
-            document.getElementById('main').classList.add('bg-black');
-            document.getElementById('main').classList.remove('bg-white');
+            document.getElementsByTagName('body')[0].classList.add('bg-black');
+            document.getElementsByTagName('body')[0].classList.remove('bg-white');
             
             document.getElementById('navbar').classList.add('text-white');
             document.getElementById('navbar').classList.add('bg-black');
@@ -66,8 +68,8 @@ export default class Home extends React.Component {
         
         window.onscroll = () => {
             if (document.documentElement.scrollTop > 150) {
-                document.getElementById('main').classList.add('bg-black');
-                document.getElementById('main').classList.remove('bg-white');
+                document.getElementsByTagName('body')[0].classList.add('bg-black');
+                document.getElementsByTagName('body')[0].classList.remove('bg-white');
                 
                 document.getElementById('navbar').classList.add('text-white');
                 document.getElementById('navbar').classList.add('bg-black');
@@ -82,8 +84,8 @@ export default class Home extends React.Component {
                     i.classList.add('text-white');
                 }
             } else if (document.documentElement.scrollTop <= 150) {
-                document.getElementById('main').classList.add('bg-white');
-                document.getElementById('main').classList.remove('bg-black');
+                document.getElementsByTagName('body')[0].classList.add('bg-white');
+                document.getElementsByTagName('body')[0].classList.remove('bg-black');
                 
                 document.getElementById('navbar').classList.add('text-black');
                 document.getElementById('navbar').classList.remove('text-white');
@@ -99,28 +101,24 @@ export default class Home extends React.Component {
                 }
             }
         }
+
+        document.getElementById('cards').onmousemove = e => {
+            for (const card of document.getElementsByClassName('project-card')) {
+                const rect = card.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            }
+        }
     }
 
     render () {
         return (
             <>
                 <Navbar contents={this.navContents} />
-                <main className="px-5 md:px-24 py-32 transition duration-500 ease-in-out bg-white" id="main">
-                    <section className="text-black pt-14" id="home">
-                        <h1 className="heading-text text-center text-[12vw] md:text-[6vw]">
-                            <span className="animate slide delay-2">Welcome to<br /></span>
-                            <span className="animate slide delay-3">Ahsan Azizan{"'"}s Personal Website</span>
-                        </h1>
-
-                        <a href="#about">
-                            <div className="bg-black to-content" id="to-content"></div>
-                        </a>
-                    </section>
-
+                <main className="px-5 md:px-24 py-32 transition duration-500 ease-in-out max-w-[1980px] mx-auto">
+                    <LandingPage />
                     <About />
-                    {/* <About />
-                    <Projects />
-                    <ContactForm /> */}
+                    <Portfolio />
                 </main>
             </>
         )

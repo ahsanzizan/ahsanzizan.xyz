@@ -10,7 +10,7 @@
 @layer base {
   body {
     font-family: sans-serif;
-    @apply bg-black;
+    @apply bg-white;
     margin: 0;
     overflow-x: hidden;
   }
@@ -68,14 +68,45 @@
   margin-block-end: 0.67em;
   margin-inline-start: 0;
   margin-inline-end: 0;
-  @apply font-black leading-[0.8] tracking-tighter uppercase transition duration-300;
+  @apply font-black leading-[0.8] uppercase transition duration-300;
 }
 
 .to-content {
-  @apply h-14 w-1 mx-auto mt-16;
+  @apply h-[3vw] w-1 mx-auto mt-16;
   transition: 0.3s;
   animation: 2s cubic-bezier(0.8, 0, 0.2, 1) 0s infinite normal none running;
   animation-name: to-content;
+}
+
+#cards:hover > .project-card::after {
+  opacity: 1;
+}
+
+.project-card {
+  @apply h-[260px] w-full lg:w-[350px] bg-[rgba(255,255,255,0.2)] cursor-pointer relative hover:before:opacity-100;
+}
+
+.project-card::before, .project-card::after {
+  @apply absolute h-full w-full left-0 top-0 content-[""] z-10 opacity-0;
+  transition: opacity 500ms;
+}
+
+.project-card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40% 
+  );
+  z-index: 3;
+}
+
+.project-card::after {
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.3), transparent 40% 
+  );
+  z-index: 1;
+}
+
+.project-card > .card-content {
+  @apply absolute inset-[2px] bg-[rgba(23,23,23)] border-inherit z-[2] font-bebas;
 }
 
 @keyframes to-content {
