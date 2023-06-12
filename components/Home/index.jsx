@@ -6,6 +6,7 @@ import About from "./About";
 import LandingPage from "./LandingPage";
 import Portfolio from "./Portfolio";
 import Contact from "./Contact";
+import Footer from "./Footer";
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -124,6 +125,7 @@ export default class Home extends React.Component {
                     <Portfolio />
                     <Contact />
                 </main>
+                <Footer />
             </>
         )
     }

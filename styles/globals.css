@@ -7,6 +7,15 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+    -webkit-text-fill-color: #fff;
+}
+
 @layer base {
   body {
     font-family: sans-serif;
@@ -49,14 +58,24 @@
   transition: 0.3s;
 }
 
-.navbar a {
+.navbar a, .footer-link {
   @apply relative;
 }
 
 .navbar a::after {
   content: '';
-  @apply absolute bg-red-500 h-[6px] w-0 left-0 bottom-2 -z-10;
+  @apply absolute bg-[#c8c8c8fc] h-[6px] w-0 left-0 bottom-2 -z-10;
   transition: 0.3s;
+}
+
+.footer-link::after {
+  content: '';
+  @apply absolute bg-[#c8c8c8fc] h-3 w-full left-0 bottom-2 -z-10;
+  transition: 0.3s;
+}
+
+.footer-link:hover::after {
+  @apply h-5;
 }
 
 .navbar a:hover::after {
