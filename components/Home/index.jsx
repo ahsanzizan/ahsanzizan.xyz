@@ -5,6 +5,7 @@ import TypingAnim from "@lib/typing-anim";
 import About from "./About";
 import LandingPage from "./LandingPage";
 import Portfolio from "./Portfolio";
+import Contact from "./Contact";
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -39,7 +40,7 @@ export default class Home extends React.Component {
 
     componentDidMount() {
         new TypingAnim(document.getElementById("profession"), {
-            strings: [' Student.', ' Programmer.', ' Developer.', ' Tech-Enthusiast.', 'n Indonesian', ' Gamer.'],
+            strings: [' Student.', ' Programmer.', ' Developer.', ' Tech-Enthusiast.', 'n Indonesian', ' Gamer.', ' Cat Lover.'],
             autoStart: true,
             loop: true,
             delay: 100,
@@ -109,6 +110,8 @@ export default class Home extends React.Component {
                 card.style.setProperty('--mouse-y', `${y}px`);
             }
         }
+
+        
     }
 
     render () {
@@ -119,6 +122,7 @@ export default class Home extends React.Component {
                     <LandingPage />
                     <About />
                     <Portfolio />
+                    <Contact />
                 </main>
             </>
         )

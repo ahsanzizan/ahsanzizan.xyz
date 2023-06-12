@@ -15,19 +15,19 @@ export default function About() {
                             <h1 className="heading-text tracking-tighter text-base sm:text-lg md:text-4xl">
                                 I am Ahsan, <span className="bg-white text-black px-1">a<span id="profession"></span></span>
                             </h1>
-                            <p className="text-white text-opacity-80 uppercase tracking-wide font-bebas text-sm sm:text-base md:text-lg 2xl:text-2xl">{data.aboutDescription}</p>
+                            <p className="text-white text-opacity-80 uppercase tracking-widest font-bebas text-sm sm:text-base md:text-lg 2xl:text-2xl">{data.aboutDescription}</p>
                         </div>
                         <div className="flex flex-wrap gap-3 md:gap-5">
-                            <Link href={'https://github.com/ahsanzizan'} className="text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300 hover:text-white tracking-tighter">
+                            <Link href={'https://github.com/ahsanzizan'} className="text-base sm:text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300 hover:text-white tracking-tighter">
                                 Github<span className="text-white text-xl md:text-3xl">.</span>
                             </Link>
-                            <Link href={'https://instagram.com/ahsanzizan'} className="text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300 hover:text-transparent tracking-tighter bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+                            <Link href={'https://instagram.com/ahsanzizan'} className="text-base sm:text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300 hover:text-transparent tracking-tighter bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                                 Instagram<span className="text-transparent text-xl md:text-3xl">.</span>
                             </Link>
-                            <Link href={'https://twitter.com/ahsanz461'} className="text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300 hover:text-sky-500 tracking-tighter">
+                            <Link href={'https://twitter.com/ahsanz461'} className="text-base sm:text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300 hover:text-sky-500 tracking-tighter">
                                 Twitter<span className="text-sky-500 text-xl md:text-3xl">.</span>
                             </Link>
-                            <Link href={'https://www.youtube.com/@jetto_curvarine'} className="text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300  hover:text-red-500 tracking-tighter">
+                            <Link href={'https://www.youtube.com/@jetto_curvarine'} className="text-base sm:text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300  hover:text-red-500 tracking-tighter">
                                 YouTube<span className="text-red-500 text-xl md:text-3xl">.</span>
                             </Link>
                             <Link href={'https://www.linkedin.com/in/ahsan-azizan-33908b250/'} className="text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-gray-300  hover:text-blue-500 tracking-tighter">
