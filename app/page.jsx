@@ -6,7 +6,6 @@ import About from "@components/Home/About";
 import LandingPage from "@components/Home//LandingPage";
 import Portfolio from "@components/Home//Portfolio";
 import Contact from "@components/Home//Contact";
-import Footer from "@components/Home//Footer";
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -39,22 +38,23 @@ export default class Home extends React.Component {
         ];
 
         this.handleScroll = () => {
-        const isScrolled = document.documentElement.scrollTop > 120;
+            const isScrolled = document.documentElement.scrollTop > 120;
 
-        document.getElementsByTagName('body')[0].classList.toggle('bg-black', isScrolled);
-        document.getElementsByTagName('body')[0].classList.toggle('bg-white', !isScrolled);
+            document.getElementsByTagName('body')[0].classList.toggle('bg-black', isScrolled);
+            document.getElementsByTagName('body')[0].classList.toggle('bg-white', !isScrolled);
 
-        document.getElementById('navbar').classList.toggle('text-white', isScrolled);
-        document.getElementById('navbar').classList.toggle('bg-black', isScrolled);
-        document.getElementById('navbar').classList.toggle('text-black', !isScrolled);
-        document.getElementById('toggle').classList.toggle('text-white', isScrolled);
-        document.getElementById('toggle').classList.toggle('text-black', !isScrolled);
+            document.getElementById('navbar').classList.toggle('text-white', isScrolled);
+            document.getElementById('navbar').classList.toggle('bg-black', isScrolled);
+            document.getElementById('navbar').classList.toggle('bg-white', !isScrolled);
+            document.getElementById('navbar').classList.toggle('text-black', !isScrolled);
+            document.getElementById('toggle').classList.toggle('text-white', isScrolled);
+            document.getElementById('toggle').classList.toggle('text-black', !isScrolled);
 
-        const headings = document.getElementsByClassName('heading-text');
-        for (const heading of headings) {
-          heading.classList.toggle('text-white', isScrolled);
-          heading.classList.toggle('text-black', !isScrolled);
-        }
+            const headings = document.getElementsByClassName('heading-text');
+            for (const heading of headings) {
+            heading.classList.toggle('text-white', isScrolled);
+            heading.classList.toggle('text-black', !isScrolled);
+            }
       };
     }
 
@@ -86,7 +86,7 @@ export default class Home extends React.Component {
                     const y = e.clientY - rect.top;
                     card.style.setProperty('--mouse-x', `${x}px`);
                     card.style.setProperty('--mouse-y', `${y}px`);
-                    }
+                }
             };
         }
 
@@ -107,7 +107,6 @@ export default class Home extends React.Component {
                     <Portfolio />
                     <Contact />
                 </main>
-                <Footer />
             </>
         )
     }

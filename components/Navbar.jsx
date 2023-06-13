@@ -53,7 +53,7 @@ export default function Navbar({ contents }) {
                 </div>
             </div>
             {/* Large screen */}
-            <header className="fixed top-0 z-50 w-screen mx-auto py-1 md:px-[1vw] md:py-0" id="navbar">
+            <header className="fixed top-0 z-50 w-screen mx-auto py-1 md:px-[1vw] md:py-0 bg-white" id="navbar">
                 <nav className="flex flex-wrap py-1 justify-between items-center px-5 md:px-16 md:py-4">
                     <Link href={"/"} className="flex gap-3 items-center">
                         <Image src={"/logo.svg"} width={35} height={35} alt="logo" className="w-10 h-10 md:w-[3vw] md:h-[3vw] animate slide" />

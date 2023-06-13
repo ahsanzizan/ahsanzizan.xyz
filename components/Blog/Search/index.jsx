@@ -5,13 +5,14 @@ import SearchResultsList from "./SearchResultsList";
 export default function Search({ setResults, results, articles }) {
     const [showDropdown, setShowDropdown] = useState(false);
     const [input, setInput] = useState("");
-    const dropdown = useRef(null);
+    const searchBar = useRef(null);
   
     useEffect(() => {
       if (!showDropdown) return;
   
       function handleClick(e) {
-        if (dropdown.current && !dropdown.current.contains(e.target)) {
+        if ((searchBar.current && !searchBar.current.contains(e.target))) {
+          setInput("");
           setShowDropdown(false);
         }
       }
@@ -21,19 +22,19 @@ export default function Search({ setResults, results, articles }) {
     }, [showDropdown]);
   
     return (
-      <div className="absolute w-full pt-20 px-5 lg:px-32">
+      <div className="absolute w-full pt-56 px-5 md:px-24">
         <SearchBar
           setResults={setResults}
           articles={articles}
           setShowDropdown={setShowDropdown}
           input={input}
           setInput={setInput}
+          searchBar={searchBar}
         />
         {results && results.length > 0 && (
           <SearchResultsList
             results={results}
             showDropdown={showDropdown}
-            dropdown={dropdown}
             input={input}
           />
         )}

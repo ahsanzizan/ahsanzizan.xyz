@@ -33,11 +33,27 @@ input:-webkit-autofill:active{
 /* Toast UI stuff */
 .toastui-editor-contents p, .toastui-editor-contents h1, .toastui-editor-contents h2, .toastui-editor-contents h3, .toastui-editor-contents h4, 
 .toastui-editor-contents h5, .toastui-editor-contents h6, .toastui-editor-contents li {
-  font-family: 'Poppins';
+  @apply tracking-wide no-underline;
 }
 
 .toastui-editor-contents p, .toastui-editor-contents code, .toastui-editor-contents li {
-  @apply text-base leading-5 my-3;
+  @apply text-base md:text-lg leading-5 my-3;
+}
+
+.toastui-editor-contents h1 {
+  @apply text-4xl;
+}
+
+.toastui-editor-contents h2 {
+  @apply text-3xl;
+}
+
+.toastui-editor-contents h3 {
+  @apply text-2xl;
+}
+
+.toastui-editor-contents h4 {
+  @apply text-xl;
 }
 
 .toastui-editor-contents strong {
@@ -102,7 +118,11 @@ input:-webkit-autofill:active{
 }
 
 .project-card {
-  @apply h-[260px] w-full lg:w-[350px] bg-[rgba(255,255,255,0.2)] cursor-pointer relative hover:before:opacity-100;
+  @apply h-[260px] w-full lg:w-[350px] bg-[rgba(255,255,255,0.2)] cursor-pointer relative hover:before:opacity-100 transition duration-300;
+}
+
+.project-card:hover {
+  @apply -translate-y-2;
 }
 
 .project-card::before, .project-card::after {

@@ -47,7 +47,7 @@ export default function Contact() {
                             <textarea className="font-bebas tracking-widest appearance-none block w-full font-bold bg-transparent h-52 text-white border-2 border-transparent border-b-white py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-white" type="text" placeholder="Message" name="message" required />
                         </div>
                     </div>
-                    <button type="submit" className="uppercase font-extrabold w-full h-14 bg-white border-2 border-white hover:bg-transparent hover:text-white transition duration-300">Submit</button>
+                    <button type="submit" className="uppercase font-extrabold w-full h-14 bg-white border-2 border-white hover:bg-transparent hover:text-white transition duration-300">Send Message</button>
                 </form>
                 <Image src={'/me.jpg'} width={75} height={75} alt="me" className="object-cover animate slide delay-3 w-0 xl:w-80" quality={100} unoptimized />
             </div>

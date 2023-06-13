@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="block md:flex justify-between items-center">
                 <div className="py-3">
                     <h1 className="heading-text tracking-tighter text-5xl max-w-sm">
-                        Checkout <br /> <Link href={"/blog"} className="footer-link">my blogs</Link>
+                        Based In Indonesia.<br /> <a href="mailto:ahsanaz461@gmail.com" className="footer-link">Email Me</a>
                     </h1>
                 </div>
                 <div className="py-2">

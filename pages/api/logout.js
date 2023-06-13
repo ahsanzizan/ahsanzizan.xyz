@@ -1,4 +1,4 @@
-import { withSessionRoute } from "@/lib/session"
+import { withSessionRoute } from "@lib/session"
 
 export default withSessionRoute(async function logout(req, res) {
     req.session.destroy();
