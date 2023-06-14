@@ -10,7 +10,7 @@ export default class EditBlog extends React.Component {
             data: props.data,
             tags: (
                 props.data.tags.length ? props.data.tags.map((tag, i) => {
-                    return <div key={i} className="cursor-pointer rounded-full border-2 border-black px-3 py-1 bg-black font-semibold mr-3 uppercase duration-300 hover:bg-white" onClick={this.removeTag.bind(this)}>{tag}</div>
+                    return <div key={i} className="cursor-pointer rounded-full border-2 border-black px-3 py-1 bg-black font-semibold mr-3 uppercase duration-300 text-white hover:text-black hover:bg-white" onClick={this.removeTag.bind(this)}>{tag}</div>
                 }) : null
             ),
             iTag: "",
@@ -84,7 +84,7 @@ export default class EditBlog extends React.Component {
             ...this.state,
             tags: (
                 this.state.data.tags.length ? this.state.data.tags.map((tag, i) => {
-                    return <div key={i} className="cursor-pointer rounded-full border-2 border-black px-3 py-1 bg-black font-semibold mr-3 uppercase duration-300 hover:bg-white" onClick={this.removeTag}>{tag}</div>
+                    return <div key={i} className="cursor-pointer rounded-full border-2 border-black px-3 py-1 bg-black font-semibold mr-3 uppercase duration-300 text-white hover:text-black hover:bg-white" onClick={this.removeTag}>{tag}</div>
                 }) : null
             ),
             iTag: ""
