@@ -1,6 +1,6 @@
 export default function LandingPage() {
     return (
-        <section className="text-black pt-14 pb-36 lg:pb-0" id="home">
+        <section className="text-black pt-16 pb-40 lg:pb-0" id="home">
             <h1 className="heading-text tracking-tighter text-[12vw] md:text-[6vw] animate slide">
                 Welcome to<br />
                 Ahsan Azizan{"'"}s Personal Website

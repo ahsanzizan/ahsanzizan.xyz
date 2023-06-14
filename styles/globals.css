@@ -107,7 +107,7 @@ input:-webkit-autofill:active{
 }
 
 .to-content {
-  @apply h-[3vw] w-1 mx-auto mt-16;
+  @apply h-20 md:h-[4vw] w-1 mx-auto mt-16;
   transition: 0.3s;
   animation: 2s cubic-bezier(0.8, 0, 0.2, 1) 0s infinite normal none running;
   animation-name: to-content;
