@@ -52,8 +52,8 @@ export default class Home extends React.Component {
 
             const headings = document.getElementsByClassName('heading-text');
             for (const heading of headings) {
-            heading.classList.toggle('text-white', isScrolled);
-            heading.classList.toggle('text-black', !isScrolled);
+                heading.classList.toggle('text-white', isScrolled);
+                heading.classList.toggle('text-black', !isScrolled);
             }
       };
     }

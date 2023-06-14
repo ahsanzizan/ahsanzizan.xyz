@@ -5,7 +5,7 @@ import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-sy
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
 import fontSize from "tui-editor-plugin-font-size";
 import "tui-editor-plugin-font-size/dist/tui-editor-plugin-font-size.css";
-import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/themes/prism-coy.css';
 import { Editor } from '@toast-ui/react-editor';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import React from 'react';
@@ -56,5 +56,5 @@ export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue
               console.log(error);
             });
         },
-    }} plugins={[colorSyntax, codeSyntaxHighlight, fontSize]} theme='dark' />
+    }} plugins={[colorSyntax, codeSyntaxHighlight, fontSize]} />
 });

@@ -1,8 +1,7 @@
 "use client"
-const WysiwygViewer = dynamic(() => import('@components/WysiwygViewer'), { ssr: false });
+const WysiwygViewer = dynamic(() => import('@components/Blog/WysiwygViewer'), { ssr: false });
 import { stringifyDate } from "@lib/stringifyDate";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import React from "react"
 
 export default function ViewBlog({ blog }) {
