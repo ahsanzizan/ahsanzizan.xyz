@@ -32,3 +32,5 @@ export default async function Edit({ params }) {
         </>
     )
 }
+
+export const revalidate = 0;

@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
     }
     return {
         title: blog.title,
-        description: 'A Blog by Ahsan',
+        description: 'a Blog by Ahsan',
     }
 }
 
@@ -35,3 +35,5 @@ export default async function View({ params }) {
         </>
     )
 }
+
+export const revalidate = 0;

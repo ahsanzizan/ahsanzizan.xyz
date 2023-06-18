@@ -12,3 +12,5 @@ export default async function BlogWithTag({ params }) {
         </>
     )
 }
+
+export const revalidate = 0;
