@@ -28,6 +28,7 @@ export default async function BlogLayout ({ children }) {
     ];
 
     const admin = await getRequestCookie(cookies());
+    
     if (!admin) {
         redirect('/login');
     }

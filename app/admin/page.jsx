@@ -7,7 +7,7 @@ export default async function AdminPage() {
     const admin = await getRequestCookie(cookies());
 
     const connectDB = await clientProm;
-    const blogs = await JSON.parse(JSON.stringify((await connectDB.db('personal-blog').collection('blog-post').find({}).toArray())));
+    const blogs = JSON.parse(JSON.stringify((await connectDB.db('personal-blog').collection('blog-post').find({}).toArray())));
 
     return (
         <>
