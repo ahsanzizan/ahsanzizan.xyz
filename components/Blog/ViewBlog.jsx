@@ -24,7 +24,7 @@ export default function ViewBlog({ blog }) {
                     <div className="flex flex-wrap gap-3">
                         {blog.tags.map((tag) => {
                             return  (
-                                <Link className="text-sm sm:text-base uppercase font-bold font-bebas tracking-widest" key={tag} href={`/tags/${tag}`}>
+                                <Link className="text-sm sm:text-base uppercase font-bold font-bebas tracking-widest" key={tag} href={`/blog/tags/${tag}`}>
                                     #{tag}
                                 </Link>
                             )
