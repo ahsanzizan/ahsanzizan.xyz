@@ -26,7 +26,7 @@ export default function Navbar({ contents }) {
     return (
         <section className="text-black font-['Bebas_Neue']">
             {/* Small screen */}
-            <div className={"sidenav" + (navShow ? " sideActive" : "")}>
+            <div className={"my-auto sidenav" + (navShow ? " sideActive" : "")}>
                 <a className="text-white text-xl cursor-pointer text-right pr-10 font-sans" onClick={() => toggleNav(!navShow)}>X</a>
                 <div className="text-center">
                     {contents.map(content => {

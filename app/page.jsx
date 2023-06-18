@@ -14,7 +14,6 @@ export default class Home extends React.Component {
             {
                 title: 'Home',
                 href: '/',
-
                 useAL: true,
             },
             {
