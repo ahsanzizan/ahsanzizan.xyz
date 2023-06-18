@@ -30,9 +30,7 @@ export default async function View({ params }) {
     const blog = findBlog + 1 ? JSON.parse(JSON.stringify(getBlogs.splice(findBlog, 1)[0])) : { };
     
     return (
-        <>
-            <ViewBlog blog={blog} />
-        </>
+        <ViewBlog blog={blog} />
     )
 }
 

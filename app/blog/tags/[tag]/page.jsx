@@ -7,9 +7,7 @@ export default async function BlogWithTag({ params }) {
     const blogs = JSON.parse(JSON.stringify(blogsWithTag));
 
     return (
-        <>
-            <BlogPage blogs={blogs.sort((a, b) => b.publishDate - a.publishDate)} title={`#${params.tag} Blogs`} />
-        </>
+        <BlogPage blogs={blogs.sort((a, b) => b.publishDate - a.publishDate)} title={`#${params.tag} Blogs`} />
     )
 }
 

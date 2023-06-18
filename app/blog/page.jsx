@@ -6,9 +6,7 @@ export default async function Blog() {
     const blogs = JSON.parse(JSON.stringify((await connectDB.db('personal-blog').collection('blog-post').find({}).toArray()).filter(blog => !blog.link.includes('private'))));
     
     return (
-        <>
-            <BlogPage blogs={blogs.sort((a, b) => b.publishDate - a.publishDate)} title={'Blog'} />
-        </>
+        <BlogPage blogs={blogs.sort((a, b) => b.publishDate - a.publishDate)} title={'Blog'} />
     )
 }
 

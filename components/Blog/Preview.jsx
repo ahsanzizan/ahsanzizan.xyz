@@ -18,14 +18,14 @@ export default function Preview({ data }) {
                 <div className="flex flex-wrap gap-5">
                     {data.tags.map(tag => {
                         return (
-                            <Link href={`/blog/tags/${tag}`} id="tag" key={tag} className="uppercase text-sm lg:text-base font-bold">
+                            <Link href={`/blog/tags/${tag}`} id="tag" key={tag} className="uppercase text-sm lg:text-base font-bold font-bebas tracking-widest">
                                 #{tag}
                             </Link>
                         )
                     })}
                 </div>
             </div>
-            <p className="font-thin uppercase tracking-widest text-xs md:text-sm lg:text-base px-3">{stringifyDate(data.publishDate)}</p>
+            <p className="font-medium uppercase tracking-widest text-xs md:text-sm lg:text-base px-3">{stringifyDate(data.publishDate)}</p>
         </div>
     )
 }
