@@ -6,8 +6,8 @@ export default function Blogs({ blogs }) {
 
     return (
         <>
-            <div className="flex flex-col divide-y-2">
-                {blogsToShow.map((blog, index) => (
+            <div className="flex flex-col divide-y-2 divide-black">
+                {blogsToShow.map((blog) => (
                     <Preview key={blog._id} data={blog} />
                 ))}
             </div>
