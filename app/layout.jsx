@@ -18,6 +18,7 @@ const RootLayout = ({ children }) => (
     (
         <html lang='en' className="scroll-smooth selection:bg-gray-500 selection:text-white">
             <head> 
+                <link rel="icon" sizes="any" href="/favicon.ico" />
                 <link href="https://fonts.cdnfonts.com/css/sequel" rel="stylesheet" />
             </head>
             <body className={`${bebasNeue.variable}`}>
