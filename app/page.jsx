@@ -94,6 +94,10 @@ export default class Home extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
     document.getElementsByTagName('body')[0].classList.remove('bg-black');
+    const headings = document.getElementsByClassName('heading-text');
+    for (const heading of headings) {
+        heading.classList.remove('text-white');
+    }
   }
 
     render () {
