@@ -15,7 +15,7 @@ export default function About() {
                                 I am Ahsan, <span className="bg-white text-black px-1">a<span id="profession"></span></span>
                             </h1>
                             <p className="text-[#c8c8c8fc] uppercase tracking-widest font-bebas text-xs xs:text-sm sm:text-base md:text-lg 2xl:text-2xl mb-7">{about.aboutDescription}</p>
-                            <Link className="text-white hover:text-black font-black uppercase transition duration-300 px-2 py-2 hover:bg-white border-2 border-white text-sm sm:text-base" href={'/blog/view/about'}>Read More</Link>
+                            <Link className="text-black hover:text-white font-black uppercase transition duration-300 px-2 py-2 bg-white hover:bg-transparent border-2 border-white text-xs md:text-sm" href={'/blog/view/about'}>Read More</Link>
                         </div>
                         <div className="block mt-10">
                             <h4 className="uppercase font-extrabold text-white py-3 tracking-widest w-72 md:w-80 text-sm md:text-base">Get In Touch</h4>
