@@ -11,10 +11,10 @@ export default function About() {
                     </div>
                     <div className="block">
                         <div className="mb-8">
-                            <h1 className="text-white font-black uppercase transition duration-300 text-xs xs:text-sm sm:text-lg md:text-4xl mb-3">
+                            <h1 className="text-white font-black uppercase transition duration-300 text-sm sm:text-lg md:text-4xl mb-3">
                                 I am Ahsan, <span className="bg-white text-black px-1">a<span id="profession"></span></span>
                             </h1>
-                            <p className="text-[#c8c8c8fc] uppercase tracking-widest font-bebas xs:text-sm sm:text-base md:text-lg 2xl:text-2xl mb-7">{about.aboutDescription}</p>
+                            <p className="text-[#c8c8c8fc] uppercase tracking-widest font-bebas text-xs xs:text-sm sm:text-base md:text-lg 2xl:text-2xl mb-7">{about.aboutDescription}</p>
                             <Link className="text-white hover:text-black font-black uppercase transition duration-300 px-2 py-2 hover:bg-white border-2 border-white text-sm sm:text-base" href={'/blog/view/about'}>Read More</Link>
                         </div>
                         <div className="block mt-10">
