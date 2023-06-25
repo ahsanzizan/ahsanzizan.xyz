@@ -12,7 +12,7 @@ export default function ViewBlog({ blog }) {
         <>
             <main className="px-5 md:px-24 py-32 transition duration-300 ease-in-out max-w-[1980px] mx-auto">
                 <div className="block mb-10">
-                    <h1 className="heading-text text-2xl md:text-5xl">{blog.title}</h1>
+                    <h1 className="heading-text text-3xl md:text-5xl">{blog.title}</h1>
                     <div className="flex gap-10">
                         <p className="text-sm sm:text-base uppercase font-bold">{stringifyDate(blog.publishDate)}</p>
                         <p className="text-sm sm:text-base uppercase font-bold">{blog.clicks} Views</p>
