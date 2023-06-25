@@ -1,3 +1,4 @@
+'use client';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import 'tui-color-picker/dist/tui-color-picker.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
@@ -51,7 +52,7 @@ export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue
         addImageBlobHook: (blob, callback) => {
           upload(blob)
             .then(response => {
-              callback(response.default, "Media");
+              callback(response.default, document.getElementById('toastuiAltTextInput').value);
             }).catch(error => {
               console.log(error);
             });
