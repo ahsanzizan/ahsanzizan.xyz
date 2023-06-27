@@ -12,7 +12,7 @@ import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import React from 'react';
 import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight-all.js';
 
-export default React.forwardRef(function WysiwygEditor({ editorRef, initialValue }) {
+export default React.forwardRef(function TUIEditor({ editorRef, initialValue }) {
     const convertBlob = blob => {
         const reader = new FileReader();
         reader.readAsDataURL(blob);

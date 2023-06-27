@@ -1,5 +1,5 @@
 "use client"
-const WysiwygViewer = dynamic(() => import('@components/Blog/WysiwygViewer'), { ssr: false });
+const Viewer = dynamic(() => import('@components/Blog/TUIViewer'), { ssr: false });
 import { stringifyDate } from "@lib/stringifyDate";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export default function ViewBlog({ blog }) {
                         <p className="text-sm sm:text-base uppercase font-bold">{blog.clicks} Views</p>
                     </div>
                 </div>
-                <WysiwygViewer ref={viewerRef} content={blog.post} />
+                <Viewer ref={viewerRef} content={blog.post} />
                 <div className="flex flex-col gap-3 mt-10">
                     <h4 className="font-extrabold text-sm sm:text-base uppercase">Tags:</h4>
                     <div className="flex flex-wrap gap-3">

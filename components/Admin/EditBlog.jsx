@@ -1,7 +1,7 @@
 'use client';
 import dynamic from "next/dynamic";
 import React, { createRef } from "react";
-const WysiwygEditor = dynamic(() => import("@components/Admin/WysiwygEditor"), { ssr: false, });
+const Editor = dynamic(() => import("@components/Admin/TUIEditor"), { ssr: false, });
 
 export default class EditBlog extends React.Component {
     constructor(props) {
@@ -155,7 +155,7 @@ export default class EditBlog extends React.Component {
                                     {this.state.tags}
                                 </div>
                             </div>
-                            <WysiwygEditor editorRef={this.editorRef} initialValue={this.state.data.post} />
+                            <Editor editorRef={this.editorRef} initialValue={this.state.data.post} />
                             <button className="uppercase font-extrabold w-full h-14 bg-black border-2 border-black hover:bg-transparent text-white hover:text-black transition duration-300" type="submit">
                                 Save
                             </button>
