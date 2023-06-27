@@ -12,7 +12,7 @@ export default function ViewBlog({ blog }) {
         <>
             <main className="px-5 md:px-24 py-32 transition duration-300 ease-in-out max-w-[1980px] mx-auto">
                 <div className="pb-5">
-                    <Link href={'/blog'} className="font-extrabold uppercase text-xl md:text-3xl">
+                    <Link href={'/blog'} className="font-black uppercase text-xl md:text-3xl">
                         {"<"} <span className="hover:underline">Back</span>
                     </Link>
                 </div>
