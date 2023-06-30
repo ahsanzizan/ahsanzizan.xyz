@@ -6,6 +6,7 @@ import About from "@components/Home/About";
 import LandingPage from "@components/Home/LandingPage";
 import Portfolio from "@components/Home/Portfolio";
 import Contact from "@components/Home/Contact";
+import { SocialProfileJsonLd } from "next-seo";
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -103,6 +104,11 @@ export default class Home extends React.Component {
     render () {
         return (
             <>
+                <SocialProfileJsonLd type="Person" name="Ahsan Awadullah Azizan" url="https://ahsanzizan.xyz" sameAs={[
+                    "https://instagram.com/ahsanzizan",
+                    "https://linkedin.com/in/ahsan-azizan",
+                    "https://youtube.com/@jetto_curvarine",
+                ]} useAppDir={true} />
                 <Navbar contents={this.navContents} />
                 <main className="px-5 md:px-24 py-32 transition duration-500 ease-in-out max-w-[1980px] mx-auto">
                     <LandingPage />
