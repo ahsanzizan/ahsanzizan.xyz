@@ -9,11 +9,6 @@ export default function BlogLayout ({ children }) {
     const navContents = [
         {
             title: 'Home',
-            href: '/',
-            useAL: true,
-        },
-        {
-            title: 'Blog',
             href: '/blog',
             useAL: true,
         },

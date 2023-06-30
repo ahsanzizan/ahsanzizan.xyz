@@ -17,7 +17,7 @@ export default async function Tags() {
                 <h1 className="heading-text text-5xl pb-10">#Tags</h1>
                 <div className="flex flex-wrap items-center gap-5">
                     {tags.map((tag) => {
-                        return <Link className="animate slide px-2 py-1 uppercase text-sm lg:text-base font-bold transition duration-300 bg-[#c8c8c8fc] border-2 border-[#c8c8c8fc] hover:bg-transparent" key={tag} href={"/blog/tags/" + tag}>#{tag}</Link>
+                        return <Link className="text-white hover:text-black animate slide px-2 py-1 uppercase text-sm lg:text-base font-bold transition duration-300 bg-black border-2 border-black hover:bg-white" key={tag} href={"/blog/tags/" + tag}>#{tag}</Link>
                     })}
                 </div>
             </main>

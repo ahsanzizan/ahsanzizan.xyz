@@ -32,7 +32,7 @@ export default function About() {
                                 <Link href={'https://www.youtube.com/@jetto_curvarine'} className="text-base sm:text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-[#c8c8c8fc]  hover:text-red-500 tracking-tighter">
                                     YouTube<span className="text-red-500 text-xl md:text-3xl">.</span>
                                 </Link>
-                                <Link href={'https://www.linkedin.com/in/ahsan-azizan-33908b250/'} className="text-base sm:text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-[#c8c8c8fc]  hover:text-blue-500 tracking-tighter">
+                                <Link href={'https://www.linkedin.com/in/ahsan-azizan'} className="text-base sm:text-lg 2xl:text-2xl transition duration-300 font-extrabold uppercase text-[#c8c8c8fc]  hover:text-blue-500 tracking-tighter">
                                     LinkedIn<span className="text-blue-500 text-xl md:text-3xl">.</span>
                                 </Link>
                             </div>

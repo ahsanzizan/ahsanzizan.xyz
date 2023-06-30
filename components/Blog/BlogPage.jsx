@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Blogs from "./Blogs";
 import Search from "./Search";
+import Link from "next/link";
 
 export default function BlogPage({ blogs, title }) {
     const [searchRes, setSearchRes] = useState([]);
