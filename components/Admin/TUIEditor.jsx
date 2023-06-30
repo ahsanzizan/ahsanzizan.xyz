@@ -36,7 +36,7 @@ export default React.forwardRef(function TUIEditor({ editorRef, initialValue }) 
           xhr.addEventListener('load', () => {
             const response = xhr.response;
             if (!response || response.error) {
-              return reject(new Error("Error ocurred"));
+              return reject(new Error(response.error));
             }
     
             resolve({
