@@ -114,9 +114,9 @@ export default class EditBlog extends React.Component {
                         <form action="#" onSubmit={this.saveChanges} >
                             <div className="mb-5">
                                 <div className="mb-2">
-                                    <tag className="block uppercase tracking-wide text-xs font-extrabold mb-2">
+                                    <label className="block uppercase tracking-wide text-xs font-extrabold mb-2">
                                         Title
-                                    </tag>
+                                    </label>
                                 </div>
                                 <div className="md:w-2/3">
                                     <input autoComplete="off" className="tracking-widest appearance-none block w-full font-bold bg-transparent text-black border-2 border-transparent border-b-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-black" type="text" name="title" defaultValue={this.state.data.title} required />
@@ -124,9 +124,9 @@ export default class EditBlog extends React.Component {
                             </div>
                             <div className="mb-5">
                                 <div className="mb-2">
-                                    <tag className="block uppercase tracking-wide text-xs font-extrabold mb-2">
+                                    <label className="block uppercase tracking-wide text-xs font-extrabold mb-2">
                                         Link
-                                    </tag>
+                                    </label>
                                 </div>
                                 <div className="md:w-2/3">
                                     <input autoComplete="off" className="tracking-widest appearance-none block w-full font-bold bg-transparent text-black border-2 border-transparent border-b-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-black" type="text" name="link" defaultValue={this.state.data.link} required />
@@ -134,9 +134,9 @@ export default class EditBlog extends React.Component {
                             </div>
                             <div className="mb-4">
                                 <div className="mb-2">
-                                    <tag className="block uppercase tracking-wide text-xs font-extrabold mb-2">
+                                    <label className="block uppercase tracking-wide text-xs font-extrabold mb-2">
                                         Add Tag
-                                    </tag>
+                                    </label>
                                 </div>
                                 <div className="w-1/2 flex items-center gap-16">
                                     <input id="addTag" autoComplete="off" onKeyDown={this.enterBTN} value={this.state.iTag} className="tracking-widest appearance-none block w-full font-bold bg-transparent text-black border-2 border-transparent border-b-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-black" type="text" name="iTag" onChange={this.handleInputChange} />
@@ -147,9 +147,9 @@ export default class EditBlog extends React.Component {
                             </div>
                             <div className="mb-4">
                                 <div className="mb-2">
-                                    <tag className="block uppercase tracking-wide text-xs font-extrabold mb-2">
+                                    <label className="block uppercase tracking-wide text-xs font-extrabold mb-2">
                                         Tags
-                                    </tag>
+                                    </label>
                                 </div>
                                 <div className="w-2/3 flex flex-wrap gap-2 uppercase font-bebas">
                                     {this.state.tags}

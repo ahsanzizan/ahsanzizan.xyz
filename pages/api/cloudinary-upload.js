@@ -21,3 +21,11 @@ export default withSessionRoute(async function upload(req, res) {
         res.status(200).json({ status: 200, url: result.secure_url });
     });
 });
+
+export const config = {
+    api: {
+        bodyParser: {
+            sizeLimit: '10mb',
+        }
+    }
+}
