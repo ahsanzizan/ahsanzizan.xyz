@@ -10,7 +10,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata = {
-    title: 'ahsanzizan - Ahsan Awadullah Azizan',
+    title: 'Ahsan Azizan',
     description: "Ahsan's Personal Website"
 }
 
