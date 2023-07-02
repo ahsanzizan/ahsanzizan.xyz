@@ -4,7 +4,7 @@ import Link from "next/link";
 export default async function Tags() {
     const connectDB = await clientProm;
     const blogs = await connectDB.db('personal-blog').collection('blog-post').find({ }).toArray();
-    var tags = [];
+    let tags = [];
     for (const i of blogs.filter(blog => !blog.link.includes('private')).map(blog => blog.tags)) {
         tags = tags.concat(i);
     }

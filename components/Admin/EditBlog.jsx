@@ -41,7 +41,7 @@ export default class EditBlog extends React.Component {
 
     async saveChanges(e) {
         e.preventDefault();
-        var formData = {
+        let formData = {
             ...this.state.data,
             title: e.target.title.value,
             link: e.target.link.value,

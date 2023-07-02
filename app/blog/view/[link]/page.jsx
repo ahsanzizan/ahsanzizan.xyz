@@ -18,8 +18,8 @@ export async function generateMetadata({ params }) {
 export default async function View({ params }) {
     const link = params.link;
     const connectDB = await clientProm;
-    var getBlogs = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
-    var findBlog = getBlogs ? getBlogs.findIndex(x => x.link == link) : -1;
+    let getBlogs = await connectDB.db('personal-blog').collection('blog-post').find({}).toArray();
+    let findBlog = getBlogs ? getBlogs.findIndex(x => x.link == link) : -1;
     if (findBlog === -1) {
         redirect('/404');
     } else if ((findBlog + 1) && process.env.NODE_ENV === 'production') {

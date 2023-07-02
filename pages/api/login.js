@@ -18,7 +18,7 @@ export default withSessionRoute(async function login(req, res) {
         const limit = await limiter.check(res, 5, 'RATE_LIMIT');
         if (limit.isRateLimited) return res.status(429).json({ status: 429, message: "Rate limit exceeded, please try again later!" })
         const connectDB = await clientProm;
-        var checkAdmin = await connectDB.db('personal-blog').collection('admin').findOne({ adminName, password });
+        const checkAdmin = await connectDB.db('personal-blog').collection('admin').findOne({ adminName, password });
         if (checkAdmin) {
             const state = { loggedIn: true, ...checkAdmin };
             req.session.state = state;
