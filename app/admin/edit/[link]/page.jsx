@@ -28,7 +28,7 @@ export default async function Edit({ params }) {
 
     return (
         <>
-            <EditBlog data={getData} tags={getData.tags} />
+            <EditBlog data={getData} />
         </>
     )
 }
