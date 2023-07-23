@@ -10,5 +10,4 @@ export default async function getPost(req, res) {
         console.log(error);
         return res.status(500).json({ status: 500, message: "Internal server error" });
     }
-    
 }
