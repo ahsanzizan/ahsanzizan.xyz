@@ -1,22 +1,25 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import "./globals.css";
+import type { Metadata } from "next";
+import { Nanum_Gothic } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const nanumGothicFont = Nanum_Gothic({
+  subsets: ["latin"],
+  weight: ["400", "700", "800"],
+});
 
 export const metadata: Metadata = {
-  title: 'ahsanzizan',
-  description: 'The personal website of Ahsan Awadullah Azizan',
-}
+  title: "Ahsan Azizan | Personal Website",
+  description: "Personal website of Ahsan Awadullah Azizan",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={nanumGothicFont.className}>{children}</body>
     </html>
-  )
+  );
 }
