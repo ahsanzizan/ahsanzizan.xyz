@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Nanum_Gothic } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 
 const nanumGothicFont = Nanum_Gothic({
   subsets: ["latin"],
@@ -19,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nanumGothicFont.className}>{children}</body>
+      <body
+        className={nanumGothicFont.className + " overflow-x-hidden bg-black"}
+      >
+        <NextTopLoader color="#fff" />
+        {children}
+      </body>
     </html>
   );
 }

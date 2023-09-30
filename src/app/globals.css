@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-item {
+  @apply font-semibold tracking-widest text-white opacity-60 transition-all duration-300 hover:opacity-100;
+}
+
+.btn-primary {
+  @apply relative border-2 border-white px-6 py-2 font-semibold tracking-widest text-white transition-all duration-300 before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-left before:scale-x-0 before:bg-white before:transition-all before:duration-300 before:content-[''] hover:text-black hover:before:scale-x-100;
+}

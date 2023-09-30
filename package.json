@@ -19,11 +19,16 @@
     "mongoose": "^7.5.2",
     "next": "13.5.2",
     "next-auth": "^4.23.1",
+    "nextjs-toploader": "^1.4.2",
     "novel": "^0.1.20",
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.5.4"
   }
 }
