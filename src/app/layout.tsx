@@ -9,7 +9,10 @@ const nanumGothicFont = Nanum_Gothic({
 });
 
 export const metadata: Metadata = {
-  title: "Ahsan Azizan | Personal Website",
+  title: {
+    default: "Ahsan Azizan | Personal Website",
+    template: "Ahsan Azizan | %s",
+  },
   description: "Personal website of Ahsan Awadullah Azizan",
 };
 
