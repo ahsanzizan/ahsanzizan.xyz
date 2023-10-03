@@ -60,7 +60,7 @@ export default function Navbar() {
               </a>
             </li>
             <li>
-              <a href="/blog" className="nav-item">
+              <a href="#blog" className="nav-item">
                 Blog
               </a>
             </li>
