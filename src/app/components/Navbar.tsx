@@ -66,7 +66,7 @@ export default function Navbar() {
             </li>
             <li>
               <a href="mailto:ahsanaz461@gmail.com" className="btn-primary">
-                Contact
+                Contact Me
               </a>
             </li>
           </ul>
