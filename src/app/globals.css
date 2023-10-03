@@ -7,11 +7,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-transparent;
+  @apply bg-white;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-white;
+  @apply bg-black;
 }
 
 ::selection {

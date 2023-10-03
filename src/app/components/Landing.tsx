@@ -1,7 +1,7 @@
 export default function Landing() {
   return (
     <>
-      <div className="mx-auto mt-32 max-w-5xl px-5">
+      <div className="mx-auto my-32 max-w-5xl px-5">
         <div className="mb-24 h-96 w-full overflow-hidden" id="landing-uao">
           <div id="1" className="h-1/3 w-full bg-black opacity-100"></div>
           <div id="2" className="h-1/3 w-full bg-black opacity-80"></div>
