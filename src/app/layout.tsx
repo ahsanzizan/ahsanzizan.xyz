@@ -1,11 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Nanum_Gothic } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
-const nanumGothicFont = Nanum_Gothic({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={nanumGothicFont.className + " overflow-x-hidden bg-black"}
+        className={montserrat.className + " overflow-x-hidden"}
       >
         <NextTopLoader color="#fff" />
         {children}
