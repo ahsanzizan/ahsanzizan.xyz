@@ -32,15 +32,15 @@ html {
 
 #landing-uao div {
   @apply transition-all duration-300;
-  animation: top-to-bottom infinite 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: bottom-to-top infinite 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes top-to-bottom {
+@keyframes bottom-to-top {
   0% {
     transform: translateY(0);
   }
 
   100% {
-    transform: translateY(-300%);
+    transform: translateY(-500%);
   }
 }
