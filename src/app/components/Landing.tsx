@@ -5,7 +5,7 @@ const subHeading =
 export default function Landing() {
   return (
     <>
-      <div className="mx-auto my-32 max-w-5xl px-5">
+      <section id="home" className="mx-auto py-32 max-w-5xl px-5">
         <div className="mb-24 h-96 w-full overflow-hidden" id="landing-uao">
           <div id="1" className="h-1/3 w-full bg-black opacity-100"></div>
           <div id="2" className="h-1/3 w-full bg-black opacity-80"></div>
@@ -20,13 +20,13 @@ export default function Landing() {
           <div id="5" className="h-1/3 w-full bg-black opacity-20"></div>
         </div>
         <div className="w-full">
-          <h1 className="mb-8 w-full text-[6.1rem] font-bold leading-[.9]">
+          <h1 className="mb-8 w-full text-8xl font-bold leading-[.9]">
             {heading}
           </h1>
           <p className="mb-12 text-2xl font-medium">{subHeading}</p>
           <div className="flex gap-12">
             <a
-              href="#about"
+              href="/blog"
               className="btn-stype border-primary bg-primary text-theme group text-2xl opacity-100 hover:opacity-70"
             >
               Discover More{" "}
@@ -55,7 +55,7 @@ export default function Landing() {
             </a>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function Navbar() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
+      if (window.scrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -16,7 +16,7 @@ export default function Navbar() {
 
     return () => {
       window.removeEventListener("scroll", () => {
-        if (window.scrollY > 0) {
+        if (window.scrollY > 50) {
           setScrolled(true);
         } else {
           setScrolled(false);
@@ -29,7 +29,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed left-0 top-0 z-[1000] w-full bg-black transition-all duration-300 ${
-          scrolled ? "py-0" : "py-2"
+          scrolled ? "py-0" : "py-4"
         }`}
       >
         <nav className="mx-auto flex max-w-5xl items-center justify-between px-5">
