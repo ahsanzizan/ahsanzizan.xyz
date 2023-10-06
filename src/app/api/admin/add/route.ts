@@ -1,7 +1,16 @@
+import { authOptions } from "@/lib/auth";
 import { createAdmin } from "@/lib/queries/admin.query";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
+  const session = await getServerSession(authOptions);
+  if (!session?.user)
+    return NextResponse.json(
+      { status: 503, message: "Forbidden request" },
+      { status: 503 },
+    );
+
   try {
     const data = await req.formData();
     const username: string = data.get("username") as string;
@@ -13,7 +22,7 @@ export async function POST(req: Request) {
       {
         status: 200,
         message: "Admin Created Successfully",
-        newAdmin,
+        admin: newAdmin,
       },
       { status: 200 },
     );
