@@ -1,7 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import { Montserrat } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
+import { NextAuthProvider } from "./components/NextAuthProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -23,11 +25,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={montserrat.className + " overflow-x-hidden"}
-      >
-        <NextTopLoader color="#fff" />
-        {children}
+      <body className={montserrat.className + " overflow-x-hidden"}>
+        <NextAuthProvider>
+          <NextTopLoader color="#fff" />
+          {children}
+        </NextAuthProvider>
       </body>
     </html>
   );
