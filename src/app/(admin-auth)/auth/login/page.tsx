@@ -76,9 +76,9 @@ export default function Login() {
           <div>
             <input
               className="w-full rounded border border-gray-200 bg-gray-50 p-3 text-sm text-gray-600 focus:outline-none"
-              type="email"
-              name="email"
-              placeholder="Email"
+              type="text"
+              name="username"
+              placeholder="Username"
               onChange={handleChange}
               required
             />
@@ -100,7 +100,7 @@ export default function Login() {
               disabled={loading}
             >
               <div>
-                Masuk
+                Log In
                 <div
                   className={`${
                     loading ? "inline-block" : "hidden"
