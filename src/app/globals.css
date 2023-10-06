@@ -32,6 +32,10 @@ html {
 }
 /* Buttons End */
 
+p a {
+  @apply font-medium text-blue-500 underline transition duration-300 hover:text-blue-300;
+}
+
 .nav-item {
   @apply font-medium text-theme opacity-70 transition-all duration-300 hover:opacity-100;
 }
