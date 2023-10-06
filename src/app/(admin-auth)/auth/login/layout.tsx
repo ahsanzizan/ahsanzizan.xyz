@@ -1,4 +1,4 @@
-export const title = {
+export const metadata = {
   title: "Admin Login",
 };
 
