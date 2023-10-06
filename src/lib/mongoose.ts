@@ -24,7 +24,7 @@ export default async function connectDB() {
   }
 
   if (!cached.promise) {
-    const options = {
+    const options: _mongoose.ConnectOptions = {
       bufferCommands: false,
     };
 
