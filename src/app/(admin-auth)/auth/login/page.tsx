@@ -99,18 +99,16 @@ export default function Login() {
               className="w-full rounded bg-red-600 py-2 text-sm font-bold text-gray-50 transition duration-200 hover:bg-red-700 disabled:bg-red-500 disabled:text-gray-200"
               disabled={loading}
             >
-              <div>
-                Log In
-                <div
-                  className={`${
-                    loading ? "inline-block" : "hidden"
-                  } h-4 w-4 animate-spin snap-center rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]`}
-                  role="status"
-                >
-                  <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                    Loading...
-                  </span>
-                </div>
+              Log In
+              <div
+                className={`${
+                  loading ? "inline-block" : "hidden"
+                } h-4 w-4 animate-spin snap-center rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]`}
+                role="status"
+              >
+                <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                  Loading...
+                </span>
               </div>
             </button>
           </div>
