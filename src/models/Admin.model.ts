@@ -10,4 +10,4 @@ const AdminSchema: Schema = new Schema({
   password: { type: String, required: true },
 });
 
-export default models.Admin<IAdmin> || model<IAdmin>("Admin", AdminSchema);
+export default model<IAdmin>("Admin", AdminSchema);

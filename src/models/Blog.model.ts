@@ -18,4 +18,4 @@ const BlogSchema = new Schema({
   tags: [{ type: String }],
 });
 
-export default models.Blog<IBlog> || model<IBlog>("Blog", BlogSchema);
+export default model<IBlog>("Blog", BlogSchema);
