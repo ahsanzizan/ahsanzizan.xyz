@@ -1,9 +1,15 @@
 import { LANDING_TEXT } from "@/utils/constants";
+import InfiniteScrollAnimation from "./Parts/InfiniteScrollAnimation";
 
 export default function Landing() {
   return (
     <>
       <section id="home" className="mx-auto max-w-5xl px-5 py-32">
+        <InfiniteScrollAnimation
+          width={"100%"}
+          height={"24rem"}
+          className="mb-24"
+        />
         <div className="w-full">
           <h1 className="mb-8 w-full text-8xl font-bold leading-[.9]">
             {LANDING_TEXT.heading}
