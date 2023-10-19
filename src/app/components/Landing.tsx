@@ -1,32 +1,20 @@
-const heading = "Where Passion and Skill Converge";
-const subHeading =
-  "I'm Ahsan Awadullah Azizan, a dedicated software engineer with a passion for crafting, visualizing, and bringing ideas to life through programming, and making technology accessible to all.";
+import { LANDING_TEXT } from "@/utils/constants";
 
 export default function Landing() {
   return (
     <>
-      <section id="home" className="mx-auto py-32 max-w-5xl px-5">
-        <div className="mb-24 h-96 w-full overflow-hidden" id="landing-uao">
-          <div id="1" className="h-1/3 w-full bg-black opacity-100"></div>
-          <div id="2" className="h-1/3 w-full bg-black opacity-80"></div>
-          <div id="3" className="h-1/3 w-full bg-black opacity-60"></div>
-          <div id="4" className="h-1/3 w-full bg-black opacity-40"></div>
-          <div id="5" className="h-1/3 w-full bg-black opacity-20"></div>
-          <div id="1" className="h-1/3 w-full bg-black opacity-100"></div>
-          <div id="2" className="h-1/3 w-full bg-black opacity-80"></div>
-          <div id="3" className="h-1/3 w-full bg-black opacity-60"></div>
-          <div id="4" className="h-1/3 w-full bg-black opacity-40"></div>
-          <div id="5" className="h-1/3 w-full bg-black opacity-20"></div>
-        </div>
+      <section id="home" className="mx-auto max-w-5xl px-5 py-32">
         <div className="w-full">
           <h1 className="mb-8 w-full text-8xl font-bold leading-[.9]">
-            {heading}
+            {LANDING_TEXT.heading}
           </h1>
-          <p className="mb-12 text-2xl font-medium">{subHeading}</p>
+          <p className="mb-12 text-2xl font-medium">
+            {LANDING_TEXT.subheading}
+          </p>
           <div className="flex gap-12">
             <a
               href="/blog"
-              className="btn-stype border-primary bg-primary text-theme group text-2xl opacity-100 hover:opacity-70"
+              className="btn-stype group border-primary bg-primary text-2xl text-theme opacity-100 hover:opacity-70"
             >
               Discover More{" "}
               <svg
@@ -40,7 +28,7 @@ export default function Landing() {
             </a>
             <a
               href="#works"
-              className="btn-stype border-secondary bg-secondary hover:bg-primary hover:border-primary hover:text-theme group text-2xl text-opacity-70 hover:text-opacity-100"
+              className="btn-stype group border-secondary bg-secondary text-2xl text-opacity-70 hover:border-primary hover:bg-primary hover:text-theme hover:text-opacity-100"
             >
               Works Done{" "}
               <svg
