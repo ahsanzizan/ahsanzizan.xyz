@@ -10,7 +10,7 @@ export default async function About() {
     .toArray();
 
   return (
-    <section id="about" className="relative mx-auto max-w-5xl px-5 py-32">
+    <section id="about" className="mx-auto max-w-5xl px-5 py-32">
       <div className="w-full">
         <h2 className="mb-6 text-7xl font-bold">{ABOUT_TEXT.title}</h2>
         <p
