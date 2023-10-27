@@ -2,9 +2,17 @@ import connectDB from "../mongoose";
 import AdminModel, { IAdmin } from "@/models/Admin.model";
 import { validate, generate } from "../hash";
 
-export async function findAdminByUname(
-  username: string,
-): Promise<IAdmin | undefined> {
+type Admin = {
+  username: string;
+  password?: string;
+};
+
+type auth = {
+  status: "SUCCESS" | "NO_PASSWORD" | "INVALID";
+  admin?: IAdmin;
+};
+
+export async function findAdminByUname(username: string) {
   await connectDB();
   const result = await AdminModel.findOne({ username });
   return result;
@@ -15,16 +23,6 @@ export async function getAllAdmins(): Promise<IAdmin[] | undefined> {
   const result = await AdminModel.find({});
   return result;
 }
-
-type Admin = {
-  username: string;
-  password?: string;
-};
-
-type auth = {
-  status: "SUCCESS" | "NO_PASSWORD" | "INVALID";
-  admin?: IAdmin;
-};
 
 export async function authenticateAdmin(
   username: string,
