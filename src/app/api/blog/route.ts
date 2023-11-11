@@ -2,13 +2,7 @@ import { createBlog, getAllBlogs } from "@/lib/queries/blog.query";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-
-type Blog = {
-  title: string;
-  content: string;
-  link: string;
-  tags: string[];
-};
+import { IBlog } from "@/models/Blog.model";
 
 export async function GET(req: Request) {
   try {
@@ -38,7 +32,7 @@ export async function POST(req: Request) {
     );
 
   try {
-    const { title, content, link, tags }: Blog = await req.json();
+    const { title, content, link, tags }: IBlog = await req.json();
     if (!title || !content || !link)
       return NextResponse.json(
         { status: 400, message: "Bad request" },
