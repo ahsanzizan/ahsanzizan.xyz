@@ -1,13 +1,4 @@
-import { Document, Schema, model, models } from "mongoose";
-
-export interface IBlog extends Document {
-  title: string;
-  content: string;
-  createdAt: Date;
-  link: string;
-  author: string;
-  tags: string[];
-}
+import { InferSchemaType, Schema, model, models } from "mongoose";
 
 const BlogSchema = new Schema({
   title: { type: String, required: true },
@@ -18,4 +9,6 @@ const BlogSchema = new Schema({
   tags: [{ type: String }],
 });
 
-export default model<IBlog>("Blog", BlogSchema);
+export type Blog = InferSchemaType<typeof BlogSchema>;
+
+export default models.Blog<Blog> || model<Blog>("Blog", BlogSchema);

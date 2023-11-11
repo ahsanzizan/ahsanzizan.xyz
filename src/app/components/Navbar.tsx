@@ -3,23 +3,23 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
-        setScrolled(true);
+        setIsActive(true);
       } else {
-        setScrolled(false);
+        setIsActive(false);
       }
     });
 
     return () => {
       window.removeEventListener("scroll", () => {
         if (window.scrollY > 50) {
-          setScrolled(true);
+          setIsActive(true);
         } else {
-          setScrolled(false);
+          setIsActive(false);
         }
       });
     };
@@ -29,7 +29,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed left-0 top-0 z-[1000] w-full bg-black transition-all duration-300 ${
-          scrolled ? "py-0" : "py-4"
+          isActive ? "py-0" : "py-4"
         }`}
       >
         <nav className="mx-auto flex max-w-5xl items-center justify-between px-5">
