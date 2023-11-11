@@ -10,7 +10,7 @@ export default async function Works() {
     .toArray();
 
   return (
-    <section id="Works" className="mx-auto max-w-5xl px-5 py-32">
+    <section id="works" className="mx-auto max-w-5xl px-5 py-32">
       <h2 className="mb-6 text-7xl font-bold">Selected Works</h2>
       <div className="flex flex-col divide-y-2 divide-black">
         {projects.map((project) => (
