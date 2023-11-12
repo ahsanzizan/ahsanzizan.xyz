@@ -1,5 +1,6 @@
 import About from "./components/About";
 import Blog from "./components/Blog";
+import Footer from "./components/Footer";
 import Landing from "./components/Landing";
 import Navbar from "./components/Navbar";
 import Works from "./components/Works";
@@ -13,6 +14,7 @@ export default function Home() {
         <About />
         <Works />
         <Blog />
+        <Footer />
       </main>
     </>
   );
