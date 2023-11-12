@@ -39,7 +39,14 @@ export async function POST(req: Request) {
         { status: 400 },
       );
 
-    const newBlog = await createBlog({ title, content, link, tags, createdAt: new Date(), author: session.user.username as string });
+    const newBlog = await createBlog({
+      title,
+      content,
+      link,
+      tags,
+      createdAt: new Date(),
+      author: session.user.username as string,
+    });
     return NextResponse.json(
       {
         status: 200,

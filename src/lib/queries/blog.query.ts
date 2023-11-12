@@ -11,9 +11,7 @@ export async function getAllBlogs(): Promise<Blog[] | undefined> {
 
 export async function createBlog(blog: Blog) {
   await connectDB();
-  const session = await getServerSession(authOptions);
-  const author = session?.user?.username;
-  const newBlog = await BlogModel.create({ ...blog, author });
+  const newBlog = await BlogModel.create({ ...blog });
 
   return newBlog;
 }

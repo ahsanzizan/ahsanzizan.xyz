@@ -1,6 +1,6 @@
 import connectDB from "../mongoose";
 import AdminModel from "@/models/Admin.model";
-import type { Admin } from '@/models/Admin.model'
+import type { Admin } from "@/models/Admin.model";
 import { validate, generate } from "../hash";
 
 type auth = {

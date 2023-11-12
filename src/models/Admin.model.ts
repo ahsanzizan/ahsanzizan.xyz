@@ -7,7 +7,7 @@ const AdminSchema = new Schema({
 
 type _id = {
   _id: ObjectId;
-}
+};
 export type Admin = InferSchemaType<typeof AdminSchema> & _id;
 
 export default models.Admin<Admin> || model<Admin>("Admin", AdminSchema);
