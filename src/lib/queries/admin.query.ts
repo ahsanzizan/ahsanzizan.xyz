@@ -1,15 +1,11 @@
 import connectDB from "../mongoose";
-import AdminModel, { IAdmin } from "@/models/Admin.model";
+import AdminModel from "@/models/Admin.model";
+import type { Admin } from '@/models/Admin.model'
 import { validate, generate } from "../hash";
-
-type Admin = {
-  username: string;
-  password?: string;
-};
 
 type auth = {
   status: "SUCCESS" | "NO_PASSWORD" | "INVALID";
-  admin?: IAdmin;
+  admin?: Admin;
 };
 
 export async function findAdminByUname(username: string) {
@@ -18,7 +14,7 @@ export async function findAdminByUname(username: string) {
   return result;
 }
 
-export async function getAllAdmins(): Promise<IAdmin[] | undefined> {
+export async function getAllAdmins(): Promise<Admin[] | undefined> {
   await connectDB();
   const result = await AdminModel.find({});
   return result;

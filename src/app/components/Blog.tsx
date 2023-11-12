@@ -29,7 +29,7 @@ export default async function Blog() {
                 <dl>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-semibold leading-6">
-                    <time>{stringifyDate(new Date(blog.createdAt))}</time>
+                    <time>{stringifyDate(blog.createdAt)}</time>
                   </dd>
                 </dl>
                 <p className="text-sm font-medium">Estimated {calculateReadTime(blog.content)} minutes read</p>
