@@ -1,10 +1,13 @@
-import { Schema, model, models, InferSchemaType } from "mongoose";
+import { Schema, model, models, InferSchemaType, ObjectId } from "mongoose";
 
-const AdminSchema: Schema = new Schema({
+const AdminSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
 });
 
-export type Admin = InferSchemaType<typeof AdminSchema>;
+type _id = {
+  _id: ObjectId;
+}
+export type Admin = InferSchemaType<typeof AdminSchema> & _id;
 
 export default models.Admin<Admin> || model<Admin>("Admin", AdminSchema);

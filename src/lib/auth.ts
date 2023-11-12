@@ -53,7 +53,7 @@ export const authOptions: NextAuthOptions = {
 
         if (findAdmin.status != "SUCCESS") return null;
         const admin = {
-          id: findAdmin.admin?._id as any,
+          id: String(findAdmin.admin?._id),
           username: credentials?.username,
         };
 
