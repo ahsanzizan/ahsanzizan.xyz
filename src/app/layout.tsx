@@ -24,7 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={raleway.className + " overflow-x-hidden"}>
+      <body
+        className={raleway.className + " overflow-x-hidden bg-black text-white"}
+      >
         <NextAuthProvider>
           <NextTopLoader color="#fff" />
           {children}
