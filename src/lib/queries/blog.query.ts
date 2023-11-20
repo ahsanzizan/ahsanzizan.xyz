@@ -1,7 +1,5 @@
 import BlogModel, { Blog } from "@/models/Blog.model";
 import connectDB from "../mongoose";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth";
 
 export async function getAllBlogs(): Promise<Blog[] | undefined> {
   await connectDB();
