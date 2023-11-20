@@ -1,13 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { SessionProvider } from "next-auth/react";
-import { Montserrat } from "next/font/google";
+import { Raleway } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { NextAuthProvider } from "./components/NextAuthProvider";
 
-const montserrat = Montserrat({
+const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className + " overflow-x-hidden"}>
+      <body className={raleway.className + " overflow-x-hidden"}>
         <NextAuthProvider>
           <NextTopLoader color="#fff" />
           {children}
