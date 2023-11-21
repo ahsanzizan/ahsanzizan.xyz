@@ -41,7 +41,7 @@ export default async function Header() {
                   key={i}
                   href={socialMedia.url}
                   target="_blank"
-                  className="rounded-full border border-white p-2 transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow"
+                  className="rounded-full border border-white p-3 transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow"
                 >
                   <svg
                     role="img"

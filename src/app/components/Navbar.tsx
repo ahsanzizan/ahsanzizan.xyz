@@ -127,6 +127,7 @@ export default function Navbar() {
                 }}
                 onMouseEnter={() => setActiveLinkIdx(i)}
                 onMouseLeave={() => setActiveLinkIdx(null)}
+                onClick={() => setNavOpen(false)}
               >
                 {link.text}
               </Link>
