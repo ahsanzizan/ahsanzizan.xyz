@@ -7,8 +7,8 @@ export default async function Header() {
   return (
     <section id="home" className="w-full">
       <header className="flex flex-col gap-4 py-12">
-        <h4 className="drop-shadow-glow text-2xl">{"I'm Ahsan Azizan"}</h4>
-        <h1 className="drop-shadow-glow text-7xl leading-snug">
+        <h4 className="text-2xl drop-shadow-glow">{"I'm Ahsan Azizan"}</h4>
+        <h1 className="text-7xl leading-snug drop-shadow-glow">
           A dedicated software engineer
           <br />
           with a passion for crafting and
@@ -17,8 +17,8 @@ export default async function Header() {
         </h1>
         <div className="mt-12 flex items-center gap-[42px]">
           <Link
-            href={""}
-            className="hover:drop-shadow-glow group inline-flex items-center gap-2 rounded-full border border-white px-[22px] py-[10px] text-lg transition-all duration-500 hover:bg-white hover:text-black"
+            href={"/about"}
+            className="group inline-flex items-center gap-2 rounded-full border border-white px-[22px] py-[10px] text-lg transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow"
           >
             Learn More{" "}
             <svg
@@ -41,7 +41,7 @@ export default async function Header() {
                   key={i}
                   href={socialMedia.url}
                   target="_blank"
-                  className="hover:drop-shadow-glow rounded-full border border-white p-2 transition-all duration-500 hover:bg-white hover:text-black"
+                  className="rounded-full border border-white p-2 transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow"
                 >
                   <svg
                     role="img"
