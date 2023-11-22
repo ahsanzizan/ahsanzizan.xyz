@@ -4,9 +4,9 @@ export default function Services() {
       <section id="layanan" className="mb-32 w-full py-12">
         <div className="relative flex flex-col justify-between lg:flex-row">
           <div className="mb-[42px] w-full lg:sticky lg:top-[6em] lg:mb-0 lg:h-[170px] lg:w-[45%] lg:self-start">
-            <h2 className="text-7xl drop-shadow-glow">
+            <h1 className="text-7xl drop-shadow-glow">
               I Could Help You With...
-            </h2>
+            </h1>
           </div>
           <div className="flex w-full flex-col divide-y divide-white rounded-full lg:w-1/2">
             <div className="flex w-full gap-7 pb-[52px] lg:justify-between">
