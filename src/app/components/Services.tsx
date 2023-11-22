@@ -1,10 +1,7 @@
 export default function Services() {
   return (
     <>
-      <section
-        id="layanan"
-        className="mx-auto w-full max-w-[1440px] px-5 py-[54px]"
-      >
+      <section id="layanan" className="mb-32 w-full py-12">
         <div className="relative flex flex-col justify-between lg:flex-row">
           <div className="mb-[42px] w-full lg:sticky lg:top-[6em] lg:mb-0 lg:h-[170px] lg:w-[45%] lg:self-start">
             <h2 className="text-7xl drop-shadow-glow">
