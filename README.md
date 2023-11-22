@@ -1,3 +1,6 @@
+## TODOs
+- Add drive.google.com in the next.config.js' images domains list 
+
 ## Getting Started
 
 First, run the development server:
