@@ -5,7 +5,7 @@ export default async function Header() {
   const socialMedias = await getAllSocialMedias();
 
   return (
-    <section id="home" className="w-full">
+    <section id="home" className="mb-32 w-full">
       <header className="flex flex-col gap-4 py-12">
         <h4 className="text-2xl drop-shadow-glow">{"I'm Ahsan Azizan"}</h4>
         <h1 className="text-7xl leading-snug drop-shadow-glow">

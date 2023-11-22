@@ -8,6 +8,11 @@ type auth = {
   admin?: Admin;
 };
 
+type AdminCreateInput = {
+  username: string;
+  password: string;
+}
+
 export async function findAdminByUname(username: string) {
   await connectDB();
   const result = await AdminModel.findOne({ username });
@@ -48,7 +53,7 @@ export async function authenticateAdmin(
   return result;
 }
 
-export async function createAdmin(admin: Admin) {
+export async function createAdmin(admin: AdminCreateInput) {
   await connectDB();
   const hashedPassword = generate(admin.password || "");
   const createAdmin = await AdminModel.create({
