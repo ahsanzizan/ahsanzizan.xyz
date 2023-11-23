@@ -1,5 +1,5 @@
 ## TODOs
-- Add drive.google.com in the next.config.js' images domains list 
+- Add footer
 
 ## Getting Started
 
