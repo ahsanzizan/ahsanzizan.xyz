@@ -6,3 +6,9 @@ export async function getAllProjects(): Promise<Project[]> {
   const projects = await ProjectModel.find({});
   return projects;
 }
+
+export async function getProjectByLink(link: string): Promise<Project[]> {
+  await connectDB();
+  const projects = await ProjectModel.findOne({ link });
+  return projects;
+}
