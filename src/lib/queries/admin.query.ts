@@ -2,6 +2,7 @@ import connectDB from "../mongoose";
 import AdminModel from "@/models/Admin.model";
 import type { Admin } from "@/models/Admin.model";
 import { validate, generate } from "../hash";
+import { connectAndQuery } from "../connectAndQuery";
 
 type auth = {
   status: "SUCCESS" | "NO_PASSWORD" | "INVALID";
@@ -11,18 +12,14 @@ type auth = {
 type AdminCreateInput = {
   username: string;
   password: string;
-}
+};
 
 export async function findAdminByUname(username: string) {
-  await connectDB();
-  const result = await AdminModel.findOne({ username });
-  return result;
+  return connectAndQuery(async () => await AdminModel.findOne({ username }));
 }
 
 export async function getAllAdmins(): Promise<Admin[] | undefined> {
-  await connectDB();
-  const result = await AdminModel.find({});
-  return result;
+  return connectAndQuery(async () => await AdminModel.find({}));
 }
 
 export async function authenticateAdmin(
@@ -54,12 +51,13 @@ export async function authenticateAdmin(
 }
 
 export async function createAdmin(admin: AdminCreateInput) {
-  await connectDB();
-  const hashedPassword = generate(admin.password || "");
-  const createAdmin = await AdminModel.create({
-    ...admin,
-    password: hashedPassword,
-  });
+  return connectAndQuery(async () => {
+    const hashedPassword = generate(admin.password || "");
+    const createAdmin = await AdminModel.create({
+      ...admin,
+      password: hashedPassword,
+    });
 
-  return createAdmin;
+    return createAdmin;
+  });
 }

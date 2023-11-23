@@ -1,8 +1,7 @@
 import SocialMediaModel, { SocialMedia } from "@/models/SocialMedia.model";
 import connectDB from "../mongoose";
+import { connectAndQuery } from "../connectAndQuery";
 
 export async function getAllSocialMedias(): Promise<SocialMedia[]> {
-  await connectDB();
-  const result = await SocialMediaModel.find({});
-  return result;
+  return connectAndQuery(async () => await SocialMediaModel.find({}));
 }

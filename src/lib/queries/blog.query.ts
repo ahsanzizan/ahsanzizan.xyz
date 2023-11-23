@@ -1,15 +1,11 @@
 import BlogModel, { Blog } from "@/models/Blog.model";
 import connectDB from "../mongoose";
+import { connectAndQuery } from "../connectAndQuery";
 
-export async function getAllBlogs(): Promise<Blog[] | undefined> {
-  await connectDB();
-  const result = await BlogModel.find({});
-  return result;
+export async function getAllBlogs(): Promise<Blog[]> {
+  return connectAndQuery(async () => await BlogModel.find({}));
 }
 
 export async function createBlog(blog: Blog) {
-  await connectDB();
-  const newBlog = await BlogModel.create({ ...blog });
-
-  return newBlog;
+  return connectAndQuery(async () => await BlogModel.create({ ...blog }));
 }
