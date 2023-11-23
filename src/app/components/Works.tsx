@@ -30,7 +30,7 @@ export default async function Works() {
           </Link>
         </div>
         <div className="flex w-full flex-col divide-y divide-white">
-          {projects.map((project, i) => (
+          {projects.slice(0, 3).map((project, i) => (
             <Link
               key={i}
               href={`/works/${project.link}`}
@@ -42,7 +42,7 @@ export default async function Works() {
                 alt="Project Image"
                 width={256}
                 height={164}
-                className="relative h-40 w-64 rounded-xl opacity-0 transition-all duration-500 group-hover:opacity-100"
+                className="relative h-40 w-64 rounded-xl object-cover opacity-0 transition-all duration-500 group-hover:opacity-100"
               />
             </Link>
           ))}
