@@ -110,7 +110,7 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="inline-flex flex-col gap-16">
+          <div className="inline-flex flex-col gap-8">
             {links.map((link, i) => (
               <Link
                 key={i}
