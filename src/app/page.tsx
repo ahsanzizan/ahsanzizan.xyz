@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HomeWrapper from "./components/HomeWrapper";
 import Navbar from "./components/Navbar";
@@ -12,6 +13,7 @@ export default function Home() {
         <Header />
         <Services />
         <Works />
+        <Footer />
       </main>
     </HomeWrapper>
   );
