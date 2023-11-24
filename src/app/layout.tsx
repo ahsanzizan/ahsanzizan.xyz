@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Raleway } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { NextAuthProvider } from "./components/NextAuthProvider";
@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     template: "Ahsan Azizan | %s",
   },
   description: "Personal website of Ahsan Awadullah Azizan",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 0.8,
 };
 
 export default function RootLayout({
