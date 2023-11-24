@@ -8,7 +8,7 @@ export default async function Footer() {
     <>
       <footer className="flex w-full items-start justify-between">
         <div className="block">
-          <Link
+          <a
             href={"mailto:ahsanaz461@gmail.com"}
             className="group inline-flex items-center gap-2 rounded-full border border-white px-[22px] py-[10px] text-lg transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow"
           >
@@ -25,7 +25,7 @@ export default async function Footer() {
                 fill="current"
               />
             </svg>
-          </Link>
+          </a>
         </div>
         <div>
           <div className="flex items-center gap-6">
