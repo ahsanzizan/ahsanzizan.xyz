@@ -1,6 +1,3 @@
-## TODOs
-- Add footer
-
 ## Getting Started
 
 First, run the development server:
