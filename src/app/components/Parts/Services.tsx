@@ -14,7 +14,7 @@ export default function Services() {
                 <h3 className="mb-[14px] text-base drop-shadow-glow sm:text-2xl lg:text-[28px]">
                   Mobile App Development
                 </h3>
-                <p className="text-sm leading-7 sm:text-base lg:text-xl">
+                <p className="text-sm leading-7 sm:text-base lg:text-xl text-neutral-400">
                   I can help you create an application that runs on iOS and
                   Android platforms.
                 </p>
@@ -25,7 +25,7 @@ export default function Services() {
                 <h3 className="mb-[14px] text-base drop-shadow-glow sm:text-2xl lg:text-[28px]">
                   Web-App Development
                 </h3>
-                <p className="text-sm leading-7 sm:text-base lg:text-xl">
+                <p className="text-sm leading-7 sm:text-base lg:text-xl text-neutral-400">
                   I can help you creates an interactive and responsive web-app
                   with React and TypeScript.
                 </p>
@@ -36,7 +36,7 @@ export default function Services() {
                 <h3 className="mb-[14px] text-base drop-shadow-glow sm:text-2xl lg:text-[28px]">
                   Game Development
                 </h3>
-                <p className="text-sm leading-7 sm:text-base lg:text-xl">
+                <p className="text-sm leading-7 sm:text-base lg:text-xl text-neutral-400">
                   I can help you creates a game that runs on various platforms
                   with the Unity Game Engine.
                 </p>
