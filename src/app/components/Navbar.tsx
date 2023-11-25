@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -12,6 +12,10 @@ export default function Navbar() {
     { href: "/works", text: "Works" },
     { href: "/blog", text: "Blog" },
   ];
+
+  useEffect(() => {
+    document.body.style.overflowY = navOpen ? "hidden" : "visible";
+  }, [navOpen]);
 
   return (
     <>
