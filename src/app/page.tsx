@@ -1,9 +1,9 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Footer from "./components/Parts/Footer";
+import Header from "./components/Parts/Header";
 import HomeWrapper from "./components/HomeWrapper";
-import Navbar from "./components/Navbar";
-import Services from "./components/Services";
-import Works from "./components/Works";
+import Navbar from "./components/Parts/Navbar";
+import Services from "./components/Parts/Services";
+import Works from "./components/Parts/Works";
 
 export default function Home() {
   return (
