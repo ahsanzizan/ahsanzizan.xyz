@@ -8,11 +8,11 @@ export default async function Works() {
   return (
     <>
       <section id="works" className="mb-32 w-full py-12">
-        <div className="mb-12 flex w-full items-center justify-between">
-          <h4 className="text-2xl drop-shadow-glow">Works</h4>
+        <div className="mb-5 flex w-full items-center justify-between md:mb-12">
+          <h4 className="text-lg drop-shadow-glow md:text-2xl">Works</h4>
           <Link
             href={"/works"}
-            className="group inline-flex items-center gap-2 rounded-full border border-white px-[22px] py-[10px] text-lg transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow"
+            className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
           >
             See More{" "}
             <svg
@@ -34,15 +34,17 @@ export default async function Works() {
             <Link
               key={i}
               href={`/works/${project.link}`}
-              className="group flex w-full items-center justify-between overflow-hidden py-10 transition-all duration-500 hover:px-7"
+              className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 hover:px-4 md:py-10 md:hover:px-7"
             >
-              <h2 className="text-4xl drop-shadow-glow">{project.title}</h2>
+              <h2 className="text-xl drop-shadow-glow md:text-4xl">
+                {project.title}
+              </h2>
               <Image
                 src={project.image}
                 alt="Project Image"
                 width={256}
                 height={164}
-                className="relative h-40 w-64 rounded-xl object-cover opacity-0 transition-all duration-500 group-hover:opacity-100"
+                className="relative h-20 w-32 rounded-xl object-cover opacity-0 transition-all duration-500 group-hover:opacity-100 md:h-40 md:w-64"
               />
             </Link>
           ))}
