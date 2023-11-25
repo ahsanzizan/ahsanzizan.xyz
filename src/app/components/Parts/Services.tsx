@@ -4,7 +4,7 @@ export default function Services() {
       <section id="layanan" className="mb-32 w-full py-12">
         <div className="relative flex flex-col justify-between lg:flex-row">
           <div className="mb-[42px] w-full lg:sticky lg:top-[6em] lg:mb-0 lg:h-[170px] lg:w-[45%] lg:self-start">
-            <h1 className="text-7xl drop-shadow-glow">
+            <h1 className="text-4xl md:text-7xl drop-shadow-glow">
               I Could Help You With...
             </h1>
           </div>
