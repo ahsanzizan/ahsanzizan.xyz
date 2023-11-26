@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed left-1/2 z-[998] flex w-full max-w-[1440px] -translate-x-1/2 items-center justify-between bg-black px-10 py-4">
+      <nav className="fixed left-1/2 z-[998] flex w-full max-w-[1440px] -translate-x-1/2 items-center justify-between bg-black px-5 py-4">
         <Link href={"/"}>
           <Image
             src={"/logo.png"}
