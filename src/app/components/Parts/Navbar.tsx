@@ -73,7 +73,7 @@ export default function Navbar() {
         </div>
       </nav>
       <div
-        className={`fixed left-1/2 top-[55%] md:top-1/2 z-[999] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-transparent backdrop-blur-3xl transition-all duration-500 ease-in-out`}
+        className={`fixed left-1/2 top-1/2 z-[999] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-transparent backdrop-blur-3xl transition-all duration-500 ease-in-out`}
         style={{
           width: `${navOpen ? "100vw" : 0}`,
           height: `${navOpen ? "100vh" : 0}`,
@@ -81,7 +81,7 @@ export default function Navbar() {
         }}
       >
         <div className="mx-auto w-full max-w-[1440px] px-5">
-          <div className="mb-16 md:mb-8 flex w-full items-center justify-between py-4">
+          <div className="mb-16 flex w-full items-center justify-between py-4 mt-6 md:mb-8">
             <Link href={"/"}>
               <Image
                 src={"/logo.png"}
@@ -114,7 +114,7 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="inline-flex flex-col gap-16 md:gap-4">
+          <div className="inline-flex flex-col gap-16 md:gap-5">
             {links.map((link, i) => (
               <Link
                 key={i}
