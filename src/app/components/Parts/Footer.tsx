@@ -6,7 +6,7 @@ export default async function Footer() {
 
   return (
     <>
-      <footer className="flex w-full items-start justify-between">
+      <footer className="flex w-full flex-col items-start gap-4 md:justify-between md:flex-row">
         <div className="block">
           <a
             href={"mailto:ahsanaz461@gmail.com"}
