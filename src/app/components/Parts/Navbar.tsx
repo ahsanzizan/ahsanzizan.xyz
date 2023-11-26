@@ -80,7 +80,7 @@ export default function Navbar() {
           borderRadius: `${navOpen ? 0 : "9999px"}`,
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-10">
+        <div className="mx-auto w-full max-w-[1440px] px-5">
           <div className="mb-16 md:mb-8 flex w-full items-center justify-between py-4">
             <Link href={"/"}>
               <Image
