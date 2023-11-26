@@ -73,7 +73,7 @@ export default function Navbar() {
         </div>
       </nav>
       <div
-        className={`fixed left-1/2 top-[55%] z-[999] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-transparent backdrop-blur-3xl transition-all duration-500 ease-in-out`}
+        className={`fixed left-1/2 top-[55%] md:top-1/2 z-[999] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-transparent backdrop-blur-3xl transition-all duration-500 ease-in-out`}
         style={{
           width: `${navOpen ? "100vw" : 0}`,
           height: `${navOpen ? "100vh" : 0}`,
