@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <HomeWrapper>
       <Navbar />
-      <main className="mx-auto w-full max-w-[1440px] px-10 py-[137px]">
+      <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <Header />
         <Services />
         <Works />
