@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import CustomCursor from "./CustomCursor";
 
-interface HomeWrapperProps {
+interface WrapperProps {
   children: React.ReactNode;
 }
 
-export default function HomeWrapper({ children }: HomeWrapperProps) {
+export default function Wrapper({ children }: WrapperProps) {
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
   useEffect(() => {
