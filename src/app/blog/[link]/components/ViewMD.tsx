@@ -9,6 +9,7 @@ export default function ViewMD({ markdown }: { markdown: string }) {
       style={{
         backgroundColor: "#000",
         color: "#a3a3a3",
+        fontFamily: "Raleway",
       }}
     />
   );
