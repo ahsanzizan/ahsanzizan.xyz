@@ -5,7 +5,7 @@ const ProjectSchema = new Schema({
   description: { type: String, required: true },
   url: { type: String, required: true },
   image: { type: String, required: true },
-  link: { type: String, required: true },
+  link: { type: String, required: true, unique: true },
 });
 
 export type Project = InferSchemaType<typeof ProjectSchema>;
