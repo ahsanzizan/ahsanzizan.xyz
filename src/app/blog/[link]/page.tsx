@@ -1,5 +1,6 @@
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
+import { ArticleJsonLd } from "next-seo";
 import Wrapper from "@/app/components/Wrapper";
 import { getBlogByLink } from "@/lib/queries/blog.query";
 import ViewMD from "./components/ViewMD";
@@ -28,6 +29,15 @@ export default async function ViewBlog({
 
   return (
     <Wrapper>
+      <ArticleJsonLd
+        authorName={blog.author}
+        datePublished={stringifyDate(blog.createdAt)}
+        description="A blog by Ahsan Azizan"
+        title={blog.title}
+        url={`https://www.ahsanzizan.xyz/blog/${blog.link}`}
+        images={[]}
+        useAppDir
+      />
       <Navbar />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <section id="view-blog" className="mb-32 w-full py-12">
