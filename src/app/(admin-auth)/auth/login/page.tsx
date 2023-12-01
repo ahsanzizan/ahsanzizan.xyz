@@ -56,26 +56,20 @@ export default function Login() {
   };
 
   return (
-    <section className="flex h-screen items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md space-y-4 rounded p-6 md:bg-white">
-        <div className="mb-6 flex justify-center md:justify-start">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={146}
-            height={32}
-            className="mr-2"
-          />
-        </div>
+    <section className="flex h-screen flex-col items-center justify-center gap-2">
+      <div className="w-full max-w-lg rounded p-6">
+        <h1 className="mb-7 text-4xl leading-snug drop-shadow-glow md:text-7xl">
+          Admin Login
+        </h1>
         <form
           action="/api/auth/callback/credentials"
           method="POST"
           onSubmit={onSubmit}
-          className="space-y-4"
         >
-          <div>
+          <div className="mb-4">
             <input
-              className="w-full rounded border border-gray-200 bg-gray-50 p-3 text-sm text-gray-600 focus:outline-none"
+              className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
+              style={{ WebkitTextFillColor: "#fff" }}
               type="text"
               name="username"
               placeholder="Username"
@@ -85,7 +79,8 @@ export default function Login() {
           </div>
           <div>
             <input
-              className="w-full rounded border border-gray-200 bg-gray-50 p-3 text-sm text-gray-600 focus:outline-none"
+              className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
+              style={{ WebkitTextFillColor: "#fff" }}
               type="password"
               name="password"
               onChange={handleChange}
@@ -93,10 +88,10 @@ export default function Login() {
               required
             />
           </div>
-          <div>
+          <div className="mt-10">
             <button
               type="submit"
-              className="w-full rounded bg-red-600 py-2 text-sm font-bold text-gray-50 transition duration-200 hover:bg-red-700 disabled:bg-red-500 disabled:text-gray-200"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white bg-white px-5 py-2 text-center text-base text-black transition-all duration-500 hover:drop-shadow-glow disabled:bg-neutral-400 md:px-[22px] md:py-[10px] md:text-lg"
               disabled={loading}
             >
               <div>
