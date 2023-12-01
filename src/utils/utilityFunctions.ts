@@ -16,7 +16,7 @@ export function stringifyDate(date: Date) {
   const year = date.getFullYear(),
     month = months[date.getMonth()],
     day = date.getDate();
-  return `${month} ${date}, ${year}`;
+  return `${month} ${day}, ${year}`;
 }
 
 // Will return the read time in minutes
