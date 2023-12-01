@@ -14,7 +14,7 @@ export default function Experiences() {
               <time>October 2023 - Present</time>
             </dd>
           </dl>
-          <p>
+          <p className="text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
             In my role as Lead Development Staff at Moklet IT Festival Event, I
             have been instrumental in orchestrating the technical aspects of
             this dynamic and impactful event. My responsibilities revolves
@@ -31,7 +31,7 @@ export default function Experiences() {
               <time>August 2023 - Present</time>
             </dd>
           </dl>
-          <p>
+          <p className="text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
             Leveraged my expertise in both front-end and back-end development to
             create seamless user experiences. Utilized Next.js and TypeScript
             for the front end, and integrated robust back-end functionalities
@@ -48,7 +48,7 @@ export default function Experiences() {
               <time>June 2023 - Present</time>
             </dd>
           </dl>
-          <p>
+          <p className="text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
             As a freelance developer, {"I've"} had the privilege of working on
             diverse projects, delivering innovative solutions to clients. This
             experience has allowed me to improve and use my skills in both
