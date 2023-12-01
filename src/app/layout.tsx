@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Raleway } from "next/font/google";
-import NextTopLoader from "nextjs-toploader";
 import { NextAuthProvider } from "./components/NextAuthProvider";
+import TopLoader from "./components/TopLoader";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -32,10 +32,8 @@ export default function RootLayout({
       <body
         className={raleway.className + " overflow-x-hidden bg-black text-white"}
       >
-        <NextAuthProvider>
-          <NextTopLoader color="#fff" />
-          {children}
-        </NextAuthProvider>
+        <TopLoader />
+        <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>
   );
