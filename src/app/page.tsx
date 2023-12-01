@@ -1,3 +1,4 @@
+import { SocialProfileJsonLd } from "next-seo";
 import Footer from "./components/Parts/Footer";
 import Header from "./components/Parts/Header";
 import Navbar from "./components/Parts/Navbar";
@@ -8,6 +9,17 @@ import Wrapper from "./components/Wrapper";
 export default function Home() {
   return (
     <Wrapper>
+      <SocialProfileJsonLd
+        type="Person"
+        name="Ahsan Awadullah Azizan"
+        url="https://www.ahsanzizan.xyz"
+        sameAs={[
+          "https://instagram.com/ahsanzizan",
+          "https://linkedin.com/in/ahsan-azizan",
+          "https://youtube.com/@jetto_curvarine",
+        ]}
+        useAppDir
+      />
       <Navbar />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <Header />
