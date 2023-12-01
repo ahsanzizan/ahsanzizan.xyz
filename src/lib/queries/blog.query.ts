@@ -1,5 +1,4 @@
 import BlogModel, { Blog } from "@/models/Blog.model";
-import connectDB from "../mongoose";
 import { connectAndQuery } from "../connectAndQuery";
 
 export async function getAllBlogs(): Promise<Blog[]> {
