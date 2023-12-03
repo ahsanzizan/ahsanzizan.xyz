@@ -3,6 +3,7 @@ import { getAllSocialMedias } from "@/lib/queries/socialMedia.query";
 import { getServerSession } from "next-auth";
 import SocialMediasTable from "./components/SocialMediasTable";
 import { SocialMedia } from "@/models/SocialMedia.model";
+import Link from "next/link";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);
@@ -40,14 +41,6 @@ export default async function AdminPage() {
             </div>
           </header>
           <div className="block">
-            <div className="mb-4 flex w-full items-center justify-between">
-              <h4 className="text-lg drop-shadow-glow md:text-2xl">
-                Social Medias
-              </h4>
-              <button className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg">
-                New{" "}
-              </button>
-            </div>
             <SocialMediasTable socialMedias={socialMedias} />
           </div>
         </section>
