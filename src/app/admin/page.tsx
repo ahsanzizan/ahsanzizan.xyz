@@ -3,7 +3,6 @@ import { getAllSocialMedias } from "@/lib/queries/socialMedia.query";
 import { getServerSession } from "next-auth";
 import SocialMediasTable from "./components/SocialMediasTable";
 import { SocialMedia } from "@/models/SocialMedia.model";
-import Link from "next/link";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);
