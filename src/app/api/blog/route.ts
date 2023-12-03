@@ -44,7 +44,6 @@ export async function POST(req: Request) {
       content,
       link,
       tags,
-      createdAt: new Date(),
       author: session.user.username as string,
     });
     return NextResponse.json(
