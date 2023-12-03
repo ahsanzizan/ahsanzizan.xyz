@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Raleway } from "next/font/google";
 import { NextAuthProvider } from "./components/NextAuthProvider";
 import TopLoader from "./components/TopLoader";
+import { Toaster } from "react-hot-toast";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -32,8 +33,11 @@ export default function RootLayout({
       <body
         className={raleway.className + " overflow-x-hidden bg-black text-white"}
       >
-        <TopLoader />
-        <NextAuthProvider>{children}</NextAuthProvider>
+        <NextAuthProvider>
+          <TopLoader />
+          <Toaster position="top-right" />
+          {children}
+        </NextAuthProvider>
       </body>
     </html>
   );

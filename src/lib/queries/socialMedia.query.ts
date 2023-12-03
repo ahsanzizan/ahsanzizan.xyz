@@ -6,7 +6,9 @@ export async function getAllSocialMedias(): Promise<SocialMedia[]> {
 }
 
 export async function deleteSocialMediaById(id: string) {
-  return connectAndQuery(async () => await SocialMediaModel.deleteOne({ id }));
+  return connectAndQuery(
+    async () => await SocialMediaModel.deleteOne({ _id: id }),
+  );
 }
 
 export async function createSocialMedia(socialMedia: SocialMedia) {
