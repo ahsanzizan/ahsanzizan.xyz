@@ -9,6 +9,14 @@ export async function getBlogByLink(link: string): Promise<Blog> {
   return connectAndQuery(async () => await BlogModel.findOne({ link }));
 }
 
-export async function createBlog(blog: Blog) {
+type CreateBlogInput = {
+  title: string;
+  content: string;
+  link: string;
+  author: string;
+  tags: string[];
+};
+
+export async function createBlog(blog: CreateBlogInput) {
   return connectAndQuery(async () => await BlogModel.create({ ...blog }));
 }
