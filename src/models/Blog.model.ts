@@ -1,4 +1,4 @@
-import { InferSchemaType, Schema, model, models } from "mongoose";
+import { InferSchemaType, Schema, Types, model, models } from "mongoose";
 
 const BlogSchema = new Schema({
   title: { type: String, required: true },
@@ -9,6 +9,9 @@ const BlogSchema = new Schema({
   tags: [{ type: String }],
 });
 
-export type Blog = InferSchemaType<typeof BlogSchema>;
+type _id = {
+  _id: Types.ObjectId;
+};
+export type Blog = InferSchemaType<typeof BlogSchema> & _id;
 
 export default models.Blog<Blog> || model<Blog>("Blog", BlogSchema);

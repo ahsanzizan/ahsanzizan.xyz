@@ -1,4 +1,4 @@
-import { InferSchemaType, Schema, model, models } from "mongoose";
+import { InferSchemaType, Schema, Types, model, models } from "mongoose";
 
 const ProjectSchema = new Schema({
   title: { type: String, required: true },
@@ -8,7 +8,10 @@ const ProjectSchema = new Schema({
   link: { type: String, required: true, unique: true },
 });
 
-export type Project = InferSchemaType<typeof ProjectSchema>;
+type _id = {
+  _id: Types.ObjectId;
+};
+export type Project = InferSchemaType<typeof ProjectSchema> & _id;
 
 export default models.Project<Project> ||
   model<Project>("Project", ProjectSchema);

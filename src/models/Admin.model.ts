@@ -1,4 +1,4 @@
-import { Schema, model, models, InferSchemaType, ObjectId } from "mongoose";
+import { Schema, model, models, InferSchemaType, Types } from "mongoose";
 
 const AdminSchema = new Schema({
   username: { type: String, required: true },
@@ -6,7 +6,7 @@ const AdminSchema = new Schema({
 });
 
 type _id = {
-  _id: ObjectId;
+  _id: Types.ObjectId;
 };
 export type Admin = InferSchemaType<typeof AdminSchema> & _id;
 

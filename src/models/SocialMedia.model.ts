@@ -1,4 +1,4 @@
-import { InferSchemaType, Schema, model, models } from "mongoose";
+import { InferSchemaType, Schema, Types, model, models } from "mongoose";
 
 const SocialMediaSchema = new Schema({
   name: { type: String, required: true },
@@ -6,7 +6,10 @@ const SocialMediaSchema = new Schema({
   svgPath: { type: String, required: true },
 });
 
-export type SocialMedia = InferSchemaType<typeof SocialMediaSchema>;
+type _id = {
+  _id: Types.ObjectId;
+};
+export type SocialMedia = InferSchemaType<typeof SocialMediaSchema> & _id;
 
 export default models["Social-Media"]<SocialMedia> ||
   model<SocialMedia>("Social-Media", SocialMediaSchema);

@@ -1,4 +1,4 @@
-import { InferSchemaType, Schema, model, models } from "mongoose";
+import { InferSchemaType, Schema, Types, model, models } from "mongoose";
 
 const ExperienceSchema = new Schema({
   title: { type: String, reuired: true },
@@ -7,7 +7,10 @@ const ExperienceSchema = new Schema({
   description: { type: String, required: true },
 });
 
-export type Experience = InferSchemaType<typeof ExperienceSchema>;
+type _id = {
+  _id: Types.ObjectId;
+};
+export type Experience = InferSchemaType<typeof ExperienceSchema> & _id;
 
 export default models.Experience<Experience> ||
   model<Experience>("Experience", ExperienceSchema);
