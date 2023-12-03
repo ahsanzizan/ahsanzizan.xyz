@@ -1,12 +1,11 @@
 import { getAllSocialMedias } from "@/lib/queries/socialMedia.query";
-import Link from "next/link";
 
 export default async function Footer() {
   const socialMedias = await getAllSocialMedias();
 
   return (
     <>
-      <footer className="flex w-full flex-col items-start gap-4 md:justify-between md:flex-row">
+      <footer className="flex w-full flex-col items-start gap-4 md:flex-row md:justify-between">
         <div className="block">
           <a
             href={"mailto:ahsanaz461@gmail.com"}
@@ -55,3 +54,5 @@ export default async function Footer() {
     </>
   );
 }
+
+export const revalidate = 0;

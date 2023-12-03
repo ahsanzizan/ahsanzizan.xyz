@@ -68,3 +68,5 @@ export default async function Blog() {
     </Wrapper>
   );
 }
+
+export const revalidate = 0;

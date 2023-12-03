@@ -67,3 +67,5 @@ export default async function ViewBlog({
     </Wrapper>
   );
 }
+
+export const revalidate = 0;

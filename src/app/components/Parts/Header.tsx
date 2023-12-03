@@ -63,3 +63,5 @@ export default async function Header() {
     </section>
   );
 }
+
+export const revalidate = 0;
