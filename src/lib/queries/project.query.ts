@@ -13,6 +13,10 @@ export async function getProjectByLink(link: string): Promise<Project> {
   return connectAndQuery(async () => await ProjectModel.findOne({ link }));
 }
 
+export async function deleteProjectById(id: string) {
+  return connectAndQuery(async () => await ProjectModel.deleteOne({ _id: id }));
+}
+
 type UpsertProjectInput = {
   title?: string;
   url?: string;

@@ -9,6 +9,10 @@ export async function getBlogByLink(link: string): Promise<Blog> {
   return connectAndQuery(async () => await BlogModel.findOne({ link }));
 }
 
+export async function deleteBlogById(id: string) {
+  return connectAndQuery(async () => await BlogModel.deleteOne({ _id: id }));
+}
+
 type CreateBlogInput = {
   title: string;
   content: string;

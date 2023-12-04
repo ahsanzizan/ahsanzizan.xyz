@@ -1,6 +1,7 @@
 "use server";
 
-import { upsertProject } from "@/lib/queries/project.query";
+import { deleteBlogById } from "@/lib/queries/blog.query";
+import { deleteProjectById, upsertProject } from "@/lib/queries/project.query";
 import {
   upsertSocialMedia,
   deleteSocialMediaById,
@@ -34,5 +35,17 @@ export async function upsertProjectAction(formData: FormData) {
 export async function deleteSocialMediaAction(id: string) {
   try {
     await deleteSocialMediaById(id);
+  } catch (error) {}
+}
+
+export async function deleteProjectAction(id: string) {
+  try {
+    await deleteProjectById(id);
+  } catch (error) {}
+}
+
+export async function deleteBlogAction(id: string) {
+  try {
+    await deleteBlogById(id);
   } catch (error) {}
 }
