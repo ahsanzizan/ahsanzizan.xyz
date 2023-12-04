@@ -8,7 +8,7 @@ export default async function Header() {
     <section id="home" className="mb-32 w-full py-12">
       <header className="flex flex-col gap-2 md:gap-4">
         <h4 className="text-lg drop-shadow-glow md:text-2xl">
-          {"I'm Ahsan Azizan"}
+          {"I'm Ahsan Azizan, or "} <span id="nicknames"></span>
         </h4>
         <h1 className="text-4xl leading-snug drop-shadow-glow md:text-7xl">
           A dedicated software engineer
