@@ -8,6 +8,7 @@ export async function getAllBlogs(): Promise<Blog[]> {
 export async function getBlogById(id: string): Promise<Blog> {
   return connectAndQuery(async () => {
     try {
+      if (id === "") return null;
       return await BlogModel.findById(id);
     } catch (error) {
       return null;
@@ -34,6 +35,10 @@ type UpsertBlogInput = {
 export async function upsertBlog(id: string, blog: UpsertBlogInput) {
   return connectAndQuery(
     async () =>
-      await BlogModel.findByIdAndUpdate(id, { ...blog }, { upsert: true }),
+      await BlogModel.findByIdAndUpdate(
+        id,
+        { ...blog },
+        { upsert: true, new: true },
+      ),
   );
 }

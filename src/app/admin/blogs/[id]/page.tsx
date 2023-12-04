@@ -17,7 +17,7 @@ export default async function EditSocialMedia({
           <h1 className="mb-7 mt-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
             {blog ? "Edit" : "Create"} a Blog
           </h1>
-          {blog && <EditBlog blog={blog} />}
+          <EditBlog blog={blog} />
         </div>
       </section>
     </>

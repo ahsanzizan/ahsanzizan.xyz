@@ -2,17 +2,18 @@
 import { upsertBlogAction } from "@/app/admin/actions";
 import { Blog } from "@/models/Blog.model";
 import MDEditor from "@uiw/react-md-editor";
+import { Types } from "mongoose";
 import { useEffect, useState } from "react";
 import rehypeSanitize from "rehype-sanitize";
 
-export default function EditBlog({ blog }: { blog: Blog }) {
+export default function EditBlog({ blog }: { blog?: Blog }) {
   const [tags, setTags] = useState<string[]>([]);
   const [content, setContent] = useState<string>("");
 
   useEffect(() => {
-    setTags(blog.tags.map((tag) => tag) || []);
-    setContent(blog.content || "");
-  }, [blog.tags, blog.content]);
+    setTags(blog?.tags.map((tag) => tag) || []);
+    setContent(blog?.content || "");
+  }, [blog?.tags, blog?.content]);
 
   return (
     <>
@@ -21,7 +22,11 @@ export default function EditBlog({ blog }: { blog: Blog }) {
           type="hidden"
           id="_id"
           name="_id"
-          value={blog?._id.toString() || ""}
+          value={
+            blog?._id.toString() == ""
+              ? blog._id.toString()
+              : new Types.ObjectId().toString()
+          }
         />
         <input type="hidden" id="tags" name="tags" value={tags.join(" ")} />
         <input type="hidden" id="content" name="content" value={content} />
