@@ -52,7 +52,7 @@ export default async function ViewBlog({
               {blog.tags.map((tag, i) => (
                 <Link
                   key={i}
-                  href={"/blog/" + blog.link}
+                  href={"/blog/tags/" + tag}
                   className="text-neutral-400"
                 >
                   #{tag}
