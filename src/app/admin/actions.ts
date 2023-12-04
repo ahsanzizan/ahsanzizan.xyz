@@ -2,6 +2,7 @@
 
 import { authOptions } from "@/lib/auth";
 import { deleteBlogById, upsertBlog } from "@/lib/queries/blog.query";
+import { deleteExperienceById } from "@/lib/queries/experience.query";
 import { deleteProjectById, upsertProject } from "@/lib/queries/project.query";
 import {
   upsertSocialMedia,
@@ -64,5 +65,11 @@ export async function deleteProjectAction(id: string) {
 export async function deleteBlogAction(id: string) {
   try {
     await deleteBlogById(id);
+  } catch (error) {}
+}
+
+export async function deleteExperienceAction(id: string) {
+  try {
+    await deleteExperienceById(id);
   } catch (error) {}
 }
