@@ -5,6 +5,10 @@ export async function getAllBlogs(): Promise<Blog[]> {
   return connectAndQuery(async () => await BlogModel.find({}));
 }
 
+export async function getBlogById(id: string): Promise<Blog> {
+  return connectAndQuery(async () => await BlogModel.findById(id));
+}
+
 export async function getBlogByLink(link: string): Promise<Blog> {
   return connectAndQuery(async () => await BlogModel.findOne({ link }));
 }
@@ -13,14 +17,17 @@ export async function deleteBlogById(id: string) {
   return connectAndQuery(async () => await BlogModel.deleteOne({ _id: id }));
 }
 
-type CreateBlogInput = {
-  title: string;
-  content: string;
-  link: string;
-  author: string;
-  tags: string[];
+type UpsertBlogInput = {
+  title?: string;
+  content?: string;
+  link?: string;
+  author?: string;
+  tags?: string[];
 };
 
-export async function createBlog(blog: CreateBlogInput) {
-  return connectAndQuery(async () => await BlogModel.create({ ...blog }));
+export async function upsertBlog(id: string, blog: UpsertBlogInput) {
+  return connectAndQuery(
+    async () =>
+      await BlogModel.findByIdAndUpdate(id, { ...blog }, { upsert: true }),
+  );
 }

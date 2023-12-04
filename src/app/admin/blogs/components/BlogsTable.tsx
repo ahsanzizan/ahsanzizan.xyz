@@ -47,7 +47,7 @@ export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
                 Delete
               </button>
               <Link
-                href={"/admin/social-media/" + blog._id.toString()}
+                href={"/admin/blogs/" + blog._id.toString()}
                 className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
               >
                 Edit

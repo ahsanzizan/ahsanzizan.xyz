@@ -1,11 +1,13 @@
 "use server";
 
-import { deleteBlogById } from "@/lib/queries/blog.query";
+import { authOptions } from "@/lib/auth";
+import { deleteBlogById, upsertBlog } from "@/lib/queries/blog.query";
 import { deleteProjectById, upsertProject } from "@/lib/queries/project.query";
 import {
   upsertSocialMedia,
   deleteSocialMediaById,
 } from "@/lib/queries/socialMedia.query";
+import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 export async function upsertSocialMediaAction(formData: FormData) {
@@ -30,6 +32,21 @@ export async function upsertProjectAction(formData: FormData) {
     });
   } catch (error) {}
   redirect("/admin/works");
+}
+
+export async function upsertBlogAction(formData: FormData) {
+  try {
+    const session = await getServerSession(authOptions);
+
+    await upsertBlog(formData.get("_id") as string, {
+      title: formData.get("title") as string,
+      author: session?.user?.username,
+      content: formData.get("content") as string,
+      link: formData.get("link") as string,
+      tags: formData.get("tags")?.toString().split(" "),
+    });
+  } catch (error) {}
+  redirect("/admin/blogs");
 }
 
 export async function deleteSocialMediaAction(id: string) {
