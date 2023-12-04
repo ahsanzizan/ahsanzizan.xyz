@@ -12,9 +12,9 @@ export default async function EditSocialMedia({
   return (
     <>
       <section className="flex h-screen flex-col items-center justify-center gap-2">
-        <BackButton />
         <div className="w-full max-w-lg rounded p-6">
-          <h1 className="mb-7 text-4xl leading-snug drop-shadow-glow md:text-7xl">
+          <BackButton />
+          <h1 className="mb-7 mt-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
             {socialMedia ? "Edit" : "Create"} a Social Media
           </h1>
           <form action={upsertSocialMediaAction}>
