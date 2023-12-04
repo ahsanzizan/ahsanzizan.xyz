@@ -16,7 +16,7 @@
     "@uiw/react-md-editor": "^4.0.1",
     "autoprefixer": "10.4.16",
     "bcrypt": "^5.1.1",
-    "eslint": "8.54.0",
+    "eslint": "8.55.0",
     "eslint-config-next": "^14.0.3",
     "framer-motion": "^10.16.10",
     "mongoose": "^8.0.2",
