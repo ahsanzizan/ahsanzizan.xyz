@@ -25,3 +25,7 @@ html {
 *:hover {
   @apply cursor-none;
 }
+
+.wmde-markdown img {
+  @apply my-3 rounded-xl;
+}
