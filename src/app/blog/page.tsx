@@ -12,7 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-  const blogs = await getAllBlogs();
+  const blogs = (await getAllBlogs()).sort(
+    (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
+  );
 
   return (
     <Wrapper>
