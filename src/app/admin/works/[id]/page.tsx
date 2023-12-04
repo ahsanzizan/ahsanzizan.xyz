@@ -104,7 +104,7 @@ export default async function EditSocialMedia({
                 Description
               </label>
               <textarea
-                className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
+                className="h-24 w-full rounded-xl border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
                 style={{ WebkitTextFillColor: "#fff" }}
                 name="description"
                 id="description"
