@@ -4,7 +4,7 @@ import { ArticleJsonLd } from "next-seo";
 import Wrapper from "@/app/components/Wrapper";
 import { getBlogByLink } from "@/lib/queries/blog.query";
 import ViewMD from "./components/ViewMD";
-import { stringifyDate } from "@/utils/utilityFunctions";
+import { calculateReadTime, stringifyDate } from "@/utils/utilityFunctions";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
 
@@ -47,8 +47,11 @@ export default async function ViewBlog({
             <h1 className="mb-1 text-4xl drop-shadow-glow md:text-7xl">
               {blog.title}
             </h1>
-            <div className="mb-2">
+            <div className="mb-0">
               Published at {stringifyDate(blog.createdAt)} by {blog.author}
+            </div>
+            <div className="mb-2">
+              {calculateReadTime(blog.content)} Min Read
             </div>
             <div className="flex flex-wrap items-center gap-4">
               {blog.tags.map((tag, i) => (
