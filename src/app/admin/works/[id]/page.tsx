@@ -1,6 +1,7 @@
 import { getProjectById } from "@/lib/queries/project.query";
 import { upsertProjectAction } from "../../actions";
 import BackButton from "@/app/components/BackButton";
+import { Types } from "mongoose";
 
 export default async function EditSocialMedia({
   params,
@@ -22,7 +23,11 @@ export default async function EditSocialMedia({
               type="hidden"
               id="_id"
               name="_id"
-              value={project?._id.toString() || ""}
+              value={
+                project
+                  ? project._id.toString()
+                  : new Types.ObjectId().toString()
+              }
             />
             <div className="mb-4">
               <label

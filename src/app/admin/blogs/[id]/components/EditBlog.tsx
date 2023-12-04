@@ -23,7 +23,7 @@ export default function EditBlog({ blog }: { blog?: Blog }) {
           id="_id"
           name="_id"
           value={
-            blog?._id.toString() == ""
+            blog
               ? blog._id.toString()
               : new Types.ObjectId().toString()
           }

@@ -1,6 +1,7 @@
 import { upsertExperienceAction } from "../../actions";
 import BackButton from "@/app/components/BackButton";
 import { getExperienceById } from "@/lib/queries/experience.query";
+import { Types } from "mongoose";
 
 function getFormattedDate(date?: Date) {
   if (!date) {
@@ -33,7 +34,11 @@ export default async function EditSocialMedia({
               type="hidden"
               id="_id"
               name="_id"
-              value={experience?._id.toString() || ""}
+              value={
+                experience
+                  ? experience._id.toString()
+                  : new Types.ObjectId().toString()
+              }
             />
             <div className="mb-4">
               <label

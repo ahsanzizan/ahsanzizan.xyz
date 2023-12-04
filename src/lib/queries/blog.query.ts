@@ -38,7 +38,7 @@ export async function upsertBlog(id: string, blog: UpsertBlogInput) {
       await BlogModel.findByIdAndUpdate(
         id,
         { ...blog },
-        { upsert: true, new: true },
+        { upsert: true },
       ),
   );
 }
