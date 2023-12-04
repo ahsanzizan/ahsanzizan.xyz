@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default async function Tags() {
   const blogs = await getAllBlogs();
-  const tags = blogs.map((blog) => blog.tags).flat();
+  const tags = new Set(blogs.map((blog) => blog.tags).flat());
 
   return (
     <Wrapper>
@@ -17,7 +17,7 @@ export default async function Tags() {
             <h4 className="text-lg drop-shadow-glow md:text-2xl">Tags</h4>
           </div>
           <div className="flex w-full flex-wrap gap-2">
-            {tags.map((tag, i) => (
+            {Array.from(tags).map((tag, i) => (
               <Link
                 key={i}
                 href={"/blog/tags/" + tag}
