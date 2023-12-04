@@ -6,7 +6,13 @@ export async function getAllProjects(): Promise<Project[]> {
 }
 
 export async function getProjectById(id: string): Promise<Project> {
-  return connectAndQuery(async () => await ProjectModel.findById(id));
+  return connectAndQuery(async () => {
+    try {
+      return await ProjectModel.findById(id);
+    } catch (error) {
+      return null;
+    }
+  });
 }
 
 export async function getProjectByLink(link: string): Promise<Project> {

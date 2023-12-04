@@ -6,7 +6,13 @@ export async function getAllExperiences(): Promise<Experience[]> {
 }
 
 export async function getExperienceById(id: string): Promise<Experience> {
-  return connectAndQuery(async () => await ExperienceModel.findById(id));
+  return connectAndQuery(async () => {
+    try {
+      return await ExperienceModel.findById(id);
+    } catch (error) {
+      return null;
+    }
+  });
 }
 
 type UpsertExperienceInput = {

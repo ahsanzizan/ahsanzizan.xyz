@@ -6,7 +6,13 @@ export async function getAllBlogs(): Promise<Blog[]> {
 }
 
 export async function getBlogById(id: string): Promise<Blog> {
-  return connectAndQuery(async () => await BlogModel.findById(id));
+  return connectAndQuery(async () => {
+    try {
+      return await BlogModel.findById(id);
+    } catch (error) {
+      return null;
+    }
+  });
 }
 
 export async function getBlogByLink(link: string): Promise<Blog> {
