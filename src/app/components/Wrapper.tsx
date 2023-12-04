@@ -12,7 +12,7 @@ export default function Wrapper({ children }: WrapperProps) {
 
   useEffect(() => {
     new TypeWriter(document.getElementById("nicknames"), {
-      strings: ["ahsan", "asan", "sanzizan", "jetto_curvarine"],
+      strings: ["Ahsan", "Asan", "Sanzizan"],
       autoStart: true,
       loop: true,
       delay: 100,
