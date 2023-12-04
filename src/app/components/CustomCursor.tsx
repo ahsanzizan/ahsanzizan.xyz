@@ -11,7 +11,7 @@ export default function CustomCursor({ isHovering }: CustomCursorProps) {
     <div
       className={`pointer-events-none fixed left-0 top-0 z-[9999] hidden drop-shadow-glow md:inline-block ${
         isHovering ? "h-7 w-7 bg-black" : "h-3 w-3 bg-white"
-      } -translate-x-1/2 -translate-y-1/2 rounded-full duration-500 ease-out`}
+      } -translate-x-1/2 -translate-y-1/2 rounded-full transition-[width,height,background-color,border] duration-500`}
       style={{
         left: `${x}px`,
         top: `${y}px`,

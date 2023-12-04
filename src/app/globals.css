@@ -19,5 +19,9 @@
 }
 
 html {
-  @apply scroll-smooth;
+  @apply cursor-none scroll-smooth;
+}
+
+*:hover {
+  @apply cursor-none;
 }
