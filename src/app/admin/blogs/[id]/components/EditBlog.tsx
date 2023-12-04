@@ -107,7 +107,7 @@ export default function EditBlog({ blog }: { blog: Blog }) {
           </div>
         </div>
         <MDEditor
-          value={blog.content}
+          value={content}
           onChange={(e) => setContent(e!)}
           height={420}
           previewOptions={{
