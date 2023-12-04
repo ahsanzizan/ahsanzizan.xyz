@@ -2,7 +2,10 @@
 
 import { authOptions } from "@/lib/auth";
 import { deleteBlogById, upsertBlog } from "@/lib/queries/blog.query";
-import { deleteExperienceById } from "@/lib/queries/experience.query";
+import {
+  deleteExperienceById,
+  upsertExperience,
+} from "@/lib/queries/experience.query";
 import { deleteProjectById, upsertProject } from "@/lib/queries/project.query";
 import {
   upsertSocialMedia,
@@ -18,7 +21,9 @@ export async function upsertSocialMediaAction(formData: FormData) {
       svgPath: formData.get("svgPath") as string,
       url: formData.get("url") as string,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
   redirect("/admin");
 }
 
@@ -31,7 +36,9 @@ export async function upsertProjectAction(formData: FormData) {
       link: formData.get("link") as string,
       description: formData.get("description") as string,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
   redirect("/admin/works");
 }
 
@@ -46,30 +53,56 @@ export async function upsertBlogAction(formData: FormData) {
       link: formData.get("link") as string,
       tags: formData.get("tags")?.toString().split(" "),
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
   redirect("/admin/blogs");
+}
+
+export async function upsertExperienceAction(formData: FormData) {
+  try {
+    await upsertExperience(formData.get("_id") as string, {
+      title: formData.get("title") as string,
+      description: formData.get("description") as string,
+      startDate: new Date(formData.get("startDate") as string),
+      endDate: formData.get("endDate")
+        ? new Date(formData.get("endDate") as string)
+        : undefined,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  redirect("/admin/experiences");
 }
 
 export async function deleteSocialMediaAction(id: string) {
   try {
     await deleteSocialMediaById(id);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function deleteProjectAction(id: string) {
   try {
     await deleteProjectById(id);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function deleteBlogAction(id: string) {
   try {
     await deleteBlogById(id);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function deleteExperienceAction(id: string) {
   try {
     await deleteExperienceById(id);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
