@@ -1,3 +1,4 @@
+import BackButton from "@/app/components/BackButton";
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
 import Wrapper from "@/app/components/Wrapper";
@@ -25,6 +26,7 @@ export default async function Work({ params }: { params: { link: string } }) {
     <Wrapper>
       <Navbar />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
+        <BackButton />
         <section id="works" className="mb-32 w-full py-12">
           <h1 className="mb-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
             {work.title}

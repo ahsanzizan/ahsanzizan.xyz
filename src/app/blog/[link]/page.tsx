@@ -6,6 +6,7 @@ import { getBlogByLink } from "@/lib/queries/blog.query";
 import ViewMD from "./components/ViewMD";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import Link from "next/link";
+import BackButton from "@/app/components/BackButton";
 
 export async function generateMetadata({
   params,
@@ -40,6 +41,7 @@ export default async function ViewBlog({
       />
       <Navbar />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
+        <BackButton />
         <section id="view-blog" className="mb-32 w-full py-12">
           <div className="mb-7 block">
             <h1 className="mb-1 text-4xl drop-shadow-glow md:text-7xl">

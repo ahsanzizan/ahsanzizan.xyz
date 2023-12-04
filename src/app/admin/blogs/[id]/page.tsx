@@ -1,5 +1,6 @@
 import { getBlogById } from "@/lib/queries/blog.query";
 import EditBlog from "./components/EditBlog";
+import BackButton from "@/app/components/BackButton";
 
 export default async function EditSocialMedia({
   params,
@@ -10,6 +11,7 @@ export default async function EditSocialMedia({
 
   return (
     <>
+      <BackButton />
       <section className="flex h-screen flex-col items-center justify-center">
         <div className="w-full max-w-4xl rounded p-6">
           <h1 className="mb-7 text-4xl leading-snug drop-shadow-glow md:text-7xl">
