@@ -1,5 +1,6 @@
 "use server";
 
+import { upsertProject } from "@/lib/queries/project.query";
 import {
   upsertSocialMedia,
   deleteSocialMediaById,
@@ -15,6 +16,19 @@ export async function upsertSocialMediaAction(formData: FormData) {
     });
   } catch (error) {}
   redirect("/admin");
+}
+
+export async function upsertProjectAction(formData: FormData) {
+  try {
+    await upsertProject(formData.get("_id") as string, {
+      title: formData.get("title") as string,
+      url: formData.get("url") as string,
+      image: formData.get("image") as string,
+      link: formData.get("link") as string,
+      description: formData.get("description") as string,
+    });
+  } catch (error) {}
+  redirect("/admin/works");
 }
 
 export async function deleteSocialMediaAction(id: string) {

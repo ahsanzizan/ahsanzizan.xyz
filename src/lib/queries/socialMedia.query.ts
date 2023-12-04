@@ -39,7 +39,7 @@ export async function deleteSocialMediaById(id: string) {
   );
 }
 
-type CreateSocialMediaInput = {
+type UpsertSocialMediaInput = {
   name?: string;
   url?: string;
   svgPath?: string;
@@ -47,7 +47,7 @@ type CreateSocialMediaInput = {
 
 export async function upsertSocialMedia(
   id: string,
-  socialMedia: CreateSocialMediaInput,
+  socialMedia: UpsertSocialMediaInput,
 ) {
   return connectAndQuery(
     async () =>
