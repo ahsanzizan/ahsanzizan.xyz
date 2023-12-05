@@ -6,6 +6,7 @@ import Wrapper from "@/app/components/Wrapper";
 import Navbar from "@/app/components/Parts/Navbar";
 import Footer from "@/app/components/Parts/Footer";
 import BackButton from "@/app/components/BackButton";
+import { getContentbyKey } from "@/lib/queries/content.query";
 
 export async function generateMetadata({
   params,
@@ -21,10 +22,11 @@ export async function generateMetadata({
 export default async function Blogs({ params }: { params: { tag: string } }) {
   const blogs = await getAllBlogs();
   const blogsWithTag = blogs.filter((blog) => blog.tags.includes(params.tag));
+  const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
     <Wrapper>
-      <Navbar />
+      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <BackButton />
         <section id="blogs" className="mb-32 w-full py-12">

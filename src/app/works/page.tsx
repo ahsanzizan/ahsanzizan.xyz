@@ -4,17 +4,21 @@ import Navbar from "../components/Parts/Navbar";
 import Wrapper from "../components/Wrapper";
 import Link from "next/link";
 import Image from "next/image";
+import { getContentbyKey } from "@/lib/queries/content.query";
 
 export default async function Works() {
   const projects = await getAllProjects();
+  const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
     <Wrapper>
-      <Navbar />
+      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <section id="works" className="mb-32 w-full py-12">
           <div className="mb-5 flex w-full items-center justify-between md:mb-12">
-            <h4 className="text-lg drop-shadow-glow md:text-2xl">All Selected Works</h4>
+            <h4 className="text-lg drop-shadow-glow md:text-2xl">
+              All Selected Works
+            </h4>
           </div>
           <div className="flex w-full flex-col divide-y divide-white">
             {projects.map((project, i) => (

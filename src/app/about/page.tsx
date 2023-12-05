@@ -10,7 +10,7 @@ export default async function About() {
 
   return (
     <Wrapper>
-      <Navbar email={email?.content} />
+      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <Header />
         <Experiences />

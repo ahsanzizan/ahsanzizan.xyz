@@ -2,15 +2,17 @@ import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
 import Wrapper from "@/app/components/Wrapper";
 import { getAllBlogs } from "@/lib/queries/blog.query";
+import { getContentbyKey } from "@/lib/queries/content.query";
 import Link from "next/link";
 
 export default async function Tags() {
   const blogs = await getAllBlogs();
   const tags = new Set(blogs.map((blog) => blog.tags).flat());
+  const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
     <Wrapper>
-      <Navbar />
+      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <section id="blogs" className="mb-32 w-full py-12">
           <div className="mb-5 flex w-full items-center justify-between md:mb-12">

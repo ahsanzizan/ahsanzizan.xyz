@@ -5,6 +5,7 @@ import Navbar from "../components/Parts/Navbar";
 import Footer from "../components/Parts/Footer";
 import Link from "next/link";
 import { stringifyDate } from "@/utils/utilityFunctions";
+import { getContentbyKey } from "@/lib/queries/content.query";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -15,10 +16,11 @@ export default async function Blog() {
   const blogs = (await getAllBlogs()).sort(
     (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
   );
+  const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
     <Wrapper>
-      <Navbar />
+      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <section id="blogs" className="mb-32 w-full py-12">
           <div className="mb-5 flex w-full items-center justify-between md:mb-12">

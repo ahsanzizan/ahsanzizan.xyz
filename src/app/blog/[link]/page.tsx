@@ -7,6 +7,7 @@ import ViewMD from "./components/ViewMD";
 import { calculateReadTime, stringifyDate } from "@/utils/utilityFunctions";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
+import { getContentbyKey } from "@/lib/queries/content.query";
 
 export async function generateMetadata({
   params,
@@ -27,6 +28,7 @@ export default async function ViewBlog({
   params: { link: string };
 }) {
   const blog = await getBlogByLink(params.link);
+  const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
     <Wrapper>
@@ -39,7 +41,7 @@ export default async function ViewBlog({
         images={[]}
         useAppDir
       />
-      <Navbar />
+      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <BackButton />
         <section id="view-blog" className="mb-32 w-full py-12">
