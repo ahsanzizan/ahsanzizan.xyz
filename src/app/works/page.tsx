@@ -11,7 +11,7 @@ export default async function Works() {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <Wrapper>
+    <>
       <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <section id="works" className="mb-32 w-full py-12">
@@ -43,6 +43,6 @@ export default async function Works() {
         </section>
         <Footer />
       </main>
-    </Wrapper>
+    </>
   );
 }

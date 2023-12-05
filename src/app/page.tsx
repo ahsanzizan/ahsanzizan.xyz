@@ -11,7 +11,7 @@ export default async function Home() {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <Wrapper>
+    <>
       <SocialProfileJsonLd
         type="Person"
         name="Ahsan Awadullah Azizan"
@@ -30,6 +30,6 @@ export default async function Home() {
         <Works />
         <Footer />
       </main>
-    </Wrapper>
+    </>
   );
 }

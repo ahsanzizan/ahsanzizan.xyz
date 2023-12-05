@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import CustomCursor from "./CustomCursor";
 import TypeWriter from "@/utils/typewriter";
+import { usePathname, useRouter } from "next/navigation";
 
 interface WrapperProps {
   children: React.ReactNode;
@@ -9,6 +10,8 @@ interface WrapperProps {
 
 export default function Wrapper({ children }: WrapperProps) {
   const [isHovering, setIsHovering] = useState<boolean>(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     new TypeWriter(document.getElementById("nicknames"), {
@@ -34,7 +37,18 @@ export default function Wrapper({ children }: WrapperProps) {
       elem.addEventListener("mouseenter", handleMouseEnter);
       elem.addEventListener("mouseleave", handleMouseLeave);
     });
-  });
+
+    return () => {
+      anchors.forEach((elem) => {
+        elem.removeEventListener("mouseenter", handleMouseEnter);
+        elem.removeEventListener("mouseleave", handleMouseLeave);
+      });
+      buttons.forEach((elem) => {
+        elem.removeEventListener("mouseenter", handleMouseEnter);
+        elem.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, [pathname, router]);
 
   return (
     <>

@@ -14,11 +14,9 @@ export default function RootLayout({
   return (
     <>
       <Navbar />
-      <Wrapper>
-        <main className="mx-auto w-full max-w-[1440px] px-5 py-[200px]">
-          {children}
-        </main>
-      </Wrapper>
+      <main className="mx-auto w-full max-w-[1440px] px-5 py-[200px]">
+        {children}
+      </main>
     </>
   );
 }
