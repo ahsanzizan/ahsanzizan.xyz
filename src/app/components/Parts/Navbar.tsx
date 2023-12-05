@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export default function Navbar() {
+export default function Navbar({ email }: { email: string }) {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [activeLinkIdx, setActiveLinkIdx] = useState<number | null>(null);
   const links = [
@@ -31,7 +31,7 @@ export default function Navbar() {
         </Link>
         <div className="flex items-center gap-[18px]">
           <a
-            href="mailto:ahsanaz461@gmail.com"
+            href={"mailto:" + email}
             className="group flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
           >
             {"Let's Talk "}
@@ -81,7 +81,7 @@ export default function Navbar() {
         }}
       >
         <div className="mx-auto w-full max-w-[1440px] px-5">
-          <div className="mb-16 flex w-full items-center justify-between py-4 mt-6 md:mb-8">
+          <div className="mb-16 mt-6 flex w-full items-center justify-between py-4 md:mb-8">
             <Link href={"/"}>
               <Image
                 src={"/logo.png"}

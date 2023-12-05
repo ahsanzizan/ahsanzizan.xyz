@@ -16,6 +16,16 @@ export async function getContentById(id: string): Promise<Content> {
   });
 }
 
+export async function getContentbyKey(key: string): Promise<Content | null> {
+  return connectAndQuery(async () => {
+    try {
+      return await ContentModel.findOne({ key });
+    } catch (error) {
+      return null;
+    }
+  });
+}
+
 export async function deleteContentById(id: string) {
   return connectAndQuery(async () => await ContentModel.findByIdAndDelete(id));
 }

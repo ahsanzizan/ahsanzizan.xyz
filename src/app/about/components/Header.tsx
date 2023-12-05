@@ -1,9 +1,11 @@
+import { getContentbyKey } from "@/lib/queries/content.query";
 import { getAllSocialMedias } from "@/lib/queries/socialMedia.query";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Header() {
   const socialMedias = await getAllSocialMedias();
+  const aboutMe = await getContentbyKey("about-me");
 
   return (
     <section id="home" className="mb-32 w-full py-12">
@@ -13,13 +15,14 @@ export default async function Header() {
             About Me
           </h1>
           <p className="mt-5 text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
-            Ahsan Awadullah Azizan, known as Ahsan, is a dedicated student at
+            {aboutMe?.content ||
+              `Ahsan Awadullah Azizan, known as Ahsan, is a dedicated student at
             SMK Telkom Malang, where he is specializing in software engineering.
             His keen interest in technologies especially in the software
             engineering field is fueled by the passion for exploring and
             learning about technology. His curiosity has significantly
             strengthened his ability to grasp various subjects, making him an
-            enthusiastic and adaptable learner.
+            enthusiastic and adaptable learner.`}
           </p>
           <div className="mt-10 flex flex-col items-start gap-7 md:mt-12 md:gap-[42px] lg:flex-row lg:items-center">
             <Link
