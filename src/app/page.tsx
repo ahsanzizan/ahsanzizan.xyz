@@ -4,7 +4,6 @@ import Header from "./components/Parts/Header";
 import Navbar from "./components/Parts/Navbar";
 import Services from "./components/Parts/Services";
 import Works from "./components/Parts/Works";
-import Wrapper from "./components/Wrapper";
 import { getContentbyKey } from "@/lib/queries/content.query";
 
 export default async function Home() {

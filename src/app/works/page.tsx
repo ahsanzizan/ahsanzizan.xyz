@@ -1,7 +1,6 @@
 import { getAllProjects } from "@/lib/queries/project.query";
 import Footer from "../components/Parts/Footer";
 import Navbar from "../components/Parts/Navbar";
-import Wrapper from "../components/Wrapper";
 import Link from "next/link";
 import Image from "next/image";
 import { getContentbyKey } from "@/lib/queries/content.query";

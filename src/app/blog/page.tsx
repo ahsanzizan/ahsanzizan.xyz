@@ -1,6 +1,5 @@
 import { getAllBlogs } from "@/lib/queries/blog.query";
 import { Metadata } from "next";
-import Wrapper from "../components/Wrapper";
 import Navbar from "../components/Parts/Navbar";
 import Footer from "../components/Parts/Footer";
 import Link from "next/link";

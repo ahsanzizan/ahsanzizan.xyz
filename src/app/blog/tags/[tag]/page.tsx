@@ -1,8 +1,6 @@
 import { getAllBlogs } from "@/lib/queries/blog.query";
-import { Metadata } from "next";
 import Link from "next/link";
 import { stringifyDate } from "@/utils/utilityFunctions";
-import Wrapper from "@/app/components/Wrapper";
 import Navbar from "@/app/components/Parts/Navbar";
 import Footer from "@/app/components/Parts/Footer";
 import BackButton from "@/app/components/BackButton";
@@ -25,7 +23,7 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <Wrapper>
+    <>
       <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <BackButton />
@@ -78,7 +76,7 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
         </section>
         <Footer />
       </main>
-    </Wrapper>
+    </>
   );
 }
 

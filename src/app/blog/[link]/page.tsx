@@ -1,7 +1,6 @@
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
 import { ArticleJsonLd } from "next-seo";
-import Wrapper from "@/app/components/Wrapper";
 import { getBlogByLink } from "@/lib/queries/blog.query";
 import ViewMD from "./components/ViewMD";
 import { calculateReadTime, stringifyDate } from "@/utils/utilityFunctions";
@@ -31,7 +30,7 @@ export default async function ViewBlog({
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <Wrapper>
+    <>
       <ArticleJsonLd
         authorName={blog.author}
         datePublished={stringifyDate(blog.createdAt)}
@@ -71,7 +70,7 @@ export default async function ViewBlog({
         </section>
         <Footer />
       </main>
-    </Wrapper>
+    </>
   );
 }
 

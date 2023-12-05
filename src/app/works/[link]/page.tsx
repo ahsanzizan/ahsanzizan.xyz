@@ -1,7 +1,6 @@
 import BackButton from "@/app/components/BackButton";
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
-import Wrapper from "@/app/components/Wrapper";
 import { getContentbyKey } from "@/lib/queries/content.query";
 import { getProjectByLink } from "@/lib/queries/project.query";
 import Image from "next/image";
@@ -25,7 +24,7 @@ export default async function Work({ params }: { params: { link: string } }) {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <Wrapper>
+    <>
       <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <BackButton />
@@ -66,6 +65,6 @@ export default async function Work({ params }: { params: { link: string } }) {
         </section>
         <Footer />
       </main>
-    </Wrapper>
+    </>
   );
 }
