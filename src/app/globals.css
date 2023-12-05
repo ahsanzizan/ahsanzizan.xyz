@@ -19,11 +19,7 @@
 }
 
 html {
-  @apply cursor-none scroll-smooth;
-}
-
-*:hover {
-  @apply cursor-none;
+  @apply scroll-smooth;
 }
 
 .wmde-markdown img {
