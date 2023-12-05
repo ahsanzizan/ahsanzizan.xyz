@@ -2,6 +2,7 @@
 
 import { authOptions } from "@/lib/auth";
 import { deleteBlogById, upsertBlog } from "@/lib/queries/blog.query";
+import { deleteContentById, upsertContent } from "@/lib/queries/content.query";
 import {
   deleteExperienceById,
   upsertExperience,
@@ -20,6 +21,18 @@ export async function upsertSocialMediaAction(formData: FormData) {
       name: formData.get("name") as string,
       svgPath: formData.get("svgPath") as string,
       url: formData.get("url") as string,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  redirect("/admin");
+}
+
+export async function upsertContentAction(formData: FormData) {
+  try {
+    await upsertContent(formData.get("_id") as string, {
+      key: formData.get("key") as string,
+      content: formData.get("content") as string,
     });
   } catch (error) {
     console.log(error);
@@ -78,6 +91,14 @@ export async function upsertExperienceAction(formData: FormData) {
 export async function deleteSocialMediaAction(id: string) {
   try {
     await deleteSocialMediaById(id);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function deleteContentAction(id: string) {
+  try {
+    await deleteContentById(id);
   } catch (error) {
     console.log(error);
   }

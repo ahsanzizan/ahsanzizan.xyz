@@ -3,11 +3,17 @@ import { getAllSocialMedias } from "@/lib/queries/socialMedia.query";
 import { getServerSession } from "next-auth";
 import SocialMediasTable from "./components/SocialMediasTable";
 import { SocialMedia } from "@/models/SocialMedia.model";
+import { Content } from "@/models/Content.model";
+import { getAllContents } from "@/lib/queries/content.query";
+import ContentsTable from "./components/ContentsTable";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);
   const socialMedias: SocialMedia[] = JSON.parse(
     JSON.stringify(await getAllSocialMedias()),
+  );
+  const contents: Content[] = JSON.parse(
+    JSON.stringify(await getAllContents()),
   );
 
   return (
@@ -37,8 +43,13 @@ export default async function AdminPage() {
           </a>
         </div>
       </header>
-      <div className="block">
-        <SocialMediasTable socialMedias={socialMedias} />
+      <div className="flex flex-col gap-12">
+        <div className="block">
+          <SocialMediasTable socialMedias={socialMedias} />
+        </div>
+        <div className="block">
+          <ContentsTable contents={contents} />
+        </div>
       </div>
     </section>
   );
