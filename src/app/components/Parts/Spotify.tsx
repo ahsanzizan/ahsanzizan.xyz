@@ -32,14 +32,24 @@ export default function Spotify() {
         <h4 className="mb-8 text-lg drop-shadow-glow md:text-2xl">
           Listening to...
         </h4>
-        <div className="flex w-full items-center gap-6 lg:gap-12 rounded-xl border border-white px-12 py-4 lg:px-24 md:py-10">
-          <div className="max-w-1/2 w-full xl:max-w-[40%]">
+        <div className="relative flex w-full flex-col overflow-hidden rounded-xl border border-white md:flex-row md:items-center md:justify-normal lg:gap-12">
+          <Image
+            className={`absolute right-4 top-4 mb-4 ${
+              data?.isPlaying ? "animate-spin" : "animate-none"
+            }`}
+            src={"/Disc.svg"}
+            alt={data?.isPlaying ? data.album : "Not playing"}
+            width={52}
+            height={52}
+            unoptimized
+          />
+          <div className="h-full w-full p-0 md:min-w-[50%] md:max-w-[50%]">
             <Image
-              className="w-full rounded-full"
+              className="h-full w-full object-cover md:min-h-[699px]"
               src={
                 data?.isPlaying
                   ? data.albumImageUrl
-                  : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
+                  : "https://qph.cf2.quoracdn.net/main-qimg-e6ddb9058baa038619e08a8209d78e26-lq"
               }
               alt={data?.isPlaying ? data.album : "Not playing anything"}
               width={640}
@@ -47,7 +57,7 @@ export default function Spotify() {
               unoptimized
             />
           </div>
-          <div className="block">
+          <div className="block px-5 py-5 md:py-10 lg:pl-0 lg:pr-24">
             <h1 className="text-4xl drop-shadow-glow md:text-7xl">
               {data?.isPlaying ? data.title : "Not playing anything"}
             </h1>
