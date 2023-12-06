@@ -32,8 +32,8 @@ export default function Spotify() {
         <h4 className="mb-8 text-lg drop-shadow-glow md:text-2xl">
           Listening to...
         </h4>
-        <div className="flex w-full items-center gap-12 rounded-xl border border-white px-12 py-4 md:px-24 md:py-10">
-          <div className="w-full max-w-1/2 md:max-w-[40%]">
+        <div className="flex w-full items-center gap-12 rounded-xl border border-white px-12 py-4 lg:px-24 md:py-10">
+          <div className="max-w-1/2 w-full xl:max-w-[40%]">
             <Image
               className="w-full rounded-full"
               src={
