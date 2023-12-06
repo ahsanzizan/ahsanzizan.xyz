@@ -14,6 +14,7 @@ export default function Wrapper({ children }: WrapperProps) {
   const router = useRouter();
 
   useEffect(() => {
+    setIsHovering(false);
     new TypeWriter(document.getElementById("nicknames"), {
       strings: ["Ahsan", "Asan", "Sanzizan"],
       autoStart: true,
