@@ -6,6 +6,7 @@ import Services from "./components/Parts/Services";
 import Works from "./components/Parts/Works";
 import { getContentbyKey } from "@/lib/queries/content.query";
 import Blogs from "./components/Parts/Blogs";
+import Spotify from "./components/Parts/Spotify";
 
 export default async function Home() {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
@@ -29,6 +30,7 @@ export default async function Home() {
         <Services />
         <Works />
         <Blogs />
+        <Spotify />
         <Footer />
       </main>
     </>
