@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
       title: res.data.item.name,
       album: res.data.item.album.name,
       artist: res.data.item.album.artists
-        .map((artist: any) => artist.name)
+        .map((artist: { name: string }) => artist.name)
         .join(", "),
       albumImageUrl: res.data.item.album.images[0].url,
       songUrl: res.data.item.external_urls.spotify,
