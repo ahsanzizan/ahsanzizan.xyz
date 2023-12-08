@@ -26,7 +26,7 @@ type UpsertCertificateInput = {
   description?: string;
 };
 
-export async function upsertBlog(
+export async function upsertCertificate(
   id: string,
   certificate: UpsertCertificateInput,
 ) {
