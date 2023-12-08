@@ -19,3 +19,23 @@ export async function getCertificateById(id: string): Promise<Certificate> {
     }
   });
 }
+
+type UpsertCertificateInput = {
+  title?: string;
+  link?: string;
+  description?: string;
+};
+
+export async function upsertBlog(
+  id: string,
+  certificate: UpsertCertificateInput,
+) {
+  return connectAndQuery(
+    async () =>
+      await CertificateModel.findByIdAndUpdate(
+        id,
+        { ...certificate },
+        { upsert: true },
+      ),
+  );
+}
