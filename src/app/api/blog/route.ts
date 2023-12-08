@@ -10,7 +10,7 @@ export async function GET(req: Request) {
     return NextResponse.json(
       {
         status: 200,
-        message: "Successfully created a new blog",
+        message: "Successfully get all blogs",
         blogs: getAll,
       },
       { status: 200 },
