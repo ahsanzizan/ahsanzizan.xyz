@@ -36,7 +36,7 @@ export default function ContentsTable({ contents }: { contents: Content[] }) {
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteContentAction(content._id.toString()).then(() => {
-                    toast.success("Successfully deleted a social media", {
+                    toast.success("Successfully deleted a content", {
                       id: toastId,
                     });
                     router.refresh();

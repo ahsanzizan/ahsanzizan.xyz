@@ -36,7 +36,7 @@ export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteBlogAction(blog._id.toString()).then(() => {
-                    toast.success("Successfully deleted a social media", {
+                    toast.success("Successfully deleted a blog", {
                       id: toastId,
                     });
                     router.refresh();

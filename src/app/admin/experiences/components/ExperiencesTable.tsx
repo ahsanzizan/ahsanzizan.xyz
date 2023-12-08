@@ -39,7 +39,7 @@ export default function ExperiencesTable({
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteExperienceAction(experience._id.toString()).then(() => {
-                    toast.success("Successfully deleted a social media", {
+                    toast.success("Successfully deleted an experience", {
                       id: toastId,
                     });
                     router.refresh();

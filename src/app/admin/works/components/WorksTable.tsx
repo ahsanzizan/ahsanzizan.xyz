@@ -43,7 +43,7 @@ export default function WorksTable({ works }: { works: Project[] }) {
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteProjectAction(project._id.toString()).then(() => {
-                    toast.success("Successfully deleted a social media", {
+                    toast.success("Successfully deleted a work", {
                       id: toastId,
                     });
                     router.refresh();
