@@ -45,3 +45,5 @@ export default async function Works() {
     </>
   );
 }
+
+export const revalidate = 0;
