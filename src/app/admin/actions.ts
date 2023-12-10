@@ -27,7 +27,7 @@ export async function upsertSocialMediaAction(formData: FormData) {
     console.log(error);
   }
 
-  revalidatePath("/", "page");
+  revalidatePath("/", "layout");
   redirect("/admin");
 }
 
