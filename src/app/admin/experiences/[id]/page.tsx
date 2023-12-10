@@ -126,5 +126,3 @@ export default async function EditSocialMedia({
     </>
   );
 }
-
-export const revalidate = 0;

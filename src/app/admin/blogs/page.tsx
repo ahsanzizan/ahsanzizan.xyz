@@ -12,5 +12,3 @@ export default async function Works() {
     </section>
   );
 }
-
-export const revalidate = 0;

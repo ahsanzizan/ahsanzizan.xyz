@@ -68,5 +68,3 @@ export default async function Work({ params }: { params: { link: string } }) {
     </>
   );
 }
-
-export const revalidate = 0;

@@ -74,5 +74,3 @@ export default async function Blogs() {
     </section>
   );
 }
-
-export const revalidate = 0;

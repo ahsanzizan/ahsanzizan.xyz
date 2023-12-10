@@ -13,6 +13,7 @@ import {
   deleteSocialMediaById,
 } from "@/lib/queries/socialMedia.query";
 import { getServerSession } from "next-auth";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function upsertSocialMediaAction(formData: FormData) {
@@ -25,6 +26,8 @@ export async function upsertSocialMediaAction(formData: FormData) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
   redirect("/admin");
 }
 
@@ -37,6 +40,8 @@ export async function upsertContentAction(formData: FormData) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
   redirect("/admin");
 }
 
@@ -52,6 +57,8 @@ export async function upsertProjectAction(formData: FormData) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
   redirect("/admin/works");
 }
 
@@ -69,6 +76,8 @@ export async function upsertBlogAction(formData: FormData) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
   redirect("/admin/blogs");
 }
 
@@ -85,6 +94,8 @@ export async function upsertExperienceAction(formData: FormData) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
   redirect("/admin/experiences");
 }
 
@@ -94,6 +105,8 @@ export async function deleteSocialMediaAction(id: string) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
 }
 
 export async function deleteContentAction(id: string) {
@@ -102,6 +115,8 @@ export async function deleteContentAction(id: string) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
 }
 
 export async function deleteProjectAction(id: string) {
@@ -110,6 +125,8 @@ export async function deleteProjectAction(id: string) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
 }
 
 export async function deleteBlogAction(id: string) {
@@ -118,6 +135,8 @@ export async function deleteBlogAction(id: string) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
 }
 
 export async function deleteExperienceAction(id: string) {
@@ -126,4 +145,6 @@ export async function deleteExperienceAction(id: string) {
   } catch (error) {
     console.log(error);
   }
+
+  revalidatePath("/", "layout");
 }

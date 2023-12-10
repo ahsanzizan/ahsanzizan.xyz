@@ -79,5 +79,3 @@ export default async function EditContent({
     </>
   );
 }
-
-export const revalidate = 0;

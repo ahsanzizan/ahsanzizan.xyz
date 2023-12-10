@@ -54,5 +54,3 @@ export default async function AdminPage() {
     </section>
   );
 }
-
-export const revalidate = 0;
