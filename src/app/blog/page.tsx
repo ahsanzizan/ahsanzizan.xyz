@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-  const blogs = (await getAllBlogs()).sort(
-    (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
-  );
+  const blogs = (await getAllBlogs())
+    .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+    .filter((blog) => !blog.link.includes("private"));
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
