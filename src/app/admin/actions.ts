@@ -27,7 +27,7 @@ export async function upsertSocialMediaAction(formData: FormData) {
     console.log(error);
   }
 
-  revalidatePath("/", "layout");
+  revalidatePath("/", "page");
   redirect("/admin");
 }
 
@@ -102,49 +102,49 @@ export async function upsertExperienceAction(formData: FormData) {
 export async function deleteSocialMediaAction(id: string) {
   try {
     await deleteSocialMediaById(id);
+    revalidatePath("/", "layout");
   } catch (error) {
     console.log(error);
   }
 
-  revalidatePath("/", "layout");
 }
 
 export async function deleteContentAction(id: string) {
   try {
     await deleteContentById(id);
+    revalidatePath("/", "layout");
   } catch (error) {
     console.log(error);
   }
 
-  revalidatePath("/", "layout");
 }
 
 export async function deleteProjectAction(id: string) {
   try {
     await deleteProjectById(id);
+    revalidatePath("/", "layout");
   } catch (error) {
     console.log(error);
   }
 
-  revalidatePath("/", "layout");
 }
 
 export async function deleteBlogAction(id: string) {
   try {
     await deleteBlogById(id);
+    revalidatePath("/", "layout");
   } catch (error) {
     console.log(error);
   }
 
-  revalidatePath("/", "layout");
 }
 
 export async function deleteExperienceAction(id: string) {
   try {
     await deleteExperienceById(id);
+    revalidatePath("/", "layout");
   } catch (error) {
     console.log(error);
   }
 
-  revalidatePath("/", "layout");
 }
