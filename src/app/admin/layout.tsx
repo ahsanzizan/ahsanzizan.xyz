@@ -19,3 +19,5 @@ export default function RootLayout({
     </>
   );
 }
+
+export const revalidate = 0;
