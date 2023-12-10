@@ -79,3 +79,5 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
     </>
   );
 }
+
+export const revalidate = 0;
