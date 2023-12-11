@@ -1,4 +1,4 @@
-import { getNowPlaying } from "@/lib/spotify";
+import { getNowPlaying } from "@/utils/spotify";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
