@@ -2,6 +2,7 @@ import { getContentbyKey } from "@/database/content.query";
 import { getAllSocialMedias } from "@/database/socialMedia.query";
 import Image from "next/image";
 import Link from "next/link";
+import Me from "../../../../public/Me.png";
 
 export default async function Header() {
   const socialMedias = await getAllSocialMedias();
@@ -62,11 +63,13 @@ export default async function Header() {
         </div>
         <div className="w-full md:w-1/4">
           <Image
-            src={"/Me.JPG"}
+            src={Me}
             alt="Me"
             width={2731}
             height={4096}
             className="w-full rounded-xl grayscale"
+            placeholder="blur"
+            priority
           />
         </div>
       </header>
