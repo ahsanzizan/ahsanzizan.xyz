@@ -36,6 +36,7 @@ export default function WorksTable({ works }: { works: Project[] }) {
                 width={256}
                 height={164}
                 className="relative h-20 w-32 rounded-xl object-cover opacity-0 transition-all duration-500 md:h-40 md:w-64"
+                unoptimized
               />
             </div>
             <div className="flex items-center gap-2">

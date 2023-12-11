@@ -35,6 +35,7 @@ export default async function Works() {
                   width={256}
                   height={164}
                   className="relative h-20 w-32 rounded-xl object-cover opacity-0 transition-all duration-500 group-hover:opacity-100 md:h-40 md:w-64"
+                  unoptimized
                 />
               </Link>
             ))}

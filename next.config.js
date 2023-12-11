@@ -7,13 +7,6 @@ const nextConfig = {
 
     return config;
   },
-  images: {
-    remotePatterns: [
-      {
-        hostname: "drive.google.com",
-      },
-    ],
-  },
 };
 
 module.exports = nextConfig;
