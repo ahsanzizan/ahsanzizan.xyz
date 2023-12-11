@@ -1,5 +1,5 @@
 import BlogModel, { Blog } from "@/models/Blog.model";
-import { connectAndQuery } from "../lib/connectAndQuery";
+import { connectAndQuery } from "../utils/connectAndQuery";
 
 export async function getAllBlogs(): Promise<Blog[]> {
   return connectAndQuery(async () => await BlogModel.find({}));

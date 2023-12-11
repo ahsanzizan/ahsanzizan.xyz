@@ -1,5 +1,5 @@
 import ProjectModel, { Project } from "@/models/Project.model";
-import { connectAndQuery } from "../lib/connectAndQuery";
+import { connectAndQuery } from "../utils/connectAndQuery";
 
 export async function getAllProjects(): Promise<Project[]> {
   return connectAndQuery(async () => await ProjectModel.find({}));
