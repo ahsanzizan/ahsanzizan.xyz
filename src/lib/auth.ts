@@ -1,7 +1,7 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { DefaultJWT } from "next-auth/jwt";
-import { findAdminByUname, authenticateAdmin } from "./queries/admin.query";
+import { findAdminByUname, authenticateAdmin } from "../database/admin.query";
 
 declare module "next-auth" {
   /**

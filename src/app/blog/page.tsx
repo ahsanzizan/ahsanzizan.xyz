@@ -1,10 +1,10 @@
-import { getAllBlogs } from "@/lib/queries/blog.query";
+import { getAllBlogs } from "@/database/blog.query";
 import { Metadata } from "next";
 import Navbar from "../components/Parts/Navbar";
 import Footer from "../components/Parts/Footer";
 import Link from "next/link";
 import { stringifyDate } from "@/utils/utilityFunctions";
-import { getContentbyKey } from "@/lib/queries/content.query";
+import { getContentbyKey } from "@/database/content.query";
 
 export const metadata: Metadata = {
   title: "Blogs",

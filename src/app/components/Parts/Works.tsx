@@ -1,4 +1,4 @@
-import { getAllProjects } from "@/lib/queries/project.query";
+import { getAllProjects } from "@/database/project.query";
 import Image from "next/image";
 import Link from "next/link";
 

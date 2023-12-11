@@ -1,9 +1,9 @@
-import { getAllProjects } from "@/lib/queries/project.query";
+import { getAllProjects } from "@/database/project.query";
 import Footer from "../components/Parts/Footer";
 import Navbar from "../components/Parts/Navbar";
 import Link from "next/link";
 import Image from "next/image";
-import { getContentbyKey } from "@/lib/queries/content.query";
+import { getContentbyKey } from "@/database/content.query";
 
 export default async function Works() {
   const projects = await getAllProjects();

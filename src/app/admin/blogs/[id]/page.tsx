@@ -1,4 +1,4 @@
-import { getBlogById } from "@/lib/queries/blog.query";
+import { getBlogById } from "@/database/blog.query";
 import EditBlog from "./components/EditBlog";
 import BackButton from "@/app/components/BackButton";
 

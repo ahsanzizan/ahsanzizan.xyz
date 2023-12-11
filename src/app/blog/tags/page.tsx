@@ -1,7 +1,7 @@
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
-import { getAllBlogs } from "@/lib/queries/blog.query";
-import { getContentbyKey } from "@/lib/queries/content.query";
+import { getAllBlogs } from "@/database/blog.query";
+import { getContentbyKey } from "@/database/content.query";
 import Link from "next/link";
 
 export default async function Tags() {

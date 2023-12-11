@@ -1,4 +1,4 @@
-import { getProjectById } from "@/lib/queries/project.query";
+import { getProjectById } from "@/database/project.query";
 import { upsertProjectAction } from "../../actions";
 import BackButton from "@/app/components/BackButton";
 import { Types } from "mongoose";

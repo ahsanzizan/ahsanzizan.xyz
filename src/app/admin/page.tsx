@@ -1,10 +1,10 @@
 import { authOptions } from "@/lib/auth";
-import { getAllSocialMedias } from "@/lib/queries/socialMedia.query";
+import { getAllSocialMedias } from "@/database/socialMedia.query";
 import { getServerSession } from "next-auth";
 import SocialMediasTable from "./components/SocialMediasTable";
 import { SocialMedia } from "@/models/SocialMedia.model";
 import { Content } from "@/models/Content.model";
-import { getAllContents } from "@/lib/queries/content.query";
+import { getAllContents } from "@/database/content.query";
 import ContentsTable from "./components/ContentsTable";
 
 export default async function AdminPage() {

@@ -1,12 +1,12 @@
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
 import { ArticleJsonLd } from "next-seo";
-import { getBlogByLink } from "@/lib/queries/blog.query";
+import { getBlogByLink } from "@/database/blog.query";
 import ViewMD from "./components/ViewMD";
 import { calculateReadTime, stringifyDate } from "@/utils/utilityFunctions";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
-import { getContentbyKey } from "@/lib/queries/content.query";
+import { getContentbyKey } from "@/database/content.query";
 
 export async function generateMetadata({
   params,

@@ -1,5 +1,5 @@
 import ExperiencesTable from "./components/ExperiencesTable";
-import { getAllExperiences } from "@/lib/queries/experience.query";
+import { getAllExperiences } from "@/database/experience.query";
 
 export default async function Works() {
   const experiences = JSON.parse(JSON.stringify(await getAllExperiences()));

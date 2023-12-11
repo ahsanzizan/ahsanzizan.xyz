@@ -1,4 +1,4 @@
-import { getAllBlogs } from "@/lib/queries/blog.query";
+import { getAllBlogs } from "@/database/blog.query";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import Link from "next/link";
 

@@ -1,5 +1,5 @@
 import { authOptions } from "@/lib/auth";
-import { createAdmin } from "@/lib/queries/admin.query";
+import { createAdmin } from "@/database/admin.query";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 

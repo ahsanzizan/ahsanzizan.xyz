@@ -1,4 +1,4 @@
-import { getAllBlogs } from "@/lib/queries/blog.query";
+import { getAllBlogs } from "@/database/blog.query";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {

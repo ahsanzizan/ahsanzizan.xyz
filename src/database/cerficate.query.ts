@@ -1,4 +1,4 @@
-import { connectAndQuery } from "../connectAndQuery";
+import { connectAndQuery } from "../lib/connectAndQuery";
 import CertificateModel, { Certificate } from "@/models/Certificate.model";
 
 export async function getAllCertificates(): Promise<Certificate[]> {

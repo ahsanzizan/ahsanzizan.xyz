@@ -1,6 +1,6 @@
 import { upsertExperienceAction } from "../../actions";
 import BackButton from "@/app/components/BackButton";
-import { getExperienceById } from "@/lib/queries/experience.query";
+import { getExperienceById } from "@/database/experience.query";
 import { Types } from "mongoose";
 
 function getFormattedDate(date?: Date) {

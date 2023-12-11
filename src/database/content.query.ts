@@ -1,5 +1,5 @@
 import ContentModel, { Content } from "@/models/Content.model";
-import { connectAndQuery } from "../connectAndQuery";
+import { connectAndQuery } from "../lib/connectAndQuery";
 
 export async function getAllContents(): Promise<Content[]> {
   return connectAndQuery(async () => await ContentModel.find({}));

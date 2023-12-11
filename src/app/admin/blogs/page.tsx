@@ -1,5 +1,5 @@
 import BlogsTable from "./components/BlogsTable";
-import { getAllBlogs } from "@/lib/queries/blog.query";
+import { getAllBlogs } from "@/database/blog.query";
 
 export default async function Works() {
   const blogs = JSON.parse(JSON.stringify(await getAllBlogs()));

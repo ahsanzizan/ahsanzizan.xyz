@@ -1,4 +1,4 @@
-import { getSocialMediaById } from "@/lib/queries/socialMedia.query";
+import { getSocialMediaById } from "@/database/socialMedia.query";
 import { upsertSocialMediaAction } from "../../actions";
 import BackButton from "@/app/components/BackButton";
 import { Types } from "mongoose";

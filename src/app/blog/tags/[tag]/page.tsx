@@ -1,10 +1,10 @@
-import { getAllBlogs } from "@/lib/queries/blog.query";
+import { getAllBlogs } from "@/database/blog.query";
 import Link from "next/link";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import Navbar from "@/app/components/Parts/Navbar";
 import Footer from "@/app/components/Parts/Footer";
 import BackButton from "@/app/components/BackButton";
-import { getContentbyKey } from "@/lib/queries/content.query";
+import { getContentbyKey } from "@/database/content.query";
 
 export async function generateMetadata({
   params,

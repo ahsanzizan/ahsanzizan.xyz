@@ -1,4 +1,4 @@
-import { getAllExperiences } from "@/lib/queries/experience.query";
+import { getAllExperiences } from "@/database/experience.query";
 import { getMonthName } from "@/utils/utilityFunctions";
 
 export default async function Experiences() {

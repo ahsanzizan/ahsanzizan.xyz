@@ -2,7 +2,7 @@ import Navbar from "../components/Parts/Navbar";
 import Footer from "../components/Parts/Footer";
 import Header from "./components/Header";
 import Experiences from "./components/Experiences";
-import { getContentbyKey } from "@/lib/queries/content.query";
+import { getContentbyKey } from "@/database/content.query";
 
 export default async function About() {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));

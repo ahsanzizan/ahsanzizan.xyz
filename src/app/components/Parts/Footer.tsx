@@ -1,5 +1,5 @@
-import { getContentbyKey } from "@/lib/queries/content.query";
-import { getAllSocialMedias } from "@/lib/queries/socialMedia.query";
+import { getContentbyKey } from "@/database/content.query";
+import { getAllSocialMedias } from "@/database/socialMedia.query";
 
 export default async function Footer() {
   const socialMedias = await getAllSocialMedias();

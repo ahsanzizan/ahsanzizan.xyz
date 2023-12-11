@@ -1,17 +1,17 @@
 "use server";
 
 import { authOptions } from "@/lib/auth";
-import { deleteBlogById, upsertBlog } from "@/lib/queries/blog.query";
-import { deleteContentById, upsertContent } from "@/lib/queries/content.query";
+import { deleteBlogById, upsertBlog } from "@/database/blog.query";
+import { deleteContentById, upsertContent } from "@/database/content.query";
 import {
   deleteExperienceById,
   upsertExperience,
-} from "@/lib/queries/experience.query";
-import { deleteProjectById, upsertProject } from "@/lib/queries/project.query";
+} from "@/database/experience.query";
+import { deleteProjectById, upsertProject } from "@/database/project.query";
 import {
   upsertSocialMedia,
   deleteSocialMediaById,
-} from "@/lib/queries/socialMedia.query";
+} from "@/database/socialMedia.query";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";

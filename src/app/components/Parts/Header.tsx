@@ -1,4 +1,4 @@
-import { getAllSocialMedias } from "@/lib/queries/socialMedia.query";
+import { getAllSocialMedias } from "@/database/socialMedia.query";
 import Link from "next/link";
 
 export default async function Header() {

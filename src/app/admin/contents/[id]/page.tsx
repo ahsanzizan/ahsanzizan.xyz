@@ -1,7 +1,7 @@
 import { upsertContentAction } from "../../actions";
 import BackButton from "@/app/components/BackButton";
 import { Types } from "mongoose";
-import { getContentById } from "@/lib/queries/content.query";
+import { getContentById } from "@/database/content.query";
 
 export default async function EditContent({
   params,

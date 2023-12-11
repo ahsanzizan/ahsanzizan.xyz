@@ -1,8 +1,8 @@
 import BackButton from "@/app/components/BackButton";
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
-import { getContentbyKey } from "@/lib/queries/content.query";
-import { getProjectByLink } from "@/lib/queries/project.query";
+import { getContentbyKey } from "@/database/content.query";
+import { getProjectByLink } from "@/database/project.query";
 import Image from "next/image";
 
 export async function generateMetadata({
