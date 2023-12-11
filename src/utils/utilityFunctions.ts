@@ -24,7 +24,6 @@ export function stringifyDate(date: Date) {
   return `${month} ${day}, ${year}`;
 }
 
-// Will return the read time in minutes
 export function calculateReadTime(content: string) {
   const WPM = 225;
   const wordCount = content.trim().split(/\s+/).length;
