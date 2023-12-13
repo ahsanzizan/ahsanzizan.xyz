@@ -34,5 +34,3 @@ export default async function Tags() {
     </>
   );
 }
-
-export const revalidate = 0;

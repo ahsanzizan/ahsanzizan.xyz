@@ -18,5 +18,3 @@ export default async function About() {
     </>
   );
 }
-
-export const revalidate = 0;
