@@ -53,6 +53,7 @@ export async function upsertProjectAction(formData: FormData) {
 
 export async function upsertBlogAction(formData: FormData) {
   const session = await getServerSession(authOptions);
+  revalidatePath("/", "layout");
 
   await upsertBlog(formData.get("_id") as string, {
     title: formData.get("title") as string,
@@ -62,7 +63,6 @@ export async function upsertBlogAction(formData: FormData) {
     tags: formData.get("tags")?.toString().split(" "),
   });
 
-  revalidatePath("/blog");
   revalidatePath("/", "layout");
   revalidatePath("/blog");
   redirect("/admin/blogs");
@@ -100,8 +100,8 @@ export async function deleteProjectAction(id: string) {
 }
 
 export async function deleteBlogAction(id: string) {
-  await deleteBlogById(id);
   revalidatePath("/", "layout");
+  await deleteBlogById(id);
   revalidatePath("/blog");
   revalidatePath("/", "layout");
 }
