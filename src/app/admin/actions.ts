@@ -46,6 +46,7 @@ export async function upsertProjectAction(formData: FormData) {
     description: formData.get("description") as string,
   });
 
+  revalidatePath("/works");
   revalidatePath("/", "layout");
   redirect("/admin/works");
 }
@@ -62,6 +63,7 @@ export async function upsertBlogAction(formData: FormData) {
   });
 
   revalidatePath("/", "layout");
+  revalidatePath("/blog");
   redirect("/admin/blogs");
 }
 
@@ -75,6 +77,7 @@ export async function upsertExperienceAction(formData: FormData) {
       : undefined,
   });
 
+  revalidatePath("/about");
   revalidatePath("/", "layout");
   redirect("/admin/experiences");
 }
@@ -91,15 +94,18 @@ export async function deleteContentAction(id: string) {
 
 export async function deleteProjectAction(id: string) {
   await deleteProjectById(id);
+  revalidatePath("/works");
   revalidatePath("/", "layout");
 }
 
 export async function deleteBlogAction(id: string) {
   await deleteBlogById(id);
+  revalidatePath("/blog");
   revalidatePath("/", "layout");
 }
 
 export async function deleteExperienceAction(id: string) {
   await deleteExperienceById(id);
+  revalidatePath("/about");
   revalidatePath("/", "layout");
 }
