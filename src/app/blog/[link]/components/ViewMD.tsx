@@ -1,6 +1,12 @@
 "use client";
 
 import MDEditor from "@uiw/react-md-editor";
+import { Raleway } from "next/font/google";
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
 
 export default function ViewMD({ markdown }: { markdown: string }) {
   return (
@@ -9,7 +15,7 @@ export default function ViewMD({ markdown }: { markdown: string }) {
       style={{
         backgroundColor: "#000",
         color: "#a3a3a3",
-        fontFamily: "__Raleway_ae9009,__Raleway_Fallback_ae9009",
+        ...raleway.style,
       }}
     />
   );
