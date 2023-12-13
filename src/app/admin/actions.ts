@@ -62,6 +62,7 @@ export async function upsertBlogAction(formData: FormData) {
     tags: formData.get("tags")?.toString().split(" "),
   });
 
+  revalidatePath("/blog");
   revalidatePath("/", "layout");
   revalidatePath("/blog");
   redirect("/admin/blogs");
@@ -100,6 +101,7 @@ export async function deleteProjectAction(id: string) {
 
 export async function deleteBlogAction(id: string) {
   await deleteBlogById(id);
+  revalidatePath("/", "layout");
   revalidatePath("/blog");
   revalidatePath("/", "layout");
 }
