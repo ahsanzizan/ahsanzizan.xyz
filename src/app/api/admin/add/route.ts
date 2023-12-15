@@ -7,8 +7,8 @@ export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
   if (!session?.user)
     return NextResponse.json(
-      { status: 503, message: "Forbidden request" },
-      { status: 503 },
+      { status: 403, message: "Forbidden request" },
+      { status: 403 },
     );
 
   try {
@@ -20,11 +20,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json(
       {
-        status: 200,
+        status: 201,
         message: "Admin Created Successfully",
         admin: newAdmin,
       },
-      { status: 200 },
+      { status: 201 },
     );
   } catch (error) {
     return NextResponse.json(
