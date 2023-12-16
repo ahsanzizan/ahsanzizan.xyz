@@ -2,7 +2,7 @@ import ProjectModel, { Project } from "@/models/Project.model";
 import { connectAndQuery } from "../utils/connectAndQuery";
 
 export async function getAllProjects(): Promise<Project[]> {
-  return connectAndQuery(async () => await ProjectModel.find({}));
+  return connectAndQuery(async () => (await ProjectModel.find({})).reverse());
 }
 
 export async function getProjectById(id: string): Promise<Project> {
