@@ -5,6 +5,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import { redirect } from "next/navigation";
+import { StandardFormButton } from "@/app/components/Buttons";
 
 export default function Login() {
   const { status } = useSession();
@@ -88,25 +89,9 @@ export default function Login() {
             />
           </div>
           <div className="mt-10">
-            <button
-              type="submit"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white bg-white px-5 py-2 text-center text-base text-black transition-all duration-500 hover:drop-shadow-glow disabled:bg-neutral-400 md:px-[22px] md:py-[10px] md:text-lg"
-              disabled={loading}
-            >
-              <div>
-                Log In
-                <div
-                  className={`${
-                    loading ? "inline-block" : "hidden"
-                  } h-4 w-4 animate-spin snap-center rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]`}
-                  role="status"
-                >
-                  <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                    Loading...
-                  </span>
-                </div>
-              </div>
-            </button>
+            <StandardFormButton type="submit" disabled={loading}>
+              Log In
+            </StandardFormButton>
           </div>
         </form>
       </div>

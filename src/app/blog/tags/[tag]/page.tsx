@@ -3,7 +3,7 @@ import Link from "next/link";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import Navbar from "@/app/components/Parts/Navbar";
 import Footer from "@/app/components/Parts/Footer";
-import BackButton from "@/app/components/Buttons";
+import { BackButton, StandardLinkButton } from "@/app/components/Buttons";
 import { getContentbyKey } from "@/database/content.query";
 
 export async function generateMetadata({
@@ -52,10 +52,7 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
                 <p className="mb-7 line-clamp-2 text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
                   {blog.content}
                 </p>
-                <Link
-                  href={"/blog/" + blog.link}
-                  className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-                >
+                <StandardLinkButton href={"/blog/" + blog.link}>
                   Read More{" "}
                   <svg
                     width="16"
@@ -69,7 +66,7 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
                       fill="current"
                     />
                   </svg>
-                </Link>
+                </StandardLinkButton>
               </article>
             ))}
           </div>

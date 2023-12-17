@@ -3,6 +3,7 @@ import { getAllSocialMedias } from "@/database/socialMedia.query";
 import Image from "next/image";
 import Link from "next/link";
 import Me from "../../../../public/Me.png";
+import { StandardLinkButton } from "@/app/components/Buttons";
 
 export default async function Header() {
   const socialMedias = await getAllSocialMedias();
@@ -19,10 +20,7 @@ export default async function Header() {
             {aboutMe?.content || "Something wrong occured."}
           </p>
           <div className="mt-10 flex flex-col items-start gap-7 md:mt-12 md:gap-[42px] lg:flex-row lg:items-center">
-            <Link
-              href={"/blog"}
-              className="group inline-flex items-center gap-2 rounded-full border border-white px-5 py-2 text-base transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-            >
+            <StandardLinkButton href={"/blog"}>
               My Personal Blog{" "}
               <svg
                 width="16"
@@ -36,7 +34,7 @@ export default async function Header() {
                   fill="current"
                 />
               </svg>
-            </Link>
+            </StandardLinkButton>
             <div className="flex items-center gap-4 md:gap-6">
               {socialMedias.map((socialMedia, i) => {
                 return (

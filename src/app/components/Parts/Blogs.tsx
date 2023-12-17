@@ -1,6 +1,7 @@
 import { getAllBlogs } from "@/database/blog.query";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import Link from "next/link";
+import { StandardLinkButton } from "../Buttons";
 
 export default async function Blogs() {
   const blogs = (await getAllBlogs())
@@ -12,10 +13,7 @@ export default async function Blogs() {
     <section id="blogs" className="mb-32 w-full py-12">
       <div className="mb-5 flex w-full items-center justify-between md:mb-12">
         <h4 className="text-lg drop-shadow-glow md:text-2xl">Blogs</h4>
-        <Link
-          href={"/blog/"}
-          className="group inline-flex items-center gap-2 rounded-full border border-white px-5 py-2 text-base transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-        >
+        <StandardLinkButton href={"/blog/"}>
           See All{" "}
           <svg
             width="16"
@@ -29,7 +27,7 @@ export default async function Blogs() {
               fill="current"
             />
           </svg>
-        </Link>
+        </StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {blogs.map((blog, i) => (
@@ -50,10 +48,7 @@ export default async function Blogs() {
             <p className="mb-7 line-clamp-2 text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
               {blog.content}
             </p>
-            <Link
-              href={"/blog/" + blog.link}
-              className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-            >
+            <StandardLinkButton href={"/blog/" + blog.link}>
               Read More{" "}
               <svg
                 width="16"
@@ -67,7 +62,7 @@ export default async function Blogs() {
                   fill="current"
                 />
               </svg>
-            </Link>
+            </StandardLinkButton>
           </article>
         ))}
       </div>

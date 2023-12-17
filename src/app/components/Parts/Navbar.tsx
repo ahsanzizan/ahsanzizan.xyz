@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { StandardLinkButton } from "../Buttons";
 
 export default function Navbar({ email }: { email: string }) {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -30,10 +31,7 @@ export default function Navbar({ email }: { email: string }) {
           />
         </Link>
         <div className="flex items-center gap-[18px]">
-          <a
-            href={"mailto:" + email}
-            className="group flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-          >
+          <StandardLinkButton href={"mailto:" + email}>
             {"Let's Talk "}
             <svg
               width="16"
@@ -47,7 +45,7 @@ export default function Navbar({ email }: { email: string }) {
                 fill="current"
               />
             </svg>
-          </a>
+          </StandardLinkButton>
           <button
             onClick={() => {
               setNavOpen(true);

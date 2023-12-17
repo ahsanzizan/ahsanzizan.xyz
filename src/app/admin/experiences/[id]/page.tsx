@@ -1,5 +1,5 @@
 import { upsertExperienceAction } from "../../actions";
-import BackButton from "@/app/components/Buttons";
+import { BackButton, StandardFormButton } from "@/app/components/Buttons";
 import { getExperienceById } from "@/database/experience.query";
 import { Types } from "mongoose";
 
@@ -113,12 +113,9 @@ export default async function EditSocialMedia({
               />
             </div>
             <div className="mt-10">
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white bg-white px-5 py-2 text-center text-base text-black transition-all duration-500 hover:drop-shadow-glow disabled:bg-neutral-400 md:px-[22px] md:py-[10px] md:text-lg"
-              >
+              <StandardFormButton type="submit">
                 {experience ? "Save" : "Create"}
-              </button>
+              </StandardFormButton>
             </div>
           </form>
         </div>

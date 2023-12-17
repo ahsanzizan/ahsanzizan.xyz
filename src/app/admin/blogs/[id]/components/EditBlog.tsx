@@ -1,5 +1,6 @@
 "use client";
 import { upsertBlogAction } from "@/app/admin/actions";
+import { StandardButton, StandardFormButton } from "@/app/components/Buttons";
 import { Blog } from "@/models/Blog.model";
 import MDEditor from "@uiw/react-md-editor";
 import { Types } from "mongoose";
@@ -22,11 +23,7 @@ export default function EditBlog({ blog }: { blog?: Blog }) {
           type="hidden"
           id="_id"
           name="_id"
-          value={
-            blog
-              ? blog._id.toString()
-              : new Types.ObjectId().toString()
-          }
+          value={blog ? blog._id.toString() : new Types.ObjectId().toString()}
         />
         <input type="hidden" id="tags" name="tags" value={tags.join(" ")} />
         <input type="hidden" id="content" name="content" value={content} />
@@ -82,8 +79,7 @@ export default function EditBlog({ blog }: { blog?: Blog }) {
               id="tag"
               placeholder="Insert a tag"
             />
-            <button
-              className="group inline-flex items-center rounded-r-full border border-white px-5 py-3 text-base transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow"
+            <StandardButton
               onClick={(e) => {
                 e.preventDefault();
                 const newTag: HTMLInputElement = document.getElementById(
@@ -94,20 +90,19 @@ export default function EditBlog({ blog }: { blog?: Blog }) {
               }}
             >
               Add
-            </button>
+            </StandardButton>
           </div>
           <div className="flex w-full flex-wrap gap-2">
             {tags &&
               tags.map((tag, i) => (
-                <button
+                <StandardButton
                   key={i}
-                  className="group inline-flex items-center rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px]"
                   onClick={() => {
                     setTags(tags.filter((_, index) => index !== i));
                   }}
                 >
                   {tag}
-                </button>
+                </StandardButton>
               ))}
           </div>
         </div>
@@ -120,12 +115,9 @@ export default function EditBlog({ blog }: { blog?: Blog }) {
           }}
         />
         <div className="mt-10">
-          <button
-            type="submit"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white bg-white px-5 py-2 text-center text-base text-black transition-all duration-500 hover:drop-shadow-glow disabled:bg-neutral-400 md:px-[22px] md:py-[10px] md:text-lg"
-          >
+          <StandardFormButton type="submit">
             {blog ? "Save" : "Create"}
-          </button>
+          </StandardFormButton>
         </div>
       </form>
     </>

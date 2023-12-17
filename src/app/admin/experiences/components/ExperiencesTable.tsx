@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { deleteExperienceAction } from "../../actions";
 import { useRouter } from "next/navigation";
 import { Experience } from "@/models/Experience.model";
+import { StandardButton, StandardLinkButton } from "@/app/components/Buttons";
 
 export default function ExperiencesTable({
   experiences,
@@ -16,12 +17,9 @@ export default function ExperiencesTable({
     <>
       <div className="mb-4 flex w-full items-center justify-between">
         <h4 className="text-lg drop-shadow-glow md:text-2xl">Projects</h4>
-        <Link
-          href={"/admin/experiences/new"}
-          className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-        >
+        <StandardLinkButton href={"/admin/experiences/new"}>
           New{" "}
-        </Link>
+        </StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {experiences.map((experience, i) => (
@@ -35,7 +33,7 @@ export default function ExperiencesTable({
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <button
+              <StandardButton
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteExperienceAction(experience._id.toString()).then(() => {
@@ -45,16 +43,14 @@ export default function ExperiencesTable({
                     router.refresh();
                   });
                 }}
-                className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
               >
                 Delete
-              </button>
-              <Link
+              </StandardButton>
+              <StandardLinkButton
                 href={"/admin/experiences/" + experience._id.toString()}
-                className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
               >
                 Edit
-              </Link>
+              </StandardLinkButton>
             </div>
           </div>
         ))}

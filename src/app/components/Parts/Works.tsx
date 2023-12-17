@@ -1,6 +1,7 @@
 import { getAllProjects } from "@/database/project.query";
 import Image from "next/image";
 import Link from "next/link";
+import { StandardLinkButton } from "../Buttons";
 
 export default async function Works() {
   const projects = await getAllProjects();
@@ -10,10 +11,7 @@ export default async function Works() {
       <section id="works" className="mb-32 w-full py-12">
         <div className="mb-5 flex w-full items-center justify-between md:mb-12">
           <h4 className="text-lg drop-shadow-glow md:text-2xl">Works</h4>
-          <Link
-            href={"/works"}
-            className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-          >
+          <StandardLinkButton href={"/works"}>
             See More{" "}
             <svg
               width="16"
@@ -27,7 +25,7 @@ export default async function Works() {
                 fill="current"
               />
             </svg>
-          </Link>
+          </StandardLinkButton>
         </div>
         <div className="flex w-full flex-col divide-y divide-white">
           {projects.slice(0, 3).map((project, i) => (

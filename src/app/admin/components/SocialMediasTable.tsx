@@ -4,6 +4,7 @@ import Link from "next/link";
 import { deleteSocialMediaAction } from "../actions";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { StandardButton, StandardLinkButton } from "@/app/components/Buttons";
 
 export default function SocialMediasTable({
   socialMedias,
@@ -19,12 +20,9 @@ export default function SocialMediasTable({
     <>
       <div className="mb-4 flex w-full items-center justify-between">
         <h4 className="text-lg drop-shadow-glow md:text-2xl">Social Medias</h4>
-        <Link
-          href={"/admin/social-medias/new"}
-          className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-        >
-          New{" "}
-        </Link>
+        <StandardLinkButton href={"/admin/social-medias/new"}>
+          New
+        </StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedSocialMedias.map((socialMedia, i) => (
@@ -47,7 +45,7 @@ export default function SocialMediasTable({
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <button
+              <StandardButton
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteSocialMediaAction(socialMedia._id.toString()).then(
@@ -59,16 +57,14 @@ export default function SocialMediasTable({
                     },
                   );
                 }}
-                className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
               >
                 Delete
-              </button>
-              <Link
+              </StandardButton>
+              <StandardLinkButton
                 href={"/admin/social-medias/" + socialMedia._id.toString()}
-                className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
               >
                 Edit
-              </Link>
+              </StandardLinkButton>
             </div>
           </div>
         ))}

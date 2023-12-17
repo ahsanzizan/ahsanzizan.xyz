@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { StandardLinkButton } from "../Buttons";
 
 export interface SpotifyData {
   isPlaying: boolean;
@@ -64,10 +65,7 @@ export default function Spotify() {
             <p className="mb-7">
               {data?.isPlaying ? `By ${data.artist}` : "None"}
             </p>
-            <a
-              href={data?.isPlaying ? data.songUrl : "#"}
-              className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-            >
+            <StandardLinkButton href={data?.isPlaying ? data.songUrl : "#"}>
               Play Song{" "}
               <svg
                 width="16"
@@ -81,7 +79,7 @@ export default function Spotify() {
                   fill="current"
                 />
               </svg>
-            </a>
+            </StandardLinkButton>
           </div>
         </div>
       </figure>

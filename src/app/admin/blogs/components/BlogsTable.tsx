@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Blog } from "@/models/Blog.model";
 import { deleteBlogAction } from "../../actions";
+import { StandardButton, StandardLinkButton } from "@/app/components/Buttons";
 
 export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
   const router = useRouter();
@@ -13,12 +14,7 @@ export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
     <>
       <div className="mb-4 flex w-full items-center justify-between">
         <h4 className="text-lg drop-shadow-glow md:text-2xl">Blogs</h4>
-        <Link
-          href={"/admin/blogs/new"}
-          className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-        >
-          New{" "}
-        </Link>
+        <StandardLinkButton href={"/admin/blogs/new"}>New</StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedBlogs.map((blog, i) => (
@@ -32,7 +28,7 @@ export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <button
+              <StandardButton
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteBlogAction(blog._id.toString()).then(() => {
@@ -42,16 +38,12 @@ export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
                     router.refresh();
                   });
                 }}
-                className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
               >
                 Delete
-              </button>
-              <Link
-                href={"/admin/blogs/" + blog._id.toString()}
-                className="group inline-flex items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
-              >
+              </StandardButton>
+              <StandardLinkButton href={"/admin/blogs/" + blog._id.toString()}>
                 Edit
-              </Link>
+              </StandardLinkButton>
             </div>
           </div>
         ))}

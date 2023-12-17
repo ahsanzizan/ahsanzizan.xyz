@@ -6,6 +6,7 @@ import { SocialMedia } from "@/models/SocialMedia.model";
 import { Content } from "@/models/Content.model";
 import { getAllContents } from "@/database/content.query";
 import ContentsTable from "./components/ContentsTable";
+import { StandardLinkButton } from "../components/Buttons";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);
@@ -23,9 +24,8 @@ export default async function AdminPage() {
           Welcome back, {session?.user?.username}
         </h1>
         <div className="inline-block w-auto">
-          <a
+          <StandardLinkButton
             href={"https://vercel.com/ahsanaazizan/ahsanzizan"}
-            className="group inline-flex w-auto items-center gap-1 rounded-full border border-white px-4 py-2 text-sm transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow md:px-[22px] md:py-[10px] md:text-lg"
           >
             Go to Production Deployment{" "}
             <svg
@@ -40,7 +40,7 @@ export default async function AdminPage() {
                 fill="current"
               />
             </svg>
-          </a>
+          </StandardLinkButton>
         </div>
       </header>
       <div className="flex flex-col gap-12">
