@@ -3,7 +3,7 @@ import Link from "next/link";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import Navbar from "@/app/components/Parts/Navbar";
 import Footer from "@/app/components/Parts/Footer";
-import BackButton from "@/app/components/BackButton";
+import BackButton from "@/app/components/Buttons";
 import { getContentbyKey } from "@/database/content.query";
 
 export async function generateMetadata({

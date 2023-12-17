@@ -1,5 +1,5 @@
 import { upsertContentAction } from "../../actions";
-import BackButton from "@/app/components/BackButton";
+import BackButton from "@/app/components/Buttons";
 import { Types } from "mongoose";
 import { getContentById } from "@/database/content.query";
 

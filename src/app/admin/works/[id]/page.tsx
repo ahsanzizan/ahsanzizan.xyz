@@ -1,6 +1,6 @@
 import { getProjectById } from "@/database/project.query";
 import { upsertProjectAction } from "../../actions";
-import BackButton from "@/app/components/BackButton";
+import BackButton from "@/app/components/Buttons";
 import { Types } from "mongoose";
 
 export default async function EditSocialMedia({

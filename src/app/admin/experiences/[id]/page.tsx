@@ -1,5 +1,5 @@
 import { upsertExperienceAction } from "../../actions";
-import BackButton from "@/app/components/BackButton";
+import BackButton from "@/app/components/Buttons";
 import { getExperienceById } from "@/database/experience.query";
 import { Types } from "mongoose";
 

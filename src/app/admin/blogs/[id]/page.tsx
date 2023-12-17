@@ -1,6 +1,6 @@
 import { getBlogById } from "@/database/blog.query";
 import EditBlog from "./components/EditBlog";
-import BackButton from "@/app/components/BackButton";
+import BackButton from "@/app/components/Buttons";
 
 export default async function EditSocialMedia({
   params,

@@ -5,7 +5,7 @@ import { getBlogByLink } from "@/database/blog.query";
 import ViewMD from "./components/ViewMD";
 import { calculateReadTime, stringifyDate } from "@/utils/utilityFunctions";
 import Link from "next/link";
-import BackButton from "@/app/components/BackButton";
+import BackButton from "@/app/components/Buttons";
 import { getContentbyKey } from "@/database/content.query";
 
 export async function generateMetadata({
