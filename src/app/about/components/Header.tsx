@@ -5,6 +5,7 @@ import Link from "next/link";
 import Me from "../../../../public/Me.png";
 import { StandardLinkButton } from "@/app/components/global/Buttons";
 import LeftArrowIcon from "@/app/components/global/Icons/LeftArrow";
+import SocialMediasRow from "@/app/components/global/SocialMediasRow";
 
 export default async function Header() {
   const socialMedias = await getAllSocialMedias();
@@ -25,28 +26,7 @@ export default async function Header() {
               My Personal Blog{" "}
               <LeftArrowIcon className="m-1 h-4 w-4 fill-current transition-transform duration-500 group-hover:translate-x-1" />
             </StandardLinkButton>
-            <div className="flex items-center gap-4 md:gap-6">
-              {socialMedias.map((socialMedia, i) => {
-                return (
-                  <a
-                    key={i}
-                    href={socialMedia.url}
-                    target="_blank"
-                    className="rounded-full border border-white p-3 transition-all duration-500 hover:bg-white hover:text-black hover:drop-shadow-glow"
-                  >
-                    <svg
-                      role="img"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 fill-current md:h-6 md:w-6"
-                      dangerouslySetInnerHTML={{
-                        __html: `<title>${socialMedia.name}</title> ${socialMedia.svgPath}`,
-                      }}
-                    ></svg>
-                  </a>
-                );
-              })}
-            </div>
+            <SocialMediasRow socialMedias={socialMedias} />
           </div>
         </div>
         <div className="w-full md:w-1/4">
