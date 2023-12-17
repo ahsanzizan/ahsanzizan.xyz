@@ -1,4 +1,4 @@
-import { BackButton, VisitWorkButton } from "@/app/components/Buttons";
+import { BackButton, VisitWorkButton } from "@/app/components/global/Buttons";
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
 import { getContentbyKey } from "@/database/content.query";

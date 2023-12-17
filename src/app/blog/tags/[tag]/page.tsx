@@ -3,9 +3,9 @@ import Link from "next/link";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import Navbar from "@/app/components/Parts/Navbar";
 import Footer from "@/app/components/Parts/Footer";
-import { BackButton, StandardLinkButton } from "@/app/components/Buttons";
+import { BackButton, StandardLinkButton } from "@/app/components/global/Buttons";
 import { getContentbyKey } from "@/database/content.query";
-import LeftArrowIcon from "@/app/components/Icons/LeftArrow";
+import LeftArrowIcon from "@/app/components/global/Icons/LeftArrow";
 
 export async function generateMetadata({
   params,

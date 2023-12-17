@@ -5,7 +5,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { deleteProjectAction } from "../../actions";
 import { useRouter } from "next/navigation";
-import { StandardButton, StandardLinkButton } from "@/app/components/Buttons";
+import { StandardButton, StandardLinkButton } from "@/app/components/global/Buttons";
 
 export default function WorksTable({ works }: { works: Project[] }) {
   const router = useRouter();

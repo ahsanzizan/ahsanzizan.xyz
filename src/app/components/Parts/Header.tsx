@@ -1,7 +1,7 @@
 import { getAllSocialMedias } from "@/database/socialMedia.query";
 import Link from "next/link";
-import { StandardLinkButton } from "../Buttons";
-import LeftArrowIcon from "../Icons/LeftArrow";
+import { StandardLinkButton } from "../global/Buttons";
+import LeftArrowIcon from "../global/Icons/LeftArrow";
 
 export default async function Header() {
   const socialMedias = await getAllSocialMedias();

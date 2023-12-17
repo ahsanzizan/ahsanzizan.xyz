@@ -3,8 +3,8 @@ import { getAllSocialMedias } from "@/database/socialMedia.query";
 import Image from "next/image";
 import Link from "next/link";
 import Me from "../../../../public/Me.png";
-import { StandardLinkButton } from "@/app/components/Buttons";
-import LeftArrowIcon from "@/app/components/Icons/LeftArrow";
+import { StandardLinkButton } from "@/app/components/global/Buttons";
+import LeftArrowIcon from "@/app/components/global/Icons/LeftArrow";
 
 export default async function Header() {
   const socialMedias = await getAllSocialMedias();

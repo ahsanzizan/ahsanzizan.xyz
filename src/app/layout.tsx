@@ -4,7 +4,7 @@ import { Raleway } from "next/font/google";
 import { NextAuthProvider } from "./components/NextAuthProvider";
 import TopLoader from "./components/TopLoader";
 import { Toaster } from "react-hot-toast";
-import Wrapper from "./components/Wrapper";
+import Wrapper from "./components/global/Wrapper";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const raleway = Raleway({

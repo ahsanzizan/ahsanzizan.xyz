@@ -6,8 +6,8 @@ import { SocialMedia } from "@/models/SocialMedia.model";
 import { Content } from "@/models/Content.model";
 import { getAllContents } from "@/database/content.query";
 import ContentsTable from "./components/ContentsTable";
-import { StandardLinkButton } from "../components/Buttons";
-import LeftArrowIcon from "../components/Icons/LeftArrow";
+import { StandardLinkButton } from "../components/global/Buttons";
+import LeftArrowIcon from "../components/global/Icons/LeftArrow";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);

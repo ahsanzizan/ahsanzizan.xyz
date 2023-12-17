@@ -1,8 +1,8 @@
 import { getAllProjects } from "@/database/project.query";
 import Image from "next/image";
 import Link from "next/link";
-import { StandardLinkButton } from "../Buttons";
-import LeftArrowIcon from "../Icons/LeftArrow";
+import { StandardLinkButton } from "../global/Buttons";
+import LeftArrowIcon from "../global/Icons/LeftArrow";
 
 export default async function Works() {
   const projects = await getAllProjects();

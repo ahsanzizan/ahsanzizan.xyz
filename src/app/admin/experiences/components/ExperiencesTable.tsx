@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { deleteExperienceAction } from "../../actions";
 import { useRouter } from "next/navigation";
 import { Experience } from "@/models/Experience.model";
-import { StandardButton, StandardLinkButton } from "@/app/components/Buttons";
+import { StandardButton, StandardLinkButton } from "@/app/components/global/Buttons";
 
 export default function ExperiencesTable({
   experiences,

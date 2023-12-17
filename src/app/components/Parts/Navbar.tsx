@@ -2,10 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { StandardLinkButton } from "../Buttons";
-import LeftArrowIcon from "../Icons/LeftArrow";
-import HamburgerIcon from "../Icons/Hamburger";
-import XIcon from "../Icons/X";
+import { StandardLinkButton } from "../global/Buttons";
+import LeftArrowIcon from "../global/Icons/LeftArrow";
+import HamburgerIcon from "../global/Icons/Hamburger";
+import XIcon from "../global/Icons/X";
 
 export default function Navbar({ email }: { email: string }) {
   const [navOpen, setNavOpen] = useState<boolean>(false);

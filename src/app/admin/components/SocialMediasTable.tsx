@@ -4,7 +4,7 @@ import Link from "next/link";
 import { deleteSocialMediaAction } from "../actions";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { StandardButton, StandardLinkButton } from "@/app/components/Buttons";
+import { StandardButton, StandardLinkButton } from "@/app/components/global/Buttons";
 
 export default function SocialMediasTable({
   socialMedias,

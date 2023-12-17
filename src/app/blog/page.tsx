@@ -5,8 +5,8 @@ import Footer from "../components/Parts/Footer";
 import Link from "next/link";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import { getContentbyKey } from "@/database/content.query";
-import { StandardLinkButton } from "../components/Buttons";
-import LeftArrowIcon from "../components/Icons/LeftArrow";
+import { StandardLinkButton } from "../components/global/Buttons";
+import LeftArrowIcon from "../components/global/Icons/LeftArrow";
 
 export const metadata: Metadata = {
   title: "Blogs",

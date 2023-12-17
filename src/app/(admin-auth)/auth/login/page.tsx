@@ -5,7 +5,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import { redirect } from "next/navigation";
-import { StandardFormButton } from "@/app/components/Buttons";
+import { StandardFormButton } from "@/app/components/global/Buttons";
 
 export default function Login() {
   const { status } = useSession();

@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { StandardLinkButton } from "../Buttons";
-import LeftArrowIcon from "../Icons/LeftArrow";
+import { StandardLinkButton } from "../global/Buttons";
+import LeftArrowIcon from "../global/Icons/LeftArrow";
 
 export interface SpotifyData {
   isPlaying: boolean;

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import CustomCursor from "./CustomCursor";
+import CustomCursor from "../CustomCursor";
 import TypeWriter from "@/utils/typewriter";
 import { usePathname, useRouter } from "next/navigation";
 
