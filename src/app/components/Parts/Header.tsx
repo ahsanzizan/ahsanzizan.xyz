@@ -1,5 +1,4 @@
 import { getAllSocialMedias } from "@/database/socialMedia.query";
-import Link from "next/link";
 import { StandardLinkButton } from "../global/Buttons";
 import LeftArrowIcon from "../global/Icons/LeftArrow";
 

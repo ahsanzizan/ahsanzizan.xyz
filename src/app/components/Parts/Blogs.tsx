@@ -1,6 +1,5 @@
 import { getAllBlogs } from "@/database/blog.query";
 import { stringifyDate } from "@/utils/utilityFunctions";
-import Link from "next/link";
 import { StandardLinkButton } from "../global/Buttons";
 import LeftArrowIcon from "../global/Icons/LeftArrow";
 
