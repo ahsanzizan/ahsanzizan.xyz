@@ -1,6 +1,7 @@
 import AdminModel from "@/models/Admin.model";
 import { validate, generate } from "../lib/hash";
 import { connectAndQuery } from "../utils/connectAndQuery";
+import { Admin } from "@/types/models";
 
 type auth = {
   status: "SUCCESS" | "NO_PASSWORD" | "INVALID";
