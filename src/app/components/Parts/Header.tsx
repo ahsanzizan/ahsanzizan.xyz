@@ -1,11 +1,7 @@
-import { getAllSocialMedias } from "@/database/socialMedia.query";
 import { StandardLinkButton } from "../global/Buttons";
 import LeftArrowIcon from "../global/Icons/LeftArrow";
-import SocialMediasRow from "../global/SocialMediasRow";
 
-export default async function Header() {
-  const socialMedias = await getAllSocialMedias();
-
+export default function Header() {
   return (
     <section id="home" className="mb-32 w-full py-12">
       <header className="flex flex-col gap-2 md:gap-4">
