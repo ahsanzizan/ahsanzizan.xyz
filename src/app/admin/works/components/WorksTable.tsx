@@ -1,11 +1,13 @@
 "use client";
-import { Project } from "@/models/Project.model";
 import Image from "next/image";
-import Link from "next/link";
 import toast from "react-hot-toast";
 import { deleteProjectAction } from "../../actions";
 import { useRouter } from "next/navigation";
-import { StandardButton, StandardLinkButton } from "@/app/components/global/Buttons";
+import {
+  StandardButton,
+  StandardLinkButton,
+} from "@/app/components/global/Buttons";
+import { Project } from "@/types/models";
 
 export default function WorksTable({ works }: { works: Project[] }) {
   const router = useRouter();

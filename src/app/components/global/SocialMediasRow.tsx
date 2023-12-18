@@ -1,4 +1,4 @@
-import { SocialMedia } from "@/models/SocialMedia.model";
+import { SocialMedia } from "@/types/models";
 
 export default function SocialMediasRow({
   socialMedias,

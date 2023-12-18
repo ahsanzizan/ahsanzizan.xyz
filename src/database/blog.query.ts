@@ -1,5 +1,6 @@
-import BlogModel, { Blog } from "@/models/Blog.model";
+import BlogModel from "@/models/Blog.model";
 import { connectAndQuery } from "../utils/connectAndQuery";
+import { Blog } from "@/types/models";
 
 export async function getAllBlogs(): Promise<Blog[]> {
   return connectAndQuery(async () => await BlogModel.find({}));
@@ -35,10 +36,6 @@ type UpsertBlogInput = {
 export async function upsertBlog(id: string, blog: UpsertBlogInput) {
   return connectAndQuery(
     async () =>
-      await BlogModel.findByIdAndUpdate(
-        id,
-        { ...blog },
-        { upsert: true },
-      ),
+      await BlogModel.findByIdAndUpdate(id, { ...blog }, { upsert: true }),
   );
 }

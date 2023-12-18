@@ -2,9 +2,12 @@
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Content } from "@/models/Content.model";
 import { deleteContentAction } from "../actions";
-import { StandardButton, StandardLinkButton } from "@/app/components/global/Buttons";
+import {
+  StandardButton,
+  StandardLinkButton,
+} from "@/app/components/global/Buttons";
+import { Content } from "@/types/models";
 
 export default function ContentsTable({ contents }: { contents: Content[] }) {
   const router = useRouter();

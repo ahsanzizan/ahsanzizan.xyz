@@ -2,12 +2,11 @@ import { authOptions } from "@/lib/auth";
 import { getAllSocialMedias } from "@/database/socialMedia.query";
 import { getServerSession } from "next-auth";
 import SocialMediasTable from "./components/SocialMediasTable";
-import { SocialMedia } from "@/models/SocialMedia.model";
-import { Content } from "@/models/Content.model";
 import { getAllContents } from "@/database/content.query";
 import ContentsTable from "./components/ContentsTable";
 import { StandardLinkButton } from "../components/global/Buttons";
 import LeftArrowIcon from "../components/global/Icons/LeftArrow";
+import { Content, SocialMedia } from "@/types/models";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);

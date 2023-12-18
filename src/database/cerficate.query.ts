@@ -1,5 +1,6 @@
+import { Certificate } from "@/types/models";
 import { connectAndQuery } from "../utils/connectAndQuery";
-import CertificateModel, { Certificate } from "@/models/Certificate.model";
+import CertificateModel from "@/models/Certificate.model";
 
 export async function getAllCertificates(): Promise<Certificate[]> {
   return connectAndQuery(async () => await CertificateModel.find({}));

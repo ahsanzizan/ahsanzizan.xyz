@@ -1,7 +1,10 @@
 "use client";
 import { upsertBlogAction } from "@/app/admin/actions";
-import { StandardButton, StandardFormButton } from "@/app/components/global/Buttons";
-import { Blog } from "@/models/Blog.model";
+import {
+  StandardButton,
+  StandardFormButton,
+} from "@/app/components/global/Buttons";
+import { Blog } from "@/types/models";
 import MDEditor from "@uiw/react-md-editor";
 import { Types } from "mongoose";
 import { useEffect, useState } from "react";

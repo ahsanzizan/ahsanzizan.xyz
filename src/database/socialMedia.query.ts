@@ -1,6 +1,6 @@
-import { Types } from "mongoose";
-import SocialMediaModel, { SocialMedia } from "@/models/SocialMedia.model";
+import SocialMediaModel from "@/models/SocialMedia.model";
 import { connectAndQuery } from "../utils/connectAndQuery";
+import { SocialMedia } from "@/types/models";
 
 export async function getAllSocialMedias(): Promise<SocialMedia[]> {
   return connectAndQuery(async () => await SocialMediaModel.find({}));

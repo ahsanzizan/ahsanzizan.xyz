@@ -1,10 +1,9 @@
 "use client";
-import { SocialMedia } from "@/models/SocialMedia.model";
-import Link from "next/link";
 import { deleteSocialMediaAction } from "../actions";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { StandardButton, StandardLinkButton } from "@/app/components/global/Buttons";
+import { SocialMedia } from "@/types/models";
 
 export default function SocialMediasTable({
   socialMedias,

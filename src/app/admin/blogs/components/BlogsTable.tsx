@@ -1,10 +1,12 @@
 "use client";
-import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Blog } from "@/models/Blog.model";
 import { deleteBlogAction } from "../../actions";
-import { StandardButton, StandardLinkButton } from "@/app/components/global/Buttons";
+import {
+  StandardButton,
+  StandardLinkButton,
+} from "@/app/components/global/Buttons";
+import { Blog } from "@/types/models";
 
 export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
   const router = useRouter();

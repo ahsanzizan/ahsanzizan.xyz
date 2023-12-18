@@ -1,5 +1,4 @@
 import AdminModel from "@/models/Admin.model";
-import type { Admin } from "@/models/Admin.model";
 import { validate, generate } from "../lib/hash";
 import { connectAndQuery } from "../utils/connectAndQuery";
 

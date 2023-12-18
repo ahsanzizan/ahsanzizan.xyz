@@ -1,18 +1,11 @@
 import { upsertExperienceAction } from "../../actions";
-import { BackButton, StandardFormButton } from "@/app/components/global/Buttons";
+import {
+  BackButton,
+  StandardFormButton,
+} from "@/app/components/global/Buttons";
 import { getExperienceById } from "@/database/experience.query";
+import { getFormattedDate } from "@/utils/utilityFunctions";
 import { Types } from "mongoose";
-
-function getFormattedDate(date?: Date) {
-  if (!date) {
-    return "";
-  }
-
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const day = date.getDate().toString().padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
 
 export default async function EditSocialMedia({
   params,
