@@ -24,15 +24,15 @@ export default async function Blogs() {
             <h2 className="mb-1 text-xl drop-shadow-glow md:text-4xl">
               {blog.title}
             </h2>
-            <div className="mb-4 flex items-center">
+            <div className="mb-4">
               <dl className="mx-1">
                 <dt className="sr-only">Published on</dt>
-                <dd className="text-base font-medium leading-6">
+                <dd className="text-sm font-medium leading-6 sm:text-base">
                   <span>Published </span>
                   <time>{stringifyDate(blog.createdAt)}</time>
                 </dd>
               </dl>
-              <span>by {blog.author}</span>
+              <span className="text-sm sm:text-base">by {blog.author}</span>
             </div>
             <p className="mb-7 line-clamp-2 text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
               {blog.content}
