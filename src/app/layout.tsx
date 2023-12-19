@@ -14,8 +14,8 @@ const raleway = Raleway({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ahsan Azizan | Personal Website",
-    template: "Ahsan Azizan | %s",
+    default: "Personal Website - Ahsan Azizan",
+    template: "%s - Ahsan Azizan",
   },
   description: "Personal website of Ahsan Awadullah Azizan",
 };
