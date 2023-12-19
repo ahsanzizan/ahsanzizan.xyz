@@ -2,11 +2,9 @@ import { getAllBlogs } from "@/database/blog.query";
 import { Metadata } from "next";
 import Navbar from "../components/Parts/Navbar";
 import Footer from "../components/Parts/Footer";
-import Link from "next/link";
-import { stringifyDate } from "@/utils/utilityFunctions";
 import { getContentbyKey } from "@/database/content.query";
 import { StandardLinkButton } from "../components/global/Buttons";
-import LeftArrowIcon from "../components/global/Icons/LeftArrow";
+import BlogPreview from "../components/global/BlogPreview";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -32,28 +30,7 @@ export default async function Blog() {
           </div>
           <div className="flex w-full flex-col divide-y divide-white">
             {blogs.map((blog, i) => (
-              <article key={i} className="w-full py-4 md:py-10">
-                <h2 className="mb-1 text-xl drop-shadow-glow md:text-4xl">
-                  {blog.title}
-                </h2>
-                <div className="mb-4 flex items-center">
-                  <dl className="mx-1">
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6">
-                      <span>Published </span>
-                      <time>{stringifyDate(blog.createdAt)}</time>
-                    </dd>
-                  </dl>
-                  <span>by {blog.author}</span>
-                </div>
-                <p className="mb-7 line-clamp-2 text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
-                  {blog.content}
-                </p>
-                <StandardLinkButton href={"/blog/" + blog.link}>
-                  Read More{" "}
-                  <LeftArrowIcon className="m-1 h-3 w-3 fill-current transition-transform duration-500 group-hover:translate-x-1 md:h-4 md:w-4" />
-                </StandardLinkButton>
-              </article>
+              <BlogPreview key={i} blog={blog} />
             ))}
           </div>
         </section>

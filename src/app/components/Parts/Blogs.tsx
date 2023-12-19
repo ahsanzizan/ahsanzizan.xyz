@@ -1,7 +1,7 @@
 import { getAllBlogs } from "@/database/blog.query";
-import { stringifyDate } from "@/utils/utilityFunctions";
 import { StandardLinkButton } from "../global/Buttons";
 import LeftArrowIcon from "../global/Icons/LeftArrow";
+import BlogPreview from "../global/BlogPreview";
 
 export default async function Blogs() {
   const blogs = (await getAllBlogs())
@@ -20,28 +20,7 @@ export default async function Blogs() {
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {blogs.map((blog, i) => (
-          <article key={i} className="w-full py-4 md:py-10">
-            <h2 className="mb-1 text-xl drop-shadow-glow md:text-4xl">
-              {blog.title}
-            </h2>
-            <div className="mb-4">
-              <dl className="mx-1">
-                <dt className="sr-only">Published on</dt>
-                <dd className="text-sm font-medium leading-6 sm:text-base">
-                  <span>Published </span>
-                  <time>{stringifyDate(blog.createdAt)}</time>
-                </dd>
-              </dl>
-              <span className="text-sm sm:text-base">by {blog.author}</span>
-            </div>
-            <p className="mb-7 line-clamp-2 text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
-              {blog.content}
-            </p>
-            <StandardLinkButton href={"/blog/" + blog.link}>
-              Read More{" "}
-              <LeftArrowIcon className="m-1 h-3 w-3 fill-current transition-transform duration-500 group-hover:translate-x-1 md:h-4 md:w-4" />
-            </StandardLinkButton>
-          </article>
+          <BlogPreview key={i} blog={blog} />
         ))}
       </div>
     </section>
