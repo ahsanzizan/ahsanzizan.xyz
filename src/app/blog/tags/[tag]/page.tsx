@@ -4,6 +4,7 @@ import Footer from "@/app/components/Parts/Footer";
 import { BackButton } from "@/app/components/global/Buttons";
 import { getContentbyKey } from "@/database/content.query";
 import BlogPreview from "@/app/components/global/BlogPreview";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -20,6 +21,10 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
   const blogs = await getAllBlogs();
   const blogsWithTag = blogs.filter((blog) => blog.tags.includes(params.tag));
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
+
+  if (blogsWithTag.length === 0) {
+    notFound();
+  }
 
   return (
     <>

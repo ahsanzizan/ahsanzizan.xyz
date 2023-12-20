@@ -4,6 +4,17 @@ import { getAllBlogs } from "@/database/blog.query";
 import { getContentbyKey } from "@/database/content.query";
 import Link from "next/link";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { tag: string };
+}) {
+  return {
+    title: `Blog's Tags`,
+    description: "Ahsan's blog post",
+  };
+}
+
 export default async function Tags() {
   const blogs = await getAllBlogs();
   const tags = new Set(blogs.map((blog) => blog.tags).flat());
