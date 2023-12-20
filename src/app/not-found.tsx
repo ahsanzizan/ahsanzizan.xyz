@@ -14,7 +14,7 @@ export default function NotFound() {
           </h5>
           <div className="block">
             <StandardLinkButton href="https://www.ahsanzizan.xyz">
-              <LeftArrowIcon className="ml-1 fill-current transition-transform duration-500 group-hover:translate-x-1" />
+              <LeftArrowIcon className="mr-1 rotate-180 fill-current transition-transform duration-500 group-hover:-translate-x-1" />
               Back
             </StandardLinkButton>
           </div>
