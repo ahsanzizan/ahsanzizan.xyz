@@ -12,10 +12,7 @@ export default async function Works() {
       <section id="works" className="mb-32 w-full py-12">
         <div className="mb-5 flex w-full items-center justify-between md:mb-12">
           <h4 className="text-lg drop-shadow-glow md:text-2xl">Works</h4>
-          <StandardLinkButton href={"/works"}>
-            See More{" "}
-            <LeftArrowIcon className="m-1 h-3 w-3 fill-current transition-transform duration-500 group-hover:translate-x-1 md:h-4 md:w-4" />
-          </StandardLinkButton>
+          <StandardLinkButton href={"/works"}>See More</StandardLinkButton>
         </div>
         <div className="flex w-full flex-col divide-y divide-white">
           {projects.slice(0, 3).map((project, i) => (
