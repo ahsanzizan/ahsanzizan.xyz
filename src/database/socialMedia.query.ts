@@ -1,5 +1,5 @@
 import SocialMediaModel from "@/models/SocialMedia.model";
-import { connectAndQuery } from "../utils/connectAndQuery";
+import { connectAndQuery } from "../utils/utilityFunctions";
 import { SocialMedia } from "@/types/models";
 
 export async function getAllSocialMedias(): Promise<SocialMedia[]> {

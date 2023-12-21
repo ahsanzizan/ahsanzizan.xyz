@@ -1,5 +1,5 @@
 import ContentModel from "@/models/Content.model";
-import { connectAndQuery } from "../utils/connectAndQuery";
+import { connectAndQuery } from "../utils/utilityFunctions";
 import { Content } from "@/types/models";
 
 export async function getAllContents(): Promise<Content[]> {

@@ -1,5 +1,5 @@
 import ProjectModel from "@/models/Project.model";
-import { connectAndQuery } from "../utils/connectAndQuery";
+import { connectAndQuery } from "../utils/utilityFunctions";
 import { Project } from "@/types/models";
 
 export async function getAllProjects(): Promise<Project[]> {

@@ -1,6 +1,6 @@
 import AdminModel from "@/models/Admin.model";
 import { validate, generate } from "../lib/hash";
-import { connectAndQuery } from "../utils/connectAndQuery";
+import { connectAndQuery } from "../utils/utilityFunctions";
 import { Admin } from "@/types/models";
 
 type auth = {

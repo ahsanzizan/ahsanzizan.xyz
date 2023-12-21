@@ -1,3 +1,10 @@
+import connectDB from "../lib/mongoose";
+
+export async function connectAndQuery(queryFn: () => Promise<any>) {
+  await connectDB();
+  return queryFn();
+}
+
 export function getMonthName(month: number) {
   const months = [
     "January",
