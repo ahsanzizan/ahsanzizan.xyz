@@ -7,6 +7,7 @@ export const ProjectSchema = new Schema({
   url: { type: String, required: true },
   image: { type: String, required: true },
   link: { type: String, required: true, unique: true },
+  currentlyWorkingOn: { type: Boolean },
 });
 
 export default models.Project<Project> ||
