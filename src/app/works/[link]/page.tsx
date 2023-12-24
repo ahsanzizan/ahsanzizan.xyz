@@ -29,13 +29,20 @@ export default async function Work({ params }: { params: { link: string } }) {
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <BackButton />
         <section id="works" className="mb-32 w-full py-12">
+          {work.isWorkedOn && (
+            <h5 className="text-md mb-8 md:text-xl">
+              (This project is under development)
+            </h5>
+          )}
           <h1 className="mb-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
             {work.title}
           </h1>
           <p className="mb-7 text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
             {work.description}
           </p>
-          <VisitWorkButton href={work.url}>Visit Work</VisitWorkButton>
+          <VisitWorkButton href={work.url} disabled={work.isWorkedOn!}>
+            Visit Work
+          </VisitWorkButton>
           <Image
             src={work.image}
             alt={"Image of " + work.title}
