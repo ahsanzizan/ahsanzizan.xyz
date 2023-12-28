@@ -25,3 +25,36 @@ html {
 .wmde-markdown img {
   @apply my-3 rounded-xl;
 }
+
+.loading-animation {
+  height: 45px;
+  --c: no-repeat linear-gradient(#fff 0 0);
+  background:
+    var(--c) left,
+    var(--c) center,
+    var(--c) right;
+  background-size: 16px 100%;
+  animation:
+    l33-1 1.5s infinite,
+    l33-2 1.5s infinite;
+}
+@keyframes l33-1 {
+  0%,
+  100% {
+    width: 45px;
+  }
+  35%,
+  65% {
+    width: 65px;
+  }
+}
+@keyframes l33-2 {
+  0%,
+  40% {
+    transform: rotate(0);
+  }
+  60%,
+  100% {
+    transform: rotate(90deg);
+  }
+}
