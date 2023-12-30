@@ -38,7 +38,7 @@ export default function RootLayout({
         <NextAuthProvider>
           <TopLoader />
           <Toaster position="top-right" />
-          <Wrapper>{children}</Wrapper>
+          {children}
         </NextAuthProvider>
         <SpeedInsights />
       </body>

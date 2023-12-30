@@ -4,13 +4,14 @@ import Navbar from "../components/Parts/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import { getContentbyKey } from "@/database/content.query";
+import Wrapper from "../components/global/Wrapper";
 
 export default async function Works() {
   const projects = await getAllProjects();
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <>
+    <Wrapper>
       <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <section id="works" className="mb-32 w-full py-12">
@@ -43,7 +44,7 @@ export default async function Works() {
         </section>
         <Footer />
       </main>
-    </>
+    </Wrapper>
   );
 }
 

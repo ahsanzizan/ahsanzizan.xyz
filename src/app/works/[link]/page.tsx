@@ -1,4 +1,5 @@
 import { BackButton, VisitWorkButton } from "@/app/components/global/Buttons";
+import Wrapper from "@/app/components/global/Wrapper";
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
 import { getContentbyKey } from "@/database/content.query";
@@ -24,7 +25,7 @@ export default async function Work({ params }: { params: { link: string } }) {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <>
+    <Wrapper>
       <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <BackButton />
@@ -55,7 +56,7 @@ export default async function Work({ params }: { params: { link: string } }) {
         </section>
         <Footer />
       </main>
-    </>
+    </Wrapper>
   );
 }
 

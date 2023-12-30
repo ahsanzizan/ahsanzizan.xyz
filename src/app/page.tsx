@@ -7,12 +7,13 @@ import Works from "./components/Parts/Works";
 import { getContentbyKey } from "@/database/content.query";
 import Blogs from "./components/Parts/Blogs";
 import Spotify from "./components/Parts/Spotify";
+import Wrapper from "./components/global/Wrapper";
 
 export default async function Home() {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <>
+    <Wrapper>
       <SocialProfileJsonLd
         type="Person"
         name="Ahsan Awadullah Azizan"
@@ -33,6 +34,6 @@ export default async function Home() {
         <Spotify />
         <Footer />
       </main>
-    </>
+    </Wrapper>
   );
 }

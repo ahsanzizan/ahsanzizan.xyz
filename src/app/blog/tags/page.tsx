@@ -1,5 +1,6 @@
 import Footer from "@/app/components/Parts/Footer";
 import Navbar from "@/app/components/Parts/Navbar";
+import Wrapper from "@/app/components/global/Wrapper";
 import { getAllBlogs } from "@/database/blog.query";
 import { getContentbyKey } from "@/database/content.query";
 import Link from "next/link";
@@ -21,7 +22,7 @@ export default async function Tags() {
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <>
+    <Wrapper>
       <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <section id="blogs" className="mb-32 w-full py-12">
@@ -42,7 +43,7 @@ export default async function Tags() {
         </section>
         <Footer />
       </main>
-    </>
+    </Wrapper>
   );
 }
 

@@ -5,6 +5,7 @@ import { BackButton } from "@/app/components/global/Buttons";
 import { getContentbyKey } from "@/database/content.query";
 import BlogPreview from "@/app/components/global/BlogPreview";
 import { notFound } from "next/navigation";
+import Wrapper from "@/app/components/global/Wrapper";
 
 export async function generateMetadata({
   params,
@@ -27,7 +28,7 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
   }
 
   return (
-    <>
+    <Wrapper>
       <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <BackButton />
@@ -45,6 +46,6 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
         </section>
         <Footer />
       </main>
-    </>
+    </Wrapper>
   );
 }

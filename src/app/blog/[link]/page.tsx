@@ -7,6 +7,7 @@ import { calculateReadTime, stringifyDate } from "@/utils/utilityFunctions";
 import Link from "next/link";
 import { BackButton } from "@/app/components/global/Buttons";
 import { getContentbyKey } from "@/database/content.query";
+import Wrapper from "@/app/components/global/Wrapper";
 
 export async function generateMetadata({
   params,
@@ -30,7 +31,7 @@ export default async function ViewBlog({
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   return (
-    <>
+    <Wrapper>
       <ArticleJsonLd
         authorName={blog.author}
         datePublished={stringifyDate(blog.createdAt)}
@@ -70,7 +71,7 @@ export default async function ViewBlog({
         </section>
         <Footer />
       </main>
-    </>
+    </Wrapper>
   );
 }
 
