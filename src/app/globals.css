@@ -37,7 +37,9 @@ html {
   animation:
     l33-1 1.5s infinite,
     l33-2 1.5s infinite;
+  @apply rounded-lg;
 }
+
 @keyframes l33-1 {
   0%,
   100% {
@@ -48,6 +50,7 @@ html {
     width: 65px;
   }
 }
+
 @keyframes l33-2 {
   0%,
   40% {
