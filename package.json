@@ -1,6 +1,6 @@
 {
-  "name": "personal-website-new",
-  "version": "0.1.0",
+  "name": "personal-website",
+  "version": "4.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
