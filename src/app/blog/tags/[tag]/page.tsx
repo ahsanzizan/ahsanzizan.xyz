@@ -12,9 +12,17 @@ export async function generateMetadata({
 }: {
   params: { tag: string };
 }) {
+  const blogs = await getAllBlogs();
+  const blogsWithTag = blogs.filter((blog) => blog.tags.includes(params.tag));
+  
+  if (blogsWithTag.length !== 0)
+    return {
+      title: `Blogs with ${params.tag}`,
+      description: "Ahsan's blog post",
+    };
+
   return {
-    title: `Blogs with ${params.tag}`,
-    description: "Ahsan's blog post",
+    title: `No blogs with tag ${params.tag}`,
   };
 }
 
@@ -23,9 +31,7 @@ export default async function Blogs({ params }: { params: { tag: string } }) {
   const blogsWithTag = blogs.filter((blog) => blog.tags.includes(params.tag));
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
-  if (blogsWithTag.length === 0) {
-    notFound();
-  }
+  if (blogsWithTag.length === 0) notFound();
 
   return (
     <Wrapper>

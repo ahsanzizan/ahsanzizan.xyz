@@ -5,6 +5,7 @@ import Navbar from "@/app/components/Parts/Navbar";
 import { getContentbyKey } from "@/database/content.query";
 import { getProjectByLink } from "@/database/project.query";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -13,9 +14,15 @@ export async function generateMetadata({
 }) {
   const link = params.link;
   const work = await getProjectByLink(link);
+
+  if (work)
+    return {
+      title: work.title,
+      description: "Ahsan's Project",
+    };
+
   return {
-    title: work.title,
-    description: "Ahsan's Project",
+    title: "No work found",
   };
 }
 
@@ -23,6 +30,8 @@ export default async function Work({ params }: { params: { link: string } }) {
   const link = params.link;
   const work = await getProjectByLink(link);
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
+
+  if (!work) notFound();
 
   return (
     <Wrapper>

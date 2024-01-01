@@ -8,6 +8,7 @@ import Link from "next/link";
 import { BackButton } from "@/app/components/global/Buttons";
 import { getContentbyKey } from "@/database/content.query";
 import Wrapper from "@/app/components/global/Wrapper";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -15,10 +16,14 @@ export async function generateMetadata({
   params: { link: string };
 }) {
   const blog = await getBlogByLink(params.link);
+  if (blog)
+    return {
+      title: blog.title,
+      description: "A blog by " + blog.author,
+    };
 
   return {
-    title: blog.title,
-    description: "A blog by " + blog.author,
+    title: "Blog not found",
   };
 }
 
@@ -29,6 +34,8 @@ export default async function ViewBlog({
 }) {
   const blog = await getBlogByLink(params.link);
   const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
+
+  if (!blog) notFound();
 
   return (
     <Wrapper>

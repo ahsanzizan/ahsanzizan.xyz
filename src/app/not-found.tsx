@@ -1,9 +1,10 @@
 import { StandardLinkButton } from "./components/global/Buttons";
 import LeftArrowIcon from "./components/global/Icons/LeftArrow";
+import Wrapper from "./components/global/Wrapper";
 
 export default function NotFound() {
   return (
-    <>
+    <Wrapper>
       <section className="flex min-h-screen w-screen items-center justify-center">
         <header className="flex flex-col items-center justify-center gap-2 md:gap-4">
           <h1 className="text-center text-6xl leading-snug drop-shadow-glow md:text-9xl">
@@ -20,6 +21,6 @@ export default function NotFound() {
           </div>
         </header>
       </section>
-    </>
+    </Wrapper>
   );
 }
