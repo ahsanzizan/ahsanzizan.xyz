@@ -39,7 +39,7 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/jest-dom": "^6.1.6",
     "@testing-library/react": "^14.1.2",
     "@types/jest": "^29.5.11",
     "dotenv": "^16.3.1",
