@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { StandardLinkButton } from "../global/Buttons";
-import LeftArrowIcon from "../global/Icons/LeftArrow";
+import PlayIcon from "../global/Icons/Play";
 
 export interface SpotifyData {
   isPlaying: boolean;
@@ -68,7 +68,7 @@ export default function Spotify() {
             </p>
             <StandardLinkButton href={data?.isPlaying ? data.songUrl : "#"}>
               Play Song{" "}
-              <LeftArrowIcon className="m-1 h-3 w-3 fill-current transition-transform duration-500 group-hover:translate-x-1 md:h-4 md:w-4" />
+              <PlayIcon className="m-1 h-3 w-3 fill-current transition-transform duration-500 group-hover:translate-x-1 md:h-4 md:w-4" />
             </StandardLinkButton>
           </div>
         </div>
