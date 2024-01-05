@@ -9,4 +9,4 @@ export const CertificateSchema = new Schema({
 });
 
 export default models.Certificate<Certificate> ||
-  model<Certificate>("Blog", CertificateSchema);
+  model<Certificate>("Certificate", CertificateSchema);
