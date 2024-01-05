@@ -6,9 +6,8 @@ import { getAllContents } from "@/database/content.query";
 import ContentsTable from "./components/ContentsTable";
 import { StandardLinkButton } from "../components/global/Buttons";
 import LeftArrowIcon from "../components/global/Icons/LeftArrow";
-import { Content, SocialMedia } from "@/types/models";
+import { Content, SocialMedia, Certificate } from "@/types/models";
 import CertificatesTable from "./components/CertificatesTable";
-import { Certificate } from "@/types/models";
 import { getAllCertificates } from "@/database/cerficate.query";
 
 export default async function AdminPage() {

@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { deleteCertificateAction } from "../actions";
@@ -11,9 +10,9 @@ import { Certificate } from "@/types/models";
 
 export default function CertificatesTable({
   certificates,
-}: {
+}: Readonly<{
   certificates: Certificate[];
-}) {
+}>) {
   const router = useRouter();
   const simplifiedCertificates: Certificate[] = JSON.parse(
     JSON.stringify(certificates),
@@ -55,7 +54,7 @@ export default function CertificatesTable({
                 Delete
               </StandardButton>
               <StandardLinkButton
-                href={"/admin/certificate/" + certificate._id.toString()}
+                href={"/admin/certificates/" + certificate._id.toString()}
               >
                 Edit
               </StandardLinkButton>
