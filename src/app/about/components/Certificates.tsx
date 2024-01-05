@@ -10,7 +10,7 @@ export default async function Certificates() {
       <h1 className="mb-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
         Certificates
       </h1>
-      <div className="flex w-full flex-col items-center justify-between gap-5 md:flex-row">
+      <div className="flex w-full flex-col flex-wrap items-center gap-5 md:flex-row">
         {certificates.map((certificate, i) => (
           <Link href={certificate.link} className="block w-1/4" key={i}>
             <Image
