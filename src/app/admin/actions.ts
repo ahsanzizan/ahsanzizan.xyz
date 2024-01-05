@@ -15,6 +15,10 @@ import {
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import {
+  deleteCertificateById,
+  upsertCertificate,
+} from "@/database/cerficate.query";
 
 export async function upsertSocialMediaAction(formData: FormData) {
   await upsertSocialMedia(formData.get("_id") as string, {
@@ -81,6 +85,18 @@ export async function upsertExperienceAction(formData: FormData) {
   revalidatePath("/", "layout");
   redirect("/admin/experiences");
 }
+export async function upsertCertificateAction(formData: FormData) {
+  await upsertCertificate(formData.get("_id") as string, {
+    title: formData.get("title") as string,
+    description: formData.get("description") as string,
+    image: formData.get("image") as string,
+    link: formData.get("link") as string,
+  });
+
+  revalidatePath("/about");
+  revalidatePath("/", "layout");
+  redirect("/admin");
+}
 
 export async function deleteSocialMediaAction(id: string) {
   await deleteSocialMediaById(id);
@@ -106,6 +122,12 @@ export async function deleteBlogAction(id: string) {
 
 export async function deleteExperienceAction(id: string) {
   await deleteExperienceById(id);
+  revalidatePath("/about");
+  revalidatePath("/", "layout");
+}
+
+export async function deleteCertificateAction(id: string) {
+  await deleteCertificateById(id);
   revalidatePath("/about");
   revalidatePath("/", "layout");
 }

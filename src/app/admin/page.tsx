@@ -7,6 +7,9 @@ import ContentsTable from "./components/ContentsTable";
 import { StandardLinkButton } from "../components/global/Buttons";
 import LeftArrowIcon from "../components/global/Icons/LeftArrow";
 import { Content, SocialMedia } from "@/types/models";
+import CertificatesTable from "./components/CertificatesTable";
+import { Certificate } from "@/types/models";
+import { getAllCertificates } from "@/database/cerficate.query";
 
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);
@@ -15,6 +18,9 @@ export default async function AdminPage() {
   );
   const contents: Content[] = JSON.parse(
     JSON.stringify(await getAllContents()),
+  );
+  const certificates: Certificate[] = JSON.parse(
+    JSON.stringify(await getAllCertificates()),
   );
 
   return (
@@ -38,6 +44,9 @@ export default async function AdminPage() {
         </div>
         <div className="block">
           <ContentsTable contents={contents} />
+        </div>
+        <div className="block">
+          <CertificatesTable certificates={certificates} />
         </div>
       </div>
     </section>

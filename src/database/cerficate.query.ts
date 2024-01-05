@@ -21,10 +21,17 @@ export async function getCertificateById(id: string): Promise<Certificate> {
   });
 }
 
+export async function deleteCertificateById(id: string) {
+  return connectAndQuery(
+    async () => await CertificateModel.deleteOne({ _id: id }),
+  );
+}
+
 type UpsertCertificateInput = {
   title?: string;
   link?: string;
   description?: string;
+  image?: string;
 };
 
 export async function upsertCertificate(
