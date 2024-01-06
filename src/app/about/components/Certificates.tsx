@@ -12,7 +12,11 @@ export default async function Certificates() {
       </h1>
       <div className="flex w-full flex-col flex-wrap items-center gap-5 md:flex-row">
         {certificates.map((certificate, i) => (
-          <Link href={certificate.link} className="block w-1/4" key={i}>
+          <Link
+            href={certificate.link}
+            className="block w-full md:w-1/4"
+            key={i}
+          >
             <Image
               src={certificate.image}
               alt={"Certificate" + certificate.title}
