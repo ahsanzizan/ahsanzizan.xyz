@@ -1,22 +1,15 @@
 import { getAllBlogs } from "@/database/blog.query";
-import { NextResponse } from "next/server";
+import { InternalServerError, Success } from "@/utils/apiResponses";
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     const getAll = await getAllBlogs();
-    return NextResponse.json(
-      {
-        status: 200,
-        message: "Successfully get all blogs",
-        blogs: getAll,
-      },
-      { status: 200 },
-    );
+    return Success({
+      message: "Successfully retrieved all blogs",
+      blogs: getAll,
+    });
   } catch (error) {
-    return NextResponse.json(
-      { status: 500, message: "Internal Server Error" },
-      { status: 500 },
-    );
+    return InternalServerError();
   }
 }
 

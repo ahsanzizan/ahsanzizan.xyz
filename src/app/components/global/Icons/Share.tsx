@@ -1,6 +1,6 @@
 import { IconProps } from "@/types/icon";
 
-export default function ShareIcon({ className }: IconProps) {
+export default function ShareIcon({ className }: Readonly<IconProps>) {
   return (
     <svg
       width="16"

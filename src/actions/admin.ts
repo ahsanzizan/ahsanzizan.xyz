@@ -1,7 +1,10 @@
 "use server";
 
-import { authOptions } from "@/lib/auth";
 import { deleteBlogById, upsertBlog } from "@/database/blog.query";
+import {
+  deleteCertificateById,
+  upsertCertificate,
+} from "@/database/cerficate.query";
 import { deleteContentById, upsertContent } from "@/database/content.query";
 import {
   deleteExperienceById,
@@ -9,16 +12,13 @@ import {
 } from "@/database/experience.query";
 import { deleteProjectById, upsertProject } from "@/database/project.query";
 import {
-  upsertSocialMedia,
   deleteSocialMediaById,
+  upsertSocialMedia,
 } from "@/database/socialMedia.query";
+import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import {
-  deleteCertificateById,
-  upsertCertificate,
-} from "@/database/cerficate.query";
 
 export async function upsertSocialMediaAction(formData: FormData) {
   await upsertSocialMedia(formData.get("_id") as string, {

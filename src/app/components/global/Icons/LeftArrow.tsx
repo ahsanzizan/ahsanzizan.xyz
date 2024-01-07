@@ -1,6 +1,6 @@
 import { IconProps } from "@/types/icon";
 
-export default function LeftArrowIcon({ className }: IconProps) {
+export default function LeftArrowIcon({ className }: Readonly<IconProps>) {
   return (
     <svg
       width="16"

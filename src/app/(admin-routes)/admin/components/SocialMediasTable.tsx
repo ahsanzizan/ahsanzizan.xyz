@@ -1,15 +1,18 @@
 "use client";
-import { deleteSocialMediaAction } from "../actions";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { StandardButton, StandardLinkButton } from "@/app/components/global/Buttons";
+import { deleteSocialMediaAction } from "@/actions/admin";
+import {
+  StandardButton,
+  StandardLinkButton,
+} from "@/app/components/global/Buttons";
 import { SocialMedia } from "@/types/models";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function SocialMediasTable({
   socialMedias,
-}: {
+}: Readonly<{
   socialMedias: SocialMedia[];
-}) {
+}>) {
   const router = useRouter();
   const simplifiedSocialMedias: SocialMedia[] = JSON.parse(
     JSON.stringify(socialMedias),
@@ -24,14 +27,13 @@ export default function SocialMediasTable({
         </StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
-        {simplifiedSocialMedias.map((socialMedia, i) => (
+        {simplifiedSocialMedias.map((socialMedia) => (
           <div
-            key={i}
+            key={socialMedia._id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">
               <svg
-                role="img"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4 fill-current md:h-6 md:w-6"

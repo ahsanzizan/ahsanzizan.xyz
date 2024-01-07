@@ -1,11 +1,10 @@
-import { getContentbyKey } from "@/database/content.query";
-import { getAllSocialMedias } from "@/database/socialMedia.query";
-import Image from "next/image";
-import Link from "next/link";
-import Me from "../../../../public/Me.png";
 import { StandardLinkButton } from "@/app/components/global/Buttons";
 import LeftArrowIcon from "@/app/components/global/Icons/LeftArrow";
 import SocialMediasRow from "@/app/components/global/SocialMediasRow";
+import { getContentbyKey } from "@/database/content.query";
+import { getAllSocialMedias } from "@/database/socialMedia.query";
+import Image from "next/image";
+import Me from "../../../../public/Me.png";
 
 export default async function Header() {
   const socialMedias = await getAllSocialMedias();

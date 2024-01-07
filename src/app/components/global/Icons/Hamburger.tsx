@@ -1,6 +1,6 @@
 import { IconProps } from "@/types/icon";
 
-export default function HamburgerIcon({ className }: IconProps) {
+export default function HamburgerIcon({ className }: Readonly<IconProps>) {
   return (
     <svg
       width="20"

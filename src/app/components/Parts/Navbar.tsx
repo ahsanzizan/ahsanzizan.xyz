@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { StandardLinkButton } from "../global/Buttons";
-import LeftArrowIcon from "../global/Icons/LeftArrow";
 import HamburgerIcon from "../global/Icons/Hamburger";
 import XIcon from "../global/Icons/X";
 
-export default function Navbar({ email }: { email: string }) {
+export default function Navbar({ email }: Readonly<{ email: string }>) {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [activeLinkIdx, setActiveLinkIdx] = useState<number | null>(null);
   const links = [
@@ -78,16 +77,14 @@ export default function Navbar({ email }: { email: string }) {
           <div className="inline-flex flex-col gap-16 md:gap-5">
             {links.map((link, i) => (
               <Link
-                key={i}
+                key={link.text}
                 href={link.href}
                 className={`text-5xl transition-all duration-500 hover:drop-shadow-glow md:text-7xl`}
                 style={{
                   color: `${
-                    activeLinkIdx !== null
-                      ? activeLinkIdx == i
-                        ? "white"
-                        : "black"
-                      : "white"
+                    (activeLinkIdx !== null &&
+                      (activeLinkIdx === i ? "white" : "black")) ||
+                    "white"
                   }`,
                 }}
                 onMouseEnter={() => setActiveLinkIdx(i)}

@@ -1,6 +1,6 @@
 import { IconProps } from "@/types/icon";
 
-export default function XIcon({ className }: IconProps) {
+export default function XIcon({ className }: Readonly<IconProps>) {
   return (
     <svg
       width="20"

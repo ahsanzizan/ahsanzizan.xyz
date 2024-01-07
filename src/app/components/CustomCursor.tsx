@@ -5,7 +5,9 @@ interface CustomCursorProps {
   isHovering: boolean;
 }
 
-export default function CustomCursor({ isHovering }: CustomCursorProps) {
+export default function CustomCursor({
+  isHovering,
+}: Readonly<CustomCursorProps>) {
   const { x: mouseX, y: mouseY } = useMousePosition();
   const [x, setX] = useState(mouseX as number);
   const [y, setY] = useState(mouseY as number);

@@ -11,11 +11,11 @@ export default async function Certificates() {
         Certificates
       </h1>
       <div className="flex w-full flex-col flex-wrap items-center gap-5 md:flex-row">
-        {certificates.map((certificate, i) => (
+        {certificates.map((certificate) => (
           <Link
             href={certificate.link}
             className="block w-full md:w-1/4"
-            key={i}
+            key={certificate._id.toString()}
           >
             <Image
               src={certificate.image}

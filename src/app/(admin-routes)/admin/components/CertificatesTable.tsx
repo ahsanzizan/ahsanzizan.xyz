@@ -1,18 +1,18 @@
 "use client";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { deleteCertificateAction } from "../actions";
+import { deleteCertificateAction } from "@/actions/admin";
 import {
   StandardButton,
   StandardLinkButton,
 } from "@/app/components/global/Buttons";
 import { Certificate } from "@/types/models";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function CertificatesTable({
   certificates,
-}: {
+}: Readonly<{
   certificates: Certificate[];
-}) {
+}>) {
   const router = useRouter();
   const simplifiedCertificates: Certificate[] = JSON.parse(
     JSON.stringify(certificates),
@@ -27,9 +27,9 @@ export default function CertificatesTable({
         </StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
-        {simplifiedCertificates.map((certificate, i) => (
+        {simplifiedCertificates.map((certificate) => (
           <div
-            key={i}
+            key={certificate._id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">

@@ -1,17 +1,15 @@
 import { BackButton, VisitWorkButton } from "@/app/components/global/Buttons";
 import Wrapper from "@/app/components/global/Wrapper";
 import Footer from "@/app/components/Parts/Footer";
-import Navbar from "@/app/components/Parts/Navbar";
-import { getContentbyKey } from "@/database/content.query";
 import { getProjectByLink } from "@/database/project.query";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
-}: {
+}: Readonly<{
   params: { link: string };
-}) {
+}>) {
   const link = params.link;
   const work = await getProjectByLink(link);
 
@@ -26,17 +24,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function Work({ params }: { params: { link: string } }) {
+export default async function Work({
+  params,
+}: Readonly<{ params: { link: string } }>) {
   const link = params.link;
   const work = await getProjectByLink(link);
-  const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   if (!work) notFound();
 
   return (
     <Wrapper>
-      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
-      <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
+      <main className="mx-auto w-full max-w-[1440px] px-5 py-[200px]">
         <BackButton />
         <section id="works" className="mb-32 w-full py-12">
           {work.isWorkedOn && (

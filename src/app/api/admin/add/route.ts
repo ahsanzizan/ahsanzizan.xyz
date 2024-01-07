@@ -1,15 +1,12 @@
-import { authOptions } from "@/lib/auth";
 import { createAdmin } from "@/database/admin.query";
+import { authOptions } from "@/lib/auth";
+import { Created, Forbidden, InternalServerError } from "@/utils/apiResponses";
 import { getServerSession } from "next-auth";
-import { NextResponse } from "next/server";
 
+// This route is used to create a new admin entity
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
-  if (!session?.user)
-    return NextResponse.json(
-      { status: 403, message: "Forbidden request" },
-      { status: 403 },
-    );
+  if (!session?.user) return Forbidden("User not authenticated");
 
   try {
     const data = await req.formData();
@@ -18,22 +15,8 @@ export async function POST(req: Request) {
 
     const newAdmin = await createAdmin({ username, password });
 
-    return NextResponse.json(
-      {
-        status: 201,
-        message: "Admin Created Successfully",
-        admin: newAdmin,
-      },
-      { status: 201 },
-    );
+    return Created({ message: "Admin created successfully", admin: newAdmin });
   } catch (error) {
-    return NextResponse.json(
-      {
-        status: 500,
-        message: "Internal Server Error",
-        error,
-      },
-      { status: 500 },
-    );
+    return InternalServerError();
   }
 }

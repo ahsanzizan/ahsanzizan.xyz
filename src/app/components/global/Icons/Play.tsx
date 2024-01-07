@@ -1,6 +1,6 @@
 import { IconProps } from "@/types/icon";
 
-export default function PlayIcon({ className }: IconProps) {
+export default function PlayIcon({ className }: Readonly<IconProps>) {
   return (
     <svg
       className={className}

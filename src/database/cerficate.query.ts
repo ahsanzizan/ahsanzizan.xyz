@@ -11,7 +11,7 @@ export async function getCertificateByLink(
 ): Promise<Certificate | null> {
   return connectAndQuery(async () => {
     try {
-      await CertificateModel.findOne({ link });
+      return await CertificateModel.findOne({ link });
     } catch (error) {
       return null;
     }

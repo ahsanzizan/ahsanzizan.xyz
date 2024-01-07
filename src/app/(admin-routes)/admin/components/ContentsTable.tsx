@@ -1,15 +1,16 @@
 "use client";
-import Link from "next/link";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { deleteContentAction } from "../actions";
+import { deleteContentAction } from "@/actions/admin";
 import {
   StandardButton,
   StandardLinkButton,
 } from "@/app/components/global/Buttons";
 import { Content } from "@/types/models";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
-export default function ContentsTable({ contents }: { contents: Content[] }) {
+export default function ContentsTable({
+  contents,
+}: Readonly<{ contents: Content[] }>) {
   const router = useRouter();
   const simplifiedContents: Content[] = JSON.parse(JSON.stringify(contents));
 
@@ -24,7 +25,7 @@ export default function ContentsTable({ contents }: { contents: Content[] }) {
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedContents.map((content, i) => (
           <div
-            key={i}
+            key={content._id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">

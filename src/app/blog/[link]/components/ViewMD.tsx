@@ -1,5 +1,4 @@
 "use client";
-
 import MDEditor from "@uiw/react-md-editor";
 import { Raleway } from "next/font/google";
 
@@ -8,7 +7,7 @@ const raleway = Raleway({
   weight: ["400", "500"],
 });
 
-export default function ViewMD({ markdown }: { markdown: string }) {
+export default function ViewMD({ markdown }: Readonly<{ markdown: string }>) {
   return (
     <MDEditor.Markdown
       source={markdown}

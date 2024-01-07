@@ -19,7 +19,7 @@ export async function getProjectById(id: string): Promise<Project | null> {
 export async function getProjectByLink(link: string): Promise<Project | null> {
   return connectAndQuery(async () => {
     try {
-      await ProjectModel.findOne({ link });
+      return await ProjectModel.findOne({ link });
     } catch (error) {
       return null;
     }

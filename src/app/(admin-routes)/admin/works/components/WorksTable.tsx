@@ -1,15 +1,15 @@
 "use client";
-import Image from "next/image";
-import toast from "react-hot-toast";
-import { deleteProjectAction } from "../../actions";
-import { useRouter } from "next/navigation";
+import { deleteProjectAction } from "@/actions/admin";
 import {
   StandardButton,
   StandardLinkButton,
 } from "@/app/components/global/Buttons";
 import { Project } from "@/types/models";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
-export default function WorksTable({ works }: { works: Project[] }) {
+export default function WorksTable({ works }: Readonly<{ works: Project[] }>) {
   const router = useRouter();
 
   return (
@@ -19,9 +19,9 @@ export default function WorksTable({ works }: { works: Project[] }) {
         <StandardLinkButton href={"/admin/works/new"}>New</StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
-        {works.map((project, i) => (
+        {works.map((project) => (
           <div
-            key={i}
+            key={project._id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">

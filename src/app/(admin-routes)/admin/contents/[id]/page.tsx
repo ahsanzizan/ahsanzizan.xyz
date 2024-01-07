@@ -1,78 +1,77 @@
-import { upsertContentAction } from "../../actions";
-import { BackButton, StandardFormButton } from "@/app/components/global/Buttons";
-import { Types } from "mongoose";
+import { upsertContentAction } from "@/actions/admin";
+import {
+  BackButton,
+  StandardFormButton,
+} from "@/app/components/global/Buttons";
 import { getContentById } from "@/database/content.query";
+import { Types } from "mongoose";
 
 export default async function EditContent({
   params,
-}: {
+}: Readonly<{
   params: { id: string };
-}) {
+}>) {
   const content = await getContentById(params.id);
 
   return (
-    <>
-      <section className="flex h-screen flex-col items-center justify-center gap-2">
-        <div className="w-full max-w-lg rounded p-6">
-          <BackButton />
-          <h1 className="mb-7 mt-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
-            {content ? "Edit" : "Create"} a Content
-          </h1>
-          <form action={upsertContentAction}>
+    <section className="flex h-screen flex-col items-center justify-center gap-2">
+      <div className="w-full max-w-4xl rounded p-6">
+        <BackButton />
+        <h1 className="mb-7 mt-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
+          {content ? "Edit" : "Create"} a Content
+        </h1>
+        <form action={upsertContentAction}>
+          <input
+            type="hidden"
+            id="_id"
+            name="_id"
+            value={
+              content ? content._id.toString() : new Types.ObjectId().toString()
+            }
+          />
+          <div className="mb-4">
+            <label
+              htmlFor="key"
+              className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
+            >
+              Name
+            </label>
             <input
-              type="hidden"
-              id="_id"
-              name="_id"
-              value={
-                content
-                  ? content._id.toString()
-                  : new Types.ObjectId().toString()
-              }
+              className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
+              style={{ WebkitTextFillColor: "#fff" }}
+              type="text"
+              name="key"
+              id="key"
+              placeholder="Key"
+              defaultValue={content?.key}
+              required
             />
-            <div className="mb-4">
-              <label
-                htmlFor="key"
-                className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
-              >
-                Name
-              </label>
-              <input
-                className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
-                style={{ WebkitTextFillColor: "#fff" }}
-                type="text"
-                name="key"
-                id="key"
-                placeholder="Key"
-                defaultValue={content?.key}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="content"
-                className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
-              >
-                Content
-              </label>
-              <input
-                className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
-                style={{ WebkitTextFillColor: "#fff" }}
-                type="text"
-                name="content"
-                id="content"
-                placeholder="Content"
-                defaultValue={content?.content}
-                required
-              />
-            </div>
-            <div className="mt-10">
-              <StandardFormButton type="submit">
-                {content ? "Save" : "Create"}
-              </StandardFormButton>
-            </div>
-          </form>
-        </div>
-      </section>
-    </>
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="content"
+              className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
+            >
+              Content
+            </label>
+            <input
+              className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
+              style={{ WebkitTextFillColor: "#fff" }}
+              type="text"
+              name="content"
+              id="content"
+              placeholder="Content"
+              defaultValue={content?.content}
+              required
+            />
+          </div>
+          <div className="mt-10">
+            <StandardFormButton type="submit">
+              {content ? "Save" : "Create"}
+            </StandardFormButton>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }

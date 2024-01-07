@@ -6,7 +6,7 @@ import XIcon from "@/app/components/global/Icons/X";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -80,16 +80,14 @@ export default function Navbar() {
           <div className="inline-flex flex-col gap-16 md:gap-5">
             {links.map((link, i) => (
               <Link
-                key={i}
+                key={link.text}
                 href={link.href}
                 className={`text-5xl transition-all duration-500 hover:drop-shadow-glow md:text-7xl`}
                 style={{
                   color: `${
-                    activeLinkIdx !== null
-                      ? activeLinkIdx == i
-                        ? "white"
-                        : "black"
-                      : "white"
+                    (activeLinkIdx !== null &&
+                      (activeLinkIdx === i ? "white" : "black")) ||
+                    "white"
                   }`,
                 }}
                 onMouseEnter={() => setActiveLinkIdx(i)}

@@ -1,7 +1,7 @@
+import { InternalServerError, Success } from "@/utils/apiResponses";
 import { getNowPlaying } from "@/utils/spotify";
-import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     const res = await getNowPlaying();
 
@@ -9,12 +9,8 @@ export async function GET(req: NextRequest) {
       res.status === 204 ||
       res.status > 400 ||
       res.data.currently_playing_type !== "track"
-    ) {
-      return NextResponse.json(
-        { message: "Not playing anything", status: 200, isPlaying: false },
-        { status: 200 },
-      );
-    }
+    )
+      return Success({ message: "Not playing anything", isPlaying: false });
 
     const data = {
       isPlaying: res.data.is_playing,
@@ -27,15 +23,12 @@ export async function GET(req: NextRequest) {
       songUrl: res.data.item.external_urls.spotify,
     };
 
-    return NextResponse.json(
-      { status: 200, message: "success", data },
-      { status: 200 },
-    );
+    return Success({
+      message: "Successfully retrieved now-playing from spotify",
+      data,
+    });
   } catch (error) {
-    return NextResponse.json(
-      { status: 500, message: "internal server error" },
-      { status: 500 },
-    );
+    return InternalServerError();
   }
 }
 

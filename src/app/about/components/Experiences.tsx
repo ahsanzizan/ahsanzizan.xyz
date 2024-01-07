@@ -10,9 +10,9 @@ export default async function Experiences() {
         Experiences
       </h1>
       <div className="flex w-full flex-col divide-y divide-white">
-        {experiences.map((experience, i) => (
+        {experiences.map((experience) => (
           <div
-            key={i}
+            key={experience._id.toString()}
             className="group flex w-full flex-col gap-4 py-4 transition-all duration-500 md:py-10"
           >
             <h2 className="text-xl drop-shadow-glow md:text-4xl">

@@ -1,7 +1,6 @@
 import { getAllBlogs } from "@/database/blog.query";
-import { StandardLinkButton } from "../global/Buttons";
-import LeftArrowIcon from "../global/Icons/LeftArrow";
 import BlogPreview from "../global/BlogPreview";
+import { StandardLinkButton } from "../global/Buttons";
 
 export default async function Blogs() {
   const blogs = (await getAllBlogs())
@@ -17,7 +16,7 @@ export default async function Blogs() {
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {blogs.map((blog, i) => (
-          <BlogPreview key={i} blog={blog} />
+          <BlogPreview key={blog._id.toString()} blog={blog} />
         ))}
       </div>
     </section>

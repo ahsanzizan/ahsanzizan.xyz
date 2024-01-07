@@ -8,13 +8,15 @@ interface WrapperProps {
   children: React.ReactNode;
 }
 
-export default function Wrapper({ children }: WrapperProps) {
+export default function Wrapper({ children }: Readonly<WrapperProps>) {
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
     setIsHovering(false);
+    // This line is necessary for the initiation of the typewriter
+    // animation
     new TypeWriter(document.getElementById("nicknames"), {
       strings: ["Ahsan", "Asan", "Sanzizan"],
       autoStart: true,

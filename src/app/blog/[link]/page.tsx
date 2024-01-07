@@ -1,20 +1,18 @@
 import Footer from "@/app/components/Parts/Footer";
-import Navbar from "@/app/components/Parts/Navbar";
-import { ArticleJsonLd } from "next-seo";
-import { getBlogByLink } from "@/database/blog.query";
-import ViewMD from "./components/ViewMD";
-import { calculateReadTime, stringifyDate } from "@/utils/utilityFunctions";
-import Link from "next/link";
 import { BackButton } from "@/app/components/global/Buttons";
-import { getContentbyKey } from "@/database/content.query";
 import Wrapper from "@/app/components/global/Wrapper";
+import { getBlogByLink } from "@/database/blog.query";
+import { calculateReadTime, stringifyDate } from "@/utils/utilityFunctions";
+import { ArticleJsonLd } from "next-seo";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import ViewMD from "./components/ViewMD";
 
 export async function generateMetadata({
   params,
-}: {
+}: Readonly<{
   params: { link: string };
-}) {
+}>) {
   const blog = await getBlogByLink(params.link);
   if (blog)
     return {
@@ -29,11 +27,10 @@ export async function generateMetadata({
 
 export default async function ViewBlog({
   params,
-}: {
+}: Readonly<{
   params: { link: string };
-}) {
+}>) {
   const blog = await getBlogByLink(params.link);
-  const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
 
   if (!blog) notFound();
 
@@ -48,7 +45,6 @@ export default async function ViewBlog({
         images={[]}
         useAppDir
       />
-      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
         <BackButton />
         <section id="view-blog" className="mb-32 w-full py-12">
@@ -65,7 +61,7 @@ export default async function ViewBlog({
             <div className="flex flex-wrap items-center gap-4">
               {blog.tags.map((tag, i) => (
                 <Link
-                  key={i}
+                  key={tag}
                   href={"/blog/tags/" + tag}
                   className="text-neutral-400"
                 >

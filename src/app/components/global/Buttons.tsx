@@ -31,7 +31,7 @@ export function VisitWorkButton({
   children,
   className,
   disabled,
-}: LinkButtonProps) {
+}: Readonly<LinkButtonProps>) {
   return (
     <a
       href={href}
@@ -50,7 +50,7 @@ export function StandardLinkButton({
   href,
   className,
   children,
-}: LinkButtonProps) {
+}: Readonly<LinkButtonProps>) {
   return (
     <Link
       href={href}
@@ -93,7 +93,7 @@ export function StandardButton({
   className,
   disabled,
   onClick,
-}: ButtonProps) {
+}: Readonly<ButtonProps>) {
   return (
     <button
       onClick={onClick}
@@ -109,9 +109,8 @@ export function StandardFormButton({
   children,
   className,
   disabled,
-  onClick,
   type,
-}: FormButtonProps) {
+}: Readonly<FormButtonProps>) {
   return (
     <button
       type={type}
@@ -120,16 +119,15 @@ export function StandardFormButton({
     >
       <div>
         {children}
-        <div
+        <output
           className={`${
             disabled ? "inline-block" : "hidden"
           } h-4 w-4 animate-spin snap-center rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]`}
-          role="status"
         >
           <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
             Loading...
           </span>
-        </div>
+        </output>
       </div>
     </button>
   );

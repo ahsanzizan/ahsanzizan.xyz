@@ -1,11 +1,10 @@
 "use client";
-
-import { toast } from "react-hot-toast";
-import { signIn, useSession } from "next-auth/react";
-import { useState } from "react";
-import type { ChangeEvent } from "react";
-import { redirect } from "next/navigation";
 import { StandardFormButton } from "@/app/components/global/Buttons";
+import { signIn, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import type { ChangeEvent } from "react";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export default function Login() {
   const { status } = useSession();

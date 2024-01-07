@@ -17,6 +17,7 @@ export default function Spotify() {
   const [data, setData] = useState<SpotifyData | null>(null);
   const [refreshToken, setRefreshToken] = useState<number>(Math.random());
 
+  // Fetch the '/api/now-playing' every 3 seconds
   useEffect(() => {
     async function getData() {
       const res = await fetch("/api/now-playing").then((x) => x.json());

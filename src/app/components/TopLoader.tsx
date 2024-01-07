@@ -1,5 +1,4 @@
 "use client";
-
 import { usePathname, useRouter } from "next/navigation";
 import * as NProgress from "nprogress";
 import { useEffect } from "react";

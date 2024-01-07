@@ -10,7 +10,7 @@ import { Content, SocialMedia, Certificate } from "@/types/models";
 import CertificatesTable from "./components/CertificatesTable";
 import { getAllCertificates } from "@/database/cerficate.query";
 
-export default async function AdminPage() {
+export default async function Admin() {
   const session = await getServerSession(authOptions);
   const socialMedias: SocialMedia[] = JSON.parse(
     JSON.stringify(await getAllSocialMedias()),

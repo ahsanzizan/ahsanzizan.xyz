@@ -1,18 +1,18 @@
 "use client";
-import toast from "react-hot-toast";
-import { deleteExperienceAction } from "../../actions";
-import { useRouter } from "next/navigation";
+import { deleteExperienceAction } from "@/actions/admin";
 import {
   StandardButton,
   StandardLinkButton,
 } from "@/app/components/global/Buttons";
 import { Experience } from "@/types/models";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function ExperiencesTable({
   experiences,
-}: {
+}: Readonly<{
   experiences: Experience[];
-}) {
+}>) {
   const router = useRouter();
 
   return (
@@ -24,9 +24,9 @@ export default function ExperiencesTable({
         </StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
-        {experiences.map((experience, i) => (
+        {experiences.map((experience) => (
           <div
-            key={i}
+            key={experience._id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center">

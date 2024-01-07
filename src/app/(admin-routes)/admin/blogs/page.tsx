@@ -1,7 +1,7 @@
 import BlogsTable from "./components/BlogsTable";
 import { getAllBlogs } from "@/database/blog.query";
 
-export default async function Works() {
+export default async function Blogs() {
   const blogs = JSON.parse(JSON.stringify(await getAllBlogs()));
 
   return (

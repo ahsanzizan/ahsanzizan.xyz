@@ -1,11 +1,10 @@
-import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Raleway } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import { NextAuthProvider } from "./components/NextAuthProvider";
 import TopLoader from "./components/TopLoader";
-import { Toaster } from "react-hot-toast";
-import Wrapper from "./components/global/Wrapper";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import "./globals.css";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -27,9 +26,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" data-color-mode="dark">
       <body
