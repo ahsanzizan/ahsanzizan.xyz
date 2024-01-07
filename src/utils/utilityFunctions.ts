@@ -1,5 +1,8 @@
 import connectDB from "../lib/mongoose";
 
+// Utility function for performing a query with mongoose,
+// because the 'await connectDB()' line are required in
+// every queries
 export async function connectAndQuery(queryFn: () => Promise<any>) {
   await connectDB();
   return queryFn();

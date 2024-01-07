@@ -11,6 +11,9 @@ const token = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
+// The response data type from a GET request to
+// https://api.spotify.com/v1/me/player/currently-playing if the user
+// are playing a song
 interface SpotifyData {
   is_playing: boolean;
   item: {
@@ -27,6 +30,10 @@ interface SpotifyData {
   currently_playing_type: string;
 }
 
+// The https://api.spotify.com/v1/me/player/currently-playing endpoint
+// requires an access token that can be retrieved from the
+// https://accounts.spotify.com/api/token endpoint and then store it in
+// the request's query parameters
 const getAccessToken = async () => {
   const res = await axios.post<{ access_token: string }>(
     TOKEN_ENDPOINT,
