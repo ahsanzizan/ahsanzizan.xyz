@@ -1,14 +1,16 @@
 "use client";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { deleteBlogAction } from "../../actions";
+import { deleteBlogAction } from "@/actions/admin";
 import {
   StandardButton,
   StandardLinkButton,
 } from "@/app/components/global/Buttons";
 import { Blog } from "@/types/models";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
-export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
+export default function SocialMediasTable({
+  blogs,
+}: Readonly<{ blogs: Blog[] }>) {
   const router = useRouter();
   const simplifiedBlogs: Blog[] = JSON.parse(JSON.stringify(blogs));
 
@@ -19,9 +21,9 @@ export default function SocialMediasTable({ blogs }: { blogs: Blog[] }) {
         <StandardLinkButton href={"/admin/blogs/new"}>New</StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
-        {simplifiedBlogs.map((blog, i) => (
+        {simplifiedBlogs.map((blog) => (
           <div
-            key={i}
+            key={blog._id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex w-3/4 items-center gap-2">
