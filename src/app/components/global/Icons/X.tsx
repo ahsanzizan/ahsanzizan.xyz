@@ -1,4 +1,4 @@
-import { IconProps } from "@/types/icons";
+import { IconProps } from "@/types/icon";
 
 export default function XIcon({ className }: IconProps) {
   return (

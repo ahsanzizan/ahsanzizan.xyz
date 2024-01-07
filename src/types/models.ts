@@ -1,20 +1,24 @@
-import { AdminSchema } from "@/models/Admin.model";
-import { BlogSchema } from "@/models/Blog.model";
-import { CertificateSchema } from "@/models/Certificate.model";
-import { ContentSchema } from "@/models/Content.model";
-import { ExperienceSchema } from "@/models/Experience.model";
-import { ProjectSchema } from "@/models/Project.model";
-import { SocialMediaSchema } from "@/models/SocialMedia.model";
-import { InferSchemaType, Types } from "mongoose";
+import { Types, InferSchemaType } from "mongoose";
+import {
+  AdminSchema,
+  BlogSchema,
+  CertificateSchema,
+  ContentSchema,
+  ExperienceSchema,
+  ProjectSchema,
+  SocialMediaSchema,
+} from "@/models";
 
-type _id = {
-  _id: Types.ObjectId;
-};
+// There's no '_id' attribute in the default
+// InferSchemaType from mongoose, therefore we need to
+// manually create an '_id' type and assign it to the schema type
+type ObjectId = Types.ObjectId;
+type WithId<T> = T & { _id: ObjectId };
 
-export type Admin = InferSchemaType<typeof AdminSchema> & _id;
-export type Blog = InferSchemaType<typeof BlogSchema> & _id;
-export type Certificate = InferSchemaType<typeof CertificateSchema> & _id;
-export type Content = InferSchemaType<typeof ContentSchema> & _id;
-export type Experience = InferSchemaType<typeof ExperienceSchema> & _id;
-export type Project = InferSchemaType<typeof ProjectSchema> & _id;
-export type SocialMedia = InferSchemaType<typeof SocialMediaSchema> & _id;
+export type Admin = WithId<InferSchemaType<typeof AdminSchema>>;
+export type Blog = WithId<InferSchemaType<typeof BlogSchema>>;
+export type Certificate = WithId<InferSchemaType<typeof CertificateSchema>>;
+export type Content = WithId<InferSchemaType<typeof ContentSchema>>;
+export type Experience = WithId<InferSchemaType<typeof ExperienceSchema>>;
+export type Project = WithId<InferSchemaType<typeof ProjectSchema>>;
+export type SocialMedia = WithId<InferSchemaType<typeof SocialMediaSchema>>;
