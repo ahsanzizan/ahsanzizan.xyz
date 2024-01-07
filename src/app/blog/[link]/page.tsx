@@ -59,7 +59,7 @@ export default async function ViewBlog({
               {calculateReadTime(blog.content)} Min Read
             </div>
             <div className="flex flex-wrap items-center gap-4">
-              {blog.tags.map((tag, i) => (
+              {blog.tags.map((tag) => (
                 <Link
                   key={tag}
                   href={"/blog/tags/" + tag}
