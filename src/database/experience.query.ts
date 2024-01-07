@@ -3,7 +3,7 @@ import { connectAndQuery } from "../utils/utilityFunctions";
 import { Experience } from "@/types/models";
 
 export async function getAllExperiences(): Promise<Experience[]> {
-  return connectAndQuery(async () => await ExperienceModel.find({}));
+  return connectAndQuery(async () => await ExperienceModel.find());
 }
 
 export async function getExperienceById(id: string): Promise<Experience> {
@@ -12,6 +12,17 @@ export async function getExperienceById(id: string): Promise<Experience> {
       return await ExperienceModel.findById(id);
     } catch (error) {
       return null;
+    }
+  });
+}
+
+export async function deleteExperienceById(id: string) {
+  return connectAndQuery(async () => {
+    try {
+      await ExperienceModel.findByIdAndDelete(id);
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
   });
 }
@@ -27,18 +38,16 @@ export async function upsertExperience(
   id: string,
   experience: UpsertExperienceInput,
 ) {
-  return connectAndQuery(
-    async () =>
+  return connectAndQuery(async () => {
+    try {
       await ExperienceModel.findByIdAndUpdate(
         id,
         { ...experience },
         { upsert: true },
-      ),
-  );
-}
-
-export async function deleteExperienceById(id: string) {
-  return connectAndQuery(
-    async () => await ExperienceModel.findByIdAndDelete(id),
-  );
+      );
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }

@@ -3,7 +3,7 @@ import { connectAndQuery } from "../utils/utilityFunctions";
 import { SocialMedia } from "@/types/models";
 
 export async function getAllSocialMedias(): Promise<SocialMedia[]> {
-  return connectAndQuery(async () => await SocialMediaModel.find({}));
+  return connectAndQuery(async () => await SocialMediaModel.find());
 }
 
 export async function getSocialMediaById(
@@ -11,6 +11,7 @@ export async function getSocialMediaById(
 ): Promise<SocialMedia | null> {
   return connectAndQuery(async () => {
     try {
+      if (id === "") return null;
       return await SocialMediaModel.findById(id);
     } catch (error) {
       return null;
@@ -28,15 +29,25 @@ export async function updateSocialMediaById(
   id: string,
   socialMedia: SocialMediaUpdateInput,
 ) {
-  return connectAndQuery(
-    async () => await SocialMediaModel.findByIdAndUpdate(id, socialMedia),
-  );
+  return connectAndQuery(async () => {
+    try {
+      await SocialMediaModel.findByIdAndUpdate(id, socialMedia);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }
 
 export async function deleteSocialMediaById(id: string) {
-  return connectAndQuery(
-    async () => await SocialMediaModel.deleteOne({ _id: id }),
-  );
+  return connectAndQuery(async () => {
+    try {
+      await SocialMediaModel.deleteOne({ _id: id });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }
 
 type UpsertSocialMediaInput = {
@@ -49,12 +60,16 @@ export async function upsertSocialMedia(
   id: string,
   socialMedia: UpsertSocialMediaInput,
 ) {
-  return connectAndQuery(
-    async () =>
+  return connectAndQuery(async () => {
+    try {
       await SocialMediaModel.findByIdAndUpdate(
         id,
         { ...socialMedia },
         { upsert: true },
-      ),
-  );
+      );
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }

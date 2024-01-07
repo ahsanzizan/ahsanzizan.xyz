@@ -13,12 +13,8 @@ type AdminCreateInput = {
   password: string;
 };
 
-export async function findAdminByUname(username: string) {
+export async function findAdminByUname(username: string): Promise<Admin> {
   return connectAndQuery(async () => await AdminModel.findOne({ username }));
-}
-
-export async function getAllAdmins(): Promise<Admin[] | undefined> {
-  return connectAndQuery(async () => await AdminModel.find({}));
 }
 
 export async function authenticateAdmin(
@@ -33,7 +29,7 @@ export async function authenticateAdmin(
   };
 
   if (find) {
-    if (!find) {
+    if (!password) {
       result.status = "NO_PASSWORD";
     } else {
       const isValidated = await validate(password, find.password || "");
@@ -51,12 +47,15 @@ export async function authenticateAdmin(
 
 export async function createAdmin(admin: AdminCreateInput) {
   return connectAndQuery(async () => {
-    const hashedPassword = generate(admin.password || "");
-    const createAdmin = await AdminModel.create({
-      ...admin,
-      password: hashedPassword,
-    });
-
-    return createAdmin;
+    try {
+      const hashedPassword = generate(admin.password || "");
+      await AdminModel.create({
+        ...admin,
+        password: hashedPassword,
+      });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   });
 }

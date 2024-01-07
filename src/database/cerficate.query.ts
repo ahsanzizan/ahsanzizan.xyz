@@ -3,14 +3,24 @@ import { connectAndQuery } from "../utils/utilityFunctions";
 import CertificateModel from "@/models/Certificate.model";
 
 export async function getAllCertificates(): Promise<Certificate[]> {
-  return connectAndQuery(async () => await CertificateModel.find({}));
+  return connectAndQuery(async () => await CertificateModel.find());
 }
 
-export async function getCertificateByLink(link: string): Promise<Certificate> {
-  return connectAndQuery(async () => await CertificateModel.findOne({ link }));
+export async function getCertificateByLink(
+  link: string,
+): Promise<Certificate | null> {
+  return connectAndQuery(async () => {
+    try {
+      await CertificateModel.findOne({ link });
+    } catch (error) {
+      return null;
+    }
+  });
 }
 
-export async function getCertificateById(id: string): Promise<Certificate> {
+export async function getCertificateById(
+  id: string,
+): Promise<Certificate | null> {
   return connectAndQuery(async () => {
     try {
       if (id === "") return null;
@@ -22,9 +32,14 @@ export async function getCertificateById(id: string): Promise<Certificate> {
 }
 
 export async function deleteCertificateById(id: string) {
-  return connectAndQuery(
-    async () => await CertificateModel.deleteOne({ _id: id }),
-  );
+  return connectAndQuery(async () => {
+    try {
+      await CertificateModel.deleteOne({ _id: id });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }
 
 type UpsertCertificateInput = {
@@ -38,12 +53,16 @@ export async function upsertCertificate(
   id: string,
   certificate: UpsertCertificateInput,
 ) {
-  return connectAndQuery(
-    async () =>
+  return connectAndQuery(async () => {
+    try {
       await CertificateModel.findByIdAndUpdate(
         id,
         { ...certificate },
         { upsert: true },
-      ),
-  );
+      );
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }

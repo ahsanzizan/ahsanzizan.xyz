@@ -3,10 +3,10 @@ import { connectAndQuery } from "../utils/utilityFunctions";
 import { Project } from "@/types/models";
 
 export async function getAllProjects(): Promise<Project[]> {
-  return connectAndQuery(async () => (await ProjectModel.find({})).reverse());
+  return connectAndQuery(async () => (await ProjectModel.find()).reverse());
 }
 
-export async function getProjectById(id: string): Promise<Project> {
+export async function getProjectById(id: string): Promise<Project | null> {
   return connectAndQuery(async () => {
     try {
       return await ProjectModel.findById(id);
@@ -16,12 +16,25 @@ export async function getProjectById(id: string): Promise<Project> {
   });
 }
 
-export async function getProjectByLink(link: string): Promise<Project> {
-  return connectAndQuery(async () => await ProjectModel.findOne({ link }));
+export async function getProjectByLink(link: string): Promise<Project | null> {
+  return connectAndQuery(async () => {
+    try {
+      await ProjectModel.findOne({ link });
+    } catch (error) {
+      return null;
+    }
+  });
 }
 
 export async function deleteProjectById(id: string) {
-  return connectAndQuery(async () => await ProjectModel.deleteOne({ _id: id }));
+  return connectAndQuery(async () => {
+    try {
+      await ProjectModel.deleteOne({ _id: id });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }
 
 type UpsertProjectInput = {
@@ -33,12 +46,16 @@ type UpsertProjectInput = {
 };
 
 export async function upsertProject(id: string, project: UpsertProjectInput) {
-  return connectAndQuery(
-    async () =>
+  return connectAndQuery(async () => {
+    try {
       await ProjectModel.findByIdAndUpdate(
         id,
         { ...project },
         { upsert: true },
-      ),
-  );
+      );
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }

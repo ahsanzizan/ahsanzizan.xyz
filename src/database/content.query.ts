@@ -3,10 +3,10 @@ import { connectAndQuery } from "../utils/utilityFunctions";
 import { Content } from "@/types/models";
 
 export async function getAllContents(): Promise<Content[]> {
-  return connectAndQuery(async () => await ContentModel.find({}));
+  return connectAndQuery(async () => await ContentModel.find());
 }
 
-export async function getContentById(id: string): Promise<Content> {
+export async function getContentById(id: string): Promise<Content | null> {
   return connectAndQuery(async () => {
     try {
       if (id === "") return null;
@@ -28,7 +28,14 @@ export async function getContentbyKey(key: string): Promise<Content | null> {
 }
 
 export async function deleteContentById(id: string) {
-  return connectAndQuery(async () => await ContentModel.findByIdAndDelete(id));
+  return connectAndQuery(async () => {
+    try {
+      await ContentModel.findByIdAndDelete(id);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }
 
 type UpsertContentInput = {
@@ -37,12 +44,16 @@ type UpsertContentInput = {
 };
 
 export async function upsertContent(id: string, content: UpsertContentInput) {
-  return connectAndQuery(
-    async () =>
+  return connectAndQuery(async () => {
+    try {
       await ContentModel.findByIdAndUpdate(
         id,
         { ...content },
         { upsert: true },
-      ),
-  );
+      );
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
 }

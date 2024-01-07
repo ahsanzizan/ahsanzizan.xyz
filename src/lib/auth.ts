@@ -72,7 +72,7 @@ export const authOptions: NextAuthOptions = {
 
         if (findAdmin) {
           session.user.username = findAdmin.username || token.username;
-          session.user.id = findAdmin._id as string;
+          session.user.id = findAdmin._id.toString();
         }
       }
 
