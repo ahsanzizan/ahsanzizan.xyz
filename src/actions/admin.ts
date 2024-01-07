@@ -63,7 +63,10 @@ export async function upsertBlogAction(formData: FormData) {
     author: session?.user?.username,
     content: formData.get("content") as string,
     link: formData.get("link") as string,
-    tags: formData.get("tags")?.toString().split(" "),
+    tags:
+      formData?.get("tags") !== ""
+        ? formData.get("tags")?.toString().split(" ")
+        : [],
   });
 
   revalidatePath("/", "layout");
