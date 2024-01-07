@@ -4,9 +4,8 @@ import type { DefaultJWT } from "next-auth/jwt";
 import { findAdminByUname, authenticateAdmin } from "../database/admin.query";
 
 declare module "next-auth" {
-  /**
-   * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
-   */
+  // Returned by `useSession`, `getSession` and received as a prop on the
+  // `SessionProvider` React Context
   interface Session {
     user?: {
       id: string;
@@ -16,7 +15,7 @@ declare module "next-auth" {
 }
 
 declare module "next-auth/jwt" {
-  /** Returned by the `jwt` callback and `getToken`, when using JWT sessions */
+  // Returned by the `jwt` callback and `getToken`, when using JWT sessions
   interface JWT extends DefaultJWT {
     id: string;
     username: string;
@@ -46,15 +45,17 @@ export const authOptions: NextAuthOptions = {
         },
       },
       async authorize(credentials) {
-        let findAdmin = await authenticateAdmin(
-          (credentials?.username as string) || "",
-          (credentials?.password as string) || "",
+        const { username, password } = credentials ?? {};
+        const findAdmin = await authenticateAdmin(
+          username ?? "",
+          password ?? "",
         );
 
-        if (findAdmin.status != "SUCCESS") return null;
+        if (findAdmin.status !== "SUCCESS") return null;
+
         const admin = {
           id: String(findAdmin.admin?._id),
-          username: credentials?.username,
+          username,
         };
 
         return admin;
@@ -66,13 +67,15 @@ export const authOptions: NextAuthOptions = {
       return { ...token, ...user };
     },
     async session({ session, token }) {
-      if (token.username) {
-        if (session.user) {
-          let findAdmin = await findAdminByUname(token.username);
-          session.user.username = findAdmin?.username || token.username;
-          session.user.id = findAdmin?._id as string;
+      if (token.username && session.user) {
+        const findAdmin = await findAdminByUname(token.username);
+
+        if (findAdmin) {
+          session.user.username = findAdmin.username || token.username;
+          session.user.id = findAdmin._id as string;
         }
       }
+
       return session;
     },
   },

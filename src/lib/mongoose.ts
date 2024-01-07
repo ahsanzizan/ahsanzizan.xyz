@@ -1,6 +1,7 @@
 import _mongoose, { connect } from "mongoose";
 
 declare global {
+  // Use 'var' because 'const' and 'let' wouldn't work properly
   var mongoose: {
     promise: ReturnType<typeof connect> | null;
     connection: typeof _mongoose | null;
@@ -28,7 +29,7 @@ export default async function connectDB() {
       bufferCommands: false,
     };
 
-    cached.promise = connect(MONGO_URI!, options)
+    cached.promise = connect(MONGO_URI, options)
       .then((mongoose) => mongoose)
       .catch((err) => {
         throw err;

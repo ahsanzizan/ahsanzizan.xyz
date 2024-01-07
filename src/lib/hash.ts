@@ -1,6 +1,6 @@
 import { compare, hashSync } from "bcrypt";
 
-export function validate(text: string, hash: string): Promise<boolean> {
+export function validate(text: string, hash: string) {
   return compare(text, hash);
 }
 
