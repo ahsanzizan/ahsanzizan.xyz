@@ -1,5 +1,5 @@
 "use client";
-import { upsertBlogAction } from "@/app/admin/actions";
+import { upsertBlogAction } from "@/app/(admin-routes)/admin/actions";
 import {
   StandardButton,
   StandardFormButton,

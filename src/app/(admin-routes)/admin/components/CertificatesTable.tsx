@@ -10,9 +10,9 @@ import { Certificate } from "@/types/models";
 
 export default function CertificatesTable({
   certificates,
-}: Readonly<{
+}: {
   certificates: Certificate[];
-}>) {
+}) {
   const router = useRouter();
   const simplifiedCertificates: Certificate[] = JSON.parse(
     JSON.stringify(certificates),
