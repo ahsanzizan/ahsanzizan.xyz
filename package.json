@@ -18,7 +18,7 @@
     "@uiw/react-md-editor": "^4.0.2",
     "@vercel/speed-insights": "^1.0.2",
     "autoprefixer": "10.4.16",
-    "axios": "^1.6.2",
+    "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
     "eslint": "8.56.0",
     "eslint-config-next": "^14.0.4",
