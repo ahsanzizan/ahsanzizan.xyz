@@ -9,6 +9,7 @@ import MDEditor from "@uiw/react-md-editor";
 import { Types } from "mongoose";
 import { useEffect, useState } from "react";
 import rehypeSanitize from "rehype-sanitize";
+import { HiddenInfo, TextInput } from "../../../components/shared/Inputs";
 
 export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
   const [tags, setTags] = useState<string[]>([]);
@@ -21,50 +22,26 @@ export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
 
   return (
     <form action={upsertBlogAction}>
-      <input
-        type="hidden"
-        id="_id"
+      <HiddenInfo
         name="_id"
         value={blog ? blog._id.toString() : new Types.ObjectId().toString()}
       />
-      <input type="hidden" id="tags" name="tags" value={tags.join(" ")} />
-      <input type="hidden" id="content" name="content" value={content} />
-      <div className="mb-4">
-        <label
-          htmlFor="title"
-          className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
-        >
-          Title
-        </label>
-        <input
-          className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
-          style={{ WebkitTextFillColor: "#fff" }}
-          type="text"
-          name="title"
-          id="title"
-          placeholder="Title"
-          defaultValue={blog?.title}
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label
-          htmlFor="link"
-          className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
-        >
-          Link
-        </label>
-        <input
-          className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
-          style={{ WebkitTextFillColor: "#fff" }}
-          type="text"
-          name="link"
-          id="link"
-          placeholder="Blog Link"
-          defaultValue={blog?.link}
-          required
-        />
-      </div>
+      <HiddenInfo name="tags" value={tags.join(" ")} />
+      <HiddenInfo name="content" value={content} />
+      <TextInput
+        name="title"
+        label="Title"
+        placeholder="Title"
+        defaultValue={blog?.title}
+        required
+      />
+      <TextInput
+        name="link"
+        label="Link"
+        placeholder="Link"
+        defaultValue={blog?.link}
+        required
+      />
       <div className="mb-4">
         <label
           htmlFor="link"

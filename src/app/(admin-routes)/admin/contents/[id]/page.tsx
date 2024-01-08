@@ -5,6 +5,7 @@ import {
 } from "@/app/components/global/Buttons";
 import { getContentById } from "@/database/content.query";
 import { Types } from "mongoose";
+import { HiddenInfo, TextInput } from "../../components/shared/Inputs";
 
 export default async function EditContent({
   params,
@@ -21,50 +22,27 @@ export default async function EditContent({
           {content ? "Edit" : "Create"} a Content
         </h1>
         <form action={upsertContentAction}>
-          <input
-            type="hidden"
-            id="_id"
+          <HiddenInfo
             name="_id"
             value={
               content ? content._id.toString() : new Types.ObjectId().toString()
             }
           />
-          <div className="mb-4">
-            <label
-              htmlFor="key"
-              className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
-            >
-              Name
-            </label>
-            <input
-              className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
-              style={{ WebkitTextFillColor: "#fff" }}
-              type="text"
-              name="key"
-              id="key"
-              placeholder="Key"
-              defaultValue={content?.key}
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="content"
-              className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
-            >
-              Content
-            </label>
-            <input
-              className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
-              style={{ WebkitTextFillColor: "#fff" }}
-              type="text"
-              name="content"
-              id="content"
-              placeholder="Content"
-              defaultValue={content?.content}
-              required
-            />
-          </div>
+          <TextInput
+            name="key"
+            label="Name"
+            placeholder="Key"
+            defaultValue={content?.key}
+            required
+          />
+          <TextInput
+            name="content"
+            label="Content"
+            placeholder="Content"
+            defaultValue={content?.content}
+            required
+            last
+          />
           <div className="mt-10">
             <StandardFormButton type="submit">
               {content ? "Save" : "Create"}
