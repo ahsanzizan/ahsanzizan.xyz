@@ -93,7 +93,7 @@ export async function upsertCertificateAction(formData: FormData) {
     title: formData.get("title") as string,
     description: formData.get("description") as string,
     image: formData.get("image") as string,
-    link: formData.get("link") as string,
+    url: formData.get("url") as string,
   });
 
   revalidatePath("/about");

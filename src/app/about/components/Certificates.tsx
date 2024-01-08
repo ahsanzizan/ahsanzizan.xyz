@@ -13,7 +13,7 @@ export default async function Certificates() {
       <div className="flex w-full flex-col flex-wrap items-center gap-5 md:flex-row">
         {certificates.map((certificate) => (
           <Link
-            href={certificate.link}
+            href={certificate.url}
             className="block w-full md:w-1/4"
             key={certificate._id.toString()}
           >

@@ -4,7 +4,7 @@ import { Schema, model, models } from "mongoose";
 export const CertificateSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  link: { type: String, required: true, unique: true },
+  url: { type: String, required: true },
   image: { type: String, required: true },
 });
 

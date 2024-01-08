@@ -44,7 +44,7 @@ export async function deleteCertificateById(id: string) {
 
 type UpsertCertificateInput = {
   title?: string;
-  link?: string;
+  url?: string;
   description?: string;
   image?: string;
 };

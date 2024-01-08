@@ -9,6 +9,7 @@ import {
   HiddenInfo,
   TextAreaInput,
   TextInput,
+  URLInput,
 } from "../../components/shared/Inputs";
 
 export default async function EditWork({
@@ -46,7 +47,7 @@ export default async function EditWork({
             defaultValue={project?.url}
             required
           />
-          <TextInput
+          <URLInput
             name="image"
             label="Image"
             placeholder="Image"
