@@ -34,7 +34,7 @@ export default async function Work({
 
   return (
     <Wrapper>
-      <main className="mx-auto w-full max-w-[1440px] px-5 py-[200px]">
+      <main className="mx-auto w-full max-w-[1440px] px-5 py-24">
         <BackButton />
         <section id="works" className="mb-32 w-full py-12">
           {work.isWorkedOn && (

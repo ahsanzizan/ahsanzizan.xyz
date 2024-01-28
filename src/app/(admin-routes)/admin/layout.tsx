@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <>
       <Navbar />
-      <main className="mx-auto w-full max-w-[1440px] px-5 py-[200px]">
+      <main className="mx-auto w-full max-w-[1440px] px-5 py-24">
         {children}
       </main>
     </>
