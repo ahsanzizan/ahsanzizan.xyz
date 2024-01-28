@@ -5,7 +5,6 @@ import Footer from "./components/Parts/Footer";
 import Header from "./components/Parts/Header";
 import Navbar from "./components/Parts/Navbar";
 import Services from "./components/Parts/Services";
-import Spotify from "./components/Parts/Spotify";
 import Works from "./components/Parts/Works";
 import Wrapper from "./components/global/Wrapper";
 

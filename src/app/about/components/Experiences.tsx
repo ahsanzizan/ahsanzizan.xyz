@@ -6,14 +6,14 @@ export default async function Experiences() {
 
   return (
     <section id="experiences" className="mb-32 w-full py-12">
-      <h1 className="text-4xl leading-snug drop-shadow-glow md:text-7xl">
+      <h1 className="mb-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
         Experiences
       </h1>
-      <div className="flex w-full flex-col divide-y divide-white">
+      <div className="flex w-full flex-col gap-8">
         {experiences.map((experience) => (
           <div
             key={experience._id.toString()}
-            className="group flex w-full flex-col gap-4 py-4 transition-all duration-500 md:py-10"
+            className="group flex w-full flex-col gap-4 rounded-lg border border-white p-5 transition-all duration-500 md:p-10"
           >
             <h2 className="text-xl drop-shadow-glow md:text-4xl">
               {experience.title}
