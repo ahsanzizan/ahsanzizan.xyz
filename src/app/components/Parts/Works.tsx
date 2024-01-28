@@ -1,7 +1,13 @@
 import { getAllProjects } from "@/database/project.query";
 import Image from "next/image";
-import Link from "next/link";
-import { StandardLinkButton } from "../global/Buttons";
+import { StandardLinkButton, VisitWorkButton } from "../global/Buttons";
+
+function displayDescription(description: string) {
+  const threshold = 220;
+  if (description.length <= threshold) return description;
+
+  return description.slice(0, threshold) + "...";
+}
 
 export default async function Works() {
   const projects = await getAllProjects();
@@ -12,26 +18,42 @@ export default async function Works() {
         <h4 className="text-lg drop-shadow-glow md:text-2xl">Works</h4>
         <StandardLinkButton href={"/works"}>See More</StandardLinkButton>
       </div>
-      <div className="flex w-full flex-col divide-y divide-white">
-        {projects.slice(0, 3).map((project, i) => (
-          <Link
-            key={project._id.toString()}
-            href={`/works/${project.link}`}
-            className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 hover:px-4 md:py-10 md:hover:px-7"
-          >
-            <h2 className="text-xl drop-shadow-glow md:text-4xl">
-              {project.title}
-            </h2>
-            <Image
-              src={project.image}
-              alt="Project Image"
-              width={256}
-              height={164}
-              className="relative h-20 w-32 rounded-xl object-cover opacity-0 transition-all duration-500 group-hover:opacity-100 md:h-40 md:w-64"
-              unoptimized
-            />
-          </Link>
-        ))}
+      <div className="flex w-full flex-col">
+        {projects.slice(0, 3).map((project, i) => {
+          const isOdd = i % 2 !== 0;
+
+          return (
+            <div
+              key={project._id.toString()}
+              className={`flex w-full items-center gap-8 overflow-hidden py-4 md:py-10 ${
+                isOdd ? "flex-row-reverse" : ""
+              }`}
+            >
+              <div className="w-1/2">
+                <Image
+                  src={project.image}
+                  alt="Project Image"
+                  width={256}
+                  height={164}
+                  className="rlativee max-h-96 w-full rounded-xl object-cover"
+                  unoptimized
+                />
+              </div>
+              <div className={`w-1/2 ${isOdd ? "text-right" : "text-left"}`}>
+                <h2 className="mb-7 text-xl drop-shadow-glow md:text-4xl">
+                  0{i + 1}
+                </h2>
+                <h2 className="mb-7 text-xl drop-shadow-glow md:text-4xl">
+                  {project.title}
+                </h2>
+                <p className="mb-7 text-neutral-400">
+                  {displayDescription(project.description)}
+                </p>
+                <VisitWorkButton href={"/works/" + project.link}>Visit</VisitWorkButton>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
