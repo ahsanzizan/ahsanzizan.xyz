@@ -45,7 +45,7 @@ export default async function ViewBlog({
         images={[]}
         useAppDir
       />
-      <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
+      <main className="mx-auto w-full max-w-[1440px] px-5 py-20">
         <BackButton />
         <section id="view-blog" className="mb-32 w-full py-12">
           <div className="mb-7 block">

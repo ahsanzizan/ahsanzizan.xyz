@@ -15,7 +15,7 @@ export default async function Tags() {
 
   return (
     <Wrapper>
-      <main className="mx-auto w-full max-w-[1440px] px-5 py-[137px]">
+      <main className="mx-auto w-full max-w-[1440px] px-5 py-20">
         <section id="blogs" className="mb-32 w-full py-12">
           <div className="mb-5 flex w-full items-center justify-between md:mb-12">
             <h4 className="text-lg drop-shadow-glow md:text-2xl">Tags</h4>
