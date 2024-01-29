@@ -16,7 +16,7 @@
     "@types/react": "18.2.47",
     "@types/react-dom": "18.2.18",
     "@uiw/react-md-editor": "^4.0.3",
-    "@vercel/speed-insights": "^1.0.2",
+    "@vercel/speed-insights": "^1.0.8",
     "autoprefixer": "10.4.16",
     "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
