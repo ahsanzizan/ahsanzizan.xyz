@@ -25,11 +25,11 @@ export default async function Works() {
           return (
             <div
               key={project._id.toString()}
-              className={`flex w-full items-center gap-8 overflow-hidden py-4 md:py-10 ${
-                isOdd ? "flex-row-reverse" : ""
+              className={`flex w-full flex-col items-center gap-12 overflow-hidden py-4 md:flex-row md:py-10 ${
+                isOdd ? "md:flex-row-reverse" : ""
               }`}
             >
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <Image
                   src={project.image}
                   alt="Project Image"
@@ -39,7 +39,11 @@ export default async function Works() {
                   unoptimized
                 />
               </div>
-              <div className={`w-1/2 ${isOdd ? "text-right" : "text-left"}`}>
+              <div
+                className={`w-full md:w-1/2 ${
+                  isOdd ? "text-right" : "text-left"
+                }`}
+              >
                 <h2 className="mb-7 text-xl drop-shadow-glow md:text-4xl">
                   0{i + 1}
                 </h2>
@@ -49,7 +53,9 @@ export default async function Works() {
                 <p className="mb-7 text-neutral-400">
                   {displayDescription(project.description)}
                 </p>
-                <VisitWorkButton href={"/works/" + project.link}>Visit</VisitWorkButton>
+                <VisitWorkButton href={"/works/" + project.link}>
+                  Visit
+                </VisitWorkButton>
               </div>
             </div>
           );
