@@ -35,7 +35,7 @@ export default async function Works() {
                   alt="Project Image"
                   width={256}
                   height={164}
-                  className="rlativee max-h-96 w-full rounded-xl object-cover"
+                  className="relative h-96 w-full rounded-xl object-cover"
                   unoptimized
                 />
               </div>
