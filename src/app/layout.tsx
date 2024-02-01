@@ -1,15 +1,10 @@
+import { raleway } from "@/utils/loadFont";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
-import { Raleway } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { NextAuthProvider } from "./components/NextAuthProvider";
 import TopLoader from "./components/TopLoader";
 import "./globals.css";
-
-const raleway = Raleway({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 export const metadata: Metadata = {
   title: {

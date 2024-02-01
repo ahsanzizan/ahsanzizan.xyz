@@ -3,9 +3,7 @@ import { stringifyDate } from "@/utils/utilityFunctions";
 import { StandardLinkButton } from "./Buttons";
 import LeftArrowIcon from "./Icons/LeftArrow";
 
-export default function BlogPreview({
-  blog,
-}: Readonly<{ blog: Readonly<Blog> }>) {
+export default function BlogPreview({ blog }: Readonly<{ blog: Blog }>) {
   return (
     <article className="w-full py-4 md:py-10">
       <h2 className="mb-1 text-xl drop-shadow-glow md:text-4xl">

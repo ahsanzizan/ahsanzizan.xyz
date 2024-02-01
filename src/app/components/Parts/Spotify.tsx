@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import SpotifyIcon from "../global/Icons/Spotify";
+import { truncateString } from "@/utils/utilityFunctions";
 
 export interface SpotifyData {
   isPlaying: boolean;
@@ -9,13 +10,6 @@ export interface SpotifyData {
   artist: string;
   albumImageUrl: string;
   songUrl: string;
-}
-
-function displayTitle(title: string) {
-  const threshold = 25;
-  if (title.length <= threshold) return title;
-
-  return title.slice(0, threshold) + "...";
 }
 
 export default function Spotify() {
@@ -35,13 +29,13 @@ export default function Spotify() {
   }, [refreshToken]);
 
   return (
-    <figure className="flex w-full min-w-[60%] max-w-[60%] md:min-w-[33.333%] md:max-w-[33.333%]">
-      <div className="flex w-full items-center gap-8 rounded-lg border border-white p-5">
+    <figure className="flex w-full min-w-[75%] max-w-[75%] md:min-w-[30%] md:max-w-[30%]">
+      <div className="flex w-full items-center gap-8 rounded-lg border border-white px-5 py-3">
         <SpotifyIcon className="h-10 w-10" />
         <div className="block">
           <h1 className="mb-2 text-lg drop-shadow-glow md:text-2xl">
             {data?.isPlaying
-              ? displayTitle(data.title)
+              ? truncateString(data.title, 20)
               : "Not playing anything"}
           </h1>
           <p>{data?.isPlaying ? `by ${data.artist}` : "None"}</p>

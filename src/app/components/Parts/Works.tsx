@@ -1,13 +1,7 @@
 import { getAllProjects } from "@/database/project.query";
 import Image from "next/image";
 import { StandardLinkButton, VisitWorkButton } from "../global/Buttons";
-
-function displayDescription(description: string) {
-  const threshold = 220;
-  if (description.length <= threshold) return description;
-
-  return description.slice(0, threshold) + "...";
-}
+import { truncateString } from "@/utils/utilityFunctions";
 
 export default async function Works() {
   const projects = await getAllProjects();
@@ -51,7 +45,7 @@ export default async function Works() {
                   {project.title}
                 </h2>
                 <p className="mb-7 text-neutral-400">
-                  {displayDescription(project.description)}
+                  {truncateString(project.description, 220)}
                 </p>
                 <VisitWorkButton href={"/works/" + project.link}>
                   Visit

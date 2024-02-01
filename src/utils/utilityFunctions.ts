@@ -51,3 +51,9 @@ export function getFormattedDate(date?: Date) {
   const day = date.getDate().toString().padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
+
+export function truncateString(content: string, threshold: number) {
+  if (content.length <= threshold) return content;
+
+  return content.slice(0, threshold) + "...";
+}
