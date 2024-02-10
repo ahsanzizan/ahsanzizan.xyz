@@ -18,7 +18,7 @@ export default async function Header() {
             About Me
           </h1>
           <p className="mt-5 text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
-            {aboutMe?.content || "Something wrong occured."}
+            {aboutMe?.content ?? "Something wrong occured."}
           </p>
           <div className="mt-10 flex flex-col items-start gap-7 md:mt-12 md:gap-[42px] lg:flex-row lg:items-center">
             <StandardLinkButton href={"/blog"}>

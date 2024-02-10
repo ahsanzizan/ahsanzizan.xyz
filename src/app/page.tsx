@@ -24,7 +24,7 @@ export default async function Home() {
         ]}
         useAppDir
       />
-      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
+      <Navbar email={email.content ?? "ahsanaz461@gmail.com"} />
       <main className="mx-auto w-full max-w-[1440px] px-5 py-20">
         <Header />
         <Services />

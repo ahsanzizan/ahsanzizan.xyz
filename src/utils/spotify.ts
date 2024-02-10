@@ -12,8 +12,8 @@ const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-pla
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 // The response data type from a GET request to
-// https://api.spotify.com/v1/me/player/currently-playing if the user
-// are playing a song
+// https://api.spotify.com/v1/me/player/currently-playing if the user are
+// playing a song
 interface SpotifyData {
   is_playing: boolean;
   item: {

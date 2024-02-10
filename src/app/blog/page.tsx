@@ -4,10 +4,19 @@ import BlogPreview from "../components/global/BlogPreview";
 import { StandardLinkButton } from "../components/global/Buttons";
 import Wrapper from "../components/global/Wrapper";
 
+async function getFilteredBlogs() {
+  const blogs = await getAllBlogs();
+
+  // Filter and sort all blogs
+  const filteredBlogs = blogs
+    .filter((blog) => !blog.link.includes("private"))
+    .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+
+  return filteredBlogs;
+}
+
 export default async function Blog() {
-  const blogs = (await getAllBlogs())
-    .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
-    .filter((blog) => !blog.link.includes("private"));
+  const blogs = await getFilteredBlogs();
 
   return (
     <Wrapper>

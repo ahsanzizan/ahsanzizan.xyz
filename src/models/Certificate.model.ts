@@ -8,5 +8,5 @@ export const CertificateSchema = new Schema({
   image: { type: String, required: true },
 });
 
-export default models.Certificate<Certificate> ||
+export default models.Certificate<Certificate> ??
   model<Certificate>("Certificate", CertificateSchema);

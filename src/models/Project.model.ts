@@ -10,5 +10,5 @@ export const ProjectSchema = new Schema({
   isWorkedOn: { type: Boolean },
 });
 
-export default models.Project<Project> ||
+export default models.Project<Project> ??
   model<Project>("Project", ProjectSchema);

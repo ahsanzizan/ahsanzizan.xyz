@@ -8,5 +8,5 @@ export const ExperienceSchema = new Schema({
   description: { type: String, required: true },
 });
 
-export default models.Experience<Experience> ||
+export default models.Experience<Experience> ??
   model<Experience>("Experience", ExperienceSchema);

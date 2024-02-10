@@ -10,4 +10,4 @@ export const BlogSchema = new Schema({
   tags: [{ type: String }],
 });
 
-export default models.Blog<Blog> || model<Blog>("Blog", BlogSchema);
+export default models.Blog<Blog> ?? model<Blog>("Blog", BlogSchema);

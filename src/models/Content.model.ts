@@ -6,5 +6,5 @@ export const ContentSchema = new Schema({
   content: { type: Schema.Types.Mixed, required: true },
 });
 
-export default models.Content<Content> ||
+export default models.Content<Content> ??
   model<Content>("Content", ContentSchema);

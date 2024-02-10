@@ -7,5 +7,5 @@ export const SocialMediaSchema = new Schema({
   svgPath: { type: String, required: true },
 });
 
-export default models["Social-Media"]<SocialMedia> ||
+export default models["Social-Media"]<SocialMedia> ??
   model<SocialMedia>("Social-Media", SocialMediaSchema);

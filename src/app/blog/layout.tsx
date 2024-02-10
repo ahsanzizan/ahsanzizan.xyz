@@ -18,7 +18,7 @@ export default async function BlogLayout({
 
   return (
     <>
-      <Navbar email={email?.content || "ahsanaz461@gmail.com"} />
+      <Navbar email={email?.content ?? "ahsanaz461@gmail.com"} />
       {children}
     </>
   );

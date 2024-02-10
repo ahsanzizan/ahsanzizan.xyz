@@ -11,11 +11,11 @@ export default async function Footer() {
   return (
     <footer className="flex w-full flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <Link
-        href={"mailto:" + email?.content || "ahsanaz461@gmail.com"}
+        href={"mailto:" + email?.content ?? "ahsanaz461@gmail.com"}
         className="transition-all duration-500 hover:text-neutral-400"
       >
         <h3 className="text-base drop-shadow-glow sm:text-2xl lg:text-[28px]">
-          {email?.content || "ahsanaz461@gmail.com"}
+          {email?.content ?? "ahsanaz461@gmail.com"}
         </h3>
       </Link>
       <Spotify />
