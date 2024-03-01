@@ -10,7 +10,7 @@ export default function BlogPreview({ blog }: Readonly<{ blog: Blog }>) {
         {blog.title}
       </h2>
       <div className="mb-4">
-        <dl className="mx-1">
+        <dl className="mx-1 md:mx-0">
           <dt className="sr-only">Published on</dt>
           <dd className="text-sm font-medium leading-6 sm:text-base">
             <span>Published </span>

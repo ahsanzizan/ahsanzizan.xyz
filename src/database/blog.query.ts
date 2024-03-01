@@ -2,8 +2,28 @@ import BlogModel from "@/models/Blog.model";
 import { connectAndQuery } from "../utils/utilityFunctions";
 import { Blog } from "@/types/models";
 
-export async function getAllBlogs(): Promise<Blog[]> {
-  return connectAndQuery(async () => await BlogModel.find());
+export async function getAllBlogs(
+  skip: number = 0,
+  limit?: number,
+): Promise<Blog[]> {
+  return connectAndQuery(async () => {
+    let blogs: Blog[] = [];
+
+    if (limit) {
+      blogs = await BlogModel.find()
+        .skip(skip)
+        .limit(limit)
+        .sort({ createdAt: -1 });
+    } else {
+      blogs = await BlogModel.find();
+    }
+
+    return blogs;
+  });
+}
+
+export async function getBlogsCount(): Promise<number> {
+  return connectAndQuery(async () => await BlogModel.countDocuments());
 }
 
 export async function getBlogById(id: string): Promise<Blog | null> {

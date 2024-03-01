@@ -37,10 +37,7 @@ export default async function ViewBlog({
   const blog = await getBlogByLink(params.link);
   if (!blog) notFound();
 
-  const otherBlogs = (await getAllBlogs())
-    .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
-    .filter((b) => !b.link.includes("private") && b.link !== blog?.link)
-    .slice(0, 5);
+  const otherBlogs = await getAllBlogs(0, 5);
 
   return (
     <Wrapper>

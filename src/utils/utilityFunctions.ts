@@ -57,3 +57,7 @@ export function truncateString(content: string, threshold: number) {
 
   return content.slice(0, threshold) + "...";
 }
+
+export function isInteger(value: string) {
+  return /^\d+$/.test(value);
+}

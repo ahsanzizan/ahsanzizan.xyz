@@ -3,10 +3,7 @@ import BlogPreview from "../global/BlogPreview";
 import { StandardLinkButton } from "../global/Buttons";
 
 export default async function Blogs() {
-  const blogs = (await getAllBlogs())
-    .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
-    .filter((blog) => !blog.link.includes("private"))
-    .slice(0, 3);
+  const blogs = await getAllBlogs(0, 3);
 
   return (
     <section id="blogs" className="mb-32 w-full py-12">
