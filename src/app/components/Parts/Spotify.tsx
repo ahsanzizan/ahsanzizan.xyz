@@ -31,14 +31,18 @@ export default function Spotify() {
   return (
     <figure className="flex w-full min-w-[75%] max-w-[75%] md:min-w-[30%] md:max-w-[30%]">
       <div className="flex w-full items-center gap-8 rounded-lg border border-white px-5 py-3">
-        <SpotifyIcon className="h-10 w-10" />
+        <SpotifyIcon
+          className={`h-10 w-10 ${data?.isPlaying ? "animate-pulse" : ""}`}
+        />
         <div className="block">
           <h1 className="mb-2 text-lg drop-shadow-glow md:text-2xl">
             {data?.isPlaying
               ? truncateString(data.title, 20)
               : "Not playing anything"}
           </h1>
-          <p className="text-neutral-400">{data?.isPlaying ? `by ${data.artist}` : "None"}</p>
+          <p className="text-neutral-400">
+            {data?.isPlaying ? `by ${data.artist}` : "None"}
+          </p>
         </div>
       </div>
     </figure>
