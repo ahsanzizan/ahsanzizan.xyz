@@ -1,24 +1,21 @@
-"use server";
-
-import { deleteBlogById, upsertBlog } from "@/database/blog.query";
-import {
-  deleteCertificateById,
-  upsertCertificate,
-} from "@/database/cerficate.query";
-import { deleteContentById, upsertContent } from "@/database/content.query";
-import {
-  deleteExperienceById,
-  upsertExperience,
-} from "@/database/experience.query";
-import { deleteProjectById, upsertProject } from "@/database/project.query";
-import {
-  deleteSocialMediaById,
-  upsertSocialMedia,
-} from "@/database/socialMedia.query";
+import { upsertBlog } from "@/database/blog.query";
+import { upsertCertificate } from "@/database/cerficate.query";
+import { upsertContent } from "@/database/content.query";
+import { upsertExperience } from "@/database/experience.query";
+import { upsertProject } from "@/database/project.query";
+import { upsertSocialMedia } from "@/database/socialMedia.query";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+
+async function revalidateAndRedirect(paths: string[], redirectTo: string) {
+  for (const path of paths) {
+    revalidatePath(path);
+  }
+  revalidatePath("/", "layout");
+  redirect(redirectTo);
+}
 
 export async function upsertSocialMediaAction(formData: FormData) {
   await upsertSocialMedia(formData.get("_id") as string, {
@@ -27,8 +24,7 @@ export async function upsertSocialMediaAction(formData: FormData) {
     url: formData.get("url") as string,
   });
 
-  revalidatePath("/", "layout");
-  redirect("/admin");
+  await revalidateAndRedirect(["/"], "/admin");
 }
 
 export async function upsertContentAction(formData: FormData) {
@@ -37,8 +33,7 @@ export async function upsertContentAction(formData: FormData) {
     content: formData.get("content") as string,
   });
 
-  revalidatePath("/", "layout");
-  redirect("/admin");
+  await revalidateAndRedirect(["/"], "/admin");
 }
 
 export async function upsertProjectAction(formData: FormData) {
@@ -50,9 +45,7 @@ export async function upsertProjectAction(formData: FormData) {
     description: formData.get("description") as string,
   });
 
-  revalidatePath("/works");
-  revalidatePath("/", "layout");
-  redirect("/admin/works");
+  await revalidateAndRedirect(["/works", "/"], "/admin/works");
 }
 
 export async function upsertBlogAction(formData: FormData) {
@@ -69,9 +62,7 @@ export async function upsertBlogAction(formData: FormData) {
         : [],
   });
 
-  revalidatePath("/", "layout");
-  revalidatePath("/blog");
-  redirect("/admin/blogs");
+  await revalidateAndRedirect(["/", "/blog"], "/admin/blogs");
 }
 
 export async function upsertExperienceAction(formData: FormData) {
@@ -84,10 +75,9 @@ export async function upsertExperienceAction(formData: FormData) {
       : undefined,
   });
 
-  revalidatePath("/about");
-  revalidatePath("/", "layout");
-  redirect("/admin/experiences");
+  await revalidateAndRedirect(["/about", "/"], "/admin/experiences");
 }
+
 export async function upsertCertificateAction(formData: FormData) {
   await upsertCertificate(formData.get("_id") as string, {
     title: formData.get("title") as string,
@@ -96,41 +86,5 @@ export async function upsertCertificateAction(formData: FormData) {
     url: formData.get("url") as string,
   });
 
-  revalidatePath("/about");
-  revalidatePath("/", "layout");
-  redirect("/admin");
-}
-
-export async function deleteSocialMediaAction(id: string) {
-  await deleteSocialMediaById(id);
-  revalidatePath("/", "layout");
-}
-
-export async function deleteContentAction(id: string) {
-  await deleteContentById(id);
-  revalidatePath("/", "layout");
-}
-
-export async function deleteProjectAction(id: string) {
-  await deleteProjectById(id);
-  revalidatePath("/works");
-  revalidatePath("/", "layout");
-}
-
-export async function deleteBlogAction(id: string) {
-  await deleteBlogById(id);
-  revalidatePath("/blog");
-  revalidatePath("/", "layout");
-}
-
-export async function deleteExperienceAction(id: string) {
-  await deleteExperienceById(id);
-  revalidatePath("/about");
-  revalidatePath("/", "layout");
-}
-
-export async function deleteCertificateAction(id: string) {
-  await deleteCertificateById(id);
-  revalidatePath("/about");
-  revalidatePath("/", "layout");
+  await revalidateAndRedirect(["/about", "/"], "/admin");
 }

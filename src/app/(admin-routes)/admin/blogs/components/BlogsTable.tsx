@@ -1,5 +1,5 @@
 "use client";
-import { deleteBlogAction } from "@/actions/admin";
+import { deleteBlogAction } from "@/actions/deleteActions";
 import {
   StandardButton,
   StandardLinkButton,

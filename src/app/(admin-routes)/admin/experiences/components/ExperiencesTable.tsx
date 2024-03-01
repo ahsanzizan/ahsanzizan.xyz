@@ -1,5 +1,5 @@
 "use client";
-import { deleteExperienceAction } from "@/actions/admin";
+import { deleteExperienceAction } from "@/actions/deleteActions";
 import {
   StandardButton,
   StandardLinkButton,

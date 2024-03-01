@@ -1,5 +1,5 @@
 "use client";
-import { deleteSocialMediaAction } from "@/actions/admin";
+import { deleteSocialMediaAction } from "@/actions/deleteActions";
 import {
   StandardButton,
   StandardLinkButton,

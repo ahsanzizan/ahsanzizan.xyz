@@ -1,5 +1,5 @@
 "use client";
-import { deleteCertificateAction } from "@/actions/admin";
+import { deleteCertificateAction } from "@/actions/deleteActions";
 import {
   StandardButton,
   StandardLinkButton,
