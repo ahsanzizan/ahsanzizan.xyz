@@ -1,4 +1,4 @@
-import { upsertProjectAction } from "@/actions/admin";
+import { upsertProjectAction } from "@/actions/upsertActions";
 import {
   BackButton,
   StandardFormButton,

@@ -1,4 +1,4 @@
-import { upsertCertificateAction } from "@/actions/admin";
+import { upsertCertificateAction } from "@/actions/upsertActions";
 import {
   BackButton,
   StandardFormButton,

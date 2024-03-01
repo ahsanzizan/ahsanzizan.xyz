@@ -1,4 +1,4 @@
-import { upsertSocialMediaAction } from "@/actions/admin";
+import { upsertSocialMediaAction } from "@/actions/upsertActions";
 import {
   BackButton,
   StandardFormButton,

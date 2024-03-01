@@ -1,5 +1,4 @@
 "use client";
-import { upsertBlogAction } from "@/actions/admin";
 import {
   StandardButton,
   StandardFormButton,
@@ -10,6 +9,7 @@ import { Types } from "mongoose";
 import { useEffect, useState } from "react";
 import rehypeSanitize from "rehype-sanitize";
 import { HiddenInfo, TextInput } from "../../../components/shared/Inputs";
+import { upsertBlogAction } from "@/actions/upsertActions";
 
 export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
   const [tags, setTags] = useState<string[]>([]);
