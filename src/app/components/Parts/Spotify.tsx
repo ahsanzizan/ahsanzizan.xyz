@@ -38,7 +38,7 @@ export default function Spotify() {
               ? truncateString(data.title, 20)
               : "Not playing anything"}
           </h1>
-          <p>{data?.isPlaying ? `by ${data.artist}` : "None"}</p>
+          <p className="text-neutral-400">{data?.isPlaying ? `by ${data.artist}` : "None"}</p>
         </div>
       </div>
     </figure>
