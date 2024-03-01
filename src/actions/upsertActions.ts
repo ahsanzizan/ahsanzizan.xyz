@@ -1,3 +1,5 @@
+"use server";
+
 import { upsertBlog } from "@/database/blog.query";
 import { upsertCertificate } from "@/database/cerficate.query";
 import { upsertContent } from "@/database/content.query";

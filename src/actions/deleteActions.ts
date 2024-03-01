@@ -1,3 +1,5 @@
+"use server";
+
 import { deleteBlogById } from "@/database/blog.query";
 import { deleteCertificateById } from "@/database/cerficate.query";
 import { deleteContentById } from "@/database/content.query";
