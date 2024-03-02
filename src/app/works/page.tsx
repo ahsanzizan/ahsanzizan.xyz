@@ -1,11 +1,26 @@
-import { getAllProjects } from "@/database/project.query";
+import ProjectModel from "@/models/Project.model";
+import { Project } from "@/types/models";
+import { getPaginatedResult } from "@/utils/paginator";
+import { isInteger } from "@/utils/utilityFunctions";
+import { Model } from "mongoose";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "../components/Parts/Footer";
 import Wrapper from "../components/global/Wrapper";
+import PaginatedNavigator from "../components/global/PaginatedNavigator";
 
-export default async function Works() {
-  const projects = await getAllProjects();
+export default async function Works({
+  searchParams,
+}: Readonly<{ searchParams: { [key: string]: string | string[] } }>) {
+  let page = isInteger(searchParams?.page as unknown as string)
+    ? parseInt(searchParams?.page as unknown as string)
+    : 1;
+  const { datas: projects, maxPage }: { datas: Project[]; maxPage: number } =
+    await getPaginatedResult({
+      model: ProjectModel as Model<Project>,
+      perPage: 3,
+      page,
+    });
 
   return (
     <Wrapper>
@@ -15,9 +30,10 @@ export default async function Works() {
             <h4 className="text-lg drop-shadow-glow md:text-2xl">
               All Selected Works
             </h4>
+            <PaginatedNavigator segment="works" maxPage={maxPage} page={page} />
           </div>
           <div className="flex w-full flex-col divide-y divide-white">
-            {projects.map((project, i) => (
+            {projects.map((project) => (
               <Link
                 key={project._id.toString()}
                 href={`/works/${project.link}`}

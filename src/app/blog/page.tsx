@@ -7,6 +7,7 @@ import BlogPreview from "../components/global/BlogPreview";
 import { StandardLinkButton } from "../components/global/Buttons";
 import Wrapper from "../components/global/Wrapper";
 import { Blog } from "@/types/models";
+import PaginatedNavigator from "../components/global/PaginatedNavigator";
 
 export default async function Blog({
   searchParams,
@@ -31,29 +32,11 @@ export default async function Blog({
               <h4 className="mb-5 text-lg drop-shadow-glow md:text-2xl">
                 Blogs
               </h4>
-              <div className="flex items-center gap-4">
-                <StandardLinkButton
-                  href={`/blog?page=${page - 1}`}
-                  className={`${
-                    page > 1 ? "opacity-100" : "pointer-events-none opacity-50"
-                  }`}
-                >
-                  {"<"}
-                </StandardLinkButton>
-                <p>
-                  {page} / {maxPage}
-                </p>
-                <StandardLinkButton
-                  href={`/blog?page=${page + 1}`}
-                  className={`${
-                    page < maxPage
-                      ? "opacity-100"
-                      : "pointer-events-none opacity-50"
-                  }`}
-                >
-                  {">"}
-                </StandardLinkButton>
-              </div>
+              <PaginatedNavigator
+                segment="blog"
+                page={page}
+                maxPage={maxPage}
+              />
             </div>
             <StandardLinkButton href={"/blog/tags"}>
               See Tags

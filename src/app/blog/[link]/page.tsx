@@ -1,12 +1,16 @@
 import Footer from "@/app/components/Parts/Footer";
 import { BackButton } from "@/app/components/global/Buttons";
 import Wrapper from "@/app/components/global/Wrapper";
-import { getAllBlogs, getBlogByLink } from "@/database/blog.query";
+import { getBlogByLink } from "@/database/blog.query";
+import BlogModel from "@/models/Blog.model";
+import { Blog } from "@/types/models";
+import { getPaginatedResult } from "@/utils/paginator";
 import {
   calculateReadTime,
   stringifyDate,
   truncateString,
 } from "@/utils/utilityFunctions";
+import { Model } from "mongoose";
 import { ArticleJsonLd } from "next-seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -37,7 +41,12 @@ export default async function ViewBlog({
   const blog = await getBlogByLink(params.link);
   if (!blog) notFound();
 
-  const otherBlogs = await getAllBlogs(0, 5);
+  const { datas: otherBlogs }: { datas: Blog[] } = await getPaginatedResult({
+    model: BlogModel as Model<Blog>,
+    sort: { createdAt: -1 },
+    page: 1,
+    perPage: 5,
+  });
 
   return (
     <Wrapper>
