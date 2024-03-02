@@ -1,45 +1,53 @@
 import { Model, SortOrder } from "mongoose";
 import { connectAndQuery } from "./utilityFunctions";
 
-async function getCount(model: Model<unknown>) {
+async function getCount(model: Model<any>) {
   return connectAndQuery(async () => await model.countDocuments());
 }
 
-async function getDatas(
-  model: Model<unknown>,
-  limit: number,
+async function getDatas({
+  model,
+  limit,
+  sort,
+  skip,
+}: {
+  model: Model<any>;
+  limit: number;
   sort?:
     | string
     | { [key: string]: SortOrder | { $meta: any } }
-    | [string, SortOrder][]
-    | null
-    | undefined,
-  skip = 0,
-) {
-  return connectAndQuery(async () => {
-    const data = await model.find().skip(skip).limit(limit).sort(sort);
-
-    return data;
-  });
+    | [string, SortOrder][];
+  skip: number;
+}) {
+  return connectAndQuery(
+    async () => await model.find().skip(skip).limit(limit).sort(sort),
+  );
 }
 
-export async function getPaginatedResult(
-  model: Model<unknown>,
+export function validatePage(page: number, maxPage: number) {
+  return page <= maxPage && page > 0 ? page : 1;
+}
+
+export async function getPaginatedResult({
+  model,
+  sort,
+  perPage,
+  page,
+}: {
+  model: Model<any>;
   sort?:
     | string
     | { [key: string]: SortOrder | { $meta: any } }
-    | [string, SortOrder][]
-    | null
-    | undefined,
-  perPage = 5,
-  page = 1,
-) {
+    | [string, SortOrder][];
+  perPage: number;
+  page: number;
+}) {
   const dataCount = await getCount(model);
   const maxPage = Math.ceil(dataCount / perPage);
 
   const skip = (page <= maxPage ? page - 1 : 0) * perPage;
 
-  const datas = await getDatas(model, skip, sort, perPage);
+  const datas = await getDatas({ model, limit: perPage, sort, skip });
 
   return { datas, maxPage };
 }

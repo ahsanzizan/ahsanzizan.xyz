@@ -1,26 +1,12 @@
-import { getAllBlogs, getBlogsCount } from "@/database/blog.query";
+import BlogModel from "@/models/Blog.model";
+import { getPaginatedResult } from "@/utils/paginator";
+import { isInteger } from "@/utils/utilityFunctions";
+import { Model } from "mongoose";
 import Footer from "../components/Parts/Footer";
 import BlogPreview from "../components/global/BlogPreview";
 import { StandardLinkButton } from "../components/global/Buttons";
 import Wrapper from "../components/global/Wrapper";
-import { isInteger } from "@/utils/utilityFunctions";
-
-const PAGE_SIZE = 5;
-
-async function getBlogs(page = 1) {
-  const blogsCount = await getBlogsCount();
-  const maxPage = Math.ceil(blogsCount / PAGE_SIZE);
-
-  const skip = (page <= maxPage ? page - 1 : 0) * PAGE_SIZE;
-
-  const blogs = await getAllBlogs(skip, PAGE_SIZE);
-
-  return { blogs, maxPage };
-}
-
-function validatePage(page: number, maxPage: number) {
-  return page <= maxPage && page > 0 ? page : 1;
-}
+import { Blog } from "@/types/models";
 
 export default async function Blog({
   searchParams,
@@ -28,10 +14,13 @@ export default async function Blog({
   let page = isInteger(searchParams?.page as unknown as string)
     ? parseInt(searchParams?.page as unknown as string)
     : 1;
-
-  const { blogs, maxPage } = await getBlogs(page);
-
-  page = validatePage(page, maxPage);
+  const { datas: blogs, maxPage }: { datas: Blog[]; maxPage: number } =
+    await getPaginatedResult({
+      model: BlogModel as Model<Blog>,
+      sort: { createdAt: -1 },
+      perPage: 5,
+      page,
+    });
 
   return (
     <Wrapper>
@@ -51,7 +40,9 @@ export default async function Blog({
                 >
                   {"<"}
                 </StandardLinkButton>
-                <p>{page}</p>
+                <p>
+                  {page} / {maxPage}
+                </p>
                 <StandardLinkButton
                   href={`/blog?page=${page + 1}`}
                   className={`${
@@ -69,7 +60,7 @@ export default async function Blog({
             </StandardLinkButton>
           </div>
           <div className="flex w-full flex-col divide-y divide-white">
-            {blogs.map((blog) => (
+            {blogs.map((blog: Blog) => (
               <BlogPreview key={blog._id.toString()} blog={blog} />
             ))}
           </div>

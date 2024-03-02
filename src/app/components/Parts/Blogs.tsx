@@ -1,9 +1,17 @@
-import { getAllBlogs } from "@/database/blog.query";
+import BlogModel from "@/models/Blog.model";
+import { Blog } from "@/types/models";
+import { getPaginatedResult } from "@/utils/paginator";
+import { Model } from "mongoose";
 import BlogPreview from "../global/BlogPreview";
 import { StandardLinkButton } from "../global/Buttons";
 
 export default async function Blogs() {
-  const blogs = await getAllBlogs(0, 3);
+  const { datas: blogs }: { datas: Blog[] } = await getPaginatedResult({
+    model: BlogModel as Model<Blog>,
+    sort: { createdAt: -1 },
+    perPage: 3,
+    page: 1,
+  });
 
   return (
     <section id="blogs" className="mb-32 w-full py-12">
@@ -12,7 +20,7 @@ export default async function Blogs() {
         <StandardLinkButton href={"/blog/"}>See All</StandardLinkButton>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
-        {blogs.map((blog, i) => (
+        {blogs.map((blog) => (
           <BlogPreview key={blog._id.toString()} blog={blog} />
         ))}
       </div>
