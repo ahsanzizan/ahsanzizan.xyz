@@ -12,7 +12,7 @@ import PaginatedNavigator from "../components/global/PaginatedNavigator";
 export default async function Works({
   searchParams,
 }: Readonly<{ searchParams: { [key: string]: string | string[] } }>) {
-  let page = isInteger(searchParams?.page as unknown as string)
+  const page = isInteger(searchParams?.page as unknown as string)
     ? parseInt(searchParams?.page as unknown as string)
     : 1;
   const { datas: projects, maxPage }: { datas: Project[]; maxPage: number } =
