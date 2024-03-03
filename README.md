@@ -14,6 +14,7 @@ The project structure is organized as follows:
 
 personal-website/
 
+```
 ├── public/ # Public assets like images, fonts, etc.
 
 ├── src/
@@ -39,7 +40,7 @@ personal-website/
 ├── package.json # List of dependencies and project configurations
 
 ├── README.md # Project README file
-
+```
 
 ## Getting Started
 
