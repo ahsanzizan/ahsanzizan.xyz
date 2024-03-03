@@ -45,13 +45,11 @@ personal-website/
 ## Getting Started
 
 1. First, clone this repository:
-2. 
 ```bash
 git clone https://github.com/ahsanzizan/personal-website.git
 ```
 
 2. Install the dependencies:
-3. 
 ```bash
 npm install
 ```
