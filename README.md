@@ -86,7 +86,7 @@ Contributions are welcome! Feel free to submit issues or pull requests. Please a
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the BSD3 Clause - see the [LICENSE](LICENSE) file for details.
 
 ---
 
