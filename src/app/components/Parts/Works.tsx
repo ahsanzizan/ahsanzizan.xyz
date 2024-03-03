@@ -1,15 +1,23 @@
-import { getAllProjects } from "@/database/project.query";
+import { getPaginatedResult } from "@/utils/paginator";
+import { truncateString } from "@/utils/utilityFunctions";
 import Image from "next/image";
 import { StandardLinkButton, VisitWorkButton } from "../global/Buttons";
-import { truncateString } from "@/utils/utilityFunctions";
+import ProjectModel from "@/models/Project.model";
+import { Model } from "mongoose";
+import { Project } from "@/types/models";
 
 export default async function Works() {
-  const projects = await getAllProjects();
+  const { datas: projects }: { datas: Project[] } = await getPaginatedResult({
+    model: ProjectModel as Model<Project>,
+    sort: { createdAt: -1 },
+    perPage: 3,
+    page: 1,
+  });
 
   return (
     <section id="works" className="mb-32 w-full py-12">
       <div className="mb-5 flex w-full items-center justify-between md:mb-12">
-        <h4 className="text-lg drop-shadow-glow md:text-2xl">Works</h4>
+        <h4 className="text-lg drop-shadow-glow md:text-2xl">Latest Works</h4>
         <StandardLinkButton href={"/works"}>See More</StandardLinkButton>
       </div>
       <div className="flex w-full flex-col">
