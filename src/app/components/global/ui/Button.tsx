@@ -4,7 +4,7 @@ import { default as NextLink, LinkProps as NextLinkProps } from "next/link";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
 
 const buttonVariants = cva(
-  "group inline-flex w-fit rounded-full border px-8 py-3 font-medium tracking-wider disabled:opacity-50 hover:scale-110 transition-all duration-300",
+  "group inline-flex w-fit rounded-full border px-8 py-3 font-medium text-sm tracking-wider disabled:opacity-50 hover:scale-110 transition-all duration-300 md:text-base",
   {
     variants: {
       variant: {
