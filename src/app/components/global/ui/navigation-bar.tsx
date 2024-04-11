@@ -15,7 +15,7 @@ export default function NavigationBar() {
   const pathname = usePathname();
 
   return (
-    <nav className={cn("fixed top-12 flex w-full justify-center px-5")}>
+    <nav className={cn("fixed top-12 z-[999] flex w-full justify-center px-5")}>
       <ul
         className={cn(
           "flex w-full max-w-sm items-center justify-between rounded-full border border-neutral-500 bg-black p-2",
