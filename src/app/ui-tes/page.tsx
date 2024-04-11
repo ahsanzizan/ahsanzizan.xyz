@@ -1,3 +1,4 @@
+import { Anchor } from "../components/global/ui/anchor";
 import { Button, Link } from "../components/global/ui/button";
 import NavigationBar from "../components/global/ui/navigation-bar";
 
@@ -16,6 +17,9 @@ export default function TesUI() {
           Link
         </Link>
         <Button variant={"inverse"}>Button</Button>
+        <Anchor href="#" variant={"default"}>
+          ini anchor
+        </Anchor>
       </div>
     </>
   );
