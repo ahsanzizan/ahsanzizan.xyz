@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { StandardLinkButton } from "../global/Buttons";
-import HamburgerIcon from "../global/Icons/Hamburger";
-import XIcon from "../global/Icons/X";
+import HamburgerIcon from "../global/icons/Hamburger";
+import XIcon from "../global/icons/X";
 
 export default function Navbar({ email }: Readonly<{ email: string }>) {
   const [navOpen, setNavOpen] = useState<boolean>(false);

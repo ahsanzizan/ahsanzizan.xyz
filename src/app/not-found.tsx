@@ -1,5 +1,5 @@
 import { StandardLinkButton } from "./components/global/Buttons";
-import LeftArrowIcon from "./components/global/Icons/LeftArrow";
+import LeftArrowIcon from "./components/global/icons/LeftArrow";
 import Wrapper from "./components/global/Wrapper";
 
 export default function NotFound() {

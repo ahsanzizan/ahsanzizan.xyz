@@ -1,5 +1,5 @@
 import { StandardLinkButton } from "../global/Buttons";
-import LeftArrowIcon from "../global/Icons/LeftArrow";
+import LeftArrowIcon from "../global/icons/LeftArrow";
 
 export default function Header() {
   return (

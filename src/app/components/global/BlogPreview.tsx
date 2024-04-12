@@ -1,7 +1,7 @@
 import { Blog } from "@/types/models";
 import { stringifyDate } from "@/utils/utilityFunctions";
 import { StandardLinkButton } from "./Buttons";
-import LeftArrowIcon from "./Icons/LeftArrow";
+import LeftArrowIcon from "./icons/LeftArrow";
 
 export default function BlogPreview({ blog }: Readonly<{ blog: Blog }>) {
   return (

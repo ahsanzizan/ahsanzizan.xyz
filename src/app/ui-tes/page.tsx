@@ -41,7 +41,7 @@ export default function TesUI() {
       <div className="flex h-screen w-full items-center justify-center gap-11">
         <ProjectFigure
           title="Testing"
-          description="Ini adalah project"
+          description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo alias enim suscipit labore eos quod hic minima aperiam tempore natus?"
           image="/Me.png"
           className="h-[512px] w-full"
         />

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { MouseEventHandler, ReactNode } from "react";
-import ShareIcon from "./Icons/Share";
+import ShareIcon from "./icons/Share";
 
 interface LinkButtonProps {
   href: string;

@@ -1,6 +1,7 @@
 import cn from "@/lib/clsx";
 import { Image } from "./image";
 import { H3, P } from "./text";
+import { Button } from "./button";
 
 interface ProjectFigureProps {
   title: string;
@@ -25,7 +26,7 @@ export function ProjectFigure({
         width={120}
         height={120}
         className={cn(
-          "absolute left-0 top-0 h-full w-full transition-all duration-300 group-hover:opacity-50",
+          "absolute left-0 top-0 h-full w-full transition-all duration-300 group-hover:opacity-25",
         )}
         unoptimized
         variant={"default"}
@@ -35,8 +36,9 @@ export function ProjectFigure({
           "bottom absolute -bottom-full left-10 block w-full transition-all duration-300 group-hover:bottom-5",
         )}
       >
-        <H3>{title}</H3>
-        <P>{description}</P>
+        <H3 className="mb-1">{title}</H3>
+        <P className="mb-3">{description}</P>
+        <Button variant={"default"}>Learn more</Button>
       </div>
     </figure>
   );

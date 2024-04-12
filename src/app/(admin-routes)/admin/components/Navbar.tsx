@@ -1,8 +1,8 @@
 "use client";
 import { StandardButton } from "@/app/components/global/Buttons";
-import HamburgerIcon from "@/app/components/global/Icons/Hamburger";
-import LeftArrowIcon from "@/app/components/global/Icons/LeftArrow";
-import XIcon from "@/app/components/global/Icons/X";
+import HamburgerIcon from "@/app/components/global/icons/Hamburger";
+import LeftArrowIcon from "@/app/components/global/icons/LeftArrow";
+import XIcon from "@/app/components/global/icons/X";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";

@@ -5,7 +5,7 @@ import SocialMediasTable from "./components/SocialMediasTable";
 import { getAllContents } from "@/database/content.query";
 import ContentsTable from "./components/ContentsTable";
 import { StandardLinkButton } from "@/app/components/global/Buttons";
-import LeftArrowIcon from "@/app/components/global/Icons/LeftArrow";
+import LeftArrowIcon from "@/app/components/global/icons/LeftArrow";
 import { Content, SocialMedia, Certificate } from "@/types/models";
 import CertificatesTable from "./components/CertificatesTable";
 import { getAllCertificates } from "@/database/cerficate.query";

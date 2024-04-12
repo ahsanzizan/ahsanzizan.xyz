@@ -1,5 +1,5 @@
 import { StandardLinkButton } from "@/app/components/global/Buttons";
-import LeftArrowIcon from "@/app/components/global/Icons/LeftArrow";
+import LeftArrowIcon from "@/app/components/global/icons/LeftArrow";
 import SocialMediasRow from "@/app/components/global/SocialMediasRow";
 import { getContentbyKey } from "@/database/content.query";
 import { getAllSocialMedias } from "@/database/socialMedia.query";

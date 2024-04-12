@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import SpotifyIcon from "../global/Icons/Spotify";
+import SpotifyIcon from "../global/icons/Spotify";
 import { truncateString } from "@/utils/utilityFunctions";
 
 export interface SpotifyData {
