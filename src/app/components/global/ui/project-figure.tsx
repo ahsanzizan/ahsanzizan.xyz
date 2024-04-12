@@ -31,14 +31,19 @@ export function ProjectFigure({
         unoptimized
         variant={"default"}
       />
-      <div
-        className={cn(
-          "bottom absolute -bottom-full left-10 block w-full transition-all duration-300 group-hover:bottom-5",
-        )}
-      >
-        <H3 className="mb-1">{title}</H3>
-        <P className="mb-3">{description}</P>
-        <Button variant={"default"}>Learn more</Button>
+      <div className={cn("block h-full w-full transition-all duration-300")}>
+        <H3 className="absolute -bottom-full left-10 transition-all duration-300 group-hover:bottom-32">
+          {title}
+        </H3>
+        <P className="absolute -bottom-full left-10 transition-all delay-75 duration-300 group-hover:bottom-24">
+          {description}
+        </P>
+        <Button
+          variant={"default"}
+          className="absolute -bottom-full left-10 delay-100 group-hover:bottom-8"
+        >
+          Learn more
+        </Button>
       </div>
     </figure>
   );

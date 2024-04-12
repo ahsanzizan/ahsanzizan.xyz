@@ -24,17 +24,28 @@ interface ButtonProps
 
 interface LinkProps extends NextLinkProps, VariantProps<typeof buttonVariants> {
   children?: ReactNode;
+  className?: string;
 }
 
-export function Button({ children, variant, ...props }: Readonly<ButtonProps>) {
+export function Button({
+  children,
+  variant,
+  className,
+  ...props
+}: Readonly<ButtonProps>) {
   return (
-    <button {...props} className={cn(buttonVariants({ variant }))}>
+    <button {...props} className={cn(buttonVariants({ variant }), className)}>
       {children}
     </button>
   );
 }
 
-export function Link({ children, variant, ...props }: Readonly<LinkProps>) {
+export function Link({
+  children,
+  variant,
+  className,
+  ...props
+}: Readonly<LinkProps>) {
   return (
     <NextLink {...props} className={cn(buttonVariants({ variant }))}>
       {children}
