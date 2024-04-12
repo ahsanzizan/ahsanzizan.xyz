@@ -8,8 +8,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-neutral-500 bg-black hover:bg-white hover:text-black",
-        inverse:
+        inverse: "border-neutral-500 bg-black hover:bg-white hover:text-black",
+        default:
           "border-white bg-white text-black hover:bg-black hover:text-white",
       },
     },
