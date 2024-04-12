@@ -22,13 +22,13 @@ export function Anchor({ children, variant, ...props }: Readonly<AnchorProps>) {
   return (
     <Link {...props} className={cn(anchorVariants({ variant }))}>
       {children}
-      <div
+      <span
         className={cn(
           "absolute bottom-0 left-0 origin-right transition-all duration-300",
           "h-[1px] w-full group-hover:w-0",
           "bg-neutral-400 group-hover:bg-white",
         )}
-      ></div>
+      ></span>
     </Link>
   );
 }
