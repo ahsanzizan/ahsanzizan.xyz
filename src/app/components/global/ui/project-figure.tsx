@@ -26,7 +26,7 @@ export function ProjectFigure({
         width={120}
         height={120}
         className={cn(
-          "absolute left-0 top-0 h-full w-full transition-all duration-300 group-hover:opacity-25",
+          "absolute left-0 top-0 h-full w-full transition-all duration-300 group-hover:scale-110 group-hover:opacity-25",
         )}
         unoptimized
         variant={"default"}
