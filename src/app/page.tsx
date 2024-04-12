@@ -1,16 +1,13 @@
-import { getContentbyKey } from "@/database/content.query";
 import { SocialProfileJsonLd } from "next-seo";
 import Blogs from "./components/Parts/Blogs";
 import Footer from "./components/Parts/Footer";
 import Header from "./components/Parts/Header";
-import Navbar from "./components/Parts/Navbar";
 import Services from "./components/Parts/Services";
 import Works from "./components/Parts/Works";
 import Wrapper from "./components/global/Wrapper";
+import NavigationBar from "./components/global/ui/navigation-bar";
 
 export default async function Home() {
-  const email = JSON.parse(JSON.stringify(await getContentbyKey("email")));
-
   return (
     <Wrapper>
       <SocialProfileJsonLd
@@ -24,8 +21,8 @@ export default async function Home() {
         ]}
         useAppDir
       />
-      <Navbar email={email.content ?? "ahsanaz461@gmail.com"} />
-      <main className="mx-auto w-full max-w-[1440px] p-20">
+      <NavigationBar />
+      <main className="mx-auto w-full max-w-[1440px] px-20 py-24">
         <Header />
         <Services />
         <Works />

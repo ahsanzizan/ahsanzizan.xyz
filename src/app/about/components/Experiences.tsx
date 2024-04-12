@@ -1,5 +1,5 @@
 import { getAllExperiences } from "@/database/experience.query";
-import { getMonthName } from "@/utils/utilityFunctions";
+import { getMonthName } from "@/utils/utilities";
 
 export default async function Experiences() {
   const experiences = await getAllExperiences();

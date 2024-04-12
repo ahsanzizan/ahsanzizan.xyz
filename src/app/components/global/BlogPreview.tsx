@@ -1,5 +1,5 @@
 import { Blog } from "@/types/models";
-import { stringifyDate } from "@/utils/utilityFunctions";
+import { stringifyDate } from "@/utils/utilities";
 import { StandardLinkButton } from "./Buttons";
 import LeftArrowIcon from "./icons/LeftArrow";
 

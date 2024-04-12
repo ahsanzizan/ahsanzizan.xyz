@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import SpotifyIcon from "../global/icons/Spotify";
-import { truncateString } from "@/utils/utilityFunctions";
+import { truncateString } from "@/utils/utilities";
 
 export interface SpotifyData {
   isPlaying: boolean;

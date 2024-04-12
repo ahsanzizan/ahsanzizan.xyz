@@ -1,3 +1,4 @@
+import { Variants } from "framer-motion";
 import connectDB from "../lib/mongoose";
 
 // Utility function for performing a query with mongoose,
@@ -61,3 +62,15 @@ export function truncateString(content: string, threshold: number) {
 export function isInteger(value: string) {
   return /^\d+$/.test(value);
 }
+
+export const introVariants: Variants = {
+  hide: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 100,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};

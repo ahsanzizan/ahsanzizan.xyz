@@ -1,5 +1,5 @@
 import { Model, SortOrder } from "mongoose";
-import { connectAndQuery } from "./utilityFunctions";
+import { connectAndQuery } from "./utilities";
 
 async function getCount(model: Model<any>) {
   return connectAndQuery(async () => await model.countDocuments());

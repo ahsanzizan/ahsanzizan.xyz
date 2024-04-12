@@ -1,6 +1,6 @@
 import BlogModel from "@/models/Blog.model";
 import { getPaginatedResult } from "@/utils/paginator";
-import { isInteger } from "@/utils/utilityFunctions";
+import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
 import Footer from "../components/Parts/Footer";
 import BlogPreview from "../components/global/BlogPreview";

@@ -4,7 +4,7 @@ import {
   StandardFormButton,
 } from "@/app/components/global/Buttons";
 import { getExperienceById } from "@/database/experience.query";
-import { getFormattedDate } from "@/utils/utilityFunctions";
+import { getFormattedDate } from "@/utils/utilities";
 import { Types } from "mongoose";
 import {
   DateInput,

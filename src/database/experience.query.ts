@@ -1,5 +1,5 @@
 import ExperienceModel from "@/models/Experience.model";
-import { connectAndQuery } from "../utils/utilityFunctions";
+import { connectAndQuery } from "../utils/utilities";
 import { Experience } from "@/types/models";
 
 export async function getAllExperiences(): Promise<Experience[]> {

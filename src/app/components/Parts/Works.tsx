@@ -1,5 +1,5 @@
 import { getPaginatedResult } from "@/utils/paginator";
-import { truncateString } from "@/utils/utilityFunctions";
+import { truncateString } from "@/utils/utilities";
 import Image from "next/image";
 import { StandardLinkButton, VisitWorkButton } from "../global/Buttons";
 import ProjectModel from "@/models/Project.model";

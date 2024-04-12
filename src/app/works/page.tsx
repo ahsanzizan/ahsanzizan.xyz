@@ -1,7 +1,7 @@
 import ProjectModel from "@/models/Project.model";
 import { Project } from "@/types/models";
 import { getPaginatedResult } from "@/utils/paginator";
-import { isInteger } from "@/utils/utilityFunctions";
+import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
 import Image from "next/image";
 import Link from "next/link";

@@ -9,7 +9,7 @@ import {
   calculateReadTime,
   stringifyDate,
   truncateString,
-} from "@/utils/utilityFunctions";
+} from "@/utils/utilities";
 import { Model } from "mongoose";
 import { ArticleJsonLd } from "next-seo";
 import Link from "next/link";
