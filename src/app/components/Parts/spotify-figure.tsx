@@ -1,7 +1,11 @@
 "use client";
+import cn from "@/lib/clsx";
+import { truncateString } from "@/utils/utilities";
 import { useEffect, useState } from "react";
 import SpotifyIcon from "../global/icons/Spotify";
-import { truncateString } from "@/utils/utilities";
+import { Anchor } from "../global/ui/anchor";
+import { H3, P } from "../global/ui/text";
+import { Link } from "../global/ui/button";
 
 export interface SpotifyData {
   isPlaying: boolean;
@@ -29,22 +33,28 @@ export default function Spotify() {
   }, [refreshToken]);
 
   return (
-    <figure className="flex w-full min-w-[75%] max-w-[75%] md:min-w-[30%] md:max-w-[30%]">
-      <div className="flex w-full items-center gap-8 rounded-lg border border-white px-5 py-3">
+    <figure
+      className={cn(
+        "flex w-full min-w-[75%] max-w-[75%] md:min-w-[30%] md:max-w-[30%]",
+      )}
+    >
+      <Link
+        href={"#"}
+        variant={"inverse"}
+        className={cn("flex w-full items-center gap-8")}
+      >
         <SpotifyIcon
-          className={`h-10 w-10 ${data?.isPlaying ? "animate-pulse" : ""}`}
+          className={`h-10 w-10 transition-all duration-300 group-hover:text-black ${
+            data?.isPlaying ? "animate-pulse" : ""
+          }`}
         />
         <div className="block">
-          <h1 className="mb-2 text-lg drop-shadow-glow md:text-2xl">
-            {data?.isPlaying
-              ? truncateString(data.title, 20)
-              : "Not playing anything"}
-          </h1>
-          <p className="text-neutral-400">
-            {data?.isPlaying ? `by ${data.artist}` : "None"}
-          </p>
+          <H3 className="mb-1 transition-all duration-300 group-hover:text-black">
+            {data?.isPlaying ? truncateString(data.title, 20) : "Not playing"}
+          </H3>
+          <P>{data?.isPlaying ? `by ${data.artist}` : "None"}</P>
         </div>
-      </div>
+      </Link>
     </figure>
   );
 }

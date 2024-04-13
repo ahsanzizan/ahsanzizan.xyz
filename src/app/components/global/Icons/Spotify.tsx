@@ -1,3 +1,4 @@
+import cn from "@/lib/clsx";
 import { IconProps } from "@/types/icon";
 
 export default function SpotifyIcon({ className }: Readonly<IconProps>) {
@@ -7,8 +8,7 @@ export default function SpotifyIcon({ className }: Readonly<IconProps>) {
       fill="currentColor"
       strokeWidth="0"
       viewBox="0 0 496 512"
-      className={className}
-      style={{ color: "#1DB954" }}
+      className={cn(className + " text-white")}
       height="16"
       width="16"
       xmlns="http://www.w3.org/2000/svg"

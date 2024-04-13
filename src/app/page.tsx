@@ -6,6 +6,8 @@ import Services from "./components/Parts/Services";
 import Works from "./components/Parts/Works";
 import Wrapper from "./components/global/Wrapper";
 import NavigationBar from "./components/global/ui/navigation-bar";
+import cn from "@/lib/clsx";
+import Contact from "./components/Parts/Contact";
 
 export default async function Home() {
   return (
@@ -22,11 +24,12 @@ export default async function Home() {
         useAppDir
       />
       <NavigationBar />
-      <main className="mx-auto w-full max-w-[1440px] px-20 py-24">
+      <main className={cn("mx-auto w-full max-w-[1440px] px-5 py-24 md:px-20")}>
         <Header />
         <Services />
         <Works />
         <Blogs />
+        <Contact />
         <Footer />
       </main>
     </Wrapper>

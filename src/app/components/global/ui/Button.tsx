@@ -47,7 +47,7 @@ export function Link({
   ...props
 }: Readonly<LinkProps>) {
   return (
-    <NextLink {...props} className={cn(buttonVariants({ variant }))}>
+    <NextLink {...props} className={cn(buttonVariants({ variant }), className)}>
       {children}
     </NextLink>
   );

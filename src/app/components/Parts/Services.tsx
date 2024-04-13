@@ -5,6 +5,7 @@ import { introVariants } from "@/utils/utilities";
 import { motion } from "framer-motion";
 import PortalIcon from "../global/icons/portal";
 import { H1, H4, P } from "../global/ui/text";
+import { SectionContainer } from "../global/ui/container";
 
 const services = [
   {
@@ -26,7 +27,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="layanan" className={cn("mb-32 w-full py-12")}>
+    <SectionContainer id="layanan">
       <motion.div
         className={cn("relative flex flex-col justify-between lg:flex-row")}
         initial="hide"
@@ -67,6 +68,6 @@ export default function Services() {
           })}
         </div>
       </motion.div>
-    </section>
+    </SectionContainer>
   );
 }

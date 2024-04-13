@@ -1,9 +1,12 @@
+import cn from "@/lib/clsx";
 import BlogModel from "@/models/Blog.model";
 import { Blog } from "@/types/models";
 import { getPaginatedResult } from "@/utils/paginator";
 import { Model } from "mongoose";
-import BlogPreview from "../global/BlogPreview";
-import { StandardLinkButton } from "../global/Buttons";
+import { SectionContainer } from "../global/ui/container";
+import { H1, H4, P } from "../global/ui/text";
+import { calculateReadTime, truncateString } from "@/utils/utilities";
+import { Anchor } from "../global/ui/anchor";
 
 export default async function Blogs() {
   const { datas: blogs }: { datas: Blog[] } = await getPaginatedResult({
@@ -14,16 +17,39 @@ export default async function Blogs() {
   });
 
   return (
-    <section id="blogs" className="mb-32 w-full py-12">
-      <div className="mb-5 flex w-full items-center justify-between md:mb-12">
-        <h4 className="text-lg drop-shadow-glow md:text-2xl">Blogs</h4>
-        <StandardLinkButton href={"/blog/"}>See All</StandardLinkButton>
+    <SectionContainer id="blogs">
+      <div className={cn("relative flex flex-col justify-between lg:flex-row")}>
+        <div
+          className={cn(
+            "mb-[42px] w-full lg:sticky lg:top-[6em] lg:mb-0 lg:h-[170px] lg:w-[45%] lg:self-start",
+          )}
+        >
+          <H1>Blog Articles</H1>
+        </div>
+        <div
+          className={cn(
+            "flex w-full flex-col divide-y divide-white rounded-full lg:w-1/2",
+          )}
+        >
+          {blogs.map((blog) => {
+            return (
+              <div key={blog._id.toString()} className={cn("w-full py-5")}>
+                <H4 className="mb-[14px] flex items-center gap-1">
+                  {blog.title}
+                </H4>
+                <P className="mb-3">{truncateString(blog.content, 120)}</P>
+                <div className={cn("flex items-center gap-2")}>
+                  <Anchor href={"/blog/" + blog.link} variant={"default"}>
+                    Read more
+                  </Anchor>
+                  <span className={cn("h-1 w-1 rounded-full bg-white")}></span>
+                  <P>{calculateReadTime(blog.content)} min</P>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className="flex w-full flex-col divide-y divide-white">
-        {blogs.map((blog) => (
-          <BlogPreview key={blog._id.toString()} blog={blog} />
-        ))}
-      </div>
-    </section>
+    </SectionContainer>
   );
 }

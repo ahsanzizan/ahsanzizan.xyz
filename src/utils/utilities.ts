@@ -66,11 +66,13 @@ export function isInteger(value: string) {
 export const introVariants: Variants = {
   hide: {
     opacity: 0,
+    y: -100,
   },
   show: {
     opacity: 100,
+    y: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.8,
     },
   },
 };

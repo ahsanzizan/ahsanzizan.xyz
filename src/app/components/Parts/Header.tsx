@@ -3,14 +3,15 @@
 import cn from "@/lib/clsx";
 import { introVariants } from "@/utils/utilities";
 import { motion } from "framer-motion";
-import LeftArrowIcon from "../global/icons/LeftArrow";
+import PlayIcon from "../global/icons/Play";
 import PortalIcon from "../global/icons/portal";
 import { Link } from "../global/ui/button";
+import { SectionContainer } from "../global/ui/container";
 import { H1 } from "../global/ui/text";
 
 export default function Header() {
   return (
-    <section id="home" className={cn("mb-32 w-full py-12")}>
+    <SectionContainer id="home">
       <motion.header
         className={cn("z-10 flex flex-col items-center gap-2 md:gap-4")}
         initial="hide"
@@ -28,9 +29,9 @@ export default function Header() {
         </H1>
         <Link href={"/about"} className="items-center" variant={"default"}>
           Learn more{" "}
-          <LeftArrowIcon className="my-auto ml-2 transition-all duration-300 group-hover:translate-x-2 group-hover:fill-white" />
+          <PlayIcon className="my-auto ml-2 transition-transform duration-300 group-hover:translate-x-2 group-hover:fill-white" />
         </Link>
       </motion.header>
-    </section>
+    </SectionContainer>
   );
 }
