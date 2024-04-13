@@ -13,9 +13,11 @@ export default function PaginatedNavigator({
     <div className="flex items-center gap-4">
       <Link
         href={`/${segment}?page=${page - 1}`}
+        variant={"inverse"}
         className={`${
           page > 1 ? "opacity-100" : "pointer-events-none opacity-50"
         }`}
+        scroll={false}
       >
         {"<"}
       </Link>
@@ -24,9 +26,11 @@ export default function PaginatedNavigator({
       </p>
       <Link
         href={`/${segment}?page=${page + 1}`}
+        variant={"inverse"}
         className={`${
           page < maxPage ? "opacity-100" : "pointer-events-none opacity-50"
         }`}
+        scroll={false}
       >
         {">"}
       </Link>

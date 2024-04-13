@@ -1,4 +1,3 @@
-import Footer from "../../components/parts/Footer";
 import Certificates from "./components/Certificates";
 import Experiences from "./components/Experiences";
 import Header from "./components/Header";

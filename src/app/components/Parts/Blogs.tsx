@@ -7,6 +7,7 @@ import { SectionContainer } from "../global/ui/container";
 import { H1, H4, P } from "../global/ui/text";
 import { calculateReadTime, truncateString } from "@/utils/utilities";
 import { Anchor } from "../global/ui/anchor";
+import { BlogPreview } from "../global/ui/blog-preview";
 
 export default async function Blogs() {
   const { datas: blogs }: { datas: Blog[] } = await getPaginatedResult({
@@ -32,21 +33,7 @@ export default async function Blogs() {
           )}
         >
           {blogs.map((blog) => {
-            return (
-              <div key={blog._id.toString()} className={cn("w-full py-5")}>
-                <H4 className="mb-[14px] flex items-center gap-1">
-                  {blog.title}
-                </H4>
-                <P className="mb-3">{truncateString(blog.content, 120)}</P>
-                <div className={cn("flex items-center gap-2")}>
-                  <Anchor href={"/blog/" + blog.link} variant={"default"}>
-                    Read more
-                  </Anchor>
-                  <span className={cn("h-1 w-1 rounded-full bg-white")}></span>
-                  <P>{calculateReadTime(blog.content)} min</P>
-                </div>
-              </div>
-            );
+            return <BlogPreview key={blog._id.toString()} blog={blog} />;
           })}
         </div>
       </div>

@@ -1,13 +1,15 @@
+import { SectionContainer } from "@/app/components/global/ui/container";
+import { H1 } from "@/app/components/global/ui/text";
 import ProjectModel from "@/models/Project.model";
 import { Project } from "@/types/models";
 import { getPaginatedResult } from "@/utils/paginator";
 import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
 import Image from "next/image";
-import Link from "next/link";
-import Footer from "../components/parts/Footer";
-import Wrapper from "../components/global/Wrapper";
-import PaginatedNavigator from "../components/global/PaginatedNavigator";
+import { default as NextLink } from "next/link";
+import PaginatedNavigator from "../../components/global/PaginatedNavigator";
+import cn from "@/lib/clsx";
+import { ProjectFigure } from "@/app/components/global/ui/project-figure";
 
 export default async function Works({
   searchParams,
@@ -23,40 +25,27 @@ export default async function Works({
     });
 
   return (
-    <Wrapper>
-      <main className="mx-auto w-full max-w-[1440px] px-5 py-24">
-        <section id="works" className="mb-32 w-full py-12">
-          <div className="mb-5 flex w-full items-center justify-between md:mb-12">
-            <h4 className="text-lg drop-shadow-glow md:text-2xl">
-              All Selected Works
-            </h4>
-            <PaginatedNavigator segment="works" maxPage={maxPage} page={page} />
-          </div>
-          <div className="flex w-full flex-col divide-y divide-white">
-            {projects.map((project) => (
-              <Link
-                key={project._id.toString()}
-                href={`/works/${project.link}`}
-                className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 hover:px-4 md:py-10 md:hover:px-7"
-              >
-                <h2 className="text-xl drop-shadow-glow md:text-4xl">
-                  {project.title}
-                </h2>
-                <Image
-                  src={project.image}
-                  alt="Project Image"
-                  width={256}
-                  height={164}
-                  className="relative h-20 w-32 rounded-xl object-cover opacity-0 transition-all duration-500 group-hover:opacity-100 md:h-40 md:w-64"
-                  unoptimized
-                />
-              </Link>
-            ))}
-          </div>
-        </section>
-        <Footer />
-      </main>
-    </Wrapper>
+    <SectionContainer id="works">
+      <div
+        className={cn("mb-5 flex w-full items-center justify-between md:mb-12")}
+      >
+        <H1>All Curated Works</H1>
+        <PaginatedNavigator segment="works" maxPage={maxPage} page={page} />
+      </div>
+      <div className="flex w-full flex-col gap-5">
+        {projects.map((project) => (
+          <ProjectFigure
+            key={project._id.toString()}
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            href={"/works/" + project.link}
+            className="h-[312px] w-full md:h-[512px]"
+            descriptionThreshold={170}
+          />
+        ))}
+      </div>
+    </SectionContainer>
   );
 }
 
