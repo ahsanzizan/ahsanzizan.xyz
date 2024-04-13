@@ -1,5 +1,8 @@
 "use client";
-import { StandardFormButton } from "@/app/components/global/Buttons";
+
+import { Button } from "@/app/components/global/ui/button";
+import { Input } from "@/app/components/global/ui/input";
+import { H1 } from "@/app/components/global/ui/text";
 import { signIn, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import type { ChangeEvent } from "react";
@@ -13,6 +16,7 @@ export default function Login() {
     password: "",
   });
   const [loading, setLoading] = useState<boolean>(false);
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormValues({ ...formValues, [name]: value });
@@ -57,40 +61,33 @@ export default function Login() {
   return (
     <section className="flex h-screen flex-col items-center justify-center gap-2">
       <div className="w-full max-w-lg rounded p-6">
-        <h1 className="mb-7 text-4xl leading-snug drop-shadow-glow md:text-7xl">
-          Admin Login
-        </h1>
+        <H1 className="mb-4">Admin Login</H1>
         <form
           action="/api/auth/callback/credentials"
           method="POST"
           onSubmit={onSubmit}
         >
-          <div className="mb-4">
-            <input
-              className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
-              style={{ WebkitTextFillColor: "#fff" }}
-              type="text"
-              name="username"
-              placeholder="Username"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <input
-              className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
-              style={{ WebkitTextFillColor: "#fff" }}
-              type="password"
-              name="password"
-              onChange={handleChange}
-              placeholder="Password"
-              required
-            />
-          </div>
+          <Input
+            label="Username"
+            placeholder="User123"
+            type="text"
+            name="username"
+            onChange={handleChange}
+            className="mb-2"
+            required
+          />
+          <Input
+            label="Password"
+            placeholder="*******"
+            type="password"
+            name="password"
+            onChange={handleChange}
+            required
+          />
           <div className="mt-10">
-            <StandardFormButton type="submit" disabled={loading}>
+            <Button type="submit" disabled={loading} variant={"default"}>
               Log In
-            </StandardFormButton>
+            </Button>
           </div>
         </form>
       </div>

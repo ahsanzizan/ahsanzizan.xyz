@@ -26,7 +26,9 @@ export default async function Certificates() {
           <PlayIcon className="ml-2 transition-transform duration-300 group-hover:translate-x-2 group-hover:fill-white" />
         </Link>
       </div>
-      <div className={cn("flex w-full flex-col gap-5 md:flex-row")}>
+      <div
+        className={cn("flex w-full flex-col justify-center gap-5 md:flex-row")}
+      >
         {certificates.map((certificate) => (
           <NextLink
             href={certificate.url}

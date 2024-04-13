@@ -1,9 +1,7 @@
 "use client";
 import { deleteCertificateAction } from "@/actions/deleteActions";
-import {
-  StandardButton,
-  StandardLinkButton,
-} from "@/app/components/global/Buttons";
+import { Button, Link } from "@/app/components/global/ui/button";
+import { H3 } from "@/app/components/global/ui/text";
 import { Certificate } from "@/types/models";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -21,10 +19,10 @@ export default function CertificatesTable({
   return (
     <>
       <div className="mb-4 flex w-full items-center justify-between">
-        <h4 className="text-lg drop-shadow-glow md:text-2xl">Certificates</h4>
-        <StandardLinkButton href={"/admin/certificates/new"}>
+        <H3>Certificates</H3>
+        <Link href={"/admin/certificates/new"} variant={"default"}>
           New
-        </StandardLinkButton>
+        </Link>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedCertificates.map((certificate) => (
@@ -38,7 +36,7 @@ export default function CertificatesTable({
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <StandardButton
+              <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteCertificateAction(certificate._id.toString()).then(
@@ -50,14 +48,16 @@ export default function CertificatesTable({
                     },
                   );
                 }}
+                variant={"default"}
               >
                 Delete
-              </StandardButton>
-              <StandardLinkButton
+              </Button>
+              <Link
                 href={"/admin/certificates/" + certificate._id.toString()}
+                variant={"inverse"}
               >
                 Edit
-              </StandardLinkButton>
+              </Link>
             </div>
           </div>
         ))}

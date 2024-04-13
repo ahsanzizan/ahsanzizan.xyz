@@ -1,15 +1,9 @@
 import { upsertSocialMediaAction } from "@/actions/upsertActions";
-import {
-  BackButton,
-  StandardFormButton,
-} from "@/app/components/global/Buttons";
+import { Button } from "@/app/components/global/ui/button";
+import { HiddenInfo, Input } from "@/app/components/global/ui/input";
+import { H1 } from "@/app/components/global/ui/text";
 import { getSocialMediaById } from "@/database/socialMedia.query";
 import { Types } from "mongoose";
-import {
-  HiddenInfo,
-  TextInput,
-  URLInput,
-} from "../../components/shared/Inputs";
 
 export default async function EditSocialMedia({
   params,
@@ -21,10 +15,7 @@ export default async function EditSocialMedia({
   return (
     <section className="flex min-h-screen flex-col items-center justify-center gap-2">
       <div className="w-full max-w-4xl rounded p-6">
-        <BackButton />
-        <h1 className="mb-7 mt-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
-          {socialMedia ? "Edit" : "Create"} a Social Media
-        </h1>
+        <H1>{socialMedia ? "Edit" : "Create"} a Social Media</H1>
         <form action={upsertSocialMediaAction}>
           <HiddenInfo
             name="_id"
@@ -34,32 +25,32 @@ export default async function EditSocialMedia({
                 : new Types.ObjectId().toString()
             }
           />
-          <TextInput
+          <Input
+            type="text"
             name="name"
             label="Name"
             placeholder="Name"
             defaultValue={socialMedia?.name}
             required
           />
-          <TextInput
+          <Input
+            type="text"
             name="svgPath"
             label="SVG Path"
             placeholder="SVG Path"
             defaultValue={socialMedia?.svgPath}
             required
           />
-          <URLInput
+          <Input
+            type="url"
             name="url"
             label="URL"
             placeholder="URL"
             defaultValue={socialMedia?.url}
             required
-            last
           />
           <div className="mt-10">
-            <StandardFormButton type="submit">
-              {socialMedia ? "Save" : "Create"}
-            </StandardFormButton>
+            <Button type="submit">{socialMedia ? "Save" : "Create"}</Button>
           </div>
         </form>
       </div>

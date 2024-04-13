@@ -1,9 +1,7 @@
 "use client";
 import { deleteContentAction } from "@/actions/deleteActions";
-import {
-  StandardButton,
-  StandardLinkButton,
-} from "@/app/components/global/Buttons";
+import { Button, Link } from "@/app/components/global/ui/button";
+import { H3 } from "@/app/components/global/ui/text";
 import { Content } from "@/types/models";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -17,10 +15,10 @@ export default function ContentsTable({
   return (
     <>
       <div className="mb-4 flex w-full items-center justify-between">
-        <h4 className="text-lg drop-shadow-glow md:text-2xl">Contents</h4>
-        <StandardLinkButton href={"/admin/contents/new"}>
+        <H3>Contents</H3>
+        <Link href={"/admin/contents/new"} variant={"default"}>
           New
-        </StandardLinkButton>
+        </Link>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedContents.map((content, i) => (
@@ -34,7 +32,7 @@ export default function ContentsTable({
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <StandardButton
+              <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteContentAction(content._id.toString()).then(() => {
@@ -44,14 +42,16 @@ export default function ContentsTable({
                     router.refresh();
                   });
                 }}
+                variant={"default"}
               >
                 Delete
-              </StandardButton>
-              <StandardLinkButton
+              </Button>
+              <Link
                 href={"/admin/contents/" + content._id.toString()}
+                variant={"inverse"}
               >
                 Edit
-              </StandardLinkButton>
+              </Link>
             </div>
           </div>
         ))}

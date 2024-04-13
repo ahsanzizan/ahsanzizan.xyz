@@ -1,16 +1,13 @@
 import { upsertProjectAction } from "@/actions/upsertActions";
-import {
-  BackButton,
-  StandardFormButton,
-} from "@/app/components/global/Buttons";
-import { getProjectById } from "@/database/project.query";
-import { Types } from "mongoose";
+import { Button } from "@/app/components/global/ui/button";
 import {
   HiddenInfo,
+  Input,
   TextAreaInput,
-  TextInput,
-  URLInput,
-} from "../../components/shared/Inputs";
+} from "@/app/components/global/ui/input";
+import { H1 } from "@/app/components/global/ui/text";
+import { getProjectById } from "@/database/project.query";
+import { Types } from "mongoose";
 
 export default async function EditWork({
   params,
@@ -22,10 +19,7 @@ export default async function EditWork({
   return (
     <section className="flex min-h-screen flex-col items-center justify-center">
       <div className="w-full max-w-4xl rounded p-6">
-        <BackButton />
-        <h1 className="mb-7 mt-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
-          {project ? "Edit" : "Create"} a Project
-        </h1>
+        <H1>{project ? "Edit" : "Create"} a Project</H1>
         <form action={upsertProjectAction}>
           <HiddenInfo
             name="_id"
@@ -33,28 +27,30 @@ export default async function EditWork({
               project ? project._id.toString() : new Types.ObjectId().toString()
             }
           />
-          <TextInput
+          <Input
             name="title"
             label="Title"
             placeholder="Title"
             defaultValue={project?.title}
             required
           />
-          <TextInput
+          <Input
             name="url"
             label="URL"
+            type="url"
             placeholder="URL"
             defaultValue={project?.url}
             required
           />
-          <URLInput
+          <Input
             name="image"
             label="Image"
+            type="url"
             placeholder="Image"
             defaultValue={project?.image}
             required
           />
-          <TextInput
+          <Input
             name="link"
             label="Link"
             placeholder="Link"
@@ -67,12 +63,9 @@ export default async function EditWork({
             placeholder="Description"
             defaultValue={project?.description}
             required
-            last
           />
           <div className="mt-10">
-            <StandardFormButton type="submit">
-              {project ? "Save" : "Create"}
-            </StandardFormButton>
+            <Button type="submit">{project ? "Save" : "Create"}</Button>
           </div>
         </form>
       </div>

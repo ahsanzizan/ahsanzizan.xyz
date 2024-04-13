@@ -1,9 +1,7 @@
 "use client";
 import { deleteSocialMediaAction } from "@/actions/deleteActions";
-import {
-  StandardButton,
-  StandardLinkButton,
-} from "@/app/components/global/Buttons";
+import { Button, Link } from "@/app/components/global/ui/button";
+import { H3 } from "@/app/components/global/ui/text";
 import { SocialMedia } from "@/types/models";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -21,10 +19,10 @@ export default function SocialMediasTable({
   return (
     <>
       <div className="mb-4 flex w-full items-center justify-between">
-        <h4 className="text-lg drop-shadow-glow md:text-2xl">Social Medias</h4>
-        <StandardLinkButton href={"/admin/social-medias/new"}>
+        <H3>Social Medias</H3>
+        <Link href={"/admin/social-medias/new"} variant={"default"}>
           New
-        </StandardLinkButton>
+        </Link>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedSocialMedias.map((socialMedia) => (
@@ -46,7 +44,7 @@ export default function SocialMediasTable({
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <StandardButton
+              <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteSocialMediaAction(socialMedia._id.toString()).then(
@@ -58,14 +56,16 @@ export default function SocialMediasTable({
                     },
                   );
                 }}
+                variant={"default"}
               >
                 Delete
-              </StandardButton>
-              <StandardLinkButton
+              </Button>
+              <Link
                 href={"/admin/social-medias/" + socialMedia._id.toString()}
+                variant={"inverse"}
               >
                 Edit
-              </StandardLinkButton>
+              </Link>
             </div>
           </div>
         ))}
