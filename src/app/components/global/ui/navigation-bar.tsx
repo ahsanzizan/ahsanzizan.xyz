@@ -36,7 +36,9 @@ export default function NavigationBar() {
               )}
             >
               <Link href={link.href} className={cn("block px-5 py-2")}>
-                <span className={cn("text-sm md:text-base")}>{link.text}</span>
+                <span className={cn("text-xs sm:text-sm md:text-base")}>
+                  {link.text}
+                </span>
               </Link>
             </li>
           );

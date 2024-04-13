@@ -41,7 +41,6 @@ export default async function Works({
             image={project.image}
             href={"/works/" + project.link}
             className="h-[312px] w-full md:h-[512px]"
-            descriptionThreshold={170}
           />
         ))}
       </div>

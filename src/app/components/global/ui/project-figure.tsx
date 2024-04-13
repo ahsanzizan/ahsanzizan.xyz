@@ -1,5 +1,4 @@
 import cn from "@/lib/clsx";
-import { truncateString } from "@/utils/utilities";
 import { Link } from "./button";
 import { Image } from "./image";
 import { H3, P } from "./text";
@@ -9,7 +8,6 @@ interface ProjectFigureProps {
   image: string;
   description: string;
   href: string;
-  descriptionThreshold?: number;
   className?: string;
 }
 
@@ -18,7 +16,6 @@ export function ProjectFigure({
   image,
   description,
   href,
-  descriptionThreshold,
   className,
 }: Readonly<ProjectFigureProps>) {
   return (
@@ -40,8 +37,8 @@ export function ProjectFigure({
         <H3 className="absolute -bottom-full left-10 transition-all duration-300 group-hover:bottom-40">
           {title}
         </H3>
-        <P className="absolute -bottom-full left-10 transition-all delay-75 duration-300 group-hover:bottom-24">
-          {truncateString(description, descriptionThreshold ?? 120)}
+        <P className="absolute -bottom-full left-10 line-clamp-3 transition-all delay-75 duration-300 group-hover:bottom-24 md:line-clamp-2">
+          {description}
         </P>
         <Link
           href={href}
