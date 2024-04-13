@@ -1,41 +1,60 @@
+import PortalIcon from "@/app/components/global/icons/portal";
+import { SectionContainer } from "@/app/components/global/ui/container";
+import { H1, H4, P } from "@/app/components/global/ui/text";
 import { getAllExperiences } from "@/database/experience.query";
+import cn from "@/lib/clsx";
 import { getMonthName } from "@/utils/utilities";
 
 export default async function Experiences() {
   const experiences = await getAllExperiences();
 
   return (
-    <section id="experiences" className="mb-32 w-full py-12">
-      <h1 className="mb-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
-        Experiences
-      </h1>
-      <div className="flex w-full flex-col gap-8">
-        {experiences.map((experience) => (
-          <div
-            key={experience._id.toString()}
-            className="group flex w-full flex-col gap-4 rounded-lg border border-white p-5 transition-all duration-500 md:p-10"
-          >
-            <h2 className="text-xl drop-shadow-glow md:text-4xl">
-              {experience.title}
-            </h2>
-            <dl className="mb-2">
-              <dd className="text-base font-medium leading-6">
-                <time>
-                  {getMonthName(experience.startDate.getMonth())}{" "}
-                  {experience.startDate.getFullYear()} -{" "}
-                  {experience.endDate
-                    ? getMonthName(experience.endDate?.getMonth())
-                    : "Present"}{" "}
-                  {experience.endDate?.getFullYear()}
-                </time>
-              </dd>
-            </dl>
-            <p className="text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
-              {experience.description}
-            </p>
-          </div>
-        ))}
+    <SectionContainer id="experiences">
+      <div className={cn("relative flex flex-col justify-between lg:flex-row")}>
+        <div
+          className={cn(
+            "mb-[42px] w-full lg:sticky lg:top-[6em] lg:mb-0 lg:h-[170px] lg:w-[45%] lg:self-start",
+          )}
+        >
+          <H1>My Experiences</H1>
+        </div>
+        <div
+          className={cn(
+            "flex w-full flex-col divide-y divide-white rounded-full lg:w-1/2",
+          )}
+        >
+          {experiences.map((experience) => {
+            return (
+              <div
+                key={experience.title}
+                className={cn("flex w-full py-5 lg:justify-between")}
+              >
+                <div>
+                  <H4 className="mb-[14px] flex items-center gap-1">
+                    {experience.title}
+                    <PortalIcon
+                      className={cn("animate-spin [animation-duration:5s]")}
+                    />
+                  </H4>
+                  <dl className="mb-2">
+                    <dd className="text-base font-medium leading-6">
+                      <time>
+                        {getMonthName(experience.startDate.getMonth())}{" "}
+                        {experience.startDate.getFullYear()} -{" "}
+                        {experience.endDate
+                          ? getMonthName(experience.endDate?.getMonth())
+                          : "Present"}{" "}
+                        {experience.endDate?.getFullYear()}
+                      </time>
+                    </dd>
+                  </dl>
+                  <P>{experience.description}</P>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }

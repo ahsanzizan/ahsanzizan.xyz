@@ -1,4 +1,5 @@
 import LeftArrowIcon from "@/app/components/global/icons/LeftArrow";
+import PortalIcon from "@/app/components/global/icons/portal";
 import { Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { Image } from "@/app/components/global/ui/image";
@@ -6,7 +7,6 @@ import { H1, P } from "@/app/components/global/ui/text";
 import { getContentbyKey } from "@/database/content.query";
 import cn from "@/lib/clsx";
 import Me from "../../../../../public/Me.png";
-import PortalIcon from "@/app/components/global/icons/portal";
 
 export default async function Header() {
   const aboutMe = await getContentbyKey("about-me");

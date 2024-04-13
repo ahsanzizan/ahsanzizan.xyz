@@ -29,8 +29,8 @@ export default function MainLayout({
       />
       <main className={cn("mx-auto w-full max-w-[1440px] px-5 py-24 md:px-20")}>
         {children}
+        <Footer />
       </main>
-      <Footer />
     </Wrapper>
   );
 }
