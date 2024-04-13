@@ -25,8 +25,8 @@ export default async function Blog({
 
   return (
     <SectionContainer id="blogs">
-      <div className="mb-5 flex w-full items-center justify-between md:mb-12">
-        <div className={"flex flex-col md:flex-row"}>
+      <div className="mb-5 flex w-full flex-col justify-between md:mb-12 md:flex-row md:items-center">
+        <div className={"mb-4 flex flex-col"}>
           <H4 className="mb-2">Blog Articles</H4>
           <PaginatedNavigator segment="blog" page={page} maxPage={maxPage} />
         </div>

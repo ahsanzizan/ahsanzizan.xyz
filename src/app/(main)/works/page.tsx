@@ -29,7 +29,7 @@ export default async function Works({
           "mb-5 flex w-full flex-col items-center justify-between md:mb-12 md:flex-row",
         )}
       >
-        <H1>All Curated Works</H1>
+        <H1>Curated Works</H1>
         <PaginatedNavigator segment="works" maxPage={maxPage} page={page} />
       </div>
       <div className="flex w-full flex-col gap-5">
