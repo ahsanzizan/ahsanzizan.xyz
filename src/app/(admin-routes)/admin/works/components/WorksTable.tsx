@@ -1,9 +1,7 @@
 "use client";
 import { deleteProjectAction } from "@/actions/deleteActions";
-import {
-  StandardButton,
-  StandardLinkButton,
-} from "@/app/components/global/Buttons";
+import { Button, Link } from "@/app/components/global/ui/button";
+import { H2, H3 } from "@/app/components/global/ui/text";
 import { Project } from "@/types/models";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -15,8 +13,8 @@ export default function WorksTable({ works }: Readonly<{ works: Project[] }>) {
   return (
     <>
       <div className="mb-4 flex w-full items-center justify-between">
-        <h4 className="text-lg drop-shadow-glow md:text-2xl">Projects</h4>
-        <StandardLinkButton href={"/admin/works/new"}>New</StandardLinkButton>
+        <H3>Projects</H3>
+        <Link href={"/admin/works/new"}>New</Link>
       </div>
       <div className="flex w-full flex-col divide-y divide-white">
         {works.map((project) => (
@@ -25,9 +23,7 @@ export default function WorksTable({ works }: Readonly<{ works: Project[] }>) {
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">
-              <h2 className="text-xl drop-shadow-glow md:text-4xl">
-                {project.title}
-              </h2>
+              <H2>{project.title}</H2>
               <Image
                 src={project.image}
                 alt="Project Image"
@@ -38,7 +34,7 @@ export default function WorksTable({ works }: Readonly<{ works: Project[] }>) {
               />
             </div>
             <div className="flex items-center gap-2">
-              <StandardButton
+              <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   deleteProjectAction(project._id.toString()).then(() => {
@@ -50,12 +46,8 @@ export default function WorksTable({ works }: Readonly<{ works: Project[] }>) {
                 }}
               >
                 Delete
-              </StandardButton>
-              <StandardLinkButton
-                href={"/admin/works/" + project._id.toString()}
-              >
-                Edit
-              </StandardLinkButton>
+              </Button>
+              <Link href={"/admin/works/" + project._id.toString()}>Edit</Link>
             </div>
           </div>
         ))}

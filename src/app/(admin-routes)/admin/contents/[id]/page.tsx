@@ -1,11 +1,9 @@
 import { upsertContentAction } from "@/actions/upsertActions";
-import {
-  BackButton,
-  StandardFormButton,
-} from "@/app/components/global/Buttons";
+import { Button } from "@/app/components/global/ui/button";
+import { HiddenInfo, Input } from "@/app/components/global/ui/input";
+import { H1 } from "@/app/components/global/ui/text";
 import { getContentById } from "@/database/content.query";
 import { Types } from "mongoose";
-import { HiddenInfo, TextInput } from "../../components/shared/Inputs";
 
 export default async function EditContent({
   params,
@@ -17,10 +15,7 @@ export default async function EditContent({
   return (
     <section className="flex min-h-screen flex-col items-center justify-center gap-2">
       <div className="w-full max-w-4xl rounded p-6">
-        <BackButton />
-        <h1 className="mb-7 mt-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
-          {content ? "Edit" : "Create"} a Content
-        </h1>
+        <H1>{content ? "Edit" : "Create"} a Content</H1>
         <form action={upsertContentAction}>
           <HiddenInfo
             name="_id"
@@ -28,25 +23,24 @@ export default async function EditContent({
               content ? content._id.toString() : new Types.ObjectId().toString()
             }
           />
-          <TextInput
+          <Input
+            type="text"
             name="key"
             label="Name"
             placeholder="Key"
             defaultValue={content?.key}
             required
           />
-          <TextInput
+          <Input
+            type="text"
             name="content"
             label="Content"
             placeholder="Content"
             defaultValue={content?.content}
             required
-            last
           />
           <div className="mt-10">
-            <StandardFormButton type="submit">
-              {content ? "Save" : "Create"}
-            </StandardFormButton>
+            <Button type="submit">{content ? "Save" : "Create"}</Button>
           </div>
         </form>
       </div>

@@ -1,15 +1,12 @@
 "use client";
-import {
-  StandardButton,
-  StandardFormButton,
-} from "@/app/components/global/Buttons";
 import { Blog } from "@/types/models";
 import MDEditor from "@uiw/react-md-editor";
 import { Types } from "mongoose";
 import { useEffect, useState } from "react";
 import rehypeSanitize from "rehype-sanitize";
-import { HiddenInfo, TextInput } from "../../../components/shared/Inputs";
 import { upsertBlogAction } from "@/actions/upsertActions";
+import { HiddenInfo, Input } from "@/app/components/global/ui/input";
+import { Button } from "@/app/components/global/ui/button";
 
 export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
   const [tags, setTags] = useState<string[]>([]);
@@ -28,15 +25,17 @@ export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
       />
       <HiddenInfo name="tags" value={tags.join(" ")} />
       <HiddenInfo name="content" value={content} />
-      <TextInput
+      <Input
         name="title"
+        type="text"
         label="Title"
         placeholder="Title"
         defaultValue={blog?.title}
         required
       />
-      <TextInput
+      <Input
         name="link"
+        type="text"
         label="Link"
         placeholder="Link"
         defaultValue={blog?.link}
@@ -58,7 +57,7 @@ export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
             id="tag"
             placeholder="Insert a tag"
           />
-          <StandardButton
+          <Button
             onClick={(e) => {
               e.preventDefault();
               const newTag: HTMLInputElement = document.getElementById(
@@ -67,20 +66,22 @@ export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
               setTags([...tags, newTag.value]);
               newTag.value = "";
             }}
+            variant={"default"}
           >
             Add
-          </StandardButton>
+          </Button>
         </div>
         <div className="flex w-full flex-wrap gap-2">
           {tags?.map((tag, i) => (
-            <StandardButton
+            <Button
               key={tag}
               onClick={() => {
                 setTags(tags.filter((_, index) => index !== i));
               }}
+              variant="default"
             >
               {tag}
-            </StandardButton>
+            </Button>
           ))}
         </div>
       </div>
@@ -93,9 +94,7 @@ export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
         }}
       />
       <div className="mt-10">
-        <StandardFormButton type="submit">
-          {blog ? "Save" : "Create"}
-        </StandardFormButton>
+        <Button type="submit">{blog ? "Save" : "Create"}</Button>
       </div>
     </form>
   );

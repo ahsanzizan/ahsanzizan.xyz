@@ -1,17 +1,14 @@
 import { upsertExperienceAction } from "@/actions/upsertActions";
-import {
-  BackButton,
-  StandardFormButton,
-} from "@/app/components/global/Buttons";
-import { getExperienceById } from "@/database/experience.query";
-import { getFormattedDate } from "@/utils/utilities";
-import { Types } from "mongoose";
+import { Button } from "@/app/components/global/ui/button";
 import {
   DateInput,
   HiddenInfo,
+  Input,
   TextAreaInput,
-  TextInput,
-} from "../../components/shared/Inputs";
+} from "@/app/components/global/ui/input";
+import { getExperienceById } from "@/database/experience.query";
+import { getFormattedDate } from "@/utils/utilities";
+import { Types } from "mongoose";
 
 export default async function EditExperience({
   params,
@@ -23,7 +20,6 @@ export default async function EditExperience({
   return (
     <section className="flex min-h-screen flex-col items-center justify-center">
       <div className="w-full max-w-4xl rounded p-6">
-        <BackButton />
         <h1 className="mb-7 mt-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
           {experience ? "Edit" : "Create"} an Experience
         </h1>
@@ -36,7 +32,8 @@ export default async function EditExperience({
                 : new Types.ObjectId().toString()
             }
           />
-          <TextInput
+          <Input
+            type="text"
             name="title"
             label="Title"
             placeholder="Title"
@@ -62,12 +59,9 @@ export default async function EditExperience({
             defaultValue={getFormattedDate(
               experience?.endDate ? new Date(experience.endDate) : undefined,
             )}
-            last
           />
           <div className="mt-10">
-            <StandardFormButton type="submit">
-              {experience ? "Save" : "Create"}
-            </StandardFormButton>
+            <Button type="submit">{experience ? "Save" : "Create"}</Button>
           </div>
         </form>
       </div>

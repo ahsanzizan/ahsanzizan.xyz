@@ -72,3 +72,35 @@ export function TextAreaInput({
     </div>
   );
 }
+
+export function DateInput({
+  name,
+  label,
+  defaultValue,
+  required,
+}: Readonly<{
+  name: string;
+  label: string;
+  defaultValue?: string;
+  required?: boolean;
+}>) {
+  return (
+    <div>
+      <label
+        htmlFor={name}
+        className="mb-1 block text-lg drop-shadow-glow md:text-2xl"
+      >
+        {label}
+      </label>
+      <input
+        className="w-full rounded-full border border-white bg-transparent px-5 py-3 text-white autofill:shadow-[0_0_0_30px_black_inset_!important] focus:outline-none"
+        style={{ WebkitTextFillColor: "#fff" }}
+        type="date"
+        name={name}
+        id={name}
+        defaultValue={defaultValue}
+        required={required}
+      />
+    </div>
+  );
+}
