@@ -26,7 +26,7 @@ export default async function Works({
     <SectionContainer id="works">
       <div
         className={cn(
-          "mb-5 flex w-full flex-col items-center justify-between md:mb-12 md:flex-row",
+          "mb-5 flex w-full flex-col md:items-center justify-between md:mb-12 md:flex-row",
         )}
       >
         <H1>Curated Works</H1>
