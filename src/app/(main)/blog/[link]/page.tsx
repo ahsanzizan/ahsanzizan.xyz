@@ -1,21 +1,17 @@
+import { BlogPreview } from "@/app/components/global/ui/blog-preview";
+import { Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
-import { H1, H3, H4, P } from "@/app/components/global/ui/text";
+import { H1, H3, P } from "@/app/components/global/ui/text";
 import { getBlogByLink } from "@/database/blog.query";
+import cn from "@/lib/clsx";
 import BlogModel from "@/models/Blog.model";
 import { Blog } from "@/types/models";
 import { getPaginatedResult } from "@/utils/paginator";
-import {
-  calculateReadTime,
-  stringifyDate,
-  truncateString,
-} from "@/utils/utilities";
+import { calculateReadTime, stringifyDate } from "@/utils/utilities";
 import { Model } from "mongoose";
 import { ArticleJsonLd } from "next-seo";
 import { notFound } from "next/navigation";
 import ViewMD from "./components/ViewMD";
-import { Link } from "@/app/components/global/ui/button";
-import cn from "@/lib/clsx";
-import { BlogPreview } from "@/app/components/global/ui/blog-preview";
 
 export async function generateMetadata({
   params,

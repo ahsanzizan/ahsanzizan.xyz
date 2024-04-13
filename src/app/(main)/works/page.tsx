@@ -1,15 +1,13 @@
 import { SectionContainer } from "@/app/components/global/ui/container";
+import { ProjectFigure } from "@/app/components/global/ui/project-figure";
 import { H1 } from "@/app/components/global/ui/text";
+import cn from "@/lib/clsx";
 import ProjectModel from "@/models/Project.model";
 import { Project } from "@/types/models";
 import { getPaginatedResult } from "@/utils/paginator";
 import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
-import Image from "next/image";
-import { default as NextLink } from "next/link";
 import PaginatedNavigator from "../../components/global/PaginatedNavigator";
-import cn from "@/lib/clsx";
-import { ProjectFigure } from "@/app/components/global/ui/project-figure";
 
 export default async function Works({
   searchParams,
@@ -27,7 +25,9 @@ export default async function Works({
   return (
     <SectionContainer id="works">
       <div
-        className={cn("mb-5 flex w-full items-center justify-between md:mb-12")}
+        className={cn(
+          "mb-5 flex w-full flex-col items-center justify-between md:mb-12 md:flex-row",
+        )}
       >
         <H1>All Curated Works</H1>
         <PaginatedNavigator segment="works" maxPage={maxPage} page={page} />

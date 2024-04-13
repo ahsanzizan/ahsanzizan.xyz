@@ -1,19 +1,13 @@
+import { BlogPreview } from "@/app/components/global/ui/blog-preview";
+import { Link } from "@/app/components/global/ui/button";
+import { SectionContainer } from "@/app/components/global/ui/container";
+import { H4 } from "@/app/components/global/ui/text";
 import BlogModel from "@/models/Blog.model";
 import { Blog as BlogType } from "@/types/models";
 import { getPaginatedResult } from "@/utils/paginator";
-import {
-  calculateReadTime,
-  isInteger,
-  truncateString,
-} from "@/utils/utilities";
+import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
 import PaginatedNavigator from "../../components/global/PaginatedNavigator";
-import { Link } from "@/app/components/global/ui/button";
-import { H4, P } from "@/app/components/global/ui/text";
-import { SectionContainer } from "@/app/components/global/ui/container";
-import cn from "@/lib/clsx";
-import { Anchor } from "@/app/components/global/ui/anchor";
-import { BlogPreview } from "@/app/components/global/ui/blog-preview";
 
 export default async function Blog({
   searchParams,
@@ -32,7 +26,7 @@ export default async function Blog({
   return (
     <SectionContainer id="blogs">
       <div className="mb-5 flex w-full items-center justify-between md:mb-12">
-        <div>
+        <div className={"flex flex-col md:flex-row"}>
           <H4 className="mb-2">Blog Articles</H4>
           <PaginatedNavigator segment="blog" page={page} maxPage={maxPage} />
         </div>
