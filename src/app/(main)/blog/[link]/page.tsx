@@ -1,6 +1,5 @@
-import Footer from "@/app/components/parts/Footer";
-import { BackButton } from "@/app/components/global/Buttons";
-import Wrapper from "@/app/components/global/Wrapper";
+import { SectionContainer } from "@/app/components/global/ui/container";
+import { H1, H3, H4, P } from "@/app/components/global/ui/text";
 import { getBlogByLink } from "@/database/blog.query";
 import BlogModel from "@/models/Blog.model";
 import { Blog } from "@/types/models";
@@ -12,9 +11,11 @@ import {
 } from "@/utils/utilities";
 import { Model } from "mongoose";
 import { ArticleJsonLd } from "next-seo";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import ViewMD from "./components/ViewMD";
+import { Link } from "@/app/components/global/ui/button";
+import cn from "@/lib/clsx";
+import { BlogPreview } from "@/app/components/global/ui/blog-preview";
 
 export async function generateMetadata({
   params,
@@ -49,7 +50,7 @@ export default async function ViewBlog({
   });
 
   return (
-    <Wrapper>
+    <>
       <ArticleJsonLd
         authorName={blog.author}
         datePublished={stringifyDate(blog.createdAt)}
@@ -59,71 +60,53 @@ export default async function ViewBlog({
         images={[]}
         useAppDir
       />
-      <main className="mx-auto w-full max-w-[1440px] px-5 py-24">
-        <BackButton />
-        <section id="view-blog" className="mb-32 w-full py-12">
-          <div className="block w-full">
-            <div className="mb-7 block">
-              <h1 className="mb-1 text-4xl drop-shadow-glow md:text-7xl">
-                {blog.title}
-              </h1>
-              <div className="mb-0">
+      <SectionContainer id="view-blog">
+        <div className="block w-full">
+          <div className="mb-7 block">
+            <H1>{blog.title}</H1>
+            <div className={cn("mb-2 flex items-center gap-4")}>
+              <P>{calculateReadTime(blog.content)} min read</P>
+              <span className="h-1 w-1 rounded-full bg-white"></span>
+              <P>
                 Published at {stringifyDate(blog.createdAt)} by {blog.author}
-              </div>
-              <div className="mb-2">
-                {calculateReadTime(blog.content)} minutes read
-              </div>
-              <div className="flex flex-wrap items-center gap-4">
-                {blog.tags.map((tag) => (
-                  <Link
-                    key={tag}
-                    href={"/blog/tags/" + tag}
-                    className="text-neutral-400"
-                  >
-                    #{tag}
-                  </Link>
+              </P>
+            </div>
+            <div className="flex flex-wrap items-center gap-4">
+              {blog.tags.map((tag) => (
+                <Link key={tag} href={"/blog/tags/" + tag} variant={"default"}>
+                  #{tag}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div
+            className={cn(
+              "flex w-full flex-col justify-between gap-5 md:flex-row",
+            )}
+          >
+            <div className={cn("w-full md:w-[75%]")}>
+              <ViewMD markdown={blog.content} />
+            </div>
+            <div className={cn("w-full md:w-[25%]")}>
+              <H3 className="mb-2">Latest From Me</H3>
+              <div
+                className={cn(
+                  "flex h-fit w-full flex-col gap-5 divide-y divide-white rounded-lg border border-white p-5",
+                )}
+              >
+                {otherBlogs.map((otherBlog) => (
+                  <BlogPreview
+                    key={otherBlog._id.toString()}
+                    blog={otherBlog}
+                    contentThreshold={80}
+                  />
                 ))}
               </div>
             </div>
-            <div className="flex w-full flex-col justify-between gap-5 md:flex-row">
-              <div className="w-full md:w-[75%]">
-                <ViewMD markdown={blog.content} />
-              </div>
-              <div className="w-full md:w-[25%]">
-                <h4 className="mb-4 text-lg drop-shadow-glow md:text-2xl">
-                  Latest From Me
-                </h4>
-                <div className="flex h-fit w-full flex-col gap-5 divide-y divide-white rounded-lg border border-white p-5">
-                  {otherBlogs.map((otherBlog) => (
-                    <article
-                      className="w-full py-4"
-                      key={otherBlog._id.toString()}
-                    >
-                      <Link
-                        href={`/blog/${otherBlog.link}`}
-                        className="mb-1 text-base drop-shadow-glow transition-all duration-300 hover:text-neutral-400 md:text-2xl"
-                      >
-                        {truncateString(otherBlog.title, 20)}
-                      </Link>
-                      <div className="block">
-                        <dl className="mx-1">
-                          <dt className="sr-only">Published on</dt>
-                          <dd className="text-sm font-medium leading-6">
-                            <span>Published </span>
-                            <time>{stringifyDate(otherBlog.createdAt)}</time>
-                          </dd>
-                        </dl>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
-        </section>
-        <Footer />
-      </main>
-    </Wrapper>
+        </div>
+      </SectionContainer>
+    </>
   );
 }
 
