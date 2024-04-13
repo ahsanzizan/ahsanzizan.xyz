@@ -1,4 +1,4 @@
-import Footer from "@/app/components/Parts/Footer";
+import Footer from "@/app/components/parts/Footer";
 import Wrapper from "@/app/components/global/Wrapper";
 import { getAllBlogs } from "@/database/blog.query";
 import Link from "next/link";

@@ -1,6 +1,6 @@
 import { BackButton, VisitWorkButton } from "@/app/components/global/Buttons";
 import Wrapper from "@/app/components/global/Wrapper";
-import Footer from "@/app/components/Parts/Footer";
+import Footer from "@/app/components/parts/Footer";
 import { getProjectByLink } from "@/database/project.query";
 import Image from "next/image";
 import { notFound } from "next/navigation";

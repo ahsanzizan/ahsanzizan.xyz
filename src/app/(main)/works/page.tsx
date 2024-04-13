@@ -5,7 +5,7 @@ import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "../components/Parts/Footer";
+import Footer from "../components/parts/Footer";
 import Wrapper from "../components/global/Wrapper";
 import PaginatedNavigator from "../components/global/PaginatedNavigator";
 

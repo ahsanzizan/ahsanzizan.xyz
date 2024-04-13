@@ -1,8 +1,7 @@
 "use client";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomCursor from "../CustomCursor";
-import TypeWriter from "@/utils/typewriter";
-import { usePathname, useRouter } from "next/navigation";
 
 interface WrapperProps {
   children: React.ReactNode;
@@ -15,14 +14,6 @@ export default function Wrapper({ children }: Readonly<WrapperProps>) {
 
   useEffect(() => {
     setIsHovering(false);
-    // This line is necessary for the initiation of the typewriter
-    // animation
-    new TypeWriter(document.getElementById("nicknames"), {
-      strings: ["Ahsan", "Asan", "Sanzizan"],
-      autoStart: true,
-      loop: true,
-      delay: 100,
-    });
     const anchors = Array.from(document.body.getElementsByTagName("a"));
     const buttons = Array.from(document.body.getElementsByTagName("button"));
     const handleMouseEnter = () => {

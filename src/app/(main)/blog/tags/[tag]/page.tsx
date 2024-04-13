@@ -1,4 +1,4 @@
-import Footer from "@/app/components/Parts/Footer";
+import Footer from "@/app/components/parts/Footer";
 import BlogPreview from "@/app/components/global/BlogPreview";
 import { BackButton } from "@/app/components/global/Buttons";
 import Wrapper from "@/app/components/global/Wrapper";

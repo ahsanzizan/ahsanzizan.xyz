@@ -1,4 +1,4 @@
-import { StandardLinkButton } from "./Buttons";
+import { Link } from "./ui/button";
 
 export default function PaginatedNavigator({
   segment,
@@ -11,25 +11,25 @@ export default function PaginatedNavigator({
 }>) {
   return (
     <div className="flex items-center gap-4">
-      <StandardLinkButton
+      <Link
         href={`/${segment}?page=${page - 1}`}
         className={`${
           page > 1 ? "opacity-100" : "pointer-events-none opacity-50"
         }`}
       >
         {"<"}
-      </StandardLinkButton>
+      </Link>
       <p>
         {page} / {maxPage}
       </p>
-      <StandardLinkButton
+      <Link
         href={`/${segment}?page=${page + 1}`}
         className={`${
           page < maxPage ? "opacity-100" : "pointer-events-none opacity-50"
         }`}
       >
         {">"}
-      </StandardLinkButton>
+      </Link>
     </div>
   );
 }

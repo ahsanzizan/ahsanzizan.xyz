@@ -1,11 +1,11 @@
+import { getAllSocialMedias } from "@/database/socialMedia.query";
 import cn from "@/lib/clsx";
+import { Fragment } from "react";
+import PlayIcon from "../global/icons/Play";
+import PortalIcon from "../global/icons/portal";
+import { Link } from "../global/ui/button";
 import { SectionContainer } from "../global/ui/container";
 import { H1 } from "../global/ui/text";
-import { Link } from "../global/ui/button";
-import PlayIcon from "../global/icons/Play";
-import { getAllSocialMedias } from "@/database/socialMedia.query";
-import PortalIcon from "../global/icons/portal";
-import { Fragment } from "react";
 
 export default async function Contact() {
   const socialMedias = await getAllSocialMedias();

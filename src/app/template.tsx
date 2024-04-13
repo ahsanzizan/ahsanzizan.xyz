@@ -10,13 +10,13 @@ export default function Template({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <motion.main
+    <motion.div
       variants={variants}
       initial="hidden"
       animate="enter"
       transition={{ type: "keyframes" }}
     >
       {children}
-    </motion.main>
+    </motion.div>
   );
 }

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Navbar from "../components/Parts/Navbar";
+import Navbar from "../components/parts/Navbar";
 import { getContentbyKey } from "@/database/content.query";
 import { Content } from "@/types/models";
 

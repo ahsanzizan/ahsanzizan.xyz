@@ -2,7 +2,7 @@ import BlogModel from "@/models/Blog.model";
 import { getPaginatedResult } from "@/utils/paginator";
 import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
-import Footer from "../components/Parts/Footer";
+import Footer from "../components/parts/Footer";
 import BlogPreview from "../components/global/BlogPreview";
 import { StandardLinkButton } from "../components/global/Buttons";
 import Wrapper from "../components/global/Wrapper";

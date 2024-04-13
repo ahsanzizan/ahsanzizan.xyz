@@ -3,9 +3,8 @@ import cn from "@/lib/clsx";
 import { truncateString } from "@/utils/utilities";
 import { useEffect, useState } from "react";
 import SpotifyIcon from "../global/icons/Spotify";
-import { Anchor } from "../global/ui/anchor";
-import { H3, P } from "../global/ui/text";
 import { Link } from "../global/ui/button";
+import { H3, P } from "../global/ui/text";
 
 export interface SpotifyData {
   isPlaying: boolean;

@@ -1,5 +1,5 @@
-import { StandardLinkButton } from "./components/global/Buttons";
 import LeftArrowIcon from "./components/global/icons/LeftArrow";
+import { Link } from "./components/global/ui/button";
 import Wrapper from "./components/global/Wrapper";
 
 export default function NotFound() {
@@ -14,10 +14,7 @@ export default function NotFound() {
             The page you are looking for is not available.
           </h5>
           <div className="block">
-            <StandardLinkButton href="https://www.ahsanzizan.xyz">
-              <LeftArrowIcon className="mr-1 rotate-180 fill-current transition-transform duration-500 group-hover:-translate-x-1" />
-              Back
-            </StandardLinkButton>
+            <Link href="/">Back</Link>
           </div>
         </header>
       </section>

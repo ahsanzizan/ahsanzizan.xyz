@@ -1,4 +1,4 @@
-import Footer from "@/app/components/Parts/Footer";
+import Footer from "@/app/components/parts/Footer";
 import { BackButton } from "@/app/components/global/Buttons";
 import Wrapper from "@/app/components/global/Wrapper";
 import { getBlogByLink } from "@/database/blog.query";

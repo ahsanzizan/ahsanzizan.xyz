@@ -1,16 +1,13 @@
-import { getPaginatedResult } from "@/utils/paginator";
-import { truncateString } from "@/utils/utilities";
-import Image from "next/image";
-import { StandardLinkButton, VisitWorkButton } from "../global/Buttons";
-import ProjectModel from "@/models/Project.model";
-import { Model } from "mongoose";
-import { Project } from "@/types/models";
-import { SectionContainer } from "../global/ui/container";
-import { H1 } from "../global/ui/text";
-import { Link } from "../global/ui/button";
-import PlayIcon from "../global/icons/Play";
 import cn from "@/lib/clsx";
+import ProjectModel from "@/models/Project.model";
+import { Project } from "@/types/models";
+import { getPaginatedResult } from "@/utils/paginator";
+import { Model } from "mongoose";
+import PlayIcon from "../global/icons/Play";
+import { Link } from "../global/ui/button";
+import { SectionContainer } from "../global/ui/container";
 import { ProjectFigure } from "../global/ui/project-figure";
+import { H1 } from "../global/ui/text";
 
 export default async function Works() {
   const { datas: projects }: { datas: Project[] } = await getPaginatedResult({
