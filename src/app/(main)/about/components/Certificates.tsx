@@ -1,41 +1,53 @@
+import PlayIcon from "@/app/components/global/icons/Play";
+import { SectionContainer } from "@/app/components/global/ui/container";
+import { H1, H3, P } from "@/app/components/global/ui/text";
 import { getAllCertificates } from "@/database/cerficate.query";
-import Image from "next/image";
-import Link from "next/link";
+import cn from "@/lib/clsx";
+import { Image } from "@/app/components/global/ui/image";
+import { Link } from "@/app/components/global/ui/button";
+import { default as NextLink } from "next/link";
 
 export default async function Certificates() {
   const certificates = await getAllCertificates();
 
   return (
-    <section id="certificates" className="mb-32 w-full py-12">
-      <h1 className="mb-4 text-4xl leading-snug drop-shadow-glow md:text-7xl">
-        Certificates
-      </h1>
-      <div className="flex w-full flex-col flex-wrap items-center gap-5 md:flex-row">
+    <SectionContainer id="certificates">
+      <div
+        className={cn(
+          "mb-12 flex w-full flex-col items-center justify-center gap-5 md:mb-20",
+        )}
+      >
+        <H1 className="text-center">Certifications</H1>
+        <Link
+          href={"https://l.ahsanzizan.xyz/certifications"}
+          variant={"default"}
+        >
+          See more{" "}
+          <PlayIcon className="ml-2 transition-transform duration-300 group-hover:translate-x-2 group-hover:fill-white" />
+        </Link>
+      </div>
+      <div className={cn("flex w-full flex-col gap-5 md:flex-row")}>
         {certificates.map((certificate) => (
-          <Link
+          <NextLink
             href={certificate.url}
-            className="block w-full md:w-1/4"
+            className={cn("block w-full md:w-1/4")}
             key={certificate._id.toString()}
           >
             <Image
               src={certificate.image}
-              alt={"Certificate" + certificate.title}
+              alt={certificate.title}
               width={256}
               height={164}
               className="relative mb-2 w-full rounded-xl object-cover grayscale transition-all duration-500 hover:grayscale-0"
               unoptimized
             />
             <div className="block w-full">
-              <h3 className="mb-[14px] text-base drop-shadow-glow sm:text-2xl lg:text-[28px]">
-                {certificate.title}
-              </h3>
-              <p className="text-sm leading-7 text-neutral-400 sm:text-base lg:text-xl">
-                {certificate.description}
-              </p>
+              <H3 className="mb-2">{certificate.title}</H3>
+              <P>{certificate.description}</P>
             </div>
-          </Link>
+          </NextLink>
         ))}
       </div>
-    </section>
+    </SectionContainer>
   );
 }
