@@ -1,5 +1,5 @@
 import LeftArrowIcon from "@/app/components/global/icons/LeftArrow";
-import PortalIcon from "@/app/components/global/icons/portal";
+import PortalIcon from "@/app/components/global/icons/Portal";
 import { Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { Image } from "@/app/components/global/ui/image";

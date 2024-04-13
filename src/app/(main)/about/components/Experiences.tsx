@@ -1,4 +1,4 @@
-import PortalIcon from "@/app/components/global/icons/portal";
+import PortalIcon from "@/app/components/global/icons/Portal";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1, H4, P } from "@/app/components/global/ui/text";
 import { getAllExperiences } from "@/database/experience.query";
