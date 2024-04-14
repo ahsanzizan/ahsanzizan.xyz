@@ -40,14 +40,14 @@ export default async function Works() {
             title={projects[0].title}
             description={projects[0].description}
             image={projects[0].image}
-            href={"/works/" + projects[0].url}
+            href={"/works/" + projects[0].link}
             className="h-[312px] w-full md:w-[48%]"
           />
           <ProjectFigure
             title={projects[1].title}
             description={projects[1].description}
             image={projects[1].image}
-            href={"/works/" + projects[1].url}
+            href={"/works/" + projects[1].link}
             className="h-[312px] w-full md:w-[48%]"
           />
         </div>
@@ -55,7 +55,7 @@ export default async function Works() {
           title={projects[2].title}
           description={projects[2].description}
           image={projects[2].image}
-          href={"/works/" + projects[2].url}
+          href={"/works/" + projects[2].link}
           className="h-[312px] w-full"
         />
       </div>
