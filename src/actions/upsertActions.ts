@@ -47,7 +47,7 @@ export async function upsertProjectAction(formData: FormData) {
     description: formData.get("description") as string,
   });
 
-  await revalidateAndRedirect(["/works", "/"], "/admin/works");
+  await revalidateAndRedirect(["/(main)/works", "/"], "/admin/works");
 }
 
 export async function upsertBlogAction(formData: FormData) {
@@ -77,7 +77,7 @@ export async function upsertExperienceAction(formData: FormData) {
       : undefined,
   });
 
-  await revalidateAndRedirect(["/about", "/"], "/admin/experiences");
+  await revalidateAndRedirect(["/(main)/about", "/"], "/admin/experiences");
 }
 
 export async function upsertCertificateAction(formData: FormData) {
@@ -88,5 +88,5 @@ export async function upsertCertificateAction(formData: FormData) {
     url: formData.get("url") as string,
   });
 
-  await revalidateAndRedirect(["/about", "/"], "/admin");
+  await revalidateAndRedirect(["/(main)/about", "/"], "/admin");
 }

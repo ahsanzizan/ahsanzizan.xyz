@@ -33,7 +33,7 @@ export async function deleteContentAction(id: string) {
 
 export async function deleteProjectAction(id: string) {
   await deleteAndRevalidate(
-    ["/works", "/"],
+    ["/(main)/works", "/"],
     "/admin/works",
     deleteProjectById,
     id,
@@ -46,7 +46,7 @@ export async function deleteBlogAction(id: string) {
 
 export async function deleteExperienceAction(id: string) {
   await deleteAndRevalidate(
-    ["/about", "/"],
+    ["/(main)/about", "/"],
     "/admin/experiences",
     deleteExperienceById,
     id,
@@ -55,7 +55,7 @@ export async function deleteExperienceAction(id: string) {
 
 export async function deleteCertificateAction(id: string) {
   await deleteAndRevalidate(
-    ["/about", "/"],
+    ["/(main)/about", "/"],
     "/admin",
     deleteCertificateById,
     id,
