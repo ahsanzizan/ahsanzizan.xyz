@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_URI")
+}
+
+model Admin {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  v        Int?   @map("__v")
+  password String
+  username String
+
+  @@map("admins")
+}
+
+model Blog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  v         Int?     @map("__v")
+  author    String
+  content   String
+  createdAt DateTime @db.Date
+  link      String   @unique
+  tags      String[]
+  title     String
+
+  @@map("blogs")
+}
+
+model Campaign {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  v     Int?   @map("__v")
+  long  String
+  short String @unique
+
+  @@map("campaigns")
+}
+
+model Certificate {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  v           Int?   @map("__v")
+  description String
+  image       String
+  title       String
+  url         String
+
+  @@map("certificates")
+}
+
+model Content {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  v       Int?   @map("__v")
+  content String
+  key     String
+
+  @@map("contents")
+}
+
+model Experience {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  v           Int?      @map("__v")
+  description String
+  endDate     DateTime? @db.Date
+  startDate   DateTime  @db.Date
+  title       String
+
+  @@map("experiences")
+}
+
+model Project {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  v           Int?     @map("__v")
+  createdAt   DateTime @db.Date
+  description String
+  image       String
+  isWorkedOn  Boolean
+  link        String   @unique
+  title       String
+  url         String
+
+  @@map("projects")
+}
+
+model SocialMedia {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  v       Int?   @map("__v")
+  name    String
+  svgPath String
+  url     String
+
+  @@map("social-medias")
+}
