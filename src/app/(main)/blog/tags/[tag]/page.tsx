@@ -1,11 +1,9 @@
-import Footer from "@/app/components/parts/Footer";
-import Wrapper from "@/app/components/global/wrapper";
-import { getAllBlogs } from "@/database/blog.query";
-import { notFound } from "next/navigation";
 import { BlogPreview } from "@/app/components/global/ui/blog-preview";
 import { SectionContainer } from "@/app/components/global/ui/container";
-import cn from "@/lib/clsx";
 import { H1 } from "@/app/components/global/ui/text";
+import { getAllBlogs } from "@/database/blog.query";
+import cn from "@/lib/clsx";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
