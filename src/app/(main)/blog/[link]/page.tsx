@@ -94,7 +94,6 @@ export default async function ViewBlog({
                   <BlogPreview
                     key={otherBlog._id.toString()}
                     blog={otherBlog}
-                    contentThreshold={80}
                   />
                 ))}
               </div>
