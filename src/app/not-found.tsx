@@ -1,6 +1,5 @@
-import LeftArrowIcon from "./components/global/icons/LeftArrow";
 import { Link } from "./components/global/ui/button";
-import Wrapper from "./components/global/Wrapper";
+import Wrapper from "./components/global/wrapper";
 
 export default function NotFound() {
   return (

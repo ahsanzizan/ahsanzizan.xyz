@@ -7,7 +7,7 @@ import { Blog as BlogType } from "@/types/models";
 import { getPaginatedResult } from "@/utils/paginator";
 import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
-import PaginatedNavigator from "../../components/global/PaginatedNavigator";
+import PaginatedNavigator from "../../components/global/ui/paginated-navigator";
 
 export default async function Blog({
   searchParams,

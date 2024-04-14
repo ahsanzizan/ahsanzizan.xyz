@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
-import Wrapper from "../components/global/Wrapper";
+import Wrapper from "../components/global/wrapper";
 import { SocialProfileJsonLd } from "next-seo";
 import NavigationBar from "../components/global/ui/navigation-bar";
 import cn from "@/lib/clsx";

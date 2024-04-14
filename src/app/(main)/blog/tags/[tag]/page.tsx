@@ -1,5 +1,5 @@
 import Footer from "@/app/components/parts/Footer";
-import Wrapper from "@/app/components/global/Wrapper";
+import Wrapper from "@/app/components/global/wrapper";
 import { getAllBlogs } from "@/database/blog.query";
 import { notFound } from "next/navigation";
 import { BlogPreview } from "@/app/components/global/ui/blog-preview";

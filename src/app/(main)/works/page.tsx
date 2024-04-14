@@ -7,7 +7,7 @@ import { Project } from "@/types/models";
 import { getPaginatedResult } from "@/utils/paginator";
 import { isInteger } from "@/utils/utilities";
 import { Model } from "mongoose";
-import PaginatedNavigator from "../../components/global/PaginatedNavigator";
+import PaginatedNavigator from "../../components/global/ui/paginated-navigator";
 
 export default async function Works({
   searchParams,
@@ -26,7 +26,7 @@ export default async function Works({
     <SectionContainer id="works">
       <div
         className={cn(
-          "mb-5 flex w-full flex-col md:items-center justify-between md:mb-12 md:flex-row",
+          "mb-5 flex w-full flex-col justify-between md:mb-12 md:flex-row md:items-center",
         )}
       >
         <H1>Curated Works</H1>
