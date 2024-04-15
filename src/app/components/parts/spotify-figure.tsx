@@ -34,7 +34,7 @@ export default function Spotify() {
   return (
     <figure
       className={cn(
-        "flex w-full min-w-[75%] max-w-[75%] md:min-w-[30%] md:max-w-[30%]",
+        "flex w-full min-w-full max-w-full md:min-w-[30%] md:max-w-[30%]",
       )}
     >
       <Link
