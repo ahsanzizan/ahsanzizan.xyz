@@ -1,7 +1,7 @@
 import { BlogPreview } from "@/app/components/global/ui/blog-preview";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1 } from "@/app/components/global/ui/text";
-import { getAllBlogs } from "@/database/blog.query";
+import { getBlogs } from "@/database/blog.query";
 import cn from "@/lib/clsx";
 import { notFound } from "next/navigation";
 
@@ -10,7 +10,7 @@ export async function generateMetadata({
 }: Readonly<{
   params: { tag: string };
 }>) {
-  const blogs = await getAllBlogs();
+  const blogs = await getBlogs();
   const blogsWithTag = blogs.filter((blog) => blog.tags.includes(params.tag));
 
   if (blogsWithTag.length !== 0)
@@ -27,7 +27,7 @@ export async function generateMetadata({
 export default async function Blogs({
   params,
 }: Readonly<{ params: { tag: string } }>) {
-  const blogs = await getAllBlogs();
+  const blogs = await getBlogs();
   const blogsWithTag = blogs.filter((blog) => blog.tags.includes(params.tag));
 
   if (blogsWithTag.length === 0) notFound();
@@ -41,7 +41,7 @@ export default async function Blogs({
       </div>
       <div className={cn("flex w-full flex-col divide-y divide-white")}>
         {blogsWithTag.map((blog) => (
-          <BlogPreview key={blog._id.toString()} blog={blog} />
+          <BlogPreview key={blog.id.toString()} blog={blog} />
         ))}
       </div>
     </SectionContainer>

@@ -1,20 +1,15 @@
 import cn from "@/lib/clsx";
-import ProjectModel from "@/models/Project.model";
-import { Project } from "@/types/models";
-import { getPaginatedResult } from "@/utils/paginator";
-import { Model } from "mongoose";
 import PlayIcon from "../global/icons/Play";
 import { Link } from "../global/ui/button";
 import { SectionContainer } from "../global/ui/container";
 import { ProjectFigure } from "../global/ui/project-figure";
 import { H1 } from "../global/ui/text";
+import { getProjects } from "@/database/project.query";
 
 export default async function Works() {
-  const { datas: projects }: { datas: Project[] } = await getPaginatedResult({
-    model: ProjectModel as Model<Project>,
-    sort: { createdAt: -1 },
-    perPage: 3,
-    page: 1,
+  const projects = await getProjects({
+    take: 3,
+    orderBy: { createdAt: "desc" },
   });
 
   return (

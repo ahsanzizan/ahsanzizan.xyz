@@ -1,75 +1,49 @@
-import SocialMediaModel from "@/models/SocialMedia.model";
-import { connectAndQuery } from "../utils/utilities";
-import { SocialMedia } from "@/types/models";
+import { Prisma } from "@prisma/client";
+import prisma from "@/lib/prisma";
 
-export async function getAllSocialMedias(): Promise<SocialMedia[]> {
-  return connectAndQuery(async () => await SocialMediaModel.find());
+export async function getAllSocialMedias() {
+  const socialMedias = await prisma.socialMedia.findMany();
+  return socialMedias;
 }
 
-export async function getSocialMediaById(
-  id: string,
-): Promise<SocialMedia | null> {
-  return connectAndQuery(async () => {
-    try {
-      if (id === "") return null;
-      return await SocialMediaModel.findById(id);
-    } catch (error) {
-      return null;
-    }
-  });
+export async function getSocialMediaById(id: string) {
+  const socialMedia = await prisma.socialMedia.findUnique({ where: { id } });
+  return socialMedia;
 }
-
-type SocialMediaUpdateInput = {
-  name?: string;
-  url?: string;
-  svgPath?: string;
-};
 
 export async function updateSocialMediaById(
   id: string,
-  socialMedia: SocialMediaUpdateInput,
+  data: Prisma.SocialMediaUncheckedUpdateInput,
 ) {
-  return connectAndQuery(async () => {
-    try {
-      await SocialMediaModel.findByIdAndUpdate(id, socialMedia);
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  });
+  try {
+    await prisma.socialMedia.update({ where: { id }, data });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
 
 export async function deleteSocialMediaById(id: string) {
-  return connectAndQuery(async () => {
-    try {
-      await SocialMediaModel.deleteOne({ _id: id });
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  });
+  try {
+    await prisma.socialMedia.delete({ where: { id } });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
-
-type UpsertSocialMediaInput = {
-  name?: string;
-  url?: string;
-  svgPath?: string;
-};
 
 export async function upsertSocialMedia(
   id: string,
-  socialMedia: UpsertSocialMediaInput,
+  data: Prisma.SocialMediaUncheckedCreateInput,
 ) {
-  return connectAndQuery(async () => {
-    try {
-      await SocialMediaModel.findByIdAndUpdate(
-        id,
-        { ...socialMedia },
-        { upsert: true },
-      );
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  });
+  try {
+    await prisma.socialMedia.upsert({
+      where: { id },
+      create: data,
+      update: data,
+    });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }

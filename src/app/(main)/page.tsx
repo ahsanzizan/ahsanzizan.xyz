@@ -4,7 +4,7 @@ import Header from "../components/parts/Header";
 import Services from "../components/parts/Services";
 import Works from "../components/parts/Works";
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <Header />

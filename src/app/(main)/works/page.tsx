@@ -2,12 +2,13 @@ import { SectionContainer } from "@/app/components/global/ui/container";
 import { ProjectFigure } from "@/app/components/global/ui/project-figure";
 import { H1 } from "@/app/components/global/ui/text";
 import cn from "@/lib/clsx";
-import ProjectModel from "@/models/Project.model";
-import { Project } from "@/types/models";
-import { getPaginatedResult } from "@/utils/paginator";
+import prisma from "@/lib/prisma";
+import { paginator } from "@/utils/paginator";
 import { isInteger } from "@/utils/utilities";
-import { Model } from "mongoose";
+import { Prisma, Project } from "@prisma/client";
 import PaginatedNavigator from "../../components/global/ui/paginated-navigator";
+
+const paginate = paginator({ perPage: 5 });
 
 export default async function Works({
   searchParams,
@@ -15,12 +16,10 @@ export default async function Works({
   const page = isInteger(searchParams?.page as unknown as string)
     ? parseInt(searchParams?.page as unknown as string)
     : 1;
-  const { datas: projects, maxPage }: { datas: Project[]; maxPage: number } =
-    await getPaginatedResult({
-      model: ProjectModel as Model<Project>,
-      perPage: 3,
-      page,
-    });
+  const { data: projects, meta } = await paginate<
+    Project,
+    Prisma.ProjectFindManyArgs
+  >(prisma.project, { page }, { orderBy: { createdAt: "desc" } });
 
   return (
     <SectionContainer id="works">
@@ -30,12 +29,16 @@ export default async function Works({
         )}
       >
         <H1>Curated Works</H1>
-        <PaginatedNavigator segment="works" maxPage={maxPage} page={page} />
+        <PaginatedNavigator
+          segment="works"
+          maxPage={meta.lastPage}
+          page={page}
+        />
       </div>
       <div className="flex w-full flex-col gap-5">
         {projects.map((project) => (
           <ProjectFigure
-            key={project._id.toString()}
+            key={project.id.toString()}
             title={project.title}
             description={project.description}
             image={project.image}

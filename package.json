@@ -11,7 +11,8 @@
     "test:watch": "jest --watch",
     "prisma:pull": "dotenv -e .env.local -- npx prisma db pull",
     "prisma:push": "dotenv -e .env.local -- npx prisma db push",
-    "prisma:generate": "prisma generate"
+    "prisma:generate": "prisma generate",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.12.1",

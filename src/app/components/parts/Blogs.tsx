@@ -1,20 +1,12 @@
+import { getBlogs } from "@/database/blog.query";
 import cn from "@/lib/clsx";
-import BlogModel from "@/models/Blog.model";
-import { Blog } from "@/types/models";
-import { getPaginatedResult } from "@/utils/paginator";
-import { Model } from "mongoose";
 import { BlogPreview } from "../global/ui/blog-preview";
+import { Link } from "../global/ui/button";
 import { SectionContainer } from "../global/ui/container";
 import { H1, P } from "../global/ui/text";
-import { Link } from "../global/ui/button";
 
 export default async function Blogs() {
-  const { datas: blogs }: { datas: Blog[] } = await getPaginatedResult({
-    model: BlogModel as Model<Blog>,
-    sort: { createdAt: -1 },
-    perPage: 3,
-    page: 1,
-  });
+  const blogs = await getBlogs({ take: 3, orderBy: { createdAt: "desc" } });
 
   return (
     <SectionContainer id="blogs">
@@ -38,7 +30,7 @@ export default async function Blogs() {
           )}
         >
           {blogs.map((blog) => {
-            return <BlogPreview key={blog._id.toString()} blog={blog} />;
+            return <BlogPreview key={blog.id.toString()} blog={blog} />;
           })}
         </div>
       </div>

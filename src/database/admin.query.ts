@@ -1,61 +1,54 @@
-import AdminModel from "@/models/Admin.model";
+import { Admin, Prisma } from "@prisma/client";
 import { validate, generate } from "../lib/hash";
-import { connectAndQuery } from "../utils/utilities";
-import { Admin } from "@/types/models";
+import prisma from "@/lib/prisma";
 
 type auth = {
   status: "SUCCESS" | "NO_PASSWORD" | "INVALID";
   admin?: Admin;
 };
 
-type AdminCreateInput = {
-  username: string;
-  password: string;
-};
-
-export async function findAdminByUname(username: string): Promise<Admin> {
-  return connectAndQuery(async () => await AdminModel.findOne({ username }));
+export async function findAdminByUname(username: string) {
+  const admin = await prisma.admin.findUnique({ where: { username } });
+  return admin;
 }
 
 export async function authenticateAdmin(
   username: string,
   password: string,
 ): Promise<auth> {
-  const find = await findAdminByUname(username);
+  const admin = await findAdminByUname(username);
 
   let result: auth = {
     status: "INVALID",
     admin: undefined,
   };
 
-  if (find) {
-    if (!password) {
-      result.status = "NO_PASSWORD";
-    } else {
-      const isValidated = await validate(password, find.password || "");
-      if (isValidated) {
-        result.status = "SUCCESS";
-        result.admin = find;
-      }
-    }
-  } else {
+  if (!admin) {
     result.status = "INVALID";
+    return result;
+  }
+
+  if (!password) {
+    result.status = "NO_PASSWORD";
+  } else {
+    const isValidated = await validate(password, admin.password);
+    if (isValidated) {
+      result.status = "SUCCESS";
+      result.admin = admin;
+    }
   }
 
   return result;
 }
 
-export async function createAdmin(admin: AdminCreateInput) {
-  return connectAndQuery(async () => {
-    try {
-      const hashedPassword = generate(admin.password || "");
-      await AdminModel.create({
-        ...admin,
-        password: hashedPassword,
-      });
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  });
+export async function createAdmin(admin: Prisma.AdminCreateInput) {
+  try {
+    const hashedPassword = generate(admin.password);
+    await prisma.admin.create({
+      data: { ...admin, password: hashedPassword },
+    });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }

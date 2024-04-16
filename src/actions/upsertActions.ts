@@ -55,7 +55,7 @@ export async function upsertBlogAction(formData: FormData) {
 
   await upsertBlog(formData.get("_id") as string, {
     title: formData.get("title") as string,
-    author: session?.user?.username,
+    author: session?.user?.username!,
     content: formData.get("content") as string,
     link: formData.get("link") as string,
     tags:

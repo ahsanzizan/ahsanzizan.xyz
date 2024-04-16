@@ -1,8 +1,8 @@
-import { getAllProjects } from "@/database/project.query";
+import { getProjects } from "@/database/project.query";
 import WorksTable from "./components/WorksTable";
 
 export default async function Works() {
-  const works = JSON.parse(JSON.stringify(await getAllProjects()));
+  const works = JSON.parse(JSON.stringify(await getProjects()));
 
   return (
     <section id="home" className="mb-32 w-full py-12">

@@ -2,7 +2,7 @@
 import { deleteSocialMediaAction } from "@/actions/deleteActions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H3 } from "@/app/components/global/ui/text";
-import { SocialMedia } from "@/types/models";
+import { SocialMedia } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -27,7 +27,7 @@ export default function SocialMediasTable({
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedSocialMedias.map((socialMedia) => (
           <div
-            key={socialMedia._id.toString()}
+            key={socialMedia.id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">
@@ -47,7 +47,7 @@ export default function SocialMediasTable({
               <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  deleteSocialMediaAction(socialMedia._id.toString()).then(
+                  deleteSocialMediaAction(socialMedia.id.toString()).then(
                     () => {
                       toast.success("Successfully deleted a social media", {
                         id: toastId,
@@ -61,7 +61,7 @@ export default function SocialMediasTable({
                 Delete
               </Button>
               <Link
-                href={"/admin/social-medias/" + socialMedia._id.toString()}
+                href={"/admin/social-medias/" + socialMedia.id.toString()}
                 variant={"inverse"}
               >
                 Edit

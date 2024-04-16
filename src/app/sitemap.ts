@@ -1,16 +1,16 @@
-import { getAllBlogs } from "@/database/blog.query";
-import { getAllProjects } from "@/database/project.query";
+import { getBlogs } from "@/database/blog.query";
+import { getProjects } from "@/database/project.query";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const blogs = await getAllBlogs();
-  const works = await getAllProjects();
+  const blogs = await getBlogs();
+  const works = await getProjects();
 
   const blogsRoutes = blogs.map((blog) => ({
     url: `${process.env.NEXTAUTH_URL}/blog/${blog.link}`,
     lastModified: new Date().toISOString(),
     priority: 0.8,
-    changeFrequency: 'monthly',
+    changeFrequency: "monthly",
   }));
   const worksRoutes = works.map((work) => ({
     url: `${process.env.NEXTAUTH_URL}/works/${work.link}`,
@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${process.env.NEXTAUTH_URL}/${r}`,
     lastModified: new Date().toISOString(),
     priority: 1,
-    changeFrequency: 'yearly',
+    changeFrequency: "yearly",
   }));
 
   return [...conventionalRoutes, ...blogsRoutes, ...worksRoutes];

@@ -26,7 +26,7 @@ export default async function Contact() {
       <div className={cn("flex items-center justify-between")}>
         {socialMedias.map((socialMedia, i) => {
           return (
-            <Fragment key={socialMedia._id.toString()}>
+            <Fragment key={socialMedia.id.toString()}>
               <a
                 href={socialMedia.url}
                 target="_blank"
@@ -42,7 +42,7 @@ export default async function Contact() {
                 ></svg>
               </a>
               {i !== socialMedias.length - 1 && (
-                <PortalIcon key={socialMedia._id.toString()} />
+                <PortalIcon key={socialMedia.id.toString()} />
               )}
             </Fragment>
           );

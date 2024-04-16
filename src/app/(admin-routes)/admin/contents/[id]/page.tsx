@@ -20,7 +20,7 @@ export default async function EditContent({
           <HiddenInfo
             name="_id"
             value={
-              content ? content._id.toString() : new Types.ObjectId().toString()
+              content ? content.id.toString() : new Types.ObjectId().toString()
             }
           />
           <Input

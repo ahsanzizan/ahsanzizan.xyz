@@ -28,7 +28,7 @@ export default async function EditExperience({
             name="_id"
             value={
               experience
-                ? experience._id.toString()
+                ? experience.id.toString()
                 : new Types.ObjectId().toString()
             }
           />
@@ -37,7 +37,7 @@ export default async function EditExperience({
             name="title"
             label="Title"
             placeholder="Title"
-            defaultValue={experience?.title!}
+            defaultValue={experience?.title}
             required
           />
           <TextAreaInput
@@ -50,7 +50,7 @@ export default async function EditExperience({
           <DateInput
             name="startDate"
             label="Start Date"
-            defaultValue={getFormattedDate(new Date(experience?.startDate))}
+            defaultValue={getFormattedDate(new Date(experience?.startDate!))}
             required
           />
           <DateInput

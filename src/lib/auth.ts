@@ -54,7 +54,7 @@ export const authOptions: NextAuthOptions = {
         if (findAdmin.status !== "SUCCESS") return null;
 
         const admin = {
-          id: String(findAdmin.admin?._id),
+          id: String(findAdmin.admin?.id),
           username,
         };
 
@@ -72,7 +72,7 @@ export const authOptions: NextAuthOptions = {
 
         if (findAdmin) {
           session.user.username = findAdmin.username || token.username;
-          session.user.id = findAdmin._id.toString();
+          session.user.id = findAdmin.id.toString();
         }
       }
 

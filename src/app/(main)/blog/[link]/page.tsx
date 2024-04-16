@@ -2,13 +2,9 @@ import { BlogPreview } from "@/app/components/global/ui/blog-preview";
 import { Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1, H3, P } from "@/app/components/global/ui/text";
-import { getBlogByLink } from "@/database/blog.query";
+import { getBlogByLink, getBlogs } from "@/database/blog.query";
 import cn from "@/lib/clsx";
-import BlogModel from "@/models/Blog.model";
-import { Blog } from "@/types/models";
-import { getPaginatedResult } from "@/utils/paginator";
 import { calculateReadTime, stringifyDate } from "@/utils/utilities";
-import { Model } from "mongoose";
 import { ArticleJsonLd } from "next-seo";
 import { notFound } from "next/navigation";
 import ViewMD from "./components/ViewMD";
@@ -38,12 +34,7 @@ export default async function ViewBlog({
   const blog = await getBlogByLink(params.link);
   if (!blog) notFound();
 
-  const { datas: otherBlogs }: { datas: Blog[] } = await getPaginatedResult({
-    model: BlogModel as Model<Blog>,
-    sort: { createdAt: -1 },
-    page: 1,
-    perPage: 5,
-  });
+  const otherBlogs = await getBlogs({ where: { NOT: { link: blog.link } } });
 
   return (
     <>
@@ -91,10 +82,7 @@ export default async function ViewBlog({
                 )}
               >
                 {otherBlogs.map((otherBlog) => (
-                  <BlogPreview
-                    key={otherBlog._id.toString()}
-                    blog={otherBlog}
-                  />
+                  <BlogPreview key={otherBlog.id.toString()} blog={otherBlog} />
                 ))}
               </div>
             </div>

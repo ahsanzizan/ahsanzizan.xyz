@@ -1,6 +1,6 @@
 import cn from "@/lib/clsx";
-import { Blog } from "@/types/models";
 import { calculateReadTime } from "@/utils/utilities";
+import { Blog } from "@prisma/client";
 import { Anchor } from "./anchor";
 import { H4, P } from "./text";
 

@@ -2,7 +2,7 @@
 import { deleteExperienceAction } from "@/actions/deleteActions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H3 } from "@/app/components/global/ui/text";
-import { Experience } from "@/types/models";
+import { Experience } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -22,7 +22,7 @@ export default function ExperiencesTable({
       <div className="flex w-full flex-col divide-y divide-white">
         {experiences.map((experience) => (
           <div
-            key={experience._id.toString()}
+            key={experience.id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center">
@@ -34,7 +34,7 @@ export default function ExperiencesTable({
               <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  deleteExperienceAction(experience._id.toString()).then(() => {
+                  deleteExperienceAction(experience.id.toString()).then(() => {
                     toast.success("Successfully deleted an experience", {
                       id: toastId,
                     });
@@ -46,7 +46,7 @@ export default function ExperiencesTable({
                 Delete
               </Button>
               <Link
-                href={"/admin/experiences/" + experience._id.toString()}
+                href={"/admin/experiences/" + experience.id.toString()}
                 variant={"inverse"}
               >
                 Edit

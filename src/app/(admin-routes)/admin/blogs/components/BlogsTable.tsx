@@ -2,7 +2,7 @@
 import { deleteBlogAction } from "@/actions/deleteActions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H2, H3 } from "@/app/components/global/ui/text";
-import { Blog } from "@/types/models";
+import { Blog } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -21,7 +21,7 @@ export default function SocialMediasTable({
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedBlogs.map((blog) => (
           <div
-            key={blog._id.toString()}
+            key={blog.id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex w-3/4 items-center gap-2">
@@ -31,7 +31,7 @@ export default function SocialMediasTable({
               <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  deleteBlogAction(blog._id.toString()).then(() => {
+                  deleteBlogAction(blog.id.toString()).then(() => {
                     toast.success("Successfully deleted a blog", {
                       id: toastId,
                     });
@@ -41,7 +41,7 @@ export default function SocialMediasTable({
               >
                 Delete
               </Button>
-              <Link href={"/admin/blogs/" + blog._id.toString()}>Edit</Link>
+              <Link href={"/admin/blogs/" + blog.id.toString()}>Edit</Link>
             </div>
           </div>
         ))}

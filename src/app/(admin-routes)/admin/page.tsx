@@ -7,11 +7,11 @@ import { getAllContents } from "@/database/content.query";
 import { getAllSocialMedias } from "@/database/socialMedia.query";
 import { authOptions } from "@/lib/auth";
 import cn from "@/lib/clsx";
-import { Certificate, Content, SocialMedia } from "@/types/models";
 import { getServerSession } from "next-auth";
 import CertificatesTable from "./components/CertificatesTable";
 import ContentsTable from "./components/ContentsTable";
 import SocialMediasTable from "./components/SocialMediasTable";
+import { Certificate, Content, SocialMedia } from "@prisma/client";
 
 export default async function Admin() {
   const session = await getServerSession(authOptions);

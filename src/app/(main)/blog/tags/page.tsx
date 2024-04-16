@@ -1,7 +1,7 @@
 import { Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1 } from "@/app/components/global/ui/text";
-import { getAllBlogs } from "@/database/blog.query";
+import { getBlogs } from "@/database/blog.query";
 
 export async function generateMetadata() {
   return {
@@ -10,7 +10,7 @@ export async function generateMetadata() {
 }
 
 export default async function Tags() {
-  const blogs = await getAllBlogs();
+  const blogs = await getBlogs();
   const tags = new Set(blogs.map((blog) => blog.tags).flat());
 
   return (

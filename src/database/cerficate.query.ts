@@ -1,68 +1,37 @@
-import { Certificate } from "@/types/models";
-import { connectAndQuery } from "../utils/utilities";
-import CertificateModel from "@/models/Certificate.model";
+import { Prisma } from "@prisma/client";
+import prisma from "@/lib/prisma";
 
-export async function getAllCertificates(): Promise<Certificate[]> {
-  return connectAndQuery(async () => await CertificateModel.find());
+export async function getAllCertificates() {
+  const certificates = await prisma.certificate.findMany();
+  return certificates;
 }
 
-export async function getCertificateByLink(
-  link: string,
-): Promise<Certificate | null> {
-  return connectAndQuery(async () => {
-    try {
-      return await CertificateModel.findOne({ link });
-    } catch (error) {
-      return null;
-    }
-  });
-}
-
-export async function getCertificateById(
-  id: string,
-): Promise<Certificate | null> {
-  return connectAndQuery(async () => {
-    try {
-      if (id === "") return null;
-      return await CertificateModel.findById(id);
-    } catch (error) {
-      return null;
-    }
-  });
+export async function getCertificateById(id: string) {
+  const certificate = await prisma.certificate.findUnique({ where: { id } });
+  return certificate;
 }
 
 export async function deleteCertificateById(id: string) {
-  return connectAndQuery(async () => {
-    try {
-      await CertificateModel.deleteOne({ _id: id });
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  });
+  try {
+    await prisma.certificate.delete({ where: { id } });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
-
-type UpsertCertificateInput = {
-  title?: string;
-  url?: string;
-  description?: string;
-  image?: string;
-};
 
 export async function upsertCertificate(
   id: string,
-  certificate: UpsertCertificateInput,
+  data: Prisma.CertificateUncheckedCreateInput,
 ) {
-  return connectAndQuery(async () => {
-    try {
-      await CertificateModel.findByIdAndUpdate(
-        id,
-        { ...certificate },
-        { upsert: true },
-      );
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  });
+  try {
+    await prisma.certificate.upsert({
+      where: { id },
+      create: data,
+      update: data,
+    });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }

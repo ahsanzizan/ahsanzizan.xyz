@@ -24,7 +24,7 @@ export default async function EditWork({
           <HiddenInfo
             name="_id"
             value={
-              project ? project._id.toString() : new Types.ObjectId().toString()
+              project ? project.id.toString() : new Types.ObjectId().toString()
             }
           />
           <Input

@@ -33,7 +33,7 @@ export default async function Certificates() {
           <NextLink
             href={certificate.url}
             className={cn("block w-full md:w-1/4")}
-            key={certificate._id.toString()}
+            key={certificate.id.toString()}
           >
             <Image
               src={certificate.image}

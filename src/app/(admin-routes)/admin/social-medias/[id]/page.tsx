@@ -21,7 +21,7 @@ export default async function EditSocialMedia({
             name="_id"
             value={
               socialMedia
-                ? socialMedia._id.toString()
+                ? socialMedia.id.toString()
                 : new Types.ObjectId().toString()
             }
           />

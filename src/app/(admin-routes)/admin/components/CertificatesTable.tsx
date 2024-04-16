@@ -2,7 +2,7 @@
 import { deleteCertificateAction } from "@/actions/deleteActions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H3 } from "@/app/components/global/ui/text";
-import { Certificate } from "@/types/models";
+import { Certificate } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -27,7 +27,7 @@ export default function CertificatesTable({
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedCertificates.map((certificate) => (
           <div
-            key={certificate._id.toString()}
+            key={certificate.id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">
@@ -39,7 +39,7 @@ export default function CertificatesTable({
               <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  deleteCertificateAction(certificate._id.toString()).then(
+                  deleteCertificateAction(certificate.id.toString()).then(
                     () => {
                       toast.success("Successfully deleted a certificate", {
                         id: toastId,
@@ -53,7 +53,7 @@ export default function CertificatesTable({
                 Delete
               </Button>
               <Link
-                href={"/admin/certificates/" + certificate._id.toString()}
+                href={"/admin/certificates/" + certificate.id.toString()}
                 variant={"inverse"}
               >
                 Edit

@@ -2,7 +2,7 @@
 import { deleteContentAction } from "@/actions/deleteActions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H3 } from "@/app/components/global/ui/text";
-import { Content } from "@/types/models";
+import { Content } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -23,7 +23,7 @@ export default function ContentsTable({
       <div className="flex w-full flex-col divide-y divide-white">
         {simplifiedContents.map((content, i) => (
           <div
-            key={content._id.toString()}
+            key={content.id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">
@@ -35,7 +35,7 @@ export default function ContentsTable({
               <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  deleteContentAction(content._id.toString()).then(() => {
+                  deleteContentAction(content.id.toString()).then(() => {
                     toast.success("Successfully deleted a content", {
                       id: toastId,
                     });
@@ -47,7 +47,7 @@ export default function ContentsTable({
                 Delete
               </Button>
               <Link
-                href={"/admin/contents/" + content._id.toString()}
+                href={"/admin/contents/" + content.id.toString()}
                 variant={"inverse"}
               >
                 Edit

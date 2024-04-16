@@ -1,58 +1,38 @@
-import BlogModel from "@/models/Blog.model";
-import { connectAndQuery } from "../utils/utilities";
-import { Blog } from "@/types/models";
+import { Prisma } from "@prisma/client";
+import prisma from "@/lib/prisma";
 
-export async function getAllBlogs(): Promise<Blog[]> {
-  return connectAndQuery(async () => await BlogModel.find());
+export async function getBlogs(options?: Prisma.BlogFindManyArgs) {
+  const blogs = await prisma.blog.findMany(options);
+  return blogs;
 }
 
-export async function getBlogById(id: string): Promise<Blog | null> {
-  return connectAndQuery(async () => {
-    try {
-      if (id === "") return null;
-      return await BlogModel.findById(id);
-    } catch (error) {
-      return null;
-    }
-  });
+export async function getBlogById(id: string) {
+  const blog = await prisma.blog.findUnique({ where: { id } });
+  return blog;
 }
 
-export async function getBlogByLink(link: string): Promise<Blog | null> {
-  return connectAndQuery(async () => {
-    try {
-      return await BlogModel.findOne({ link });
-    } catch (error) {
-      return null;
-    }
-  });
+export async function getBlogByLink(link: string) {
+  const blog = await prisma.blog.findUnique({ where: { link } });
+  return blog;
 }
 
 export async function deleteBlogById(id: string) {
-  return connectAndQuery(async () => {
-    try {
-      await BlogModel.deleteOne({ _id: id });
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  });
+  try {
+    await prisma.blog.delete({ where: { id } });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
 
-type UpsertBlogInput = {
-  title?: string;
-  content?: string;
-  link?: string;
-  author?: string;
-  tags?: string[];
-};
-
-export async function upsertBlog(id: string, blog: UpsertBlogInput) {
-  return connectAndQuery(async () => {
-    try {
-      await BlogModel.findByIdAndUpdate(id, { ...blog }, { upsert: true });
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  });
+export async function upsertBlog(
+  id: string,
+  data: Prisma.BlogUncheckedCreateInput,
+) {
+  try {
+    await prisma.blog.upsert({ where: { id }, create: data, update: data });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }

@@ -1,9 +1,9 @@
-import { getAllBlogs } from "@/database/blog.query";
+import { getBlogs } from "@/database/blog.query";
 import { InternalServerError, Success } from "@/utils/apiResponses";
 
 export async function GET() {
   try {
-    const getAll = await getAllBlogs();
+    const getAll = await getBlogs();
     return Success({
       message: "Successfully retrieved all blogs",
       blogs: getAll,

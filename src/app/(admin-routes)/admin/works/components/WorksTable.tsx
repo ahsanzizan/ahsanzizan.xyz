@@ -2,7 +2,7 @@
 import { deleteProjectAction } from "@/actions/deleteActions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H2, H3 } from "@/app/components/global/ui/text";
-import { Project } from "@/types/models";
+import { Project } from "@prisma/client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -19,7 +19,7 @@ export default function WorksTable({ works }: Readonly<{ works: Project[] }>) {
       <div className="flex w-full flex-col divide-y divide-white">
         {works.map((project) => (
           <div
-            key={project._id.toString()}
+            key={project.id.toString()}
             className="group flex w-full items-center justify-between overflow-hidden py-4 transition-all duration-500 md:py-10"
           >
             <div className="flex items-center gap-2">
@@ -37,7 +37,7 @@ export default function WorksTable({ works }: Readonly<{ works: Project[] }>) {
               <Button
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  deleteProjectAction(project._id.toString()).then(() => {
+                  deleteProjectAction(project.id.toString()).then(() => {
                     toast.success("Successfully deleted a work", {
                       id: toastId,
                     });
@@ -47,7 +47,7 @@ export default function WorksTable({ works }: Readonly<{ works: Project[] }>) {
               >
                 Delete
               </Button>
-              <Link href={"/admin/works/" + project._id.toString()}>Edit</Link>
+              <Link href={"/admin/works/" + project.id.toString()}>Edit</Link>
             </div>
           </div>
         ))}

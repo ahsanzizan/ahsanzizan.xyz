@@ -28,7 +28,7 @@ export default async function EditCertificate({
             name="_id"
             value={
               certificate
-                ? certificate._id.toString()
+                ? certificate.id.toString()
                 : new Types.ObjectId().toString()
             }
           />

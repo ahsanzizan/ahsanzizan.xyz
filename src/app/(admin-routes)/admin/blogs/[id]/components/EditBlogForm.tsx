@@ -1,12 +1,12 @@
 "use client";
-import { Blog } from "@/types/models";
+import { upsertBlogAction } from "@/actions/upsertActions";
+import { Button } from "@/app/components/global/ui/button";
+import { HiddenInfo, Input } from "@/app/components/global/ui/input";
+import { Blog } from "@prisma/client";
 import MDEditor from "@uiw/react-md-editor";
 import { Types } from "mongoose";
 import { useEffect, useState } from "react";
 import rehypeSanitize from "rehype-sanitize";
-import { upsertBlogAction } from "@/actions/upsertActions";
-import { HiddenInfo, Input } from "@/app/components/global/ui/input";
-import { Button } from "@/app/components/global/ui/button";
 
 export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
   const [tags, setTags] = useState<string[]>([]);
@@ -21,7 +21,7 @@ export default function EditBlogForm({ blog }: Readonly<{ blog?: Blog }>) {
     <form action={upsertBlogAction}>
       <HiddenInfo
         name="_id"
-        value={blog ? blog._id.toString() : new Types.ObjectId().toString()}
+        value={blog ? blog.id.toString() : new Types.ObjectId().toString()}
       />
       <HiddenInfo name="tags" value={tags.join(" ")} />
       <HiddenInfo name="content" value={content} />
