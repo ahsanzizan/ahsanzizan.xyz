@@ -1,4 +1,4 @@
-import { compare, hashSync } from "bcrypt";
+import { compare, hashSync } from "bcryptjs";
 
 export function validate(text: string, hash: string) {
   return compare(text, hash);
