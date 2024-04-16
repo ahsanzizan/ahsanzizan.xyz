@@ -34,7 +34,11 @@ export default async function ViewBlog({
   const blog = await getBlogByLink(params.link);
   if (!blog) notFound();
 
-  const otherBlogs = await getBlogs({ where: { NOT: { link: blog.link } } });
+  const otherBlogs = await getBlogs({
+    where: { NOT: { link: blog.link } },
+    orderBy: { createdAt: "desc" },
+    take: 4,
+  });
 
   return (
     <>
