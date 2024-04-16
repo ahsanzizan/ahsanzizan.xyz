@@ -34,7 +34,7 @@ export default function Spotify() {
   return (
     <figure
       className={cn(
-        "flex w-full min-w-[75%] max-w-[75%] md:min-w-[30%] md:max-w-[30%]",
+        "flex w-full min-w-full max-w-full md:min-w-[30%] md:max-w-[30%]",
       )}
     >
       <Link
@@ -48,8 +48,8 @@ export default function Spotify() {
           }`}
         />
         <div className="block">
-          <H3 className="mb-1 transition-all duration-300 group-hover:text-black">
-            {data?.isPlaying ? truncateString(data.title, 20) : "Not playing"}
+          <H3 className="mb-1 line-clamp-2 transition-all duration-300 group-hover:text-black">
+            {data?.isPlaying ? data.title : "Not playing"}
           </H3>
           <P>{data?.isPlaying ? `by ${data.artist}` : "None"}</P>
         </div>
