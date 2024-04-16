@@ -1,5 +1,5 @@
 "use client";
-import { deleteContentAction } from "@/actions/deleteActions";
+import { deleteContentAction } from "@/actions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H3 } from "@/app/components/global/ui/text";
 import { Content } from "@prisma/client";

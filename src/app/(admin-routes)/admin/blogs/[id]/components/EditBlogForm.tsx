@@ -1,5 +1,5 @@
 "use client";
-import { upsertBlogAction } from "@/actions/upsertActions";
+import { upsertBlogAction } from "@/actions";
 import { Button } from "@/app/components/global/ui/button";
 import { HiddenInfo, Input } from "@/app/components/global/ui/input";
 import { Blog } from "@prisma/client";

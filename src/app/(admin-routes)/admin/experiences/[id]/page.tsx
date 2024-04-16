@@ -1,4 +1,4 @@
-import { upsertExperienceAction } from "@/actions/upsertActions";
+import { upsertExperienceAction } from "@/actions";
 import { Button } from "@/app/components/global/ui/button";
 import {
   DateInput,
@@ -6,7 +6,7 @@ import {
   Input,
   TextAreaInput,
 } from "@/app/components/global/ui/input";
-import { getExperienceById } from "@/database/experience.query";
+import { getExperienceById } from "@/database";
 import { getFormattedDate } from "@/utils/utilities";
 import { Types } from "mongoose";
 

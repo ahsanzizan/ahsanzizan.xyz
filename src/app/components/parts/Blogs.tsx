@@ -1,4 +1,4 @@
-import { getBlogs } from "@/database/blog.query";
+import { getBlogs } from "@/database";
 import cn from "@/lib/clsx";
 import { BlogPreview } from "../global/ui/blog-preview";
 import { Link } from "../global/ui/button";

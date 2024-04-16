@@ -1,7 +1,7 @@
 import { BlogPreview } from "@/app/components/global/ui/blog-preview";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1 } from "@/app/components/global/ui/text";
-import { getBlogs } from "@/database/blog.query";
+import { getBlogs } from "@/database";
 import cn from "@/lib/clsx";
 import { notFound } from "next/navigation";
 

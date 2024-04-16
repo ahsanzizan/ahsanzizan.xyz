@@ -1,4 +1,4 @@
-import { getProjects } from "@/database/project.query";
+import { getProjects } from "@/database";
 import WorksTable from "./components/WorksTable";
 
 export default async function Works() {

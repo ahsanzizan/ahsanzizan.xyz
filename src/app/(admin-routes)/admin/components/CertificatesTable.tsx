@@ -1,5 +1,5 @@
 "use client";
-import { deleteCertificateAction } from "@/actions/deleteActions";
+import { deleteCertificateAction } from "@/actions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H3 } from "@/app/components/global/ui/text";
 import { Certificate } from "@prisma/client";

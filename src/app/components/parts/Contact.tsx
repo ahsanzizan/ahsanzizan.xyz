@@ -1,4 +1,4 @@
-import { getAllSocialMedias } from "@/database/socialMedia.query";
+import { getAllSocialMedias } from "@/database";
 import cn from "@/lib/clsx";
 import { Fragment } from "react";
 import PlayIcon from "../global/icons/Play";

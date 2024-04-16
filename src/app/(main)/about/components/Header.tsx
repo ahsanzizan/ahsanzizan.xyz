@@ -4,7 +4,7 @@ import { Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { Image } from "@/app/components/global/ui/image";
 import { H1, P } from "@/app/components/global/ui/text";
-import { getContentbyKey } from "@/database/content.query";
+import { getContentbyKey } from "@/database";
 import cn from "@/lib/clsx";
 import Me from "../../../../../public/Me.png";
 

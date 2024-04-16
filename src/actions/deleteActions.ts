@@ -1,11 +1,13 @@
 "use server";
 
-import { deleteBlogById } from "@/database/blog.query";
-import { deleteCertificateById } from "@/database/cerficate.query";
-import { deleteContentById } from "@/database/content.query";
-import { deleteExperienceById } from "@/database/experience.query";
-import { deleteProjectById } from "@/database/project.query";
-import { deleteSocialMediaById } from "@/database/socialMedia.query";
+import {
+  deleteBlogById,
+  deleteCertificateById,
+  deleteContentById,
+  deleteExperienceById,
+  deleteProjectById,
+  deleteSocialMediaById,
+} from "@/database";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 

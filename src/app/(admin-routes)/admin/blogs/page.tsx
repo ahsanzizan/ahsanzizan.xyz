@@ -1,5 +1,5 @@
+import { getBlogs } from "@/database";
 import BlogsTable from "./components/BlogsTable";
-import { getBlogs } from "@/database/blog.query";
 
 export default async function Blogs() {
   const blogs = JSON.parse(JSON.stringify(await getBlogs()));

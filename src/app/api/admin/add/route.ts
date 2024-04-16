@@ -1,4 +1,4 @@
-import { createAdmin } from "@/database/admin.query";
+import { createAdmin } from "@/database";
 import { authOptions } from "@/lib/auth";
 import { Created, Forbidden, InternalServerError } from "@/utils/apiResponses";
 import { getServerSession } from "next-auth";

@@ -2,7 +2,7 @@ import { BlogPreview } from "@/app/components/global/ui/blog-preview";
 import { Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1, H3, P } from "@/app/components/global/ui/text";
-import { getBlogByLink, getBlogs } from "@/database/blog.query";
+import { getBlogByLink, getBlogs } from "@/database";
 import cn from "@/lib/clsx";
 import { calculateReadTime, stringifyDate } from "@/utils/utilities";
 import { ArticleJsonLd } from "next-seo";

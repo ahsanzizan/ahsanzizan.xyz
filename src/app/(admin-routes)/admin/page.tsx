@@ -2,16 +2,18 @@ import LeftArrowIcon from "@/app/components/global/icons/LeftArrow";
 import { Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1 } from "@/app/components/global/ui/text";
-import { getAllCertificates } from "@/database/cerficate.query";
-import { getAllContents } from "@/database/content.query";
-import { getAllSocialMedias } from "@/database/socialMedia.query";
+import {
+  getAllCertificates,
+  getAllContents,
+  getAllSocialMedias,
+} from "@/database";
 import { authOptions } from "@/lib/auth";
 import cn from "@/lib/clsx";
+import { Certificate, Content, SocialMedia } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import CertificatesTable from "./components/CertificatesTable";
 import ContentsTable from "./components/ContentsTable";
 import SocialMediasTable from "./components/SocialMediasTable";
-import { Certificate, Content, SocialMedia } from "@prisma/client";
 
 export default async function Admin() {
   const session = await getServerSession(authOptions);

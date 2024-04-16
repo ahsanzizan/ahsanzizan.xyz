@@ -1,10 +1,10 @@
 import PlayIcon from "@/app/components/global/icons/Play";
-import { SectionContainer } from "@/app/components/global/ui/container";
-import { H1, H3, P } from "@/app/components/global/ui/text";
-import { getAllCertificates } from "@/database/cerficate.query";
-import cn from "@/lib/clsx";
-import { Image } from "@/app/components/global/ui/image";
 import { Link } from "@/app/components/global/ui/button";
+import { SectionContainer } from "@/app/components/global/ui/container";
+import { Image } from "@/app/components/global/ui/image";
+import { H1, H3, P } from "@/app/components/global/ui/text";
+import { getAllCertificates } from "@/database";
+import cn from "@/lib/clsx";
 import { default as NextLink } from "next/link";
 
 export default async function Certificates() {

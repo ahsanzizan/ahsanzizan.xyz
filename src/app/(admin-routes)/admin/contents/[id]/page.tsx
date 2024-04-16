@@ -1,8 +1,8 @@
-import { upsertContentAction } from "@/actions/upsertActions";
+import { upsertContentAction } from "@/actions";
 import { Button } from "@/app/components/global/ui/button";
 import { HiddenInfo, Input } from "@/app/components/global/ui/input";
 import { H1 } from "@/app/components/global/ui/text";
-import { getContentById } from "@/database/content.query";
+import { getContentById } from "@/database";
 import { Types } from "mongoose";
 
 export default async function EditContent({

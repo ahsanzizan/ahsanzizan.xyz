@@ -1,4 +1,4 @@
-import { getBlogs } from "@/database/blog.query";
+import { getBlogs } from "@/database";
 import { InternalServerError, Success } from "@/utils/apiResponses";
 
 export async function GET() {

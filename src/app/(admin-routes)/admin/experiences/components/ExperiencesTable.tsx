@@ -1,5 +1,5 @@
 "use client";
-import { deleteExperienceAction } from "@/actions/deleteActions";
+import { deleteExperienceAction } from "@/actions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H3 } from "@/app/components/global/ui/text";
 import { Experience } from "@prisma/client";

@@ -1,4 +1,4 @@
-import { upsertProjectAction } from "@/actions/upsertActions";
+import { upsertProjectAction } from "@/actions";
 import { Button } from "@/app/components/global/ui/button";
 import {
   HiddenInfo,
@@ -6,7 +6,7 @@ import {
   TextAreaInput,
 } from "@/app/components/global/ui/input";
 import { H1 } from "@/app/components/global/ui/text";
-import { getProjectById } from "@/database/project.query";
+import { getProjectById } from "@/database";
 import { Types } from "mongoose";
 
 export default async function EditWork({

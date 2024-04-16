@@ -2,7 +2,7 @@ import LeftArrowIcon from "@/app/components/global/icons/LeftArrow";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1, H4, P } from "@/app/components/global/ui/text";
-import { getProjectByLink } from "@/database/project.query";
+import { getProjectByLink } from "@/database";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 

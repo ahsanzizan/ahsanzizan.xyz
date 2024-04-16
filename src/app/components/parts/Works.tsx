@@ -1,10 +1,10 @@
+import { getProjects } from "@/database";
 import cn from "@/lib/clsx";
 import PlayIcon from "../global/icons/Play";
 import { Link } from "../global/ui/button";
 import { SectionContainer } from "../global/ui/container";
 import { ProjectFigure } from "../global/ui/project-figure";
 import { H1 } from "../global/ui/text";
-import { getProjects } from "@/database/project.query";
 
 export default async function Works() {
   const projects = await getProjects({

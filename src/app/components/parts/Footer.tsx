@@ -1,4 +1,4 @@
-import { getContentbyKey } from "@/database/content.query";
+import { getContentbyKey } from "@/database";
 import { H3 } from "../global/ui/text";
 import Spotify from "./spotify-figure";
 

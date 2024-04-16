@@ -1,11 +1,13 @@
 "use server";
 
-import { upsertBlog } from "@/database/blog.query";
-import { upsertCertificate } from "@/database/cerficate.query";
-import { upsertContent } from "@/database/content.query";
-import { upsertExperience } from "@/database/experience.query";
-import { upsertProject } from "@/database/project.query";
-import { upsertSocialMedia } from "@/database/socialMedia.query";
+import {
+  upsertBlog,
+  upsertCertificate,
+  upsertContent,
+  upsertExperience,
+  upsertProject,
+  upsertSocialMedia,
+} from "@/database";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";

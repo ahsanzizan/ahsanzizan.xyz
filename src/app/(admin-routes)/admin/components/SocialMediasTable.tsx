@@ -1,5 +1,5 @@
 "use client";
-import { deleteSocialMediaAction } from "@/actions/deleteActions";
+import { deleteSocialMediaAction } from "@/actions";
 import { Button, Link } from "@/app/components/global/ui/button";
 import { H3 } from "@/app/components/global/ui/text";
 import { SocialMedia } from "@prisma/client";

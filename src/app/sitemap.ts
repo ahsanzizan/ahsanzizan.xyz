@@ -1,5 +1,4 @@
-import { getBlogs } from "@/database/blog.query";
-import { getProjects } from "@/database/project.query";
+import { getBlogs, getProjects } from "@/database";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

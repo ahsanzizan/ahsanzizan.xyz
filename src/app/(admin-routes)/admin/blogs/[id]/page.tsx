@@ -1,4 +1,4 @@
-import { getBlogById } from "@/database/blog.query";
+import { getBlogById } from "@/database";
 import EditBlogForm from "./components/EditBlogForm";
 
 export default async function EditBlog({

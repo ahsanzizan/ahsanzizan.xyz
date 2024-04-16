@@ -1,7 +1,7 @@
 import PortalIcon from "@/app/components/global/icons/Portal";
 import { SectionContainer } from "@/app/components/global/ui/container";
 import { H1, H4, P } from "@/app/components/global/ui/text";
-import { getAllExperiences } from "@/database/experience.query";
+import { getAllExperiences } from "@/database";
 import cn from "@/lib/clsx";
 import { getMonthName } from "@/utils/utilities";
 

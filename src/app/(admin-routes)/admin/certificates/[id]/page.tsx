@@ -1,11 +1,11 @@
-import { upsertCertificateAction } from "@/actions/upsertActions";
+import { upsertCertificateAction } from "@/actions";
 import { Button } from "@/app/components/global/ui/button";
 import {
   HiddenInfo,
   Input,
   TextAreaInput,
 } from "@/app/components/global/ui/input";
-import { getCertificateById } from "@/database/cerficate.query";
+import { getCertificateById } from "@/database";
 import { Types } from "mongoose";
 
 export default async function EditCertificate({
