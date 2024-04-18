@@ -34,10 +34,10 @@ export function ProjectFigure({
         variant={"default"}
       />
       <div className={cn("block h-full w-full transition-all duration-300")}>
-        <H3 className="absolute -bottom-full left-10 transition-all duration-300 group-hover:bottom-40">
+        <H3 className="absolute -bottom-full left-10 pr-10 transition-all duration-300 group-hover:bottom-40">
           {title}
         </H3>
-        <P className="absolute -bottom-full left-10 line-clamp-3 transition-all delay-75 duration-300 group-hover:bottom-24 md:line-clamp-2">
+        <P className="absolute -bottom-full left-10 pr-10 line-clamp-3 transition-all delay-75 duration-300 group-hover:bottom-24 md:line-clamp-2">
           {description}
         </P>
         <Link
