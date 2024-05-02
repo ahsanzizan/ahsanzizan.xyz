@@ -5,7 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: "/admin/",
     },
-    sitemap: `${process.env.NEXTAUTH_URL}/sitemap.xml`,
+    sitemap: "https://ahsanzizan.xyz/sitemap.xml",
   };
 }
