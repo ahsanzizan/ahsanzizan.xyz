@@ -10,8 +10,8 @@ export async function POST(req: Request) {
 
   try {
     const data = await req.formData();
-    const username: string = data.get("username") as string;
-    const password: string = data.get("password") as string;
+    const username = data.get("username") as string;
+    const password = data.get("password") as string;
 
     const newAdmin = await createAdmin({ username, password });
 

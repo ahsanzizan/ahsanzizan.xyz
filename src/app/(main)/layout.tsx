@@ -22,7 +22,8 @@ export default function MainLayout({
         sameAs={[
           "https://instagram.com/ahsanzizan",
           "https://linkedin.com/in/ahsan-azizan",
-          "https://youtube.com/@jetto_curvarine",
+          "https://youtube.com/@ahsanzizan",
+          "https://twitter.com/ahsanaz461"
         ]}
         useAppDir
       />
