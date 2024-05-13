@@ -3,7 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Toaster } from "react-hot-toast";
 import { NextAuthProvider } from "./components/NextAuthProvider";
-import TopLoader from "./components/TopLoader";
+import ProgressBarProvider from "./components/ProgressBarProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,9 +30,8 @@ export default function RootLayout({
         className={raleway.className + " overflow-x-hidden bg-black text-white"}
       >
         <NextAuthProvider>
-          <TopLoader />
           <Toaster position="top-right" />
-          {children}
+          <ProgressBarProvider>{children}</ProgressBarProvider>
         </NextAuthProvider>
         <SpeedInsights />
       </body>
