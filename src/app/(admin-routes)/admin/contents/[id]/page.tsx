@@ -3,6 +3,7 @@ import { Button } from "@/app/components/global/ui/button";
 import { HiddenInfo, Input } from "@/app/components/global/ui/input";
 import { H1 } from "@/app/components/global/ui/text";
 import { getContentById } from "@/database";
+import { Content } from "@prisma/client";
 import { Types } from "mongoose";
 
 export default async function EditContent({
@@ -10,7 +11,13 @@ export default async function EditContent({
 }: Readonly<{
   params: { id: string };
 }>) {
-  const content = await getContentById(params.id);
+  let content: Content = {
+    id: "",
+    content: "",
+    key: "",
+    v: 0,
+  };
+  if (params.id !== "new") content = (await getContentById(params.id))!;
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-center gap-2">

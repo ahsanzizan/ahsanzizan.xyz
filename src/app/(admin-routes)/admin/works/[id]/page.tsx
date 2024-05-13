@@ -7,6 +7,7 @@ import {
 } from "@/app/components/global/ui/input";
 import { H1 } from "@/app/components/global/ui/text";
 import { getProjectById } from "@/database";
+import { Project } from "@prisma/client";
 import { Types } from "mongoose";
 
 export default async function EditWork({
@@ -14,7 +15,18 @@ export default async function EditWork({
 }: Readonly<{
   params: { id: string };
 }>) {
-  const project = await getProjectById(params.id);
+  let project: Project = {
+    id: "",
+    title: "",
+    description: "",
+    createdAt: new Date(),
+    image: "",
+    isWorkedOn: false,
+    link: "",
+    url: "",
+    v: 0,
+  };
+  if (params.id !== "new") project = (await getProjectById(params.id))!;
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-center">

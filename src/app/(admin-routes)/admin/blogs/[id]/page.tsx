@@ -1,12 +1,23 @@
 import { getBlogById } from "@/database";
 import EditBlogForm from "./components/EditBlogForm";
+import { Blog } from "@prisma/client";
 
 export default async function EditBlog({
   params,
 }: Readonly<{
   params: { id: string };
 }>) {
-  const blog = JSON.parse(JSON.stringify(await getBlogById(params.id)));
+  let blog: Blog = {
+    id: "",
+    title: "",
+    author: "",
+    content: "",
+    createdAt: new Date(),
+    link: "",
+    tags: [],
+    v: 0,
+  };
+  if (params.id !== "new") blog = (await getBlogById(params.id))!;
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-center">

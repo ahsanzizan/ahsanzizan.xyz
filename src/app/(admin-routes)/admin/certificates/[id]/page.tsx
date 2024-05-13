@@ -6,6 +6,7 @@ import {
   TextAreaInput,
 } from "@/app/components/global/ui/input";
 import { getCertificateById } from "@/database";
+import { Certificate } from "@prisma/client";
 import { Types } from "mongoose";
 
 export default async function EditCertificate({
@@ -13,9 +14,15 @@ export default async function EditCertificate({
 }: Readonly<{
   params: { id: string };
 }>) {
-  const certificate = JSON.parse(
-    JSON.stringify(await getCertificateById(params.id)),
-  );
+  let certificate: Certificate = {
+    id: "",
+    title: "",
+    description: "",
+    image: "",
+    url: "",
+    v: 0,
+  };
+  if (params.id !== "new") certificate = (await getCertificateById(params.id))!;
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-center">

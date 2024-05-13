@@ -3,6 +3,7 @@ import { Button } from "@/app/components/global/ui/button";
 import { HiddenInfo, Input } from "@/app/components/global/ui/input";
 import { H1 } from "@/app/components/global/ui/text";
 import { getSocialMediaById } from "@/database";
+import { SocialMedia } from "@prisma/client";
 import { Types } from "mongoose";
 
 export default async function EditSocialMedia({
@@ -10,7 +11,14 @@ export default async function EditSocialMedia({
 }: Readonly<{
   params: { id: string };
 }>) {
-  const socialMedia = await getSocialMediaById(params.id);
+  let socialMedia: SocialMedia = {
+    id: "",
+    name: "",
+    svgPath: "",
+    url: "",
+    v: 0,
+  };
+  if (params.id !== "new") socialMedia = (await getSocialMediaById(params.id))!;
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-center gap-2">

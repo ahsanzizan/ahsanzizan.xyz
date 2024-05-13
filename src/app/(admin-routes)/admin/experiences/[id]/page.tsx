@@ -8,6 +8,7 @@ import {
 } from "@/app/components/global/ui/input";
 import { getExperienceById } from "@/database";
 import { getFormattedDate } from "@/utils/utilities";
+import { Experience } from "@prisma/client";
 import { Types } from "mongoose";
 
 export default async function EditExperience({
@@ -15,7 +16,15 @@ export default async function EditExperience({
 }: Readonly<{
   params: { id: string };
 }>) {
-  const experience = await getExperienceById(params.id);
+  let experience: Experience = {
+    id: "",
+    title: "",
+    description: "",
+    startDate: new Date(),
+    endDate: new Date(),
+    v: 0,
+  };
+  if (params.id !== "new") experience = (await getExperienceById(params.id))!;
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-center">
@@ -50,7 +59,7 @@ export default async function EditExperience({
           <DateInput
             name="startDate"
             label="Start Date"
-            defaultValue={getFormattedDate(new Date(experience?.startDate!))}
+            defaultValue={getFormattedDate(new Date(experience?.startDate))}
             required
           />
           <DateInput
