@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   robots: { follow: true, index: true },
 };
 
+const links = [
+  { href: "/", text: "Home" },
+  { href: "/about", text: "About" },
+  { href: "/works", text: "Works" },
+  { href: "/blog", text: "Blog" },
+];
+
 export default function MainLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
@@ -23,11 +30,11 @@ export default function MainLayout({
           "https://instagram.com/ahsanzizan",
           "https://linkedin.com/in/ahsan-azizan",
           "https://youtube.com/@ahsanzizan",
-          "https://twitter.com/ahsanaz461"
+          "https://twitter.com/ahsanaz461",
         ]}
         useAppDir
       />
-      <NavigationBar />
+      <NavigationBar links={links} />
 
       <main className={cn("mx-auto w-full max-w-[1440px] px-5 py-20")}>
         {children}

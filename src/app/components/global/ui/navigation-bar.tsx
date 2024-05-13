@@ -4,14 +4,14 @@ import cn from "@/lib/clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [
-  { href: "/", text: "Home" },
-  { href: "/about", text: "About" },
-  { href: "/works", text: "Works" },
-  { href: "/blog", text: "Blog" },
-];
+interface LinkProps {
+  href: string;
+  text: string;
+}
 
-export default function NavigationBar() {
+export default function NavigationBar({
+  links,
+}: Readonly<{ links: LinkProps[] }>) {
   const pathname = usePathname();
 
   return (
@@ -22,9 +22,13 @@ export default function NavigationBar() {
         )}
       >
         {links.map((link) => {
-          const currentRoute = pathname.split("/")[1];
-          const isActive =
-            currentRoute === link.href.toLowerCase().split("/")[1];
+          const currentRoute = pathname.split("/").slice(1).toString();
+          const linkRoute = link.href
+            .toLowerCase()
+            .split("/")
+            .slice(1)
+            .toString();
+          const isActive = currentRoute === linkRoute;
 
           return (
             <li
