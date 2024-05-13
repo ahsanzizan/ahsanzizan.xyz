@@ -69,3 +69,5 @@ export default async function Work({
     </>
   );
 }
+
+export const revalidate = 0;

@@ -50,3 +50,5 @@ export default async function Works({
     </SectionContainer>
   );
 }
+
+export const revalidate = 0;

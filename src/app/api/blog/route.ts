@@ -12,3 +12,5 @@ export async function GET() {
     return InternalServerError();
   }
 }
+
+export const revalidate = 0;
