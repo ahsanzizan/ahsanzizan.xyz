@@ -28,5 +28,3 @@ export default async function Tags() {
     </SectionContainer>
   );
 }
-
-export const revalidate = 0;

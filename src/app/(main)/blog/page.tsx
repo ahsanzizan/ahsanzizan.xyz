@@ -47,5 +47,3 @@ export default async function BlogPage({
     </SectionContainer>
   );
 }
-
-export const revalidate = 0;

@@ -2,7 +2,6 @@ import { raleway } from "@/utils/loadFont";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Toaster } from "react-hot-toast";
-import { NextAuthProvider } from "./components/NextAuthProvider";
 import ProgressBarProvider from "./components/ProgressBarProvider";
 import "./globals.css";
 
@@ -29,10 +28,9 @@ export default function RootLayout({
       <body
         className={raleway.className + " overflow-x-hidden bg-black text-white"}
       >
-        <NextAuthProvider>
-          <Toaster position="top-right" />
-          <ProgressBarProvider>{children}</ProgressBarProvider>
-        </NextAuthProvider>
+        <Toaster position="top-right" />
+        <ProgressBarProvider>{children}</ProgressBarProvider>
+
         <SpeedInsights />
       </body>
     </html>
