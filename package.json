@@ -22,7 +22,7 @@
     "@types/react-dom": "18.2.19",
     "@uiw/react-md-editor": "^4.0.4",
     "@vercel/speed-insights": "^1.0.10",
-    "autoprefixer": "10.4.16",
+    "autoprefixer": "10.4.19",
     "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
