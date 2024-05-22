@@ -33,12 +33,12 @@ export async function deleteSocialMediaById(id: string) {
 }
 
 export async function upsertSocialMedia(
-  id: string,
+  name: string,
   data: Prisma.SocialMediaUncheckedCreateInput,
 ) {
   try {
     await prisma.socialMedia.upsert({
-      where: { id },
+      where: { name },
       create: data,
       update: data,
     });

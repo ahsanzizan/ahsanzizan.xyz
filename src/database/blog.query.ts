@@ -26,11 +26,11 @@ export async function deleteBlogById(id: string) {
 }
 
 export async function upsertBlog(
-  id: string,
+  link: string,
   data: Prisma.BlogUncheckedCreateInput,
 ) {
   try {
-    await prisma.blog.upsert({ where: { id }, create: data, update: data });
+    await prisma.blog.upsert({ where: { link }, create: data, update: data });
   } catch (error) {
     console.error(error);
     throw error;

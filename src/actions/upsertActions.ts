@@ -22,7 +22,7 @@ async function revalidateAndRedirect(paths: string[], redirectTo: string) {
 }
 
 export async function upsertSocialMediaAction(formData: FormData) {
-  await upsertSocialMedia(formData.get("_id") as string, {
+  await upsertSocialMedia(formData.get("name") as string, {
     name: formData.get("name") as string,
     svgPath: formData.get("svgPath") as string,
     url: formData.get("url") as string,
@@ -32,7 +32,7 @@ export async function upsertSocialMediaAction(formData: FormData) {
 }
 
 export async function upsertContentAction(formData: FormData) {
-  await upsertContent(formData.get("_id") as string, {
+  await upsertContent(formData.get("key") as string, {
     key: formData.get("key") as string,
     content: formData.get("content") as string,
   });
@@ -41,7 +41,7 @@ export async function upsertContentAction(formData: FormData) {
 }
 
 export async function upsertProjectAction(formData: FormData) {
-  await upsertProject(formData.get("_id") as string, {
+  await upsertProject(formData.get("link") as string, {
     title: formData.get("title") as string,
     url: formData.get("url") as string,
     image: formData.get("image") as string,
@@ -55,7 +55,7 @@ export async function upsertProjectAction(formData: FormData) {
 export async function upsertBlogAction(formData: FormData) {
   const session = await getServerSession(authOptions);
 
-  await upsertBlog(formData.get("_id") as string, {
+  await upsertBlog(formData.get("link") as string, {
     title: formData.get("title") as string,
     author: session?.user?.username!,
     content: formData.get("content") as string,
@@ -70,7 +70,7 @@ export async function upsertBlogAction(formData: FormData) {
 }
 
 export async function upsertExperienceAction(formData: FormData) {
-  await upsertExperience(formData.get("_id") as string, {
+  await upsertExperience(formData.get("title") as string, {
     title: formData.get("title") as string,
     description: formData.get("description") as string,
     startDate: new Date(formData.get("startDate") as string),
@@ -83,7 +83,7 @@ export async function upsertExperienceAction(formData: FormData) {
 }
 
 export async function upsertCertificateAction(formData: FormData) {
-  await upsertCertificate(formData.get("_id") as string, {
+  await upsertCertificate(formData.get("title") as string, {
     title: formData.get("title") as string,
     description: formData.get("description") as string,
     image: formData.get("image") as string,

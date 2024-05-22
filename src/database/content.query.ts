@@ -26,11 +26,11 @@ export async function deleteContentById(id: string) {
 }
 
 export async function upsertContent(
-  id: string,
+  key: string,
   data: Prisma.ContentUncheckedCreateInput,
 ) {
   try {
-    await prisma.content.upsert({ where: { id }, create: data, update: data });
+    await prisma.content.upsert({ where: { key }, create: data, update: data });
   } catch (error) {
     console.error(error);
     throw error;

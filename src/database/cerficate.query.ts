@@ -21,12 +21,12 @@ export async function deleteCertificateById(id: string) {
 }
 
 export async function upsertCertificate(
-  id: string,
+  title: string,
   data: Prisma.CertificateUncheckedCreateInput,
 ) {
   try {
     await prisma.certificate.upsert({
-      where: { id },
+      where: { title },
       create: data,
       update: data,
     });

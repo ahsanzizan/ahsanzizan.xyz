@@ -21,12 +21,12 @@ export async function deleteExperienceById(id: string) {
 }
 
 export async function upsertExperience(
-  id: string,
+  title: string,
   data: Prisma.ExperienceUncheckedCreateInput,
 ) {
   try {
     await prisma.experience.upsert({
-      where: { id },
+      where: { title },
       create: data,
       update: data,
     });

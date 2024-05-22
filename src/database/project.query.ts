@@ -26,11 +26,11 @@ export async function deleteProjectById(id: string) {
 }
 
 export async function upsertProject(
-  id: string,
+  link: string,
   data: Prisma.ProjectUncheckedCreateInput,
 ) {
   try {
-    await prisma.project.upsert({ where: { id }, create: data, update: data });
+    await prisma.project.upsert({ where: { link }, create: data, update: data });
   } catch (error) {
     console.error(error);
     throw error;

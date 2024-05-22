@@ -43,7 +43,7 @@ model Certificate {
   v           Int?   @map("__v")
   description String
   image       String
-  title       String
+  title       String @unique
   url         String
 
   @@map("certificates")
@@ -64,7 +64,7 @@ model Experience {
   description String
   endDate     DateTime? @db.Date
   startDate   DateTime  @db.Date
-  title       String
+  title       String    @unique
 
   @@map("experiences")
 }
@@ -86,7 +86,7 @@ model Project {
 model SocialMedia {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   v       Int?   @map("__v")
-  name    String
+  name    String @unique
   svgPath String
   url     String
 
