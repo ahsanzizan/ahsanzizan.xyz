@@ -35,7 +35,7 @@ export default async function Works({
           page={page}
         />
       </div>
-      <div className="flex w-full flex-col gap-5">
+      <div className="flex w-full flex-wrap gap-5 md:justify-between">
         {projects.map((project) => (
           <ProjectFigure
             key={project.id.toString()}
@@ -43,7 +43,7 @@ export default async function Works({
             description={project.description}
             image={project.image}
             href={"/works/" + project.link}
-            className="h-[312px] w-full md:h-[512px]"
+            className="h-[312px] w-full md:w-[45%]"
           />
         ))}
       </div>
