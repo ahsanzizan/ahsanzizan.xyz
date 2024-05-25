@@ -15,7 +15,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.14.0",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "20.11.20",
     "@types/react": "18.2.48",
