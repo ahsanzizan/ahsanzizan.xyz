@@ -15,14 +15,14 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.14.0",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "20.11.20",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.19",
     "@uiw/react-md-editor": "^4.0.4",
     "@vercel/speed-insights": "^1.0.10",
-    "autoprefixer": "10.4.16",
+    "autoprefixer": "10.4.19",
     "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
