@@ -6,7 +6,11 @@ import { SectionContainer } from "../global/ui/container";
 import { H1, P } from "../global/ui/text";
 
 export default async function Blogs() {
-  const blogs = await getBlogs({ where: { NOT: { link: { contains: "private" } } }, take: 3, orderBy: { createdAt: "desc" } });
+  const blogs = await getBlogs({
+    where: { NOT: { link: { contains: "private" } } },
+    take: 3,
+    orderBy: { createdAt: "desc" },
+  });
 
   return (
     <SectionContainer id="blogs">
